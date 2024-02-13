@@ -1,0 +1,21 @@
+---
+import { _transition } from '../scripts/snips'
+
+const {
+    href, hover, nested, class: classes, ...attrs
+} = Astro.props
+---
+<a
+    href={ href }
+    class:list={[
+        'flex items-center',
+        (hover === 'accent') && 'group-hover:text-accent-600',
+        (hover === 'white') && 'group-hover:text-white/100',
+        (hover === 'shadow' && !nested) && 'group-hover:shadow-md',
+        (hover === 'shadow' && nested) && 'group-hover/nested:shadow-md',
+        _transition(),
+        classes
+    ]}
+    { ...attrs }>
+    <slot/>
+</a>

@@ -1,0 +1,15 @@
+---
+const
+    {
+        class: classes,
+        ...attrs
+    } = Astro.props
+---
+<div
+    class:list={[
+        'lg:pr-12 xl:pr-14',
+        classes
+    ]}
+    { ...attrs }>
+    <slot/>
+</div>

@@ -1,0 +1,24 @@
+---
+import Icon from '../atoms/Icon.astro'
+import { _transition } from '../scripts/snips'
+---
+<div
+    class:list={[`
+        fixed inset-x-0 bottom-0 z-[52]
+        bg-white
+        h-[72dvh]
+        clip-path-t
+        opacity-0 invisible translate-y-full
+    `]} data-sheet>
+    <button
+        class:list={[
+            'p-4 absolute -right-0.5 -top-0.5 text-accent-600 hover:text-accent-800 z-50 bg-surface-100',
+            _transition()
+        ]}
+        data-sheet-close>
+        <Icon name="close-x" class:list="w-6 pointer-events-none"/>
+    </button>
+    <div class="overflow-auto h-full relative *:pt-[16%] *:xs:pt-[12%] *:sm:pt-[10%]">
+        <slot/>
+    </div>
+</div>

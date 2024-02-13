@@ -1,0 +1,39 @@
+---
+import {
+    _padB, _padY, _padT
+} from '../scripts/snips'
+
+const
+    {
+        outer = true,
+        centered = true,
+        padX = true,
+        inner,
+        padY = '',
+        padT = '',
+        padB = '',
+        tag = 'div',
+        containXlUp,
+        releaseXlUp,
+        class: classes,
+        ...props
+    } = Astro.props,
+    Tag = tag
+---
+<Tag
+    { ...props }
+    class:list={[
+        (outer && !inner) && 'max-w-5xl lg:max-w-[82rem]',
+        centered && 'mx-auto',
+        padX && 'px-4',
+        inner && 'max-w-2xl md:max-w-3xl lg:max-w-screen-lg xl:max-w-[70rem]',
+        containXlUp && 'w-full max-w-none xl:max-w-[1440px] 2xl:max-w-[1280px]',
+        releaseXlUp && 'px-4 xl:!px-0',
+        padY === 'y' && _padY(),
+        padT === 't' && _padT(),
+        padB === 'b' && _padB(),
+        padY === 'top' && _padT(),
+        classes
+    ]}>
+    <slot/>
+</Tag>

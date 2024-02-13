@@ -1,0 +1,32 @@
+---
+import Icon from './Icon.astro'
+import _slugify from '../scripts/slugify'
+
+const {
+    label,
+    class: classes, ...attrs
+} = Astro.props
+---
+<label
+    for={ _slugify(label) }
+    class:list={[
+        `
+            text-accent-600 inline-flex items-center px-4 py-3 space-x-2 cursor-pointer
+            border border-dashed border-s-surface-200
+        `,
+        classes
+    ]} { ...attrs }>
+    <Icon name="file-upload" class:list="w-8"/>
+    <span class="flex flex-col pr-1.5">
+        <span set:text="Add a file" class="font-medium"/>
+        <!-- <span set:text="Max 300kb" class="opacity-70 text-xs text-surface-950"/> -->
+    </span>
+   <input
+        type="file"
+        id={ _slugify(label) }
+        name={ label }
+        accept=".jpg, .jpeg, .png"
+        hidden
+        data-input-file
+    >
+</label>

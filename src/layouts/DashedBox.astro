@@ -1,0 +1,20 @@
+---
+const
+    {
+        tag = 'div', all = true, top, bottom,
+        class: classes,
+        ...attrs
+    }
+    = Astro.props,
+    Tag = tag
+---
+<Tag
+    class:list={[
+        'border-dashed border-surface-200',
+        all && 'border',
+        top && 'border-t',
+        classes
+    ]}
+    { ...attrs }>
+    <slot/>
+</Tag>

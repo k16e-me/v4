@@ -1,0 +1,30 @@
+---
+import Section from '../layouts/Section.astro'
+import Wrapper from '../layouts/Wrapper.astro'
+import Grid from '../layouts/Grid.astro'
+import Inner from '../layouts/Inner.astro'
+import BannerEntry from '../blocks/BannerEntry.astro'
+import RichText from '../atoms/RichText.astro'
+
+const
+    { blok } = Astro.props,
+    leading = blok.leading[0],
+    trailing = blok.trailing[0]
+---
+<Section
+    component={ blok.component }
+    title={ blok.title }>
+    <Wrapper inner padY="y" padX={ false }>
+        <Grid padX>
+            <Inner slot="leading">
+                <BannerEntry
+                    subtitle={ leading.subtitle }
+                    title={ leading.title }
+                    size="2xl"
+                    showCopy={ leading.show_copy }
+                />
+            </Inner>
+            <RichText text={ trailing.text } slot="trailing"/>
+        </Grid>
+    </Wrapper>
+</Section>

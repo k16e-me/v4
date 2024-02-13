@@ -1,0 +1,53 @@
+---
+const
+    {
+        level, text, size, uppercase, weight, tighten, loosen, color,
+        class: classes, ...attrs
+    } = Astro.props
+---
+<div
+    { ...attrs }
+    class:list={[
+        // Default Classes
+        `h is-${ level ? level : 'span' }`,
+
+        // Font Sizes
+        size === 'sm' && 'text-xs lg:text-sm',
+        size === 'base' && 'text-base',
+        size === 'md' && 'text-[24px] leading-[28px]',
+        size === 'lg' && 'text-[27px] leading-[33px] sm:text-[30px] sm:leading-[36px]',
+        size === 'xl' && 'text-[30px] leading-[40px] lg:text-[44px] lg:leading-[52px]',
+        size === '2xl' && 'text-[32px] leading-[36px] md:text-[48px] md:leading-[52px] lg:text-[56px] lg:leading-[64px] xl:text-[64px] xl:leading-[76px]',
+        size === '3xl' && 'text-[40px] leading-[28px] md:text-[56px] md:leading-[42px] lg:text-[96px] lg:leading-[72px]',
+        size === '4xl' && 'text-[44px] leading-[32px] md:text-[64px] md:leading-[47px] lg:text-[104px] lg:leading-[76px] xl:text-[110px] xl:leading-[82px]',
+
+        // Font Weights
+        weight === 'regular' && 'font-normal',
+        weight === 'medium' && 'font-medium',
+        weight === 'semi' && 'font-semibold',
+        weight === 'bold' && 'font-bold',
+        weight === 'extra' && 'font-extrabold',
+
+        // Colors
+        color === 'accent' && 'text-accent-600',
+        color === 'surface' && 'text-surface-950',
+        color === 'dark' && 'text-dark-950',
+        color === 'white' && 'text-white',
+
+        // Booleans
+        uppercase && 'uppercase',
+        tighten && 'tracking-[-0.02em]',
+        loosen && 'tracking-[0.15em]',
+
+        // Classes Passed In
+        classes
+    ]}>
+    {() => {
+        switch (level) {
+            case 'h1': return <h1>{ text }</h1>
+            case 'h2': return <h2>{ text }</h2>
+            case 'h3': return <h3>{ text }</h3>
+            default: return <span>{ text }</span>
+        }
+    }}
+</div>

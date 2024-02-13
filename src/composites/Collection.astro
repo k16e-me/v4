@@ -1,0 +1,33 @@
+---
+import { useStoryblokApi } from '@storyblok/astro'
+import Section from '../layouts/Section.astro'
+import Wrapper from '../layouts/Wrapper.astro'
+import { _padY, _padB } from '../scripts/snips'
+import _slug from '../scripts/slug'
+import CardProject from '../blocks/CardProject.astro'
+
+const
+    { blok } = Astro.props,
+    api = useStoryblokApi(),
+    { data } = await api.get(`cdn/stories/`, {
+        version: import.meta.env.DEV ? 'draft' : 'published',
+        starts_with: `${blok.collection}/`,
+    }),
+    collection = data.stories.filter((el: any) => !el.is_startpage)
+---
+<Section
+    title={ blok.title }
+    component={ blok.component }
+    class:list="pt-8 xs:pt-12 lg:pt-8">
+    <Wrapper inner tag="ul" padB="b" class:list="w-full relative grid grid-cols-1 gap-y-16 sm:gap-y-20 lg:gap-y-24">
+        { collection.map((el: any) => (
+            <li class="group">
+                <CardProject
+                    link={ `/${ _slug(el.full_slug) }` }
+                    filename={ el.content.meta[0].image.filename }
+                    title={ el.content.meta[0].title }
+                />
+            </li>
+        )) }
+    </Wrapper>
+</Section>

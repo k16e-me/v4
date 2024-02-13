@@ -1,0 +1,50 @@
+---
+import ImageProfile from '../atoms/ImageProfile.astro'
+import { _transition } from '../scripts/snips'
+import BannerTitle from './BannerTitle.astro'
+
+const
+    {
+        filename, name, link,
+        class: classes, ...rest
+    } = Astro.props
+---
+<div
+    class:list={[
+        'relative cursor-pointer',
+        _transition(),
+        classes
+    ]} { ...rest }>
+    <div
+        class="pointer-events-none relative z-[2] h-[520px] sm:h-[640px] md:h-[576px] lg:h-[640px] flex group-even:justify-end group-odd:justify-start">
+        <div
+            class="relative w-[calc(100%-24px)] lg:w-[calc(100%-32px)] h-[calc(100%-24px)] lg:h-[calc(100%-32px)] shadow overflow-clip">
+            <ImageProfile
+                filename={ filename }
+                class:list={[
+                    'w-full h-full group-hover:scale-105 !duration-700',
+                    _transition()
+                ]}
+            />
+            <div aria-hidden class="bg-gradient-to-b from-transparent via-transparent to-black/70 absolute inset-0"/>
+            <BannerTitle
+                title={ name }
+                level="h3"
+                size="lg"
+                weight="extra"
+                slatColor="white"
+                class:list="absolute bottom-8 left-8 pr-3 text-white"
+            />
+        </div>
+    </div>
+    <div
+        aria-hidden
+        class:list={[`
+            absolute bottom-0 group-odd:right-0 group-even:left-0
+            h-[368px] w-[calc(100%-32px)]
+            bg-accent-600
+            group-even:zoid-right group-odd:zoid-left
+            z-[1] pointer-events-none`
+        ]}
+    />
+</div>

@@ -1,0 +1,43 @@
+---
+import Section from '../layouts/Section.astro'
+import Wrapper from '../layouts/Wrapper.astro'
+import Grid from '../layouts/Grid.astro'
+import Inner from '../layouts/Inner.astro'
+import BannerEntry from '../blocks/BannerEntry.astro'
+import RichText from '../atoms/RichText.astro'
+import { _padY, _padT, _gradientSurface, _empty } from '../scripts/snips'
+import FormContact from '../blocks/FormContact.astro'
+import FormRepairCenter from '../blocks/FormRepairCenter.astro'
+
+const
+    { blok } = Astro.props,
+    description = blok.description,
+    success = blok.form_success
+---
+<Section
+    title={ blok.title }
+    component={ blok.component }
+    class:list={[ _padY(), _gradientSurface() ]}>
+    <Wrapper inner class:list={[ blok.is_header && 'relative']}>
+        <Grid flipped sticky clip={ false }>
+            <Inner slot="trailing">
+                <BannerEntry
+                    title={ blok.headline }
+                    size="2xl"
+                    weight="bold"
+                    showSlat={ false }
+                    showSubtitle={ false }
+                    showCopy={ false }
+                />
+                { !_empty(description) && (
+                    <RichText text={ description[0].text } class:list="mt-4 sm:mt-6 lg:mt-8"/>
+                ) }
+            </Inner>
+            <div slot="leading" class="bg-white shadow-md lg:shadow-lg p-4 sm:p-8 relative overflow-clip">
+                { blok.form === 'contact' && <FormContact consent={ blok.form_consent }/> }
+                { blok.form === 'repair-center' && <FormRepairCenter consent={ blok.form_consent }/> }
+            </div>
+        </Grid>
+    </Wrapper>
+    <p set:text={ success } hidden data-form-success-message/>
+</Section>

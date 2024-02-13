@@ -1,0 +1,36 @@
+---
+const
+    {
+        alternate,
+        alternateLg,
+        color = 'accent',
+        gap = true,
+        tag = 'div',
+        class: classes,
+        ...attrs
+    } = Astro.props,
+    Tag = tag
+---
+<Tag
+    class:list={[
+        'grid grid-cols-1 lg:grid-cols-2',
+        gap && 'gap-3',
+        classes
+    ]} { ...attrs }>
+    <div
+        class:list={[
+            'group',
+            alternate ? 'order-2' : 'order-1',
+            alternateLg ? 'lg:order-2' : 'lg:order-1',
+        ]}>
+        <slot name="leading"/>
+    </div>
+    <div
+        class:list={[
+            'group',
+            alternate ? 'order-1' : 'order-2',
+            alternateLg ? 'lg:order-1' : 'lg:order-2',
+        ]}>
+        <slot name="trailing"/>
+    </div>
+</Tag>

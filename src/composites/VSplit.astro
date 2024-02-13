@@ -1,0 +1,45 @@
+---
+import Section from '../layouts/Section.astro'
+import Wrapper from '../layouts/Wrapper.astro'
+import Grid from '../layouts/Grid.astro'
+import Inner from '../layouts/Inner.astro'
+import BannerEntry from '../blocks/BannerEntry.astro'
+import RichText from '../atoms/RichText.astro'
+import SlatImage from '../atoms/SlatImage.astro'
+import { _padY, _padB } from '../scripts/snips'
+import Button from '../atoms/Button.astro'
+
+const { blok } = Astro.props
+---
+<Section
+    title={ blok.title }
+    component={ blok.component }
+    class:list={[ blok.is_header ? '' : _padY() ]}>
+    <Wrapper inner padY="y" padX={ false } class:list={[ blok.is_header && 'relative']}>
+        <Grid class:list="sm:px-4 xl:px-0 pt-8 sm:pt-12 lg:pt-0">
+            <Inner slot="leading" class:list="pl-4 pr-4 sm:pl-0 sm:pr-0">
+                <BannerEntry
+                    subtitle={ blok.subtitle }
+                    title={ blok.title }
+                    size="2xl"
+                />
+                <RichText text={ blok.content }/>
+            </Inner>
+            <SlatImage
+                slot="trailing"
+                filename={ blok.image.filename }
+                clip="y"
+            />
+        </Grid>
+        { blok.is_header && (
+            <Button
+                tag="button"
+                icon="arrow-down"
+                color="accent"
+                fab
+                class:list="hidden lg:flex absolute lg:bottom-24 lg:left-4 xl:left-0 z-10"
+                data-scroll-into-view
+            />
+        )}
+    </Wrapper>
+</Section>

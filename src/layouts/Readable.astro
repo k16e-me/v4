@@ -1,0 +1,14 @@
+---
+const {
+    class: classes,
+    ...props
+} = Astro.props
+---
+<div
+    { ...props }
+    class:list={[
+        'w-full xs:max-w-screen-sm lg:max-w-screen-md mx-auto px-4 sm:px-8',
+        classes
+    ]}>
+    <slot/>
+</div>

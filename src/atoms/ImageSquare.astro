@@ -1,0 +1,26 @@
+---
+import { Image } from 'astro:assets'
+
+const {
+    filename, square = true, lelo, slat,
+    class: classes,
+    ...attrs
+} = Astro.props
+---
+<Image
+    src={ filename }
+    alt={ '' }
+    width="1440"
+    height="1440"
+    quality="100"
+    draggable="false"
+    class:list={[
+        'object-cover',
+        square && 'aspect-square',
+        (lelo || slat) && 'aspect-[3/4] h-[520px] sm:h-[640px]',
+        lelo && 'md:h-[720px]',
+        slat && 'clip-path-xs',
+        classes
+    ]}
+    { ...attrs }
+/>

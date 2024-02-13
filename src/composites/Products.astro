@@ -1,0 +1,36 @@
+---
+import Section from '../layouts/Section.astro'
+import Wrapper from '../layouts/Wrapper.astro'
+import CardProduct from '../blocks/CardProduct.astro'
+import { _padY, _padB } from '../scripts/snips'
+import _slug from '../scripts/slug'
+import { _products } from '../scripts/store'
+import _slugify from '../scripts/slugify'
+
+const { blok } = Astro.props
+---
+<Section
+    title={ blok.title }
+    component={ blok.component }
+    class:list="pt-8 xs:pt-12 lg:pt-8">
+    <Wrapper
+        inner
+        tag="ul"
+        padB="b"
+        class:list="w-full relative grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3"
+        data-list-products>
+        { _products.value.map((el: any, idx: number) => (
+            <li>
+                <CardProduct
+                    filename={ el.image[0].file.filename }
+                    link={ _slug(el.link[0].link) }
+                    name={ el.name }
+                    isNew={ el.is_new }
+                    data-modal-trigger={ el.is_new }
+                    data-display={ `product-at-${idx}`}
+                    data-partner={_slugify(el.partner) }
+                />
+            </li>
+        )) }
+    </Wrapper>
+</Section>

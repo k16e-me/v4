@@ -1,0 +1,20 @@
+{
+    "name": "Komponents & Solutions Rack Ltd",
+    "short_name": "Komponents",
+    "description": "We deliver smart energy products that provide many years of solid service. Trust Komponents for the best procurement prices, implementation of manufacturer warranty, and unmatched after-sales support.",
+    "icons": [
+        {
+            "src": "/favicons/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/favicons/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#de3d31",
+    "background_color": "#ffffff",
+    "display": "standalone"
+}

@@ -1,0 +1,36 @@
+---
+import Heading from '../atoms/Heading.astro'
+import Icon from '../atoms/Icon.astro'
+
+const
+    {
+        title, showSlat = true, centered, slatColor = 'accent',
+        class: classes, ...attrs
+    } = Astro.props
+---
+<div
+    class:list={[
+        'flex',
+        centered ? 'flex-col items-center justify-center gap-y-4' : 'items-end space-x-2',
+        classes
+    ]} {...attrs}>
+    { showSlat &&
+        <Icon
+            name={ centered ? 'centerbar' : 'leadingbar' }
+            class:list={[
+                'w-[24px] h-[4px]',
+                centered && 'order-2',
+                slatColor === 'accent' && 'text-accent-600',
+                slatColor === 'surface' && 'text-surface-700'
+            ]}
+        />
+    }
+	<Heading
+        text={ title }
+        size="md"
+        weight="semi"
+        color="surface"
+        tighten
+        class:list="opacity-70"
+    />
+</div>

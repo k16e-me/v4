@@ -1,0 +1,15 @@
+---
+import Icon from './Icon.astro'
+
+const
+    {
+        text,
+        class: classes,
+        ...rest
+    } = Astro.props
+---
+<p
+    class:list={[ 'flex items-start gap-3 text-base', classes ]} { ...rest }>
+    <Icon name="check" class:list="text-accent-600 w-5 mt-0.5"/>
+    <span set:text={ text }/>
+</p>

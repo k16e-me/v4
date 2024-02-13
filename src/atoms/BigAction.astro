@@ -1,0 +1,27 @@
+---
+import Heading from './Heading.astro'
+
+const {
+    title, subtitle,
+    class: classes, ...attrs
+} = Astro.props
+---
+<div
+    class:list={[ classes, 'space-y-2' ]}
+    { ...attrs }>
+    <Heading
+        text={ title }
+        level="h2"
+        size="xl"
+        weight="bold"
+        tighten
+    />
+    <Heading
+        text={ subtitle }
+        size="sm"
+        weight="medium"
+        loosen
+        uppercase
+        class:list="opacity-60"
+    />
+</div>

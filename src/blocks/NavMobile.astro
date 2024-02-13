@@ -1,0 +1,27 @@
+---
+import TitleHidden from './TitleHidden.astro'
+import _slugify from '../scripts/slugify'
+import _slug from '../scripts/slug'
+import NavMobileLink from './NavMobileLink.astro'
+
+const
+    {
+        links,
+        class: classes, ...props
+    } = Astro.props
+---
+<nav
+    class:list={[
+        classes
+    ]} { ...props }>
+    <TitleHidden tag="h2" title="Navigation for Mobile"/>
+    <ul class="py-4">
+        { links.map((link: any) => (
+            <NavMobileLink
+                href={ _slug(link.link) }
+                anchor={ _slugify(link.link.story.full_slug) }
+                title={ link.title }
+            />
+        )) }
+    </ul>
+</nav>

@@ -1,0 +1,46 @@
+---
+import Heading from '../atoms/Heading.astro'
+import Icon from '../atoms/Icon.astro'
+
+const
+    {
+        title, level, size, weight,
+        color = 'dark',
+        showSlat = true,
+        slatColor,
+        class: classes,
+        ...attrs
+    } = Astro.props
+---
+<div
+    class:list={[
+        'flex items-end',
+        size === 'md' && 'space-x-2',
+        size === 'lg' && 'space-x-2 sm:space-x-3',
+        size === 'xl' && 'space-x-2 sm:space-x-4',
+        size === '4xl' && 'space-x-2 sm:space-x-3 lg:space-x-6',
+        color === 'dark' && 'text-dark-950',
+        classes
+    ]} {...attrs}>
+    { showSlat &&
+        <Icon
+            name="leadingbar"
+            class:list={[
+                size === 'md' && 'w-[22px] h-[4px]',
+                size === 'lg' && 'w-[25px] h-[4px]',
+                size === 'xl' && 'w-[27px] h-[5px] lg:w-[40px] lg:h-[7px]',
+                size === '2xl' && 'w-[24px] h-[5px]',
+                size === '4xl' && 'w-[40px] h-[8px] md:w-[64px] md:h-[11px] lg:w-[88px] lg:h-[14px] xl:w-[112px] xl:h-[16px]',
+                slatColor === 'accent' && 'text-accent-600',
+                slatColor === 'white' && 'text-white',
+            ]}
+        />
+    }
+	<Heading
+        text={ title }
+        level={ level }
+        size={ size }
+        weight={ weight }
+        tighten
+    />
+</div>

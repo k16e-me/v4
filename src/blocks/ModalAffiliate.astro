@@ -1,0 +1,76 @@
+---
+import ImageScape from '../atoms/ImageScape.astro'
+import BannerEntry from './BannerEntry.astro'
+import Anchor from '../atoms/Anchor.astro'
+import Button from '../atoms/Button.astro'
+import _slug from '../scripts/slug'
+import { _empty } from '../scripts/snips'
+import Checklist from '../atoms/Checklist.astro'
+
+const
+    {
+        item,
+        class: classes,
+        ...rest
+    } = Astro.props
+---
+<div class:list={[ 'overflow-auto h-full', classes ]} { ...rest }>
+    <div class="w-full h-[456px] sm:h-[496px] clip-path-b">
+        <ImageScape
+            filename={ item.image[0].file.filename }
+            class:list="size-full !object-top"
+        />
+    </div>
+    <div class="px-4 sm:px-8 mb-12">
+        <BannerEntry
+            subtitle={ item.bio[0].subtitle }
+            title={ item.bio[0].title }
+            copy={ item.bio[0].copy }
+            size="lg"
+            color="dark"
+            slatColor="accent"
+            class:list="py-8"
+        />
+        <BannerEntry
+            subtitle={ item.business[0].subtitle || 'Business Name' }
+            title={ item.business[0].title }
+            showCopy={ item.business[0].show_copy }
+            size="md"
+            color={ 'surface' }
+            slatColor={ 'accent' }
+            class:list="py-8 border-t border-surface-200 border-dashed"
+        />
+        <div class="py-8 border-t border-surface-200 border-dashed">
+            <BannerEntry
+                subtitle={ item.highlights[0].subtitle || 'Areas of Expertise' }
+                color={ 'surface' }
+                showSlat={ false }
+                showCopy={ false }
+            />
+            { !_empty(item.highlights[0].highlights) && (
+                <ul class="space-y-3">
+                    { item.highlights[0].highlights.map((el: any) => (
+                        <li>
+                            <Checklist text={ el.item }/>
+                        </li>
+                    )) }
+                </ul>
+            ) }
+        </div>
+    </div>
+    <Anchor
+        hover="shadow"
+        class:list="fixed left-0 bottom-0 z-[2] cursor-pointer"
+        data-affiliate={ item.bio[0].title }
+        data-link={ _slug(item.link[0].link) }
+        data-action>
+        <Button
+            icon={ item.link[0].icon }
+            label={ item.link[0].title }
+            iconPosition={ item.link[0].icon_position }
+            color={ item.link[0].color }
+            responsive
+            eventsNone
+        />
+    </Anchor>
+</div>

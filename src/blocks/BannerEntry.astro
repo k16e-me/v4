@@ -1,0 +1,85 @@
+---
+import Heading from '../atoms/Heading.astro'
+import Copy from '../atoms/Copy.astro'
+import Icon from '../atoms/Icon.astro'
+import { _empty } from '../scripts/snips'
+import Anchor from '../atoms/Anchor.astro'
+import Button from '../atoms/Button.astro'
+import _slug from '../scripts/slug'
+
+const {
+    subtitle, title, showSubtitle = true, showTitle = true, showSlat = true, showCopy = true, copy, color = 'dark', slatColor = 'accent', hLevel = 3, centered, links, link, size, weight = 'extra',
+    class: classes, ...attrs
+} = Astro.props
+---
+<div
+    class:list={[
+        'space-y-8 lg:space-y-10',
+        centered && 'text-center',
+        classes
+    ]} {...attrs}>
+	<div class:list={['flex flex-col gap-y-4']}>
+        { showSubtitle && (
+            <Heading text={ subtitle } size="sm" weight="semi" color={ color } uppercase loosen class="opacity-60"/>
+        ) }
+        { showTitle && (
+            <div
+                class:list={['flex',
+                    centered ? 'flex-col items-center gap-y-4 sm:gap-y-6 lg:gap-y-7' : 'space-x-3 lg:space-x-4 items-end'
+                ]}>
+                { showSlat &&
+                    <Icon
+                        name={ centered ? 'centerbar' : 'leadingbar' }
+                        class:list={[
+                            size === 'md' && 'w-[30px] h-[5px]',
+                            size === 'lg' && 'w-[30px] h-[6px] lg:w-[40px] lg:h-[7px]',
+                            size === 'xl' && 'w-[32px] h-[6px] lg:w-[48px] lg:h-[7px]',
+                            size === '2xl' && 'w-[36px] h-[7px] md:w-[52px] md:h-[9px] lg:w-[56px] lg:h-[10px]',
+                            slatColor === 'accent' && 'text-accent-600',
+                            slatColor === 'surface' && 'text-surface-950',
+                            slatColor === 'white' && 'text-white',
+                            centered && 'order-2'
+                        ]}
+                    />
+                }
+                { size === 'md' && <Heading text={ title } size="md" weight="bold" color={ color } tighten/> }
+                { size === 'lg' && <Heading text={ title } size="lg" weight={ weight } color={ color } tighten/> }
+                { size === 'xl' && <Heading text={ title } level={ hLevel } size="xl" weight="extra" color={ color } tighten/> }
+                { size === '2xl' && <Heading text={ title } size="2xl" weight={ weight } color={ color } tighten/> }
+            </div>
+        ) }
+    </div>
+    { ((copy || showCopy) || !_empty(links) || link) && (
+        <div class:list={[ centered && 'text-center', 'space-y-8 md:space-y-12' ]}>
+            {(copy || showCopy) && ( <Copy content={ copy } color={ color } Tag="p"/>)}
+            { !_empty(links) && (
+                <ul class:list={[
+                        'flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3',
+                        centered && 'justify-center'
+                    ]}>
+                    { links.map((link: any) => (
+                        <li class="group flex justify-center">
+                            <Anchor href={ _slug(link.link) } hover="shadow">
+                                <Button
+                                    icon={ link.icon }
+                                    label={ link.title }
+                                    iconPosition={ link.icon_position }
+                                    color={ link.color }
+                                />
+                            </Anchor>
+                        </li>
+                    )) }
+                </ul>
+            ) }
+            { link && (
+                <Anchor href={ _slug(link) } hover="shadow">
+                    <Button
+                        icon="arrow-right"
+                        label="View Project"
+                        color="light_a"
+                    />
+                </Anchor>
+            ) }
+        </div>
+    )}
+</div>

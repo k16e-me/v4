@@ -1,0 +1,28 @@
+---
+import Head from './Head.astro'
+import TitleHidden from '../blocks/TitleHidden.astro'
+import HeaderBrand from './HeaderBrand.astro'
+import Slats from '../blocks/Slats.astro'
+
+const
+    {
+        pageTitle, pageDescription, pageThumbnail
+    } = Astro.props
+---
+<!doctype html>
+<html lang="en" class="scroll-smooth bg-white">
+	<Head
+        title={ pageTitle }
+        description={ pageDescription }
+        image={ pageThumbnail || '/thumbnail.png' }
+    />
+	<body
+        class="text-surface-700 bg-white flex h-svh lg:h-dvh flex-col">
+        <TitleHidden title={ pageTitle }/>
+        <HeaderBrand/>
+		<main class="flex-1">
+            <slot/>
+        </main>
+        <Slats qty={ 3 }/>
+	</body>
+</html>

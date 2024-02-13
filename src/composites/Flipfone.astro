@@ -1,0 +1,76 @@
+---
+import Section from '../layouts/Section.astro'
+import Wrapper from '../layouts/Wrapper.astro'
+import Grid from '../layouts/Grid.astro'
+import SectionTitle from '../blocks/SectionTitle.astro'
+import Heading from '../atoms/Heading.astro'
+import BannerEntry from '../blocks/BannerEntry.astro'
+import { _gradientSurface, _transition } from '../scripts/snips'
+import _mobile from '../scripts/mobile'
+import _slugify from '../scripts/slugify'
+
+const { blok } = Astro.props
+---
+<Section
+    title={ blok.title }
+    component={ blok.component }
+    class:list={[ ..._gradientSurface() ]}
+    data-flipfone>
+    <Wrapper inner padY="y" padX={ false } releaseXlUp>
+        <Grid flipped>
+            <div slot="trailing" class="lg:space-y-14 lg:pl-4 xl:pl-0">
+                <SectionTitle
+                    title={ blok.title }
+                    slatColor="surface"
+                />
+                <div class="hidden lg:flex flex-col space-y-16">
+                    { blok.banners.map((entry: any, idx: number) => (
+                        <button
+                            class:list={[
+                                `opacity-40 [&.active]:opacity-100 hover:opacity-100`,
+                                idx === 0 && 'active',
+                                _transition()
+                            ]}
+                            data-flipfone-toggle={ _slugify(entry.subtitle) }>
+                            <Heading
+                                text={ entry.subtitle }
+                                size="2xl"
+                                weight="extra"
+                                color="dark"
+                                tighten
+                                class:list="pointer-events-none"
+                            />
+                        </button>
+                    )) }
+                </div>
+            </div>
+            <div
+                slot="leading"
+                class="lg:bg-white lg:shadow-md lg:p-12 lg:h-[576px] lg:-translate-y-4 overflow-clip flex flex-col justify-between">
+                <div class="space-y-14 sm:space-y-16 lg:space-y-0 relative">
+                    { blok.banners.map((entry: any) => (
+                        <div
+                            class:list={[`
+                                lg:absolute top-0 left-0
+                                [&:nth-child(2)]:lg:invisible [&:nth-child(2)]:lg:translate-y-12 [&:nth-child(2)]:lg:opacity-0
+                                last:lg:invisible last:lg:translate-y-12 last:lg:opacity-0
+                            `]}
+                            data-flipfone-content={ _slugify(entry.subtitle) }>
+                            <BannerEntry
+                                subtitle={ entry.subtitle }
+                                title={ entry.title }
+                                copy={ entry.copy }
+                                showCopy={ entry.show_copy }
+                                size="xl"
+                            />
+                        </div>
+                    )) }
+                </div>
+                <div aria-hidden="true" class="hidden lg:block relative">
+                    <div class="h-2 w-full absolute inset-x-0 top-0 bg-surface-200"/>
+                    <div class="h-2 absolute inset-x-0 top-0 bg-accent-600" data-progressbar/>
+                </div>
+            </div>
+        </Grid>
+    </Wrapper>
+</Section>

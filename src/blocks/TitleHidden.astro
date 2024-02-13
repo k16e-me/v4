@@ -1,0 +1,11 @@
+---
+const
+    { title, tag = 'h1' }
+    = Astro.props,
+    Tag = tag
+---
+<Tag
+    class='sr-only'
+    aria-label={ title }>
+	{ title }
+</Tag>

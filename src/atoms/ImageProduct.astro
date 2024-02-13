@@ -1,0 +1,24 @@
+---
+import { Image } from 'astro:assets'
+
+const {
+    filename, small = true, medium, large,
+    class: classes,
+    ...attrs
+} = Astro.props
+---
+<Image
+    src={ filename }
+    alt={ '' }
+    width="576"
+    height="576"
+    quality="100"
+    draggable="false"
+    class:list={[
+        'object-contain aspect-square',
+        small && 'max-w-52',
+        large && 'max-w-80',
+        classes
+    ]}
+    { ...attrs }
+/>

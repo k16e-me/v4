@@ -1,0 +1,30 @@
+---
+import Icon from '../atoms/Icon.astro'
+import { _transition } from '../scripts/snips'
+
+const
+    {
+        class: classes, ...props
+    } = Astro.props
+---
+<div class="relative size-full flex items-center">
+    <div class="absolute left-2 sm:left-3">
+        <Icon name="search" class:list="w-6 text-surface-400"/>
+    </div>
+    <input
+        type="search"
+        class:list={[
+            `
+                block size-full pl-10 sm:pl-11 peer
+                text-surface-800
+                border-0 border-b-2 border-surface-300 focus:border-accent-600
+                placeholder:text-surface-600
+                search-cancel:appearance-none
+            `,
+            _transition(),
+            classes
+        ]}
+        placeholder="Find products..."
+        { ...props }
+    >
+</div>

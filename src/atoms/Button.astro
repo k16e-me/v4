@@ -1,0 +1,55 @@
+---
+import Icon from '../atoms/Icon.astro'
+import LinkText from './LinkText.astro'
+import { _transition } from '../scripts/snips'
+
+const
+    {
+        icon, iconPosition, label, color, titleCase = false, responsive, fab, eventsNone, tag = 'div', left,
+        class: classes, ...attrs
+    } = Astro.props,
+    Tag = tag,
+    dimensions = (responsive: any, fab: any, left: any) => {
+        if (responsive) return 'h-11 px-3'
+        else if (fab) return 'h-16 w-16 rounded-full'
+        else if (left) return 'h-[52px] pr-5'
+        else return 'h-[52px] px-5'
+    }
+---
+<Tag
+    class:list={[
+        'justify-center items-center gap-2 inline-flex',
+        color === 'accent' && `bg-accent-600 text-white
+        group-[.disabled]/button:bg-dark-50 group-[.disabled]/button:text-surface-950/50
+        group-[.disabled]/button:pointer-events-none group-[.active]/anchor:bg-dark-50
+        group-[.active]/anchor:text-surface-950/50 group-[.active]/anchor:pointer-events-none`,
+        color === 'surface' && 'bg-surface-100 text-surface-900',
+        color === 'dark' && 'bg-dark-950 text-white',
+        color === 'depth' && 'bg-surface-950 text-white',
+        color === 'transparent' && 'bg-transparent',
+        color === 'light_a' && 'bg-accent-50 text-accent-600',
+        eventsNone && 'pointer-events-none',
+        dimensions(responsive, fab, left),
+        _transition(),
+        classes
+    ]}
+    { ...attrs }>
+    { icon && (
+        <Icon
+            name={ icon }
+            class:list={[
+                fab ? 'w-8 pointer-events-none' : 'w-6',
+                iconPosition === 'leading' ? 'order-1' : 'order-2'
+            ]}
+        />
+    )}
+    { label && (
+        <div
+            class:list={[
+                `justify-start items-start gap-2 flex`,
+                iconPosition === 'leading' ? 'order-2 pr-1' : 'order-1'
+            ]}>
+            <LinkText text={ label } titleCase={ titleCase }/>
+        </div>
+    )}
+</Tag>

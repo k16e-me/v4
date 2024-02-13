@@ -1,0 +1,17 @@
+---
+const
+    {
+        component = null,
+        title,
+        class: classes,
+        ...attrs
+    } = Astro.props
+---
+<section
+    class:list={[
+        `_section _section-${ component } relative`,
+        classes
+    ]} { ...attrs }>
+    { title && <h2 set:text={ title } class="sr-only"/> }
+    <slot/>
+</section>
