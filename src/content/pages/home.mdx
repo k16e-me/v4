@@ -1,5 +1,6 @@
 ---
 title: Home
+icon: bolt
 ---
 import DashedBox from '../../layouts/DashedBox.astro'
 import Chip from '../../atoms/Chip.astro'
@@ -10,4 +11,4 @@ Markdown content should be slotted
     Something passed in
 </DashedBox>
 
-<Chip icon="bolt" text="New!"/>
+<Chip icon={ frontmatter.icon } text="New!"/>
