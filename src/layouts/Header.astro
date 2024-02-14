@@ -2,12 +2,15 @@
 import Wrapper from './Wrapper.astro'
 import Icon from '../atoms/Icon.astro'
 import Anchor from '../atoms/Anchor.astro'
+import nav from '../content/settings/nav.json'
 
 const
     {
         title,
         class: classes, ...attrs
     } = Astro.props
+
+console.log(nav)
 ---
 <header
     class:list={[
@@ -16,10 +19,19 @@ const
     ]}
     data-header-main
     { ...attrs }>
-    <Wrapper tag="nav" padX={ false } class:list="fixed bottom-0 inset-x-0">
+    <Wrapper tag="nav" padX={ false } class:list="fixed bottom-0 inset-x-0 flex items-center">
         <Anchor href="/" class:list="p-4">
             <Icon name="logo" class:list="w-16 text-white"/>
             <span class='sr-only'>K16E, Inc.</span>
         </Anchor>
+        <ul class="flex items-center">
+            { nav.map(it => (
+                <li>
+                    <Anchor href={ it.slug } class:list="p-4">
+                        <span set:text={ it.title }/>
+                    </Anchor>
+                </li>
+            )) }
+        </ul>
     </Wrapper>
 </header>

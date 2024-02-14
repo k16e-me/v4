@@ -13,7 +13,7 @@ const { frontmatter } = Astro.props
 	<body
         class="text-primary-100 bg-primary-950 flex min-h-svh lg:min-h-dvh flex-col group/modal"
         data-body-exit>
-        <TitleHidden title={ frontmatter.title }/>
+        <TitleHidden title={ frontmatter.data.title }/>
         <Header/>
 		<main
             class="flex-1 swup-in pt-14 lg:pt-16 "
