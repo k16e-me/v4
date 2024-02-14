@@ -11,11 +11,8 @@ export default {
                 'xs': '475px',
                 ...defaultTheme.screens
             },
-            fontSize: {
-                xs: ['0.785rem', '1.245rem'],
-                sm: ['0.875rem', '1.265rem'],
-                base: ['1rem', '1.555rem'],
-                md: ['1.055rem', '1.675rem'],
+            fontFamily: {
+                sans: ['Urbanist Variable, sans-serif', ...defaultTheme.fontFamily.sans]
             },
             colors: {
                 accent: {

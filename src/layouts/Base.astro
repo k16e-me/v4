@@ -7,14 +7,12 @@ import TitleHidden from '../blocks/TitleHidden.astro'
 const { frontmatter } = Astro.props
 ---
 <!doctype html>
-<html
-    lang="en"
-    class="scroll-smooth bg-white">
+<html lang="en" class="scroll-smooth bg-primary-950">
 	<Head
         image={ '/thumbnail.png' }
     />
 	<body
-        class="text-surface-700 bg-white flex min-h-svh lg:min-h-dvh flex-col group/modal"
+        class="text-primary-100 bg-primary-950 flex min-h-svh lg:min-h-dvh flex-col group/modal"
         data-body-exit>
         <TitleHidden title={ frontmatter.title }/>
         <Header/>
