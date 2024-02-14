@@ -18,12 +18,15 @@ const
     ]}
     data-header-main
     { ...attrs }>
-    <Wrapper tag="nav" padX={ false } class:list="fixed bottom-0 inset-x-0 flex items-center">
-        <Anchor href="/" class:list="p-4">
+    <Wrapper
+        tag="nav"
+        padX={ false }
+        class:list="fixed bottom-0 inset-x-0 flex items-center">
+        <Anchor href="/" class:list="p-4" data-anchor="/">
             <Icon name="logo" class:list="w-16 text-white"/>
             <span class='sr-only' set:text="K16E, Inc."/>
         </Anchor>
-        <ul class="flex items-center">
+        <ul class="flex items-center font-medium">
             { nav.map(it => (
                 <li>
                     <Anchor href={ `/${it.slug }`} class:list="p-4" data-anchor={ _slugify(it.slug) }>

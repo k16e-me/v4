@@ -5,22 +5,22 @@ import {
 
 const
     {
-        centered = true,
+        centered,
         padX = true,
         tag = 'div',
-        containXlUp,
-        releaseXlUp,
-        class: classes,
-        ...props
+        class: classes, ...props
     } = Astro.props,
     Tag = tag
 ---
 <Tag
     { ...props }
     class:list={[
-        centered && 'mx-auto',
-        padX && 'px-4',
+        'grid grid-cols-12 [&>:first-child]:col-span-full',
+        centered && '[&>:first-child]:md:col-start-2 [&>:first-child]:md::col-end-12',
+        padX && 'px-4 md:px-0',
         classes
     ]}>
-    <slot/>
+    <div class="flex items-center">
+        <slot/>
+    </div>
 </Tag>
