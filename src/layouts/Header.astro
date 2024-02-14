@@ -1,6 +1,7 @@
 ---
 import Wrapper from './Wrapper.astro'
 import Icon from '../atoms/Icon.astro'
+import Anchor from '../atoms/Anchor.astro'
 
 const
     {
@@ -15,7 +16,10 @@ const
     ]}
     data-header-main
     { ...attrs }>
-    <Wrapper padX={ false } class:list="flex items-center justify-between h-full">
-        Header...
+    <Wrapper tag="nav" padX={ false } class:list="fixed bottom-0 inset-x-0">
+        <Anchor href="/" class:list="p-4">
+            <Icon name="logo" class:list="w-16 text-white"/>
+            <span class='sr-only'>K16E, Inc.</span>
+        </Anchor>
     </Wrapper>
 </header>

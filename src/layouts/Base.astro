@@ -1,7 +1,6 @@
 ---
 import Head from './Head.astro'
 import Header from './Header.astro'
-import Footer from './Footer.astro'
 import TitleHidden from '../blocks/TitleHidden.astro'
 
 const { frontmatter } = Astro.props
@@ -22,7 +21,6 @@ const { frontmatter } = Astro.props
             tabindex="-1">
             <slot/>
         </main>
-        <Footer/>
 	</body>
 </html>
 
