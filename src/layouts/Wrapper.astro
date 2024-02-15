@@ -5,7 +5,6 @@ import {
 
 const
     {
-        centered,
         padX = true,
         tag = 'div',
         class: classes, ...props
@@ -15,8 +14,7 @@ const
 <Tag
     { ...props }
     class:list={[
-        'grid grid-cols-12 [&>:first-child]:col-span-full',
-        centered && '[&>:first-child]:md:col-start-2 [&>:first-child]:md::col-end-12',
+        'grid grid-cols-12',
         padX && 'px-4 md:px-0',
         classes
     ]}>

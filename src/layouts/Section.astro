@@ -2,6 +2,7 @@
 const
     {
         component = null,
+        padding = true,
         title,
         class: classes,
         ...attrs
@@ -10,6 +11,7 @@ const
 <section
     class:list={[
         `_section _section-${ component } relative`,
+        padding && 'py-12 sm:py-16 lg:py-20',
         classes
     ]} { ...attrs }>
     { title && <h2 set:text={ title } class="sr-only"/> }
