@@ -9,7 +9,7 @@ const
     env = loadEnv('', process.cwd(), 'STORYBLOK')
 
 export default defineConfig({
-    site: 'https://komponents-v2.netlify.app',
+    site: 'https://v4.k16e.co',
     prefetch: {
         prefetchAll: true,
         defaultStrategy: 'viewport',
@@ -21,5 +21,8 @@ export default defineConfig({
             nesting: true
         }),
         mdx()
-    ]
+    ],
+    build: {
+        format: 'preserve'
+    }
 })
