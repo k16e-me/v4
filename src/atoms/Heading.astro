@@ -1,7 +1,7 @@
 ---
 const
     {
-        level, text, size, uppercase, weight, tighten, loosen, color,
+        level, text, size, uppercase, lowercase, weight, tighten, loosen, color,
         class: classes, ...attrs
     } = Astro.props
 ---
@@ -12,7 +12,7 @@ const
 
         // Font Sizes
         size === 'sm' && 'text-xs lg:text-sm',
-        size === 'md' && 'text-[24px] leading-[28px]',
+        size === 'md' && 'text-xl sm:text-2xl md:text-3xl',
         size === 'lg' && 'text-[27px] leading-[33px] sm:text-[30px] sm:leading-[36px]',
         size === 'xl' && 'text-5xl sm:text-7xl md:text-8xl lg:text-9xl',
 
@@ -30,6 +30,7 @@ const
 
         // Booleans
         uppercase && 'uppercase',
+        lowercase && 'lowercase',
         tighten && 'tracking-[-0.02em]',
         loosen && 'tracking-[0.15em]',
 
