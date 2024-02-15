@@ -1,0 +1,17 @@
+---
+import Heading from '@atoms/Heading.astro'
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+
+const {
+    title, subtitle, position,
+    class: classes, ...props
+} = Astro.props
+---
+<Section
+    component="title"
+    class:list={[  ]}>
+    <Wrapper>
+        <Heading text={ title } level="h2" size="xl" weight="extra" class:list="lowercase"/>
+    </Wrapper>
+</Section>

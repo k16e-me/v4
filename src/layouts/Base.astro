@@ -15,10 +15,7 @@ const { frontmatter } = Astro.props
         data-body-exit>
         <TitleHidden title={ frontmatter.data.title }/>
         <Header/>
-		<main
-            class="flex-1 swup-in pt-14 lg:pt-16 "
-            id="swup"
-            tabindex="-1">
+		<main class="flex-1 swup-in" id="swup">
             <slot/>
         </main>
 	</body>
@@ -38,7 +35,6 @@ const { frontmatter } = Astro.props
     import SwupProgressPlugin from '@swup/progress-plugin'
     import SwupHeadPlugin from '@swup/head-plugin'
     import _active from '../scripts/active'
-    import _astrolog from '../scripts/astrolog'
     import _prefilters from '../scripts/prefilters'
 
     const swup = new Swup({
@@ -61,7 +57,6 @@ const { frontmatter } = Astro.props
     }
 
     function once() {
-        _astrolog()
         _prefilters()
     }
 </script>
