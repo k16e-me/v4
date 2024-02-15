@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content'
+import { collections } from '@content/config'
 import Base from '../layouts/Base.astro'
 
 export async function getStaticPaths() {
@@ -7,16 +8,17 @@ export async function getStaticPaths() {
         pages = await getCollection('pages'),
         work = await getCollection('work'),
         astro = await getCollection('astro'),
-        collections = [...pages, ...work, ...astro],
-        slug = (entry) => {
-            if (entry.collection === 'pages') return entry.slug === 'home' ? undefined : entry.slug
-            else return `${entry.collection}/${entry.slug}`
-        }
+        allCollections = [...pages, ...work, ...astro]
 
-    return collections.map(entry => ({
+    return allCollections.map(entry => ({
         params: { slug: slug(entry) },
         props: { entry },
     }))
+
+    function slug(entry) {
+        if (entry.collection === 'pages') return entry.slug === 'home' ? undefined : entry.slug
+        else return `${entry.collection}/${entry.slug}`
+    }
 }
 
 const
