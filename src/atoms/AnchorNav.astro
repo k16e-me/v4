@@ -1,0 +1,24 @@
+---
+import { _transition } from '@scripts/snips'
+import Anchor from './Anchor.astro'
+import Icon from './Icon.astro'
+
+const {
+    href, data, showIcon, icon, showText = true, text
+} = Astro.props
+---
+<Anchor
+    href={ href }
+    class:list={[
+        `
+            p-4 xs:px-5 flex justify-center
+            border-b-[3px] border-transparent [&.active]:border-accent-500
+            opacity-70 [&.active]:opacity-100 hover:opacity-100
+            sm:text-lg font-medium
+        `,
+        _transition()
+    ]}
+    data-anchor={ data }>
+    { showIcon && (<Icon name={ icon } class:list="w-16 text-white"/>) }
+    <span set:text={ text } class:list={ showText ? '' : 'sr-only' }/>
+</Anchor>

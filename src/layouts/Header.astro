@@ -1,9 +1,9 @@
 ---
 import Wrapper from './Wrapper.astro'
 import Icon from '@atoms/Icon.astro'
-import Anchor from '@atoms/Anchor.astro'
 import nav from '@content/settings/nav.json'
 import _slugify from '@scripts/slugify'
+import AnchorNav from '@atoms/AnchorNav.astro'
 
 const
     {
@@ -21,17 +21,25 @@ const
     <Wrapper
         tag="nav"
         padX={ false }
-        class:list="fixed bottom-0 inset-x-0 flex items-center">
-        <Anchor href="/" class:list="p-4" data-anchor="/">
-            <Icon name="logo" class:list="w-16 text-white"/>
-            <span class='sr-only' set:text="K16E, Inc."/>
-        </Anchor>
-        <ul class="flex items-center font-medium">
+        class:list="fixed bottom-0 inset-x-0">
+        <ul class="flex items-center justify-between xs:justify-start [&>*]:w-full [&>*]:xs:w-auto">
+            <li>
+                <AnchorNav
+                    href="/"
+                    data="/"
+                    text="K16E, Inc."
+                    showIcon
+                    showText={ false }
+                    icon="logo"
+                />
+            </li>
             { nav.map(it => (
                 <li>
-                    <Anchor href={ `/${it.slug }`} class:list="p-4" data-anchor={ _slugify(it.slug) }>
-                        <span set:text={ it.title }/>
-                    </Anchor>
+                    <AnchorNav
+                        href={ `/${it.slug }`}
+                        text={ it.title }
+                        data={ _slugify(it.slug) }
+                    />
                 </li>
             )) }
         </ul>

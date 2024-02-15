@@ -11,9 +11,6 @@ export default {
                 'xs': '475px',
                 ...defaultTheme.screens
             },
-            fontFamily: {
-                sans: ['Urbanist Variable, sans-serif', ...defaultTheme.fontFamily.sans]
-            },
             colors: {
                 accent: {
                     '50': '#fefce8',
