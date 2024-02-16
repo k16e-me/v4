@@ -1,9 +1,5 @@
 import { _q, _ql } from './snips'
 import gsap from 'gsap'
-import _gsap from './gsap'
-import _siblings from './siblings'
-
-const g = _gsap()
 
 export default function _words() {
     if (!_q('[data-word]')) return
