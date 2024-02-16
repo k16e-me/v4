@@ -1,9 +1,10 @@
 ---
 import Wrapper from './Wrapper.astro'
 import Icon from '@atoms/Icon.astro'
-import nav from '@content/settings/nav.json'
+import navlist from '@content/settings/nav.json'
 import _slugify from '@scripts/slugify'
 import AnchorNav from '@atoms/AnchorNav.astro'
+import TitleHidden from '@blocks/TitleHidden.astro'
 
 const
     {
@@ -18,7 +19,8 @@ const
     ]}
     data-header-main
     { ...attrs }>
-    <Wrapper tag="nav" padX={ false }>
+    <Wrapper tag="nav" x={ false }>
+        <TitleHidden tag="h2" title="Navigation"/>
         <ul class="flex justify-between xs:justify-start [&>*]:w-full [&>*]:xs:w-auto col-span-full">
             <li>
                 <AnchorNav
@@ -30,7 +32,7 @@ const
                     icon="logo"
                 />
             </li>
-            { nav.map(it => (
+            { navlist.map(it => (
                 <li>
                     <AnchorNav
                         href={ `/${it.slug }`}
