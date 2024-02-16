@@ -1,0 +1,13 @@
+---
+const {
+    text,
+    class: classes, ...props
+} = Astro.props
+---
+<span
+    set:text={ text }
+    class:list={[
+        'text-accent-400 font-extrabold text-4xl sm:text-6xl lg:text-7xl',
+        classes
+    ]} { ...props }
+/>

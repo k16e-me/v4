@@ -37,6 +37,8 @@ const { frontmatter } = Astro.props
     import SwupHeadPlugin from '@swup/head-plugin'
     import _active from '../scripts/active'
     import _prefilters from '../scripts/prefilters'
+    import _words from '../scripts/words'
+    import { _body } from '@scripts/snips'
 
     const swup = new Swup({
         animationSelector: '[class*="swup-"]',
@@ -55,6 +57,7 @@ const { frontmatter } = Astro.props
 
     function init() {
         _active()
+        _words()
     }
 
     function once() {
