@@ -31,3 +31,4 @@ Web: HTML, CSS, & JS
 - Function as Module => Stack Overflow [https://stackoverflow.com/questions/13218472/calling-a-function-defined-inside-another-function-in-javascript]
 - Args to Event Listeners => Plain English [https://plainenglish.io/blog/passing-arguments-to-event-listeners-in-javascript-1a81bc397ecb]
 - Map Array n times of n => Stack Overflow [https://stackoverflow.com/questions/37888470/mapping-array-in-javascript-with-sequential-numbers#37889106]
+- Infinite looping gsap => GSAP Forum [https://gsap.com/community/forums/topic/37469-how-to-loop-a-gsap-animation-help/]
