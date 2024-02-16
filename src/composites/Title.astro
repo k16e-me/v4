@@ -4,7 +4,8 @@ import Section from '@layouts/Section.astro'
 import Wrapper from '@layouts/Wrapper.astro'
 
 const {
-    title, subtitle, position,
+    title, subtitle, flipped,
+    centered = true,
     class: classes, ...props
 } = Astro.props
 ---
@@ -12,10 +13,30 @@ const {
     component="title"
     class:list={[  ]}>
     <Wrapper>
-        <div class="col-span-full sm:col-start-2 sm:col-span-10 place-self-center">
-            <Heading text={ title } level="h2" size="xl" weight="extra" lowercase/>
-            <div class="text-accent-500 italic mt-1 md:mt-3">
-                <Heading text={ subtitle } size="md" weight="bold" uppercase loosen/>
+        <div
+            class:list={[
+                'col-span-full sm:col-start-2 sm:col-span-10',
+                centered && 'place-self-center'
+            ]}>
+            <div class="inline-flex flex-col">
+                <Heading
+                    text={ title }
+                    level="h2"
+                    size="xl"
+                    weight="extra"
+                    lowercase
+                    class:list={ flipped ? 'order-2 mt-0.5 md:mt-1.5' : 'order-1' }
+                />
+                <div
+                    class:list={[
+                        'text-accent-500 italic flex items-center px-2',
+                        flipped ? 'order-1' : 'order-2 mt-1 md:mt-3'
+                    ]}>
+                    <Heading text={ subtitle } size="md" weight="bold" uppercase loosen/>
+                    <span
+                        class="border-t border-b-[3px] md:border-t-[3px] border-accent-500 ml-3 w-full rounded-full"
+                    />
+                </div>
             </div>
         </div>
     </Wrapper>
