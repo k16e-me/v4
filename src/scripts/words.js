@@ -14,13 +14,13 @@ export default function _words() {
         tl = gsap.timeline({ duration: 0.4, ease: 'back.in', repeat: -1 })
 
     tl.from(words, {
-        opacity: 0,
+        autoAlpha: 0,
         scale: 0.8,
         yPercent: -100,
         stagger: 2
     })
     tl.to(words, {
-        opacity: 0,
+        autoAlpha: 0,
         scale: 0.8,
         yPercent: 100,
         stagger: 2
