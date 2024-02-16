@@ -5,7 +5,8 @@ import Site from '@content/settings/site.json'
 
 const
     { title, image, description = '' } = Astro.props,
-    canonicalURL = new URL(Astro.url.pathname, Astro.site)
+    canonicalURL = new URL(Astro.url.pathname, Astro.site),
+    theme = '#19191a'
 ---
 <head>
 	<meta charset='UTF-8'/>
@@ -19,9 +20,9 @@ const
     <link rel='icon' type='image/png' sizes='16x16' href='/favicons/favicon-16x16.png'/>
     <meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png"/>
     <link rel='icon' type='image/x-icon' href='/favicon.ico'/>
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#de3d31">
-    <meta name="msapplication-TileColor" content="#de3d31">
-    <meta name="theme-color" content="#ffffff">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color={ theme }>
+    <meta name="msapplication-TileColor" content={ theme }>
+    <meta name="theme-color" content={ theme }>
     <meta name="msapplication-config" content="/browserconfig.xml"/>
 	<SEO
         title={ title }
