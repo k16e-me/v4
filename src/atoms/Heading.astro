@@ -1,14 +1,14 @@
 ---
 const
     {
-        level, text, size, uppercase, lowercase, weight, tighten, loosen, color,
+        level, text, size, uppercase, lowercase, weight, tighten, loosen, color, nowrap,
         class: classes, ...attrs
     } = Astro.props
 ---
 <div
     { ...attrs }
     class:list={[
-        `h is-${ level ? level : 'span' } whitespace-nowrap`,
+        `h is-${ level ? level : 'span' }`,
 
         // Font Sizes
         size === 'sm' && 'text-xs lg:text-sm',
@@ -33,6 +33,7 @@ const
         lowercase && 'lowercase',
         tighten && '-tracking-wide',
         loosen && 'tracking-wider',
+        nowrap && 'whitespace-nowrap',
 
         // Classes Passed In
         classes

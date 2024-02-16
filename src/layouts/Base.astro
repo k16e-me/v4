@@ -38,7 +38,7 @@ const { frontmatter } = Astro.props
     import _active from '../scripts/active'
     import _prefilters from '../scripts/prefilters'
     import _words from '../scripts/words'
-    import { _body } from '@scripts/snips'
+    import { _body, _q } from '@scripts/snips'
     import _zaps from '@scripts/zaps'
 
 
@@ -54,13 +54,13 @@ const { frontmatter } = Astro.props
     document.addEventListener('DOMContentLoaded', () => {
         once()
         init()
-		_body().removeAttribute('data-body-exit')
     })
     swup.hooks.on('page:view', () => init())
 
     function init() {
         _active()
         _words()
+		_q('[data-title').classList.remove('invisible')
     }
 
     function once() {
