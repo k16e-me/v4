@@ -21,7 +21,7 @@ export default function _words() {
     })
     tl.to(words, {
         autoAlpha: 0,
-        scale: 0.8,
+        scale: 0.7,
         yPercent: 100,
         stagger: 2
     }, '<+=2')

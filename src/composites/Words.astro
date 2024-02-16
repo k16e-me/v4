@@ -20,10 +20,7 @@ const {
             { words.map((w, idx) => (
                 <Word
                     text={ w }
-                    class:list={[
-                        '[grid-area:1/1/-1/-1] py-3 invisible',
-                        // idx === 0 ? 'active' : 'not-active'
-                    ]}
+                    class:list="[grid-area:1/1/-1/-1] py-3 invisible"
                     data-words={ `w-${idx + 1}`}
                 />
             )) }
