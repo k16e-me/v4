@@ -16,7 +16,10 @@ const { frontmatter } = Astro.props
         data-body-exit>
         <TitleHidden title={ frontmatter.data.title }/>
         <Header/>
-		<main class="flex-1 swup-in" id="swup">
+		<main
+            class="flex-1 swup-in"
+            id="swup"
+            data-main>
             <slot/>
         </main>
 	</body>
@@ -24,8 +27,8 @@ const { frontmatter } = Astro.props
 
 <style is:global>
 	html.is-changing .swup-in { @apply opacity-100 duration-[.3s] ease-[cubic-bezier(0,0.16,0,1)]; }
-	html.is-animating .swup-in { @apply opacity-0 scale-[.99] translate-y-10 ease-in; }
-	.swup-progress-bar { @apply h-1 bg-accent-600; }
+	html.is-animating .swup-in { @apply opacity-0 scale-[.99] translate-y-12 ease-in; }
+	.swup-progress-bar { @apply h-1 bg-accent-400; }
 	main:focus { outline: none; }
     button { text-align: inherit; }
 	svg { @apply flex-shrink-0 pointer-events-none fill-current; }
@@ -40,6 +43,7 @@ const { frontmatter } = Astro.props
     import _words from '../scripts/words'
     import { _body } from '@scripts/snips'
     import _zaps from '@scripts/zaps'
+
 
     const swup = new Swup({
         animationSelector: '[class*="swup-"]',
