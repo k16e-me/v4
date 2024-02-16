@@ -16,10 +16,7 @@ const { frontmatter } = Astro.props
         data-body-exit>
         <TitleHidden title={ frontmatter.data.title }/>
         <Header/>
-		<main
-            class="flex-1 swup-in"
-            id="swup"
-            data-main>
+		<main class="swup-in" id="swup">
             <slot/>
         </main>
 	</body>
@@ -57,6 +54,7 @@ const { frontmatter } = Astro.props
     document.addEventListener('DOMContentLoaded', () => {
         once()
         init()
+		_body().removeAttribute('data-body-exit')
     })
     swup.hooks.on('page:view', () => init())
 
