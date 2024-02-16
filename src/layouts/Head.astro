@@ -1,6 +1,7 @@
 ---
 import { SEO } from 'astro-seo'
 import _slugify from '../scripts/slugify'
+import Site from '@content/settings/site.json'
 
 const
     { title, image, description = '' } = Astro.props,
@@ -23,12 +24,13 @@ const
     <meta name="theme-color" content="#ffffff">
     <meta name="msapplication-config" content="/browserconfig.xml"/>
 	<SEO
-        title={ "K16E, Inc." }
-        titleDefault="Global Good Design Consultants"
-        description={ "Global Good Design Consultants" }
+        title={ title }
+        titleTemplate={ `%s / ${ Site.title }` }
+        titleDefault={ Site.title }
+        description={ Site.description }
         openGraph={{
             basic: {
-                title: 'Global Good Design Consultants',
+                title: Site.title,
                 type: 'website',
                 image: image,
             }

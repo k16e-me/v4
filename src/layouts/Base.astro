@@ -8,6 +8,7 @@ const { frontmatter } = Astro.props
 <!doctype html>
 <html lang="en" class="scroll-smooth bg-primary-950">
 	<Head
+        title={ frontmatter.data.title }
         image={ '/thumbnail.png' }
     />
 	<body
