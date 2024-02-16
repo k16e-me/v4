@@ -39,6 +39,7 @@ const { frontmatter } = Astro.props
     import _prefilters from '../scripts/prefilters'
     import _words from '../scripts/words'
     import { _body } from '@scripts/snips'
+    import _zaps from '@scripts/zaps'
 
     const swup = new Swup({
         animationSelector: '[class*="swup-"]',
@@ -61,6 +62,7 @@ const { frontmatter } = Astro.props
     }
 
     function once() {
+        _zaps()
         _prefilters()
     }
 </script>
