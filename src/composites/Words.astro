@@ -4,7 +4,7 @@ import Wrapper from '@layouts/Wrapper.astro'
 import Word from '@blocks/Word.astro'
 
 const {
-    title, words = ['Everything', 'Business', 'Software', 'Food'], padding,
+    title, words = ['Everything', 'Business', 'Software', 'Services', 'Space'], padding,
     class: classes, ...props
 } = Astro.props
 ---
@@ -15,14 +15,14 @@ const {
     <Wrapper>
         <div
             class:list={[
-                'col-span-full xs:col-start-2 xs:col-end-12 place-self-center place-content-center grid grid-cols-12 grid-rows-1 items-center text-center relative'
+                'col-span-full xs:col-start-2 xs:col-end-12 place-self-center place-content-center grid grid-cols-12 grid-rows-1 items-center text-center relative overflow-clip'
             ]}>
             { words.map((w, idx) => (
                 <Word
                     text={ w }
                     class:list={[
-                        '[grid-area:1/1/-1/-1] invisible',
-                        idx !== 0 && ''
+                        '[grid-area:1/1/-1/-1] py-2',
+                        // idx === 0 ? 'active' : 'not-active'
                     ]}
                     data-words={ `w-${idx + 1}`}
                 />

@@ -20,37 +20,36 @@ export default function _words() {
     const
         words = _ql('[data-words]'),
         delay = 3000,
-        tl = gsap.timeline({ duration: 0.4 }),
-        movement = { y: 48, scale: 0.9, ease: 'back.in', autoAlpha: 0 }
+        tl = gsap.timeline({ duration: 0.4, ease: 'back.in', repeat: -1 })
 
     let
         activeIdx = 0,
         activeWord = words[activeIdx],
         nextWord = null
 
-    tl.from(activeWord, { ...movement })
-    loop()
-
-    function loop() {
-        setTimeout(() => {
-            tl.to(activeWord, {
-                ...movement,
-                delay: (delay / 1000),
-                onComplete: () => setNextWord()
-            })
-            loop()
-        }, delay)
-    }
+    tl.from(words, {
+        yPercent: -100,
+        stagger: 2,
+        delay: 0
+    })
+    tl.to(words, {
+        yPercent: 100,
+        stagger: 2
+    }, '<+=2')
 
     function setNextWord() {
         nextWord = words[getNewWordIndex(activeWord)]
-        // activeWord = nextWord
-        // activeIdx++
+        switchWords()
         console.log(nextWord)
     }
 
+    function switchWords() {
+        activeWord = nextWord
+    }
+
     function getNewWordIndex(el) {
-        if (activeIdx >= words.length) activeIdx = 0
-        return activeIdx
+        let idx = words.indexOf(el) + 1
+        if (idx >= words.length) idx = 0
+        return idx
     }
 }
