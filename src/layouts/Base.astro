@@ -55,12 +55,14 @@ const { frontmatter } = Astro.props
         once()
         init()
     })
-    swup.hooks.on('page:view', () => init())
+    swup.hooks.on('page:view', () => {
+        init()
+		_q('[data-title').classList.remove('invisible')
+    })
 
     function init() {
         _active()
         _words()
-		_q('[data-title').classList.remove('invisible')
     }
 
     function once() {
