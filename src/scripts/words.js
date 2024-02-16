@@ -6,18 +6,18 @@ export default function _words() {
 
     const
         words = _ql('[data-word]'),
-        tl = gsap.timeline({ duration: 0.4, ease: 'back.in', repeat: -1 })
+        tl = gsap.timeline({ duration: 0.4, ease: 'back.in', repeat: -1  })
 
     tl.from(words, {
         autoAlpha: 0,
-        scale: 0.8,
         yPercent: -100,
+        scale: 0.7,
         stagger: 2
     })
     tl.to(words, {
         autoAlpha: 0,
-        scale: 0.7,
         yPercent: 100,
+        scale: 0.7,
         stagger: 2
     }, '<+=2')
 }
