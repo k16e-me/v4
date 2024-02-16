@@ -2,16 +2,15 @@
 import Heading from '@atoms/Heading.astro'
 import Section from '@layouts/Section.astro'
 import Wrapper from '@layouts/Wrapper.astro'
+import Accentbar from '@atoms/Accentbar.astro'
 
 const {
-    title, subtitle, flipped,
+    title, subtitle, flipped, swapped,
     centered = true,
     class: classes, ...props
 } = Astro.props
 ---
-<Section
-    component="title"
-    class:list={[  ]}>
+<Section component="title">
     <Wrapper>
         <div
             class:list={[
@@ -29,13 +28,18 @@ const {
                 />
                 <div
                     class:list={[
-                        'text-accent-500 italic flex items-center px-2',
+                        'text-accent-500 italic flex items-center px-3',
                         flipped ? 'order-1' : 'order-2 mt-1 md:mt-3'
                     ]}>
-                    <Heading text={ subtitle } size="md" weight="bold" uppercase loosen/>
-                    <span
-                        class="border-t border-b-[3px] md:border-t-[3px] border-accent-500 ml-3 w-full rounded-full"
+                    <Heading
+                        text={ subtitle }
+                        size="md"
+                        weight="bold"
+                        uppercase
+                        loosen
+                        class:list={ swapped ? 'order-2' : 'order-1' }
                     />
+                    <Accentbar class:list={ swapped ? 'order-1 mr-3' : 'order-2 ml-3' }/>
                 </div>
             </div>
         </div>
