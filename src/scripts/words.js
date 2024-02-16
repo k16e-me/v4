@@ -6,11 +6,10 @@ import _siblings from './siblings'
 const g = _gsap()
 
 export default function _words() {
-    if (!_q('[data-words]')) return
+    if (!_q('[data-word]')) return
 
     const
-        words = _ql('[data-words]'),
-        delay = 3000,
+        words = _ql('[data-word]'),
         tl = gsap.timeline({ duration: 0.4, ease: 'back.in', repeat: -1 })
 
     tl.from(words, {

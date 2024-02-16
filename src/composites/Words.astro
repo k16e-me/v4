@@ -4,7 +4,7 @@ import Wrapper from '@layouts/Wrapper.astro'
 import Word from '@blocks/Word.astro'
 
 const {
-    title, words = ['Everything', 'Business', 'Software', 'Services', 'Space'], padding,
+    title, words = ['Business', 'Services', 'Space'], padding,
     class: classes, ...props
 } = Astro.props
 ---
@@ -21,7 +21,7 @@ const {
                 <Word
                     text={ w }
                     class:list="[grid-area:1/1/-1/-1] py-3 invisible"
-                    data-words={ `w-${idx + 1}`}
+                    data-word
                 />
             )) }
         </div>
