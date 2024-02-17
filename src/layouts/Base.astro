@@ -38,7 +38,7 @@ const { frontmatter } = Astro.props
     import _active from '../scripts/active'
     import _prefilters from '../scripts/prefilters'
     import _words from '../scripts/words'
-    import { _body, _q } from '@scripts/snips'
+    import { _body, _q, _ql } from '@scripts/snips'
     import _zaps from '@scripts/zaps'
 
 
@@ -57,7 +57,7 @@ const { frontmatter } = Astro.props
     })
     swup.hooks.on('page:view', () => {
         init()
-		_q('[data-title').classList.remove('invisible')
+        _ql('[data-entry]').map(ech => ech.classList.remove('invisible'))
     })
 
     function init() {
