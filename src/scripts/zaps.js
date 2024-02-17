@@ -10,5 +10,5 @@ export default function _zaps() {
 
     tl.from(above, { yPercent: -12, autoAlpha: 0 })
     tl.from(header, { yPercent: 12, autoAlpha: 0 })
-    tl.from(below, { yPercent: 12, autoAlpha: 0 })
+    _q('[data-entry="below"]') && tl.from(below, { yPercent: 12, autoAlpha: 0 })
 }
