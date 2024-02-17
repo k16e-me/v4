@@ -4,7 +4,12 @@ const { class: classes, ...props } = Astro.props
 <div
     { ...props }
 	class:list={[
-        `prose prose-lg lg:prose-xl max-w-none prose-p:text-white/80 prose-h1:font-bold prose-h1:text-xl prose-a:text-accent-400 prose-headings:underline prose-p:leading-[1.55]`,
+        `
+            max-w-none
+            prose prose-lg lg:prose-xl
+            prose-p:text-white/80 prose-p:leading-[1.55]
+            prose-a:text-accent-500 hover:prose-a:text-white
+        `,
         classes,
     ]}>
     <slot/>
