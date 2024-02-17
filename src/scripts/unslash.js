@@ -1,1 +1,0 @@
-export default function _unslash(str) { return str.endsWith('/') ? str.slice(0, -1) : str }
