@@ -4,11 +4,13 @@ const
         component = null,
         padding = 'both',
         title,
+        tag = 'section',
         class: classes,
         ...attrs
-    } = Astro.props
+    } = Astro.props,
+    Tag = tag
 ---
-<section
+<Tag
     class:list={[
         `_section _section-${ component }`,
         padding === 'both' && 'py-16 sm:py-20',
@@ -17,4 +19,4 @@ const
     ]} { ...attrs }>
     { title && <h2 set:text={ title } class="sr-only"/> }
     <slot/>
-</section>
+</Tag>
