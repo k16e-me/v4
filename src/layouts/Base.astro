@@ -12,8 +12,7 @@ const { frontmatter } = Astro.props
         image={ '/thumbnail.png' }
     />
 	<body
-        class="text-primary-100 bg-primary-950 flex min-h-svh lg:min-h-dvh flex-col group/modal"
-        data-body-exit>
+        class="text-white/75 bg-primary-950 flex min-h-svh lg:min-h-dvh flex-col">
         <TitleHidden title={ frontmatter.data.title }/>
         <Header/>
 		<main class="swup-in" id="swup">
@@ -58,7 +57,7 @@ const { frontmatter } = Astro.props
     })
     swup.hooks.on('page:view', () => {
         init()
-        _ql('[data-entry]').map(ech => ech.classList.remove('invisible'))
+        _ql('[data-entry]').map(e => e.classList.remove('invisible'))
     })
 
     function init() {
