@@ -3,6 +3,7 @@ title: About
 ---
 import Title from '@composites/Title.astro'
 import BlockText from '@composites/BlockText.astro'
+import Tiles from '@composites/Tiles.astro'
 
 <Title
     title="The Big Vision"
@@ -17,3 +18,7 @@ import BlockText from '@composites/BlockText.astro'
 
     Because design sells *everything*! We can design *anything*.
 </BlockText>
+<Tiles
+    title="Our Core Focus"
+    tiles={['Brand', 'Copy', 'Web', 'Mobile', 'Proto']}
+/>

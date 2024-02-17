@@ -1,0 +1,16 @@
+---
+const
+    {
+        obj,
+        class: classes, ...props
+    } = Astro.props
+---
+<div
+    class:list={[
+        'h-96 sm:h-[26rem]',
+        classes
+    ]} { ...props }>
+    <div>
+        { obj }
+    </div>
+</div>

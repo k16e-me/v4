@@ -1,0 +1,31 @@
+---
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import Tile from '@blocks/Tile.astro'
+
+const
+    {
+        title,
+        padding = 'bottom',
+        blockColor,
+        tiles,
+        class: classes, ...props
+    } = Astro.props
+---
+<Section
+    component="tiles"
+    title={ title }
+    padding={ padding }
+    class:list="invisible"
+    data-entry="below">
+    <Wrapper x={ false }>
+        <div
+            class:list={[
+                'col-span-full'
+            ]}>
+            { tiles.map((e, idx) => (
+                <Tile obj={ e }/>
+            )) }
+        </div>
+    </Wrapper>
+</Section>
