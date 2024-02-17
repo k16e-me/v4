@@ -2,6 +2,7 @@
 import Section from '@layouts/Section.astro'
 import Wrapper from '@layouts/Wrapper.astro'
 import Tile from '@blocks/Tile.astro'
+import _random from '@scripts/random'
 
 const
     {
@@ -11,7 +12,9 @@ const
         tiles,
         class: classes, ...props
     } = Astro.props,
-    pastels = ['#ecfccb', '#fef9c3', '#fef3c7', '#ffedd5', '#fee2e2', '#f5f5f4', '#f1f5f9', '#e0f2fe', '#ffe4e6']
+    pastels = [
+        '#fae8ff', '#ecfccb', '#fef3c7', '#fee2e2', '#f5f5f4', '#f1f5f9', '#e0f2fe', '#fef9c3', '#ffe4e6', '#ffedd5', '#fce7f3', '#f3e8ff', '#ede9fe',
+    ]
 ---
 <Section
     component="tiles"
@@ -34,7 +37,7 @@ const
             { tiles.map((e, idx) => (
                 <Tile
                     obj={ e }
-                    pastel={ pastels[idx] }
+                    pastel={ pastels[_random(0, pastels.length)] }
                 />
             )) }
         </div>
