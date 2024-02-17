@@ -1,14 +1,24 @@
 ---
+import Heading from '@atoms/Heading.astro'
+
 const
     {
-        obj,
+        obj, pastel = '#fddee1',
         class: classes, ...props
     } = Astro.props
 ---
 <div
     class:list={[
-        'h-96 sm:h-[26rem]',
+        `h-64 sm:h-[25rem] flex flex-col justify-start items-end p-4 sm:p-8`,
         classes
-    ]} { ...props }>
-    { obj }
+    ]} { ...props }
+    style={ `background-color: ${pastel}` }>
+    <Heading
+        text={ obj }
+        size="lg"
+        weight="extra"
+        color="primary"
+        lowercase
+        tighten
+    />
 </div>
