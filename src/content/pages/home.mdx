@@ -3,6 +3,8 @@ title: Home
 ---
 import Title from '@composites/Title.astro'
 import Words from '@composites/Words.astro'
+import Richtext from '@composites/Richtext.astro'
+
 export const dictionary = [
     'Software', 'Business', 'Services', 'Space', 'Living', 'Game', 'Food', 'Fun', 'Words', 'Policy', 'Sound', 'Security', 'Money', 'Shift Work', 'Sports', 'Music', 'Education', 'Manufacturing', 'Love', 'Art', 'Data', 'Culture', 'Society', 'Anything', 'Everything', 'Yes, Everything!'
 ]
@@ -18,3 +20,6 @@ export const dictionary = [
     title="Animated words, everything that can be designed"
     words={ dictionary }
 />
+<Richtext>
+    Let’s make you sell with design. [Drop us a line here](/contact).
+</Richtext>
