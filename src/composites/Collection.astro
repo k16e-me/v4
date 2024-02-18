@@ -1,0 +1,35 @@
+---
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import { getCollection } from 'astro:content'
+import CardWork from '@blocks/CardWork.astro'
+
+const
+    {
+        title, collection, padding,
+        class: classes, ...props
+    } = Astro.props,
+    entries = await getCollection(collection)
+---
+<Section
+    component="collection"
+    title={ title }
+    padding={ padding }
+    class:list="invisible"
+    data-entry="below">
+    <Wrapper x={ false }>
+        <div
+            class:list={[
+                `
+                    col-span-full grid grid-cols-12 gap-4 sm:gap-6 md:gap-8 px-4 sm:px-6 md:px-8
+                    [&>*]:col-span-full [&>*]:md:col-span-6 [&>*]:xl:col-span-4
+                `
+            ]}>
+            { entries.map((e: any, idx) => (
+                <CardWork
+                    title={ e.data.client.name }
+                />
+            )) }
+        </div>
+    </Wrapper>
+</Section>

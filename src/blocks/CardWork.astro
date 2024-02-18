@@ -1,0 +1,24 @@
+---
+import Heading from '@atoms/Heading.astro'
+
+const
+    {
+        title, color = '#fddee1',
+        class: classes, ...props
+    } = Astro.props
+---
+<div
+    class:list={[
+        `h-96 lg:h-80 w-full`,
+        classes
+    ]} { ...props }
+    style={ `background-color: ${color}` }>
+    <Heading
+        text={ title }
+        size="lg"
+        weight="extra"
+        color="primary"
+        lowercase
+        tighten
+    />
+</div>
