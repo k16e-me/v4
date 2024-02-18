@@ -19,11 +19,12 @@ const work = defineCollection({
         region: z.string(),
         client: z.object({
             name: z.string(),
+            shortname: z.string(),
             person: z.string(),
+            code: z.string().max(3),
         }),
         description: z.string().max(155),
-        doneDate: z.date(),
-        canonicalURL: z.string().url()
+        doneDate: z.date()
     })
 })
 const astro = defineCollection({
