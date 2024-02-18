@@ -1,0 +1,27 @@
+---
+import { Image } from 'astro:assets'
+
+const
+    {
+        image, alt, caption, orientation = 'profile',
+        class: classes, ...props
+    } = Astro.props
+---
+<figure class:list={[
+    '',
+    orientation == 'profile' && 'w-full sm:w-64 md:w-96',
+    classes
+]} { ...props }>
+    <Image
+        src={ image }
+        alt={ alt }
+        class:list={[
+            '',
+            orientation == 'profile' && 'object-contain object-top'
+        ]}
+    />
+    <figcaption
+        set:text={ caption }
+        class="bg-accent-500 p-2.5 text-sm leading-4 italic"
+    />
+</figure>

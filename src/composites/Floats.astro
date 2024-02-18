@@ -1,0 +1,49 @@
+---
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import Prose from '@atoms/Prose.astro'
+import Figure from '@blocks/Figure.astro'
+
+const
+    {
+        title,
+        float = 'left',
+        padding = 'bottom',
+        tag = 'section',
+        image, alt, caption,
+        class: classes, ...props
+    } = Astro.props
+---
+<Section
+    tag={ tag }
+    component="floats"
+    title={ title }
+    padding={ padding }
+    class:list="invisible"
+    data-entry="below">
+    <Wrapper x={ false }>
+        <div
+            class:list={[
+                'col-span-full'
+            ]}>
+            { image && (
+                <Figure
+                    class:list={[
+                        'float-none',
+                        float == 'left' && 'sm:float-left',
+                        float == 'right' && 'sm:float-right'
+                    ]}
+                    image={ image }
+                    alt={ alt }
+                    caption={ caption }
+                />
+            )}
+            <Prose
+                class:list={[
+                    ''
+                ]}>
+                <slot/>
+            </Prose>
+        </div>
+    </Wrapper>
+</Section>
