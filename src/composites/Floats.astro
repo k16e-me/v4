@@ -25,14 +25,14 @@ const
     <Wrapper x>
         <div
             class:list={[
-                'col-span-full lg:col-start-2 lg:col-end-12 xl:col-start-3 xl:col-end-11'
+                'col-span-full lg:col-start-2 lg:col-end-12 xl:col-start-3 xl:col-end-11 grid grid-cols-12 gap-8'
             ]}>
             { image && (
                 <Figure
                     class:list={[
-                        'float-none mb-8',
-                        float == 'left' && 'sm:float-left sm:mr-8',
-                        float == 'right' && 'sm:float-right sm:ml-8'
+                        'col-span-full',
+                        float == 'left' && 'sm:col-start-1 sm:col-end-6',
+                        float == 'right' && ''
                     ]}
                     image={ image }
                     alt={ alt }
@@ -41,7 +41,9 @@ const
             )}
             <Prose
                 class:list={[
-                    'sm:-mt-2'
+                    'col-span-full sm:-mt-2',
+                    float == 'left' && 'sm:col-start-6 sm:col-span-9',
+                    float == 'right' && ''
                 ]}>
                 <slot/>
             </Prose>

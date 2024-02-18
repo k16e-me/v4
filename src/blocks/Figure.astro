@@ -9,19 +9,19 @@ const
 ---
 <figure class:list={[
     '',
-    orientation == 'profile' && 'w-full sm:w-64 md:w-80',
+    orientation == 'profile' && 'size-full',
     classes
 ]} { ...props }>
     <Image
         src={ image }
         alt={ alt }
         class:list={[
-            '',
-            orientation == 'profile' && 'object-contain object-top'
+            'size-full',
+            orientation == 'profile' && 'object-cover object-top h-[456px] md:max-h-[480px]'
         ]}
     />
     <figcaption
         set:text={ caption }
-        class="bg-accent-500 p-2.5 text-sm leading-4 italic"
+        class="bg-accent-500 p-3 text-sm italic"
     />
 </figure>
