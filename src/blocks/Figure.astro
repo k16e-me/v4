@@ -8,8 +8,6 @@ const
     } = Astro.props
 ---
 <figure class:list={[
-    '',
-    orientation == 'profile' && 'size-full',
     classes
 ]} { ...props }>
     <Image
@@ -17,7 +15,7 @@ const
         alt={ alt }
         class:list={[
             'size-full',
-            orientation == 'profile' && 'object-cover object-top h-[456px] md:max-h-[480px]'
+            orientation == 'profile' && 'object-cover object-top h-[480px] xs:h-[520px] sm:h-80 md:h-[400px] lg:h-[480px]'
         ]}
     />
     <figcaption

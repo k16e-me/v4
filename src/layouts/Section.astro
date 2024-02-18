@@ -16,6 +16,7 @@ const
         `_section _section-${ component }`,
         padding === 'both' && _py(),
         padding === 'bottom' && _pb(),
+        padding === 'none' && '',
         classes
     ]} { ...attrs }>
     { title && <h2 set:text={ title } class="sr-only"/> }
