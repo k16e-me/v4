@@ -11,6 +11,7 @@ const
         padding = 'bottom',
         tag = 'section',
         image, alt, caption,
+        padX = true,
         class: classes, ...props
     } = Astro.props
 ---
@@ -21,10 +22,10 @@ const
     padding={ padding }
     class:list="invisible"
     data-entry="below">
-    <Wrapper x={ false }>
+    <Wrapper x>
         <div
             class:list={[
-                'col-span-full'
+                'col-span-full lg:col-start-2 lg:col-end-12 xl:col-start-3 xl:col-end-11'
             ]}>
             { image && (
                 <Figure
@@ -40,7 +41,7 @@ const
             )}
             <Prose
                 class:list={[
-                    ''
+                    'sm:-mt-2'
                 ]}>
                 <slot/>
             </Prose>
