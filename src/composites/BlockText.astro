@@ -10,10 +10,12 @@ const
         flipped,
         padding = 'bottom',
         blockColor,
+        tag = 'section',
         class: classes, ...props
     } = Astro.props
 ---
 <Section
+    tag={ tag }
     component="richtext"
     title={ title }
     padding={ padding }

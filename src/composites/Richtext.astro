@@ -7,12 +7,16 @@ const
     {
         title,
         alignment = 'centered',
+        textAlign,
         placement = 'packed',
         padding = 'bottom',
+        padX = true,
+        tag = 'section',
         class: classes, ...props
     } = Astro.props
 ---
 <Section
+    tag={ tag }
     component="richtext"
     title={ title }
     padding={ padding }
@@ -21,12 +25,15 @@ const
     <Wrapper x={ false }>
         <div
             class:list={[
-                'col-span-full xs:col-start-2 xs:col-end-12 place-self-center grid grid-cols-12 px-4 sm:px-8 lg:px-12'
+                'col-span-full grid grid-cols-12',
+                padX && 'px-4'
             ]}>
             <Prose
                 class:list={[
-                    alignment == 'centered' && 'place-self-center text-center',
-                    placement == 'packed' && 'col-span-full xs:col-start-2 xs:col-end-12 sm:col-start-4 sm:col-end-10 lg:col-start-5 lg:col-end-9'
+                    alignment == 'centered' && 'place-self-center',
+                    textAlign == 'center' && 'text-center',
+                    placement == 'packed' && 'col-span-full xs:col-start-2 xs:col-end-12 sm:col-start-4 sm:col-end-10 lg:col-start-5 lg:col-end-9',
+                    placement == 'spread' && 'col-span-full sm:col-start-2 sm:col-end-12 lg:col-start-3 lg:col-end-11 xl:col-start-4 xl:col-end-10'
                 ]}>
                 <slot/>
             </Prose>

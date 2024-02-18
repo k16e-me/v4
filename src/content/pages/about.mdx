@@ -4,6 +4,7 @@ title: About
 import Title from '@composites/Title.astro'
 import BlockText from '@composites/BlockText.astro'
 import Tiles from '@composites/Tiles.astro'
+import Richtext from '@composites/Richtext.astro'
 
 <Title
     title="The Big Vision"
@@ -11,7 +12,7 @@ import Tiles from '@composites/Tiles.astro'
     flipped={ true }
     swapped={ false }
 />
-<BlockText title="Our Vision">
+<BlockText tag="div">
     We want to be able to design everything, anything. As long as *our* touch can make it better, can transform it, and can improve lives, we want to design *that* thing.
 
     We can design a better spoon. We can design traffic—vehicular, human, even non-human. We can design sleep. We can design community...
@@ -22,3 +23,8 @@ import Tiles from '@composites/Tiles.astro'
     title="Our Core Focus"
     tiles={['Brand', 'Copy', 'Web', 'Mobile', 'Proto']}
 />
+<Richtext
+    placement="spread"
+    tag="div">
+    Our current focus includes brand design, responsive websites, progressive web applications, mobile apps, and web application frontends (mostly for SaaS products). But as we grow, we want to attract specialists in various fields to become consultants with us, using our [principles](https://gdi.k16e.co) and tastes to design everything.
+</Richtext>
