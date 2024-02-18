@@ -4,11 +4,9 @@ const
     _q = (selector, parent) => (parent ? parent : document).querySelector(selector),
     _ql = (selector, parent) => Array.from((parent ? parent : document).querySelectorAll(selector)),
     _transition = () => new Array('transition', 'duration-200', 'ease-linear'),
-    _padY = () => new Array('py-8', 'sm:py-12', 'lg:py-24'),
-    _padB = () => new Array('pb-8', 'sm:pb-12', 'lg:pb-24'),
-    _padT = () => new Array('pt-8', 'sm:pt-12', 'lg:pt-24'),
-    _gradientLight = () => new Array('bg-gradient-to-b', 'from-white', 'via-accent-50', 'to-white'),
-    _gradientSurface = () => new Array('bg-gradient-to-b', 'from-white', 'via-surface-50', 'to-white'),
+    _py = () => new Array('py-16', 'sm:py-20', 'lg:py-[5.55rem]'),
+    _pb = () => new Array('pb-16', 'sm:pb-20', 'lg:pb-[5.55rem]'),
+    _pt = () => new Array('pt-16', 'sm:pt-20', 'lg:pt-[5.55rem]'),
     _even = n => n % 2 == 0,
     _odd = n => Math.abs(n % 2) == 1,
     _capitalize = str => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
@@ -47,5 +45,5 @@ const _encode = data => {
 
 // Exports
 export {
-    _body, _empty, _q, _ql, _transition, _padY, _padB, _padT, _gradientLight, _gradientSurface, _scrollToTopOffset, _even, _odd, _capitalize, _encode
+    _body, _empty, _q, _ql, _transition, _py, _pb, _pt, _scrollToTopOffset, _even, _odd, _capitalize, _encode
 }

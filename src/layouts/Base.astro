@@ -2,8 +2,12 @@
 import Head from './Head.astro'
 import Header from './Header.astro'
 import TitleHidden from '../blocks/TitleHidden.astro'
+import { _pb } from '@scripts/snips'
 
-const { frontmatter } = Astro.props
+const
+    { frontmatter } = Astro.props,
+    isHome = Astro.url.pathname === '/'
+console.log(isHome)
 ---
 <!doctype html>
 <html lang="en" class="scroll-smooth bg-primary-950">
@@ -15,7 +19,12 @@ const { frontmatter } = Astro.props
         class="bg-primary-950 flex min-h-svh lg:min-h-dvh flex-col">
         <TitleHidden title={ frontmatter.data.title }/>
         <Header/>
-		<main class="swup-in" id="swup">
+		<main
+            class:list={[
+                'swup-in',
+                !isHome && _pb()
+            ]}
+            id="swup">
             <slot/>
         </main>
 	</body>
