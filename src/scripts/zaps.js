@@ -1,5 +1,8 @@
 import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/all'
 import { _ql, _q } from './snips'
+
+gsap.registerPlugin(ScrollTrigger)
 
 export default function _zaps() {
     const
@@ -10,5 +13,8 @@ export default function _zaps() {
 
     tl.from(above, { yPercent: -12, autoAlpha: 0 })
     tl.from(header, { yPercent: 12, autoAlpha: 0 })
-    _q('[data-entry="below"]') && tl.from(below, { yPercent: 12, autoAlpha: 0 })
+    _q('[data-entry="below"]') && tl.from(below, {
+        yPercent: 12,
+        autoAlpha: 0
+    })
 }
