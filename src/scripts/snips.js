@@ -4,9 +4,9 @@ const
     _q = (selector, parent) => (parent ? parent : document).querySelector(selector),
     _ql = (selector, parent) => Array.from((parent ? parent : document).querySelectorAll(selector)),
     _transition = () => new Array('transition', 'duration-200', 'ease-linear'),
-    _py = () => new Array('py-16', 'sm:py-20', 'lg:py-[5.55rem]'),
-    _pb = () => new Array('pb-16', 'sm:pb-20', 'lg:pb-[5.55rem]'),
-    _pt = () => new Array('pt-16', 'sm:pt-20', 'lg:pt-[5.55rem]'),
+    _py = () => new Array('py-16', 'sm:py-20', 'lg:py-[5.25rem]'),
+    _pb = () => new Array('pb-16', 'sm:pb-20', 'lg:pb-[5.25rem]'),
+    _pt = () => new Array('pt-16', 'sm:pt-20', 'lg:pt-[5.25rem]'),
     _even = n => n % 2 == 0,
     _odd = n => Math.abs(n % 2) == 1,
     _capitalize = str => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()

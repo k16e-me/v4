@@ -6,11 +6,13 @@ import Accentbar from '@atoms/Accentbar.astro'
 
 const {
     title, subtitle, flipped, swapped,
-    centered = true,
+    centered = true, padding = 'both',
     class: classes, ...props
 } = Astro.props
 ---
-<Section component="title">
+<Section
+    padding={ padding }
+    component="title">
     <Wrapper>
         <div
             class:list={[
