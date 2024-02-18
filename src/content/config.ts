@@ -22,6 +22,7 @@ const work = defineCollection({
             shortname: z.string(),
             person: z.string(),
             code: z.string().max(3),
+            color: z.coerce.string().max(6)
         }),
         description: z.string().max(155),
         doneDate: z.date()
