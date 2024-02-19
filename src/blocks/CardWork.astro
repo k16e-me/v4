@@ -1,18 +1,20 @@
 ---
 import Heading from '@atoms/Heading.astro'
+import _shade from '@scripts/shades-from'
 
 const
     {
         title, color = 'fddee1', tag,
         class: classes, ...props
-    } = Astro.props
+    } = Astro.props,
+    shade = _shade(color)
 ---
 <div
     class:list={[
         `h-80 w-full py-5 px-6 flex flex-col`,
         classes
     ]} { ...props }
-    style={ `background-color: #${color}` }>
+    style={ `background-color: ${shade.pastel()}` }>
     <span set:text={ tag } class="block self-end text-white/60 lowercase font-bold text-2xl"/>
     <div class="self-start mt-auto">
         <Heading
