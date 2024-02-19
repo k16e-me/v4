@@ -9,7 +9,8 @@ const
     _pt = () => new Array('pt-16', 'sm:pt-20', 'lg:pt-[5.25rem]'),
     _even = n => n % 2 == 0,
     _odd = n => Math.abs(n % 2) == 1,
-    _capitalize = str => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
+    _capitalize = str => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase(),
+    _contrast = () => new Array('contrast-[1.2]', 'brightness-[.75]')
 
 
 const _scrollToTopOffset = (target, offset = 56) => {
@@ -45,5 +46,5 @@ const _encode = data => {
 
 // Exports
 export {
-    _body, _empty, _q, _ql, _transition, _py, _pb, _pt, _scrollToTopOffset, _even, _odd, _capitalize, _encode
+    _body, _empty, _q, _ql, _transition, _py, _pb, _pt, _scrollToTopOffset, _even, _odd, _capitalize, _contrast, _encode
 }

@@ -22,7 +22,8 @@ const work = defineCollection({
             shortname: z.string(),
             person: z.string(),
             code: z.string().max(3),
-            color: z.coerce.string().max(6)
+            color: z.coerce.string().max(6),
+            svg: z.string().default('logo')
         }),
         description: z.string().max(155),
         date: z.date()

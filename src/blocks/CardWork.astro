@@ -1,17 +1,20 @@
 ---
 import Heading from '@atoms/Heading.astro'
 import _shade from '@scripts/shades-from'
+import Icon from '@atoms/Icon.astro'
+import { _contrast } from '@scripts/snips'
 
 const
     {
-        title, hue, tag,
+        title, hue, tag, svg,
         class: classes, ...props
     } = Astro.props,
     shade = _shade(hue)
 ---
 <div
     class:list={[
-        `h-80 w-full py-5 px-6 flex flex-col contrast-[1.2] brightness-[.8]`,
+        `h-80 w-full py-5 px-6 flex flex-col`,
+        _contrast(),
         classes
     ]} { ...props }
     style={ `background-color: ${shade.pastel()}` }>
@@ -28,4 +31,9 @@ const
             style={ `color: #${hue}` }
         />
     </div>
+    <Icon
+        name={ svg.toLowerCase() }
+        class:list="absolute bottom-0 inset-x-0 w-full opacity-5"
+        style={ `color: #${hue}` }
+    />
 </div>
