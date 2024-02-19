@@ -25,7 +25,7 @@ const work = defineCollection({
             color: z.coerce.string().max(6)
         }),
         description: z.string().max(155),
-        doneDate: z.date()
+        date: z.date()
     })
 })
 const astro = defineCollection({

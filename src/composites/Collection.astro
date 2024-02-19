@@ -12,7 +12,9 @@ const
     } = Astro.props,
     entries = await getCollection(collection, ({ data }) => {
         return import.meta.env.PROD ? data.isDraft !== true : true
-    })
+    }),
+    sortedEntries = entries.sort((a: any, b: any) => Date.parse(b.data.date) - Date.parse(a.data.date))
+
 console.log(entries)
 ---
 <Section
@@ -29,7 +31,7 @@ console.log(entries)
                     [&>*]:col-span-full [&>*]:md:col-span-6 [&>*]:xl:col-span-4
                 `
             ]}>
-            { entries.map((e: any) => (
+            { sortedEntries.map((e: any) => (
                 <li class="group/anchor">
                     <Anchor
                         href={ `/${e.collection}/${e.slug}` }
