@@ -13,28 +13,28 @@ export default function _hue(hex) {
         max = Math.max(r, g, b),
         min = Math.min(r, g, b)
 
-    let h = (max + min) / 2
+    let hue = (max + min) / 2
 
     if (max === min) {
         // Achromatic
-        return { h: 0 }
+        return { hue: 0 }
     }
 
     const d = max - min
 
     switch (max) {
         case r:
-            h = (g - b) / d + (g < b ? 6 : 0)
-            break
+            hue = (g - b) / d + (g < b ? 6 : 0)
+        break
         case g:
-            h = (b - r) / d + 2
-            break
+            hue = (b - r) / d + 2
+        break
         case b:
-            h = (r - g) / d + 4
-            break
+            hue = (r - g) / d + 4
+        break
     }
-    h /= 6
-    h = Math.round(360 * h)
+    hue /= 6
+    hue = Math.round(360 * hue)
 
-    return { h }
+    return { hue }
 }

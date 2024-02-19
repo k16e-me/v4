@@ -2,10 +2,14 @@ import _hue from './hue'
 
 export default function _shade(hex) {
     const
-        { h } = _hue(hex),
-        pastel = () => 'hsl(' + h + ', 100%, 90%)'
+        { hue } = _hue(hex),
+        pastel = () => `hsl(${hue}, 97%, 92%)`,
+        brand = () => `hsl(${hue}, 100%, 40%)`,
+        dark = () => `hsl(${hue - 1}, 73%, 26%)`
 
     return {
-        pastel
+        pastel,
+        brand,
+        dark
     }
 }
