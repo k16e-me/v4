@@ -9,11 +9,11 @@ const
 ---
 <div
     class:list={[
-        `h-80 w-full py-3 px-4 sm:py-5 sm:px-6 flex flex-col`,
+        `h-80 w-full py-5 px-6 flex flex-col`,
         classes
     ]} { ...props }
     style={ `background-color: #${color}` }>
-    <span set:text={ tag } class="block self-end text-white/60 lowercase tracking-wide font-extrabold text-xl"/>
+    <span set:text={ tag } class="block self-end text-white/60 lowercase font-bold text-2xl"/>
     <div class="self-start mt-auto">
         <Heading
             text={ title }
