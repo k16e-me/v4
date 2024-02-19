@@ -15,7 +15,7 @@ const work = defineCollection({
             src: z.string(),
             alt: z.string(),
         }),
-        tag: z.string().max(10),
+        tag: z.string().max(15),
         region: z.string(),
         client: z.object({
             name: z.string(),

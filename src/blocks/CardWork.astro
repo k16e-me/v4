@@ -3,7 +3,7 @@ import Heading from '@atoms/Heading.astro'
 
 const
     {
-        title, color = 'fddee1',
+        title, color = 'fddee1', tag,
         class: classes, ...props
     } = Astro.props
 ---
@@ -13,6 +13,7 @@ const
         classes
     ]} { ...props }
     style={ `background-color: #${color}` }>
+    <span set:text={ tag } class="block self-end text-white/60 lowercase tracking-wide font-extrabold text-xl"/>
     <div class="self-start mt-auto">
         <Heading
             text={ title }
