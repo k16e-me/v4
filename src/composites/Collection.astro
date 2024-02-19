@@ -3,6 +3,7 @@ import Section from '@layouts/Section.astro'
 import Wrapper from '@layouts/Wrapper.astro'
 import { getCollection } from 'astro:content'
 import CardWork from '@blocks/CardWork.astro'
+import Anchor from '@atoms/Anchor.astro'
 
 const
     {
@@ -12,6 +13,7 @@ const
     entries = await getCollection(collection, ({ data }) => {
         return import.meta.env.PROD ? data.isDraft !== true : true
     })
+console.log(entries)
 ---
 <Section
     component="collection"
@@ -20,7 +22,7 @@ const
     class:list="invisible"
     data-entry="below">
     <Wrapper x={ false }>
-        <div
+        <ul
             class:list={[
                 `
                     col-span-full grid grid-cols-12 gap-6 md:gap-8
@@ -28,11 +30,17 @@ const
                 `
             ]}>
             { entries.map((e: any) => (
-                <CardWork
-                    title={ e.data.client.name }
-                    color={ e.data.client.color }
-                />
+                <li class="group/anchor">
+                    <Anchor
+                        href={ `/${e.collection}/${e.slug}` }
+                        class:list="w-full">
+                        <CardWork
+                            title={ e.data.client.name }
+                            color={ e.data.client.color }
+                        />
+                    </Anchor>
+                </li>
             )) }
-        </div>
+        </ul>
     </Wrapper>
 </Section>
