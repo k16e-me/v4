@@ -9,14 +9,16 @@ const
 ---
 <div
     class:list={[
-        `h-80 w-full py-3 px-4 sm:py-5 sm:px-7`,
+        `h-80 w-full py-3 px-4 sm:py-5 sm:px-6 flex flex-col`,
         classes
     ]} { ...props }
     style={ `background-color: #${color}` }>
-    <Heading
-        text={ title }
-        size="mdx"
-        weight="extra"
-        color="white"
-    />
+    <div class="self-start mt-auto">
+        <Heading
+            text={ title }
+            size="mdx"
+            weight="extra"
+            color="white"
+        />
+    </div>
 </div>

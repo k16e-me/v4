@@ -14,8 +14,6 @@ const
         return import.meta.env.PROD ? data.isDraft !== true : true
     }),
     sortedEntries = entries.sort((a: any, b: any) => Date.parse(b.data.date) - Date.parse(a.data.date))
-
-console.log(entries)
 ---
 <Section
     component="collection"
@@ -35,7 +33,7 @@ console.log(entries)
                 <li class="group/anchor">
                     <Anchor
                         href={ `/${e.collection}/${e.slug}` }
-                        class:list="w-full">
+                        class:list="w-full group-hover/anchor:scale-95">
                         <CardWork
                             title={ e.data.client.name }
                             color={ e.data.client.color }
