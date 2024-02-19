@@ -4,10 +4,10 @@ import _shade from '@scripts/shades-from'
 
 const
     {
-        title, color = 'fddee1', tag,
+        title, hue, tag,
         class: classes, ...props
     } = Astro.props,
-    shade = _shade(color)
+    shade = _shade(hue)
 ---
 <div
     class:list={[
