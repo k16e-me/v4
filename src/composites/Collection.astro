@@ -9,7 +9,9 @@ const
         title, collection, padding,
         class: classes, ...props
     } = Astro.props,
-    entries = await getCollection(collection)
+    entries = await getCollection(collection, ({ data }) => {
+        return import.meta.env.PROD ? data.isDraft !== true : true
+    })
 ---
 <Section
     component="collection"
