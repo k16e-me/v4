@@ -4,7 +4,7 @@ export default function _shade(hex) {
     const
         { hue } = _hue(hex),
         pastel = () => `hsl(${hue}, 97%, 92%)`,
-        dark = () => `hsl(${hue - 1}, 73%, 26%)`
+        dark = () => `hsl(${hue - 1}, 83%, 14%)`
 
     return {
         pastel,
