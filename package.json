@@ -21,7 +21,7 @@
         "@swup/scroll-plugin": "^3.3.2",
         "astro": "^4.4.0",
         "astro-pages": "^0.1.4",
-        "astro-seo": "^0.8.0",
+        "astro-seo": "^0.8.2",
         "gsap": "^3.12.5",
         "nanostores": "^0.9.5",
         "swup": "^4.6.0",
