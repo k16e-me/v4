@@ -70,7 +70,7 @@ const
                 hue={ hue }
                 worktag={ worktag }
                 svg={ svg }
-                permalink={ `k16e.co${Astro.url.pathname}` }
+                permalink={ `k16e.co${Astro.url.pathname.replace('.html', '')}` }
             />
         </div>
     </Wrapper>
