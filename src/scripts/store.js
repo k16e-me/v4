@@ -1,5 +1,5 @@
 import { atom } from 'nanostores'
-import { persistentAtom } from '@nanostores/persistent'
+import { persistentAtom } from '../nanostores/persistent'
 
 export const
     _overlay = atom(false),

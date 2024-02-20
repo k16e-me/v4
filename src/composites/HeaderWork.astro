@@ -1,11 +1,12 @@
 ---
-import Section from '@layouts/Section.astro'
-import Wrapper from '@layouts/Wrapper.astro'
-import Heading from '@atoms/Heading.astro'
-import CardBrand from '@blocks/CardBrand.astro'
-import Icon from '@atoms/Icon.astro'
-import Anchor from '@atoms/Anchor.astro'
-import _shade from '@scripts/shades-from'
+import Section from '../layouts/Section.astro'
+import Wrapper from '../layouts/Wrapper.astro'
+import Heading from '../atoms/Heading.astro'
+import CardBrand from '../blocks/CardBrand.astro'
+import Icon from '../atoms/Icon.astro'
+import Anchor from '../atoms/Anchor.astro'
+import _shade from '../scripts/shades-from'
+import Prose from '../atoms/Prose.astro'
 
 const
     {
@@ -47,7 +48,7 @@ const
                         style={ `color: ${shade.pastel()}` }
                     />
                 </div>
-                <div class="flex flex-col space-y-3 sm:space-y-5">
+                <div class="flex flex-col space-y-4 sm:space-y-5">
                     <Heading
                         text={ headline }
                         level="h2"
@@ -57,9 +58,12 @@ const
                     />
                     <span
                         aria-hidden="true"
-                        class="block h-2 w-20 rounded-full"
+                        class="block h-1.5 w-20 rounded-full"
                         style={ `background-color: ${shade.light()}` }
                     />
+                    <Prose class:list="opacity-80 lg:!max-w-[576px]">
+                        <p set:text={ description }/>
+                    </Prose>
                 </div>
             </div>
             <CardBrand

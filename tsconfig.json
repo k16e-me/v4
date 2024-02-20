@@ -6,15 +6,5 @@
     "checkJs": false,
     "skipLibCheck": true,
     "jsx": "preserve",
-    "baseUrl": ".",
-    "paths": {
-        "@atoms/*": ["src/atoms/*"],
-        "@blocks/*": ["src/blocks/*"],
-        "@composites/*": ["src/composites/*"],
-        "@layouts/*": ["src/layouts/*"],
-        "@scripts/*": ["src/scripts/*"],
-        "@content/*": ["src/content/*"],
-        "@uploads/*": ["src/uploads/*"],
-    }
   }
 }

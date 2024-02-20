@@ -17,7 +17,7 @@ client:
 date: 2022-05-22
 isDraft: false
 ---
-import HeaderWork from '@composites/HeaderWork.astro'
+import HeaderWork from '../../composites/HeaderWork.astro'
 
 <HeaderWork
     headline={ frontmatter.client.name }
@@ -25,4 +25,5 @@ import HeaderWork from '@composites/HeaderWork.astro'
     worktag={ frontmatter.tag }
     svg={ frontmatter.client.svg }
     region={ frontmatter.region }
+    description={ frontmatter.description }
 />
