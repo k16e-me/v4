@@ -1,0 +1,38 @@
+---
+import Section from '../layouts/Section.astro'
+import Wrapper from '../layouts/Wrapper.astro'
+import Image from '../atoms/Image.astro'
+
+const
+    {
+        title,
+        padding = 'bottom',
+        images,
+        class: classes, ...props
+    } = Astro.props
+---
+<Section
+    component="gallery-twin"
+    title={ title }
+    padding={ padding }
+    class:list="invisible"
+    data-entry="below">
+    <Wrapper x={ false }>
+        <div
+            class:list={[
+                `
+                    col-span-full grid grid-cols-12 gap-4
+                    [&>*:first-child]:col-span-4 [&>*:last-child]:col-span-8
+                    [&>*:first-child]:lg:col-span-3 [&>*:last-child]:lg:col-span-9
+                `
+            ]}>
+            { images.map(e => (
+                <Image
+                    filename={ e.image }
+                    alt={ e.alt }
+                    typical={ e.typical }
+                />
+            )) }
+        </div>
+    </Wrapper>
+</Section>

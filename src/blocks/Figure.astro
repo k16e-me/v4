@@ -1,6 +1,5 @@
 ---
-import { _contrast } from '../scripts/snips'
-import { Image } from 'astro:assets'
+import Image from '../atoms/Image.astro'
 
 const
     {
@@ -12,13 +11,9 @@ const
     classes
 ]} { ...props }>
     <Image
-        src={ image }
+        filename={ image }
         alt={ alt }
-        class:list={[
-            'size-full',
-            _contrast(),
-            orientation == 'profile' && 'object-cover object-top h-[480px] xs:h-[520px] sm:h-80 md:h-[400px] lg:h-[480px]'
-        ]}
+        contrast
     />
     <figcaption
         set:text={ caption }

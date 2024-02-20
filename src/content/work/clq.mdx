@@ -18,6 +18,9 @@ date: 2022-05-22
 isDraft: false
 ---
 import HeaderWork from '../../composites/HeaderWork.astro'
+import GalleryTwin from '../../composites/GalleryTwin.astro'
+import mobile from '../../uploads/cliqueprize-website-mobile.webp'
+import desktop from '../../uploads/cliqueprize-website-desktop.webp'
 
 <HeaderWork
     headline={ frontmatter.client.name }
@@ -26,4 +29,10 @@ import HeaderWork from '../../composites/HeaderWork.astro'
     svg={ frontmatter.client.svg }
     region={ frontmatter.region }
     description={ frontmatter.description }
+/>
+<GalleryTwin
+    images={[
+        { image: mobile, alt: 'CliquePrize website mobile responsive view', typical: true, },
+        { image: desktop, alt: 'CliquePrize website desktop view', typical: true, }
+    ]}
 />
