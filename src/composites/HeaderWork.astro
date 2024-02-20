@@ -1,0 +1,42 @@
+---
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import Heading from '@atoms/Heading.astro'
+
+const
+    {
+        backlink, region, title, headline, description, worktag, permalink, sectiontag, padding,
+        class: classes, ...props
+    } = Astro.props
+---
+<Section
+    component="header-work"
+    title={ title }
+    padding={ padding || 'both' }
+    tag={ sectiontag }
+    class:list="invisible"
+    data-entry="above">
+    <Wrapper>
+        <div
+            class:list={[
+                `
+                    col-span-full xs:col-start-2 xs:col-end-12 grid grid-cols-12 gap-6 sm:gap-8
+                    [&>*]:col-span-full [&>*]:lg:col-span-6 [&>*:first-child]:xl:col-span-8 [&>*:last-child]:xl:col-span-4
+                `
+            ]}>
+            <div>
+                <Heading
+                    text={ headline }
+                    level="h2"
+                    size="lgx"
+                    weight="extra"
+                    color="white"
+                    tighten
+                />
+            </div>
+            <div class="text-white">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi voluptates iure alias ducimus error ipsam commodi consequuntur quas fugit omnis temporibus, perspiciatis optio debitis quo mollitia molestiae officia! Quos, eligendi?
+            </div>
+        </div>
+    </Wrapper>
+</Section>

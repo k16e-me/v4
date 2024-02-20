@@ -27,6 +27,5 @@ const
     { Content } = await entry.render()
 ---
 <Base frontmatter={ entry }>
-    { (entry.collection === 'work') && (<Work/>) }
-    { (entry.collection !== 'work') && (<Content/>) }
+    <Content/>
 </Base>
