@@ -17,8 +17,13 @@ client:
 date: 2022-11-30
 isDraft: false
 ---
-import HeaderWork from '../composites/HeaderWork.astro'
+import HeaderWork from '../../composites/HeaderWork.astro'
 
 <HeaderWork
     headline={ frontmatter.client.name }
+    hue={ frontmatter.client.color }
+    worktag={ frontmatter.tag }
+    svg={ frontmatter.client.svg }
+    region={ frontmatter.region }
+    description={ frontmatter.description }
 />
