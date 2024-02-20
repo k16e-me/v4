@@ -5,6 +5,7 @@ import navlist from '@content/settings/nav.json'
 import _slugify from '@scripts/slugify'
 import AnchorNav from '@atoms/AnchorNav.astro'
 import TitleHidden from '@blocks/TitleHidden.astro'
+import Brief from '@blocks/Brief.astro'
 
 const
     {
@@ -42,5 +43,6 @@ const
                 </li>
             )) }
         </ul>
+        <Brief class:list="fixed bottom-1/2 right-4"/>
     </Wrapper>
 </header>

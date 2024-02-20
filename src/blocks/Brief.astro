@@ -1,0 +1,21 @@
+---
+import Button from '@atoms/Button.astro'
+
+const {
+    class: classes, ...props
+} = Astro.props
+---
+<div
+    class:list={[
+        '',
+        classes
+    ]}
+    { ...props }>
+    <Button
+        text="Brief"
+        icon="calendar"
+        data-cal-link="k16e.co/brief"
+        data-cal-namespace=""
+        data-cal-config='{"layout":"month_view"}'
+    />
+</div>
