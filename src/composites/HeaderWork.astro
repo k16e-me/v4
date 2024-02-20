@@ -2,12 +2,14 @@
 import Section from '@layouts/Section.astro'
 import Wrapper from '@layouts/Wrapper.astro'
 import Heading from '@atoms/Heading.astro'
+import CardBrand from '@blocks/CardBrand.astro'
 
 const
     {
-        backlink, region, title, headline, description, worktag, permalink, sectiontag, padding,
+        backlink, region, title, headline, description, worktag, svg, permalink, sectiontag, padding, hue,
         class: classes, ...props
     } = Astro.props
+console.log(Astro.url)
 ---
 <Section
     component="header-work"
@@ -20,8 +22,8 @@ const
         <div
             class:list={[
                 `
-                    col-span-full xs:col-start-2 xs:col-end-12 grid grid-cols-12 gap-6 sm:gap-8
-                    [&>*]:col-span-full [&>*]:lg:col-span-6 [&>*:first-child]:xl:col-span-8 [&>*:last-child]:xl:col-span-4
+                    col-span-full xs:col-start-2 xs:col-end-12 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8
+                    [&>*]:col-span-full [&>*]:lg:col-span-1 [&>*:first-child]:xl:col-span-2 [&>*:last-child]:xl:col-span-1
                 `
             ]}>
             <div>
@@ -31,12 +33,14 @@ const
                     size="lgx"
                     weight="extra"
                     color="white"
-                    tighten
                 />
             </div>
-            <div class="text-white">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi voluptates iure alias ducimus error ipsam commodi consequuntur quas fugit omnis temporibus, perspiciatis optio debitis quo mollitia molestiae officia! Quos, eligendi?
-            </div>
+            <CardBrand
+                hue={ hue }
+                worktag={ worktag }
+                svg={ svg }
+                permalink={ `k16e.co${Astro.url.pathname}` }
+            />
         </div>
     </Wrapper>
 </Section>

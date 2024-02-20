@@ -13,6 +13,7 @@ client:
     person: Rob Salermo
     code: CLQ
     color: "940E29"
+    svg: logo
 date: 2022-05-22
 isDraft: false
 ---
@@ -20,4 +21,7 @@ import HeaderWork from '@composites/HeaderWork.astro'
 
 <HeaderWork
     headline={ frontmatter.client.name }
+    hue={ frontmatter.client.color }
+    worktag={ frontmatter.tag }
+    svg={ frontmatter.client.svg }
 />

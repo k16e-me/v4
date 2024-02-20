@@ -1,0 +1,36 @@
+---
+import Heading from '@atoms/Heading.astro'
+import _shade from '@scripts/shades-from'
+import Icon from '@atoms/Icon.astro'
+
+const
+    {
+        hue, worktag, svg, permalink,
+        class: classes, ...props
+    } = Astro.props,
+    shade = _shade(hue)
+---
+<div
+    class:list={[
+        `h-80 w-full py-5 px-6 flex flex-col relative`,
+        classes
+    ]} { ...props }
+    style={ `background-color: #${hue}` }>
+    <Heading
+        text={ worktag }
+        size="mdx"
+        weight="extra"
+        class:list="self-end"
+        style={ `color: ${shade.pastel()}` }
+    />
+    <span
+        set:text={ permalink }
+        class="block uppercase font-bold text-2xl mt-auto"
+        style={ `color: ${shade.pastel()}` }
+    />
+    <Icon
+        name={ svg.toLowerCase() }
+        class:list="absolute bottom-0 inset-x-0 w-full opacity-5"
+        style={ `color: ${shade.pastel()}` }
+    />
+</div>
