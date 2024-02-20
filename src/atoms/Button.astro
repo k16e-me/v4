@@ -9,9 +9,10 @@ const {
 ---
 <button
     class:list={[
-        'inline-flex items-center justify-center text-primary-950 bg-accent-500 size-14 rounded-full',
+        'inline-flex items-center justify-center text-primary-950 bg-accent-500 size-14 sm:h-14 sm:w-full sm:px-5 rounded-full shadow-2xl',
         _transition(),
         classes
     ]} { ...props }>
-    <Icon name={ icon } class:list="w-6">
+    <Icon name={ icon } class:list="w-6"/>
+    <span set:text={ text } class="!ml-1.5 font-medium text-lg sr-only sm:not-sr-only"/>
 </button>
