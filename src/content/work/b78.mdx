@@ -17,4 +17,8 @@ client:
 date: 2023-12-05
 isDraft: false
 ---
-Bank 78
+import HeaderWork from '@composites/HeaderWork.astro'
+
+<HeaderWork
+    headline={ frontmatter.client.name }
+/>

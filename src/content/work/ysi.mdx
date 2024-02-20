@@ -17,4 +17,8 @@ client:
 date: 2022-12-15
 isDraft: false
 ---
-Yorubasiti
+import HeaderWork from '@composites/HeaderWork.astro'
+
+<HeaderWork
+    headline={ frontmatter.client.name }
+/>

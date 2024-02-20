@@ -17,4 +17,8 @@ client:
 date: 2023-11-21
 isDraft: false
 ---
-Turnix
+import HeaderWork from '@composites/HeaderWork.astro'
+
+<HeaderWork
+    headline={ frontmatter.client.name }
+/>
