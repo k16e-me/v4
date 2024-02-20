@@ -48,6 +48,7 @@ const
     import _words from '../scripts/words'
     import { _body, _q, _ql } from '@scripts/snips'
     import _zaps from '@scripts/zaps'
+    import _brief from '@scripts/brief'
 
 
     const swup = new Swup({
@@ -71,6 +72,7 @@ const
     function init() {
         _active()
         _words()
+        _brief()
     }
 
     function once() {
