@@ -1,0 +1,29 @@
+---
+import Section from '../layouts/Section.astro'
+import Wrapper from '../layouts/Wrapper.astro'
+import Image from '../atoms/Image.astro'
+
+const
+    {
+        title,
+        padding = 'bottom',
+        image,
+        class: classes, ...props
+    } = Astro.props
+---
+<Section
+    component="gallery-twin"
+    title={ title }
+    padding={ padding }
+    class:list="invisible"
+    data-entry="below">
+    <Wrapper x={ false }>
+        <div class="col-span-full">
+            <Image
+                filename={ image.filename }
+                alt={ image.alt }
+                noholdsbarred
+            />
+        </div>
+    </Wrapper>
+</Section>

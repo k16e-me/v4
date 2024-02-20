@@ -10,7 +10,7 @@ const
         float = 'left',
         padding = 'bottom',
         tag = 'section',
-        image, alt, caption,
+        image,
         padX = true,
         class: classes, ...props
     } = Astro.props
@@ -34,9 +34,10 @@ const
                         float == 'left' && 'sm:col-start-1 sm:col-end-6',
                         float == 'right' && ''
                     ]}
-                    image={ image }
-                    alt={ alt }
-                    caption={ caption }
+                    image={ image.filename }
+                    alt={ image.alt }
+                    caption={ image.caption }
+                    orientation={ image.orientation }
                 />
             )}
             <Prose
