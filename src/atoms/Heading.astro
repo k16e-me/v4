@@ -1,7 +1,7 @@
 ---
 const
     {
-        level, text, size, uppercase, lowercase, weight, tighten, loosen, color, nowrap,
+        level, text, size, uppercase, lowercase, weight, tighten, loosen, color, nowrap, italic,
         class: classes, ...attrs
     } = Astro.props
 ---
@@ -36,6 +36,7 @@ const
         tighten && '-tracking-wide',
         loosen && 'tracking-wider',
         nowrap && 'whitespace-nowrap',
+        italic && 'italic',
 
         // Classes Passed In
         classes

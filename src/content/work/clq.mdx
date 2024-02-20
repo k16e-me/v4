@@ -21,6 +21,7 @@ import HeaderWork from '../../composites/HeaderWork.astro'
 import GalleryTwin from '../../composites/GalleryTwin.astro'
 import mobile from '../../uploads/cliqueprize-website-mobile.webp'
 import desktop from '../../uploads/cliqueprize-website-desktop.webp'
+import QuoteFill from '../../composites/QuoteFill.astro'
 
 <HeaderWork
     headline={ frontmatter.client.name }
@@ -31,8 +32,13 @@ import desktop from '../../uploads/cliqueprize-website-desktop.webp'
     description={ frontmatter.description }
 />
 <GalleryTwin
+    title="CliquePrize website responsive views"
     images={[
         { image: mobile, alt: 'CliquePrize website mobile responsive view', typical: true, },
         { image: desktop, alt: 'CliquePrize website desktop view', typical: true, }
     ]}
+/>
+<QuoteFill
+    title="Partial quote from Rob Salermo"
+    quote="Outstanding work!"
 />
