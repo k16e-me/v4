@@ -22,7 +22,7 @@ export default function _brief() {
         calAttrs(contact)
     })
 
-    if (location.pathname === '/brief') {
+    if (location.pathname === '/brief' || location.pathname === '/contact') {
         location.replace('/')
     }
 }
