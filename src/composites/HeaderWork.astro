@@ -3,13 +3,19 @@ import Section from '@layouts/Section.astro'
 import Wrapper from '@layouts/Wrapper.astro'
 import Heading from '@atoms/Heading.astro'
 import CardBrand from '@blocks/CardBrand.astro'
+import Icon from '@atoms/Icon.astro'
+import Anchor from '@atoms/Anchor.astro'
+import _shade from '@scripts/shades-from'
 
 const
     {
         backlink, region, title, headline, description, worktag, svg, permalink, sectiontag, padding, hue,
         class: classes, ...props
-    } = Astro.props
-console.log(Astro.url)
+    } = Astro.props,
+    url = Astro.url,
+    pathname = url.pathname,
+    parent = pathname.split('/')[1],
+    shade = _shade(hue)
 ---
 <Section
     component="header-work"
@@ -18,22 +24,43 @@ console.log(Astro.url)
     tag={ sectiontag }
     class:list="invisible"
     data-entry="above">
-    <Wrapper>
+    <Wrapper x={ false }>
         <div
             class:list={[
                 `
-                    col-span-full xs:col-start-2 xs:col-end-12 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8
+                    col-span-full md:col-start-2 md:col-end-12 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 sm:gap-y-12
                     [&>*]:col-span-full [&>*]:lg:col-span-1 [&>*:first-child]:xl:col-span-2 [&>*:last-child]:xl:col-span-1
                 `
             ]}>
-            <div>
-                <Heading
-                    text={ headline }
-                    level="h2"
-                    size="lgx"
-                    weight="extra"
-                    color="white"
-                />
+            <div class="px-4 md:px-0">
+                <div class="flex items-center space-x-3">
+                    <Anchor
+                        href={ `/${parent}` }
+                        class:list="p-4 !pl-0"
+                        style={ `color: ${shade.pastel()}` }>
+                        <Icon name="arrow-left" class="w-7 sm:w-9"/>
+                        <span set:text="Back to Work" class="sr-only"/>
+                    </Anchor>
+                    <span
+                        set:text={ region }
+                        class="block font-medium text-xl sm:text-2xl opacity-70"
+                        style={ `color: ${shade.pastel()}` }
+                    />
+                </div>
+                <div class="flex flex-col space-y-3 sm:space-y-5">
+                    <Heading
+                        text={ headline }
+                        level="h2"
+                        size="lgx"
+                        weight="extra"
+                        color="white"
+                    />
+                    <span
+                        aria-hidden="true"
+                        class="block h-2 w-20 rounded-full"
+                        style={ `background-color: ${shade.light()}` }
+                    />
+                </div>
             </div>
             <CardBrand
                 hue={ hue }
