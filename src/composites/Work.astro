@@ -1,0 +1,20 @@
+---
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+
+const
+    {
+        title, collection, padding,
+        class: classes, ...props
+    } = Astro.props
+---
+<Section
+    component="collection"
+    title={ title }
+    padding={ padding }
+    class:list="invisible"
+    data-entry="below">
+    <Wrapper x={ false }>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, impedit inventore iusto magnam et assumenda quas laboriosam. Mollitia totam natus delectus labore. Placeat maiores iusto ipsa, consequuntur autem natus veniam?
+    </Wrapper>
+</Section>

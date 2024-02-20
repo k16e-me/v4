@@ -3,13 +3,15 @@ import { z, defineCollection } from 'astro:content'
 const pages = defineCollection({
     type: 'content',
     schema: z.object({
-        title: z.string()
+        title: z.string(),
+        description: z.string().max(155),
     })
 })
 const work = defineCollection({
     type: 'content',
     schema: z.object({
         title: z.string(),
+        description: z.string().max(155),
         isDraft: z.boolean(),
         cover: z.object({
             src: z.string(),
@@ -25,14 +27,13 @@ const work = defineCollection({
             color: z.coerce.string().max(6),
             svg: z.string().default('logo')
         }),
-        description: z.string().max(155),
-        date: z.date()
+        date: z.date(),
     })
 })
 const astro = defineCollection({
     type: 'content',
     schema: z.object({
-        title: z.string()
+        title: z.string(),
     })
 })
 
