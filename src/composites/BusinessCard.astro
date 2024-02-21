@@ -7,7 +7,7 @@ import CardBusiness from '../blocks/CardBusiness.astro'
 
 const
     {
-        title, link, hue, logo,
+        title, link, hue, logo, card,
         padding = 'bottom',
         class: classes, ...props
     } = Astro.props
@@ -22,14 +22,13 @@ const
         <div class="col-span-full sm:col-start-2 sm:col-end-12 place-self-cente">
             <Anchor
                 href={ link }
-                class:list={[
-                    'w-full'
-                ]}
+                class:list={['w-full hover:scale-95']}
                 target="_blank"
                 rel="nofollow noopener">
                 <CardBusiness
                     hue={ hue }
                     logo={ logo }
+                    card={ card }
                 />
             </Anchor>
         </div>

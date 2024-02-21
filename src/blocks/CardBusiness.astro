@@ -2,13 +2,15 @@
 import Heading from '../atoms/Heading.astro'
 import _shade from '../scripts/shades-from'
 import Icon from '../atoms/Icon.astro'
+import { string } from 'astro/zod'
 
 const
     {
-        hue, worktag, logo, permalink,
+        hue, logo, card,
         class: classes, ...props
     } = Astro.props,
-    shade = _shade(hue)
+    shade = _shade(hue),
+    cardObj = Object.fromEntries(Object.entries(card).filter(([key]) => key !== 'link'))
 ---
 <div
     class:list={[
@@ -16,42 +18,19 @@ const
         classes
     ]}
     style={ `background-color: #${hue}` }>
-    <dl class="self-end text-right space-y-4 max-w-md z-[2]">
-        <div class="font-medium">
-            <dt class="opacity-70 text-xs uppercase tracking-wider font-bold">Consultant:</dt>
-            <dd class="font-medium">kb</dd>
-        </div>
-        <div class="font-medium">
-            <dt class="opacity-70 text-xs uppercase tracking-wider font-bold">Collaborators:</dt>
-            <dd>
-                <p>
-                    George Ikem, UI<br />
-                    Deborah Edemhanria, Second Eye
-                </p>
-            </dd>
-        </div>
-        <div class="font-medium">
-            <dt class="opacity-70 text-xs uppercase tracking-wider font-bold">Technologies:</dt>
-            <dd>
-                <p>
-                    Storyblok<br />
-                    Nuxt + TailwindCSS<br />
-                    Github + MS Azure
-                </p>
-            </dd>
-        </div>
-        <div class="font-medium">
-            <dt class="opacity-70 text-xs uppercase tracking-wider font-bold">Client:</dt>
-            <dd><p>Rob Salerno, Cinnamon Entertainment Group LLC</p></dd>
-        </div>
-        <div class="font-medium">
-            <dt class="opacity-70 text-xs uppercase tracking-wider font-bold">Locale:</dt>
-            <dd><p>Nashville, Tennessee, USA</p></dd>
-        </div>
+    <dl class="self-end text-right space-y-4 max-w-md z-[2] font-semibold">
+        { Object.entries(cardObj).map(e => (
+            <div>
+                <dt set:text={ `${e[0]}:` } class="opacity-70 text-xs uppercase tracking-widest"/>
+                {
+                    (typeof e[1] === 'string') ? <dd set:text={ e[1] }/> : e[1].map(e => <dd set:text={ e }/>)
+                }
+            </div>
+        )) }
     </dl>
     <div class="flex items-center pt-6 z-[2]">
-        <span class="text-xl sm:text-2xl md:text-3xl font-bold sm:font-extrabold">Take a look at CliquePrize</span>
-        <Icon name="arrow-right-up" class:list="w-9 ml-1"/>
+        <span class="text-xl sm:text-2xl font-bold sm:font-extrabold">Take a look at CliquePrize</span>
+        <Icon name="arrow-right-up" class:list="w-6 sm:w-8 ml-1"/>
     </div>
     <Icon
         name={ logo }
