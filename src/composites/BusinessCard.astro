@@ -1,0 +1,35 @@
+---
+import Section from '../layouts/Section.astro'
+import Wrapper from '../layouts/Wrapper.astro'
+import Prose from '../atoms/Prose.astro'
+import Anchor from '../atoms/Anchor.astro'
+import CardBusiness from '../blocks/CardBusiness.astro'
+
+const
+    {
+        title, link, hue,
+        padding = 'bottom',
+        class: classes, ...props
+    } = Astro.props
+---
+<Section
+    component="business-card"
+    title={ title }
+    padding={ padding }
+    class:list="invisible"
+    data-entry="below">
+    <Wrapper>
+        <Anchor
+            href={ link }
+            class:list={[
+                'col-span-full place-self-center',
+
+            ]}
+            target="_blank"
+            rel="nofollow noopener">
+            <CardBusiness
+                hue={ hue }
+            />
+        </Anchor>
+    </Wrapper>
+</Section>

@@ -1,8 +1,11 @@
 ---
+isDraft: false
 region: Lagos, NG
 title: Composable website for Bank 78
 description: |
     Composable website for Nashville, TN's leading sweepstakes app service, helping businesses reap the reward of a meaningful dialog with their customers.
+color: 0067C7
+shortcode: B78
 cover:
     src: /uploads/clq.webp,
     alt: Bank 78 website home page
@@ -11,17 +14,14 @@ client:
     name: Bank 78
     shortname: Bank 78
     person: Rob Salermo
-    code: B78
-    color: 0067C7
     svg: bank-78
 date: 2023-12-05
-isDraft: false
 ---
 import HeaderWork from '../../composites/HeaderWork.astro'
 
 <HeaderWork
     headline={ frontmatter.client.name }
-    hue={ frontmatter.client.color }
+    hue={ frontmatter.color }
     worktag={ frontmatter.tag }
     svg={ frontmatter.client.svg }
     region={ frontmatter.region }

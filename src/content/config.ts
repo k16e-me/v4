@@ -10,25 +10,33 @@ const pages = defineCollection({
 const work = defineCollection({
     type: 'content',
     schema: z.object({
+        isDraft: z.boolean(),
+        region: z.string(),
         title: z.string(),
         description: z.string().max(155),
-        isDraft: z.boolean(),
+        color: z.coerce.string().max(6),
+        shortcode: z.string().max(3),
         cover: z.object({
             src: z.string(),
             alt: z.string(),
         }),
         tag: z.string().max(15),
-        region: z.string(),
         client: z.object({
             name: z.string(),
             shortname: z.string(),
             person: z.string(),
             role: z.string().default('Founder'),
-            code: z.string().max(3),
-            color: z.coerce.string().max(6),
             svg: z.string().default('logo')
         }),
         date: z.date(),
+        card: z.object({
+            consultant: z.string(),
+            collaborators: z.string().array().optional(),
+            technologies: z.string().array(),
+            client: z.string(),
+            locale: z.string(),
+            link: z.string().url().optional()
+        }).optional()
     })
 })
 const astro = defineCollection({

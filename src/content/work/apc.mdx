@@ -1,8 +1,11 @@
 ---
+isDraft: false
 region: Lagos, NG
 title: Composable website for Apace
 description: |
     Composable website for Nashville, TN's leading sweepstakes app service, helping businesses reap the reward of a meaningful dialog with their customers.
+color: D05006
+shortcode: APC
 cover:
     src: /uploads/clq.webp,
     alt: Apace website home page
@@ -11,17 +14,14 @@ client:
     name: Apace
     shortname: Apace
     person: Rob Salermo
-    code: CLQ
-    color: D05006
     svg: apace
 date: 2022-11-30
-isDraft: false
 ---
 import HeaderWork from '../../composites/HeaderWork.astro'
 
 <HeaderWork
     headline={ frontmatter.client.name }
-    hue={ frontmatter.client.color }
+    hue={ frontmatter.color }
     worktag={ frontmatter.tag }
     svg={ frontmatter.client.svg }
     region={ frontmatter.region }

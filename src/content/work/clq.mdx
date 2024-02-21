@@ -1,8 +1,11 @@
 ---
+isDraft: false
 region: Tennessee, US
 title: Composable website for CliquePrize
 description: |
     Composable website for Nashville, TN's leading sweepstakes app service, helping businesses reap the reward of a meaningful dialog with their customers.
+color: "940E29"
+shortcode: CLQ
 cover:
     src: /uploads/clq.webp,
     alt: CliquePrize website home page
@@ -12,17 +15,22 @@ client:
     shortname: CliquePrize
     person: Rob Salermo
     role: Founder
-    code: CLQ
-    color: "940E29"
     svg: logo
 date: 2022-05-22
-isDraft: false
+card:
+    consultant: kb
+    collaborators: ['George Ikem, UI', 'Deborah Edemhanria, Second Eye']
+    technologies: ['Storyblok', 'Nuxt + TailwindCSS', 'Github + MS Azure']
+    client: Rob Salerno, Cinnamon Entertainment Group LLC
+    locale: Nashville, Tennessee, USA
+    link: https://cliqueprize.com/
 ---
 import HeaderWork from '../../composites/HeaderWork.astro'
 import GalleryTwin from '../../composites/GalleryTwin.astro'
 import QuoteFill from '../../composites/QuoteFill.astro'
 import Quote from '../../composites/Quote.astro'
 import GalleryOne from '../../composites/GalleryOne.astro'
+import BusinessCard from '../../composites/BusinessCard.astro'
 import Story from '../../composites/Story.astro'
 import mobile from '../../uploads/cliqueprize-website-mobile.webp'
 import desktop from '../../uploads/cliqueprize-website-desktop.webp'
@@ -30,7 +38,7 @@ import pricingImage from '../../uploads/cliqueprize-website-pricing-page.webp'
 
 <HeaderWork
     headline={ frontmatter.client.name }
-    hue={ frontmatter.client.color }
+    hue={ frontmatter.color }
     worktag={ frontmatter.tag }
     svg={ frontmatter.client.svg }
     region={ frontmatter.region }
@@ -52,7 +60,7 @@ import pricingImage from '../../uploads/cliqueprize-website-pricing-page.webp'
     image={ { filename: pricingImage, alt: 'CliquePrize website mobile responsive view' } }
 />
 <Quote
-    hue={ frontmatter.client.color }
+    hue={ frontmatter.color }
     title="Full quote from Rob Salermo"
     quote="I must tell you KB, you do outstanding work! This has exceeded my expectations."
     person={ frontmatter.client.person }
@@ -71,3 +79,8 @@ import pricingImage from '../../uploads/cliqueprize-website-pricing-page.webp'
 
     CliquePrize seeks to create a meaningful dialog and understanding of customer needs and behaviors with small businesses through the power of digital promotions. K16E with kb as consultant has written a website that is a beautiful entry point to such noble goal.
 </Story>
+<BusinessCard
+    title="Summary details of and link to the CliquePrize website development project"
+    link={ frontmatter.card.link }
+    hue={ frontmatter.color }
+/>
