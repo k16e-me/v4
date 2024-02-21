@@ -7,22 +7,22 @@ color: 036C8D
 shortcode: TNX
 logo: turnix
 cover:
-    src: /uploads/clq.webp,
+    src: /uploads/turnix-brand-identity.png
     alt: Turnix website home page
 tag: Branding
 client:
     name: Turnix
     shortname: Turnix
-    person: Rob Salermo
+    person: Oluwatomi Ojemakinde
 date: 2023-11-21
 card:
     consultant: Kabolobari Benakole, kb
+    collaborators:
+        - Oluwatosin Alade, Brand Identity
     services:
         - Business Design
         - Brand Identity Design
         - Business Storytelling
-    collaborators:
-        - Oluwatosin Alade, Brand Identity
     technologies:
         - Evernote
         - Adobe Illustrator
@@ -31,8 +31,11 @@ card:
     locale: Lagos, Nigeria
     link: https://drive.google.com/drive/folders/1sC6bHPSxa2Yzv22TLAAUEv_eVOxtdr7k
 ---
+import cover from '../../uploads/turnix-brand-identity.png'
+
 import HeaderWork from '../../composites/HeaderWork.astro'
 import BusinessCard from '../../composites/BusinessCard.astro'
+import GalleryOne from '../../composites/GalleryOne.astro'
 
 <HeaderWork
     headline={ frontmatter.client.name }
@@ -42,6 +45,10 @@ import BusinessCard from '../../composites/BusinessCard.astro'
     worktag={ frontmatter.tag }
     logo={ frontmatter.logo }
     region={ frontmatter.region }
+/>
+<GalleryOne
+    title="Turnix design cover card"
+    image={ { filename: cover, alt: 'Turnix design cover card' } }
 />
 <BusinessCard
     title="Summary details of and link to the Turnix project"
