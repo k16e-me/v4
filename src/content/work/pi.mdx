@@ -16,11 +16,32 @@ client:
     shortname: PayInvert
     person: Rob Green
 date: 2023-01-25
+card:
+    consultant: Kabolobari Benakole, kb
+    collaborators:
+        - George Ikem, UI,
+        - Angler Studios, Brand Identity
+    services:
+        - Business Design
+        - Brand Identity Design
+        - User Interface (UI) Design
+        - UI Engineering Consulting
+    technologies:
+        - Dropbox Paper
+        - Adobe Illustrator
+        - Miro + Figma
+        - Canva
+    client: Oluwatomi Ojemakinde, Turnix Homes & Real Estates Ltd.
+    locale: Lagos, Nigeria
+    link: https://payinvert.dev
 ---
 import cover from '../../uploads/payinvert-ad-banner-concept.webp'
+import product from '../../uploads/payinvert-product-design-views.webp'
 
 import HeaderWork from '../../composites/HeaderWork.astro'
 import GalleryOne from '../../composites/GalleryOne.astro'
+import Story from '../../composites/Story.astro'
+import BusinessCard from '../../composites/BusinessCard.astro'
 
 <HeaderWork
     headline={ frontmatter.client.name }
@@ -34,4 +55,29 @@ import GalleryOne from '../../composites/GalleryOne.astro'
 <GalleryOne
     title="PayInvert brand identity banner ad concept"
     image={ { filename: cover, alt: 'PayInvert brand identity banner ad concept' } }
+/>
+<Story
+    title="Full story of the PayInvert business and brand design project"
+    split={ true }>
+    As businesses evolve to be more omnichannel, needing to provide a seamless experience to customers whether that be on a website, ecommerce store, mobile app, or the physical store, a more unified and complete payment suite becomes crucial to help deliver on promise.
+
+    PayInvert reimagined payment for every business and built from the ground up a more integrated and innovative suite of payment technologies. Now businesses only have to plug PayInvert and play hassle-free collecting payments across channels.
+
+    K16E has designed and documented a brand and visual identity for PayInvert that reflects its innovative take on integrated payments collection.
+
+    Accepting payments is the foundation of doing business. Money moves and must be collected and put away securely. But businesses trust their growth to technology. So that far beyond just helping them accept payments, technology has to support the sort of unified commerce that accelerates and sustains growth.
+
+    Rather than leave it to businesses to cobble together a set of varied solutions, we have "inverted" payment technologies. We built PayInvert from the ground up, like a suite that has to be kept live in a reciprocating engine to progressively enable business growth worldwide.
+</Story>
+<GalleryOne
+    title="PayInvert brand identity banner ad concept"
+    image={ { filename: product, alt: 'PayInvert brand identity banner ad concept' } }
+/>
+<BusinessCard
+    title="Summary details of and link to the PayInvert project"
+    link={ frontmatter.card.link }
+    hue={ frontmatter.color }
+    logo={ frontmatter.logo }
+    card={ frontmatter.card }
+    shortname={ frontmatter.client.shortname }
 />
