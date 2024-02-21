@@ -6,7 +6,7 @@ import { _contrast } from '../scripts/snips'
 
 const
     {
-        title, hue, tag, logo,
+        shortname, hue, tag, logo,
         class: classes, ...props
     } = Astro.props,
     shade = _shade(hue)
@@ -25,7 +25,7 @@ const
     />
     <div class="self-start mt-auto">
         <Heading
-            text={ title }
+            text={ shortname }
             size="mdx"
             weight="extra"
             style={ `color: #${hue}` }

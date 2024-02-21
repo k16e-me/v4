@@ -1,12 +1,11 @@
 ---
 isDraft: false
 region: Lagos, NG
-title: Composable website for Turnix
+title: Idenity & Business Design for Real Estate Upstart Turnix
+description: Turnix is a real estate company with "certified true inventory" of properties. The company hired K16E to design, brand, and storytell its budding business.
 color: 036C8D
 shortcode: TNX
 logo: turnix
-description: |
-    Composable website for Nashville, TN's leading sweepstakes app service, helping businesses reap the reward of a meaningful dialog with their customers.
 cover:
     src: /uploads/clq.webp,
     alt: Turnix website home page
@@ -16,13 +15,32 @@ client:
     shortname: Turnix
     person: Rob Salermo
 date: 2023-11-21
+card:
+    services: ['Business Design', 'Brand Identity Design', 'Business Storytelling']
+    consultant: kb
+    collaborators: ['Oluwatosin Alade, Brand Identity']
+    technologies: ['Evernote', 'Adobe Illustrator', 'Canva']
+    client: Oluwatomi Ojemakinde, Turnix Homes & Real Estates Ltd.
+    locale: Lagos, Nigeria
+    link: https://drive.google.com/drive/folders/1sC6bHPSxa2Yzv22TLAAUEv_eVOxtdr7k
 ---
 import HeaderWork from '../../composites/HeaderWork.astro'
+import BusinessCard from '../../composites/BusinessCard.astro'
 
 <HeaderWork
     headline={ frontmatter.client.name }
+    shortname={ frontmatter.client.shortname }
+    description={ frontmatter.description }
     hue={ frontmatter.color }
     worktag={ frontmatter.tag }
     logo={ frontmatter.logo }
     region={ frontmatter.region }
+/>
+<BusinessCard
+    title="Summary details of and link to the Turnix project"
+    link={ frontmatter.card.link }
+    hue={ frontmatter.color }
+    logo={ frontmatter.logo }
+    card={ frontmatter.card }
+    shortname={ frontmatter.client.shortname }
 />

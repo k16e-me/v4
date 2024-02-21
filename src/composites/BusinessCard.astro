@@ -7,7 +7,7 @@ import CardBusiness from '../blocks/CardBusiness.astro'
 
 const
     {
-        title, link, hue, logo, card,
+        title, link, hue, logo, card, shortname,
         padding = 'bottom',
         class: classes, ...props
     } = Astro.props
@@ -29,6 +29,7 @@ const
                     hue={ hue }
                     logo={ logo }
                     card={ card }
+                    shortname={ shortname }
                 />
             </Anchor>
         </div>

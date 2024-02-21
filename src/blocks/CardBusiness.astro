@@ -6,7 +6,7 @@ import { string } from 'astro/zod'
 
 const
     {
-        hue, logo, card,
+        hue, logo, card, shortname,
         class: classes, ...props
     } = Astro.props,
     shade = _shade(hue),
@@ -29,7 +29,7 @@ const
         )) }
     </dl>
     <div class="flex items-center pt-6 z-[2]">
-        <span class="text-xl sm:text-2xl font-bold sm:font-extrabold">Take a look at CliquePrize</span>
+        <span set:text={ `Take a look at ${shortname}` } class="text-xl sm:text-2xl font-bold"/>
         <Icon name="arrow-right-up" class:list="w-6 sm:w-8 ml-1"/>
     </div>
     <Icon

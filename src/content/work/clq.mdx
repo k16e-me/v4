@@ -2,8 +2,7 @@
 isDraft: false
 region: Tennessee, US
 title: Composable website for CliquePrize
-description: |
-    Composable website for Nashville, TN's leading sweepstakes app service, helping businesses reap the reward of a meaningful dialog with their customers.
+description: Composable website for Nashville, TN's leading sweepstakes app service, helping businesses reap the reward of a meaningful dialog with their customers.
 color: "940E29"
 shortcode: CLQ
 logo: logo
@@ -38,11 +37,12 @@ import pricingImage from '../../uploads/cliqueprize-website-pricing-page.webp'
 
 <HeaderWork
     headline={ frontmatter.client.name }
+    shortname={ frontmatter.client.shortname }
+    description={ frontmatter.description }
     hue={ frontmatter.color }
     worktag={ frontmatter.tag }
     logo={ frontmatter.logo }
     region={ frontmatter.region }
-    description={ frontmatter.description }
 />
 <GalleryTwin
     title="CliquePrize website responsive views"
@@ -85,4 +85,5 @@ import pricingImage from '../../uploads/cliqueprize-website-pricing-page.webp'
     hue={ frontmatter.color }
     logo={ frontmatter.logo }
     card={ frontmatter.card }
+    shortname={ frontmatter.client.shortname }
 />

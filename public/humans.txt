@@ -34,3 +34,4 @@ Web: HTML, CSS, & JS
 - Infinite looping gsap => GSAP Forum [https://gsap.com/community/forums/topic/37469-how-to-loop-a-gsap-animation-help/]
 - CSS nth-child generator => [https://nthchild.kawalekkodu.pl/en/]
 - Sorting collection by a param => Casey James Perno [https://caseyjamesperno.com/blog/sort-astro-glob/]
+- Filter an Object => Mastering JS [https://masteringjs.io/tutorials/fundamentals/filter-object]

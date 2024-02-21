@@ -1,0 +1,46 @@
+---
+isDraft: true
+region: Lagos, Nigeria
+title: Composable website for Komponents
+description: Composable website for Nashville, TN's leading sweepstakes app service, helping businesses reap the reward of a meaningful dialog with their customers.
+color: de3d31
+shortcode: KOM
+logo: komponents
+cover:
+    src: /uploads/clq.webp,
+    alt: Komponents website home page
+tag: Website
+client:
+    name: Komponents & Solutions Rack
+    shortname: Komponents
+    person: Niyi
+    role: Founder
+date: 2024-02-05
+card:
+    consultant: kb
+    collaborators: ['Philomena Kabolobari, Product Support']
+    technologies: ['Storyblok', 'Astro + TailwindCSS', 'Netlify']
+    client: Niyi
+    locale: Lagos, Nigeria
+    link: https://komponents-v2.k16e.co/
+---
+import HeaderWork from '../../composites/HeaderWork.astro'
+import BusinessCard from '../../composites/BusinessCard.astro'
+
+<HeaderWork
+    headline={ frontmatter.client.name }
+    shortname={ frontmatter.client.shortname }
+    description={ frontmatter.description }
+    hue={ frontmatter.color }
+    worktag={ frontmatter.tag }
+    logo={ frontmatter.logo }
+    region={ frontmatter.region }
+/>
+<BusinessCard
+    title="Summary details of and link to the Komponents project"
+    link={ frontmatter.card.link }
+    hue={ frontmatter.color }
+    logo={ frontmatter.logo }
+    card={ frontmatter.card }
+    shortname={ frontmatter.client.shortname }
+/>

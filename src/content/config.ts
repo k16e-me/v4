@@ -35,7 +35,8 @@ const work = defineCollection({
             technologies: z.string().array(),
             client: z.string(),
             locale: z.string(),
-            link: z.string().url().optional()
+            link: z.string().url().optional(),
+            services: z.string().array().optional()
         }).optional()
     })
 })
