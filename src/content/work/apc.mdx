@@ -6,6 +6,7 @@ description: |
     Composable website for Nashville, TN's leading sweepstakes app service, helping businesses reap the reward of a meaningful dialog with their customers.
 color: D05006
 shortcode: APC
+logo: apace
 cover:
     src: /uploads/clq.webp,
     alt: Apace website home page
@@ -14,7 +15,6 @@ client:
     name: Apace
     shortname: Apace
     person: Rob Salermo
-    svg: apace
 date: 2022-11-30
 ---
 import HeaderWork from '../../composites/HeaderWork.astro'
@@ -23,7 +23,7 @@ import HeaderWork from '../../composites/HeaderWork.astro'
     headline={ frontmatter.client.name }
     hue={ frontmatter.color }
     worktag={ frontmatter.tag }
-    svg={ frontmatter.client.svg }
+    logo={ frontmatter.logo }
     region={ frontmatter.region }
     description={ frontmatter.description }
 />

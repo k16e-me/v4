@@ -4,6 +4,7 @@ region: Lagos, NG
 title: Composable website for Turnix
 color: 036C8D
 shortcode: TNX
+logo: turnix
 description: |
     Composable website for Nashville, TN's leading sweepstakes app service, helping businesses reap the reward of a meaningful dialog with their customers.
 cover:
@@ -14,7 +15,6 @@ client:
     name: Turnix
     shortname: Turnix
     person: Rob Salermo
-    svg: turnix
 date: 2023-11-21
 ---
 import HeaderWork from '../../composites/HeaderWork.astro'
@@ -23,6 +23,6 @@ import HeaderWork from '../../composites/HeaderWork.astro'
     headline={ frontmatter.client.name }
     hue={ frontmatter.color }
     worktag={ frontmatter.tag }
-    svg={ frontmatter.client.svg }
+    logo={ frontmatter.logo }
     region={ frontmatter.region }
 />

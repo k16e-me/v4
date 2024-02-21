@@ -16,6 +16,7 @@ const work = defineCollection({
         description: z.string().max(155),
         color: z.coerce.string().max(6),
         shortcode: z.string().max(3),
+        logo: z.string().default('logo'),
         cover: z.object({
             src: z.string(),
             alt: z.string(),
@@ -25,8 +26,7 @@ const work = defineCollection({
             name: z.string(),
             shortname: z.string(),
             person: z.string(),
-            role: z.string().default('Founder'),
-            svg: z.string().default('logo')
+            role: z.string().default('Founder')
         }),
         date: z.date(),
         card: z.object({

@@ -6,6 +6,7 @@ description: |
     Composable website for Nashville, TN's leading sweepstakes app service, helping businesses reap the reward of a meaningful dialog with their customers.
 color: 19943C
 shortcode: PI
+logo: PayInvert
 cover:
     src: /uploads/clq.webp,
     alt: PayInvert website home page
@@ -14,7 +15,6 @@ client:
     name: PayInvert
     shortname: PayInvert
     person: Rob Salermo
-    svg: PayInvert
 date: 2023-01-25
 ---
 import HeaderWork from '../../composites/HeaderWork.astro'
@@ -23,7 +23,7 @@ import HeaderWork from '../../composites/HeaderWork.astro'
     headline={ frontmatter.client.name }
     hue={ frontmatter.color }
     worktag={ frontmatter.tag }
-    svg={ frontmatter.client.svg }
+    logo={ frontmatter.logo }
     region={ frontmatter.region }
     description={ frontmatter.description }
 />

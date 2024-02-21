@@ -6,7 +6,7 @@ import { _contrast } from '../scripts/snips'
 
 const
     {
-        title, hue, tag, svg,
+        title, hue, tag, logo,
         class: classes, ...props
     } = Astro.props,
     shade = _shade(hue)
@@ -32,7 +32,7 @@ const
         />
     </div>
     <Icon
-        name={ svg.toLowerCase() }
+        name={ logo.toLowerCase() }
         class:list="absolute bottom-0 inset-x-0 w-full opacity-[0.07]"
         style={ `color: #${hue}` }
     />

@@ -6,6 +6,7 @@ description: |
     Composable website for Nashville, TN's leading sweepstakes app service, helping businesses reap the reward of a meaningful dialog with their customers.
 color: 0384F1
 shortcode: YSI
+logo: Yorubasiti
 cover:
     src: /uploads/clq.webp,
     alt: Yorubasiti website home page
@@ -14,7 +15,6 @@ client:
     name: Yorubasiti
     shortname: Yorubasiti
     person: Rob Salermo
-    svg: Yorubasiti
 date: 2022-12-15
 ---
 import HeaderWork from '../../composites/HeaderWork.astro'
@@ -23,7 +23,7 @@ import HeaderWork from '../../composites/HeaderWork.astro'
     headline={ frontmatter.client.name }
     hue={ frontmatter.color }
     worktag={ frontmatter.tag }
-    svg={ frontmatter.client.svg }
+    logo={ frontmatter.logo }
     region={ frontmatter.region }
     description={ frontmatter.description }
 />

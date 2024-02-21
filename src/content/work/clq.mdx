@@ -6,6 +6,7 @@ description: |
     Composable website for Nashville, TN's leading sweepstakes app service, helping businesses reap the reward of a meaningful dialog with their customers.
 color: "940E29"
 shortcode: CLQ
+logo: logo
 cover:
     src: /uploads/clq.webp,
     alt: CliquePrize website home page
@@ -15,7 +16,6 @@ client:
     shortname: CliquePrize
     person: Rob Salermo
     role: Founder
-    svg: logo
 date: 2022-05-22
 card:
     consultant: kb
@@ -40,7 +40,7 @@ import pricingImage from '../../uploads/cliqueprize-website-pricing-page.webp'
     headline={ frontmatter.client.name }
     hue={ frontmatter.color }
     worktag={ frontmatter.tag }
-    svg={ frontmatter.client.svg }
+    logo={ frontmatter.logo }
     region={ frontmatter.region }
     description={ frontmatter.description }
 />
@@ -83,4 +83,5 @@ import pricingImage from '../../uploads/cliqueprize-website-pricing-page.webp'
     title="Summary details of and link to the CliquePrize website development project"
     link={ frontmatter.card.link }
     hue={ frontmatter.color }
+    logo={ frontmatter.logo }
 />

@@ -7,7 +7,7 @@ import CardBusiness from '../blocks/CardBusiness.astro'
 
 const
     {
-        title, link, hue,
+        title, link, hue, logo,
         padding = 'bottom',
         class: classes, ...props
     } = Astro.props
@@ -18,18 +18,20 @@ const
     padding={ padding }
     class:list="invisible"
     data-entry="below">
-    <Wrapper>
-        <Anchor
-            href={ link }
-            class:list={[
-                'col-span-full place-self-center',
-
-            ]}
-            target="_blank"
-            rel="nofollow noopener">
-            <CardBusiness
-                hue={ hue }
-            />
-        </Anchor>
+    <Wrapper x={ false }>
+        <div class="col-span-full sm:col-start-2 sm:col-end-12 place-self-cente">
+            <Anchor
+                href={ link }
+                class:list={[
+                    'w-full'
+                ]}
+                target="_blank"
+                rel="nofollow noopener">
+                <CardBusiness
+                    hue={ hue }
+                    logo={ logo }
+                />
+            </Anchor>
+        </div>
     </Wrapper>
 </Section>
