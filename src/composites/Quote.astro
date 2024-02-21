@@ -1,0 +1,38 @@
+---
+import Section from '../layouts/Section.astro'
+import Wrapper from '../layouts/Wrapper.astro'
+import Heading from '../atoms/Heading.astro'
+import { _capitalize } from '../scripts/snips'
+import _shade from '../scripts/shades-from'
+
+const
+    {
+        title, quote, person, role, hue,
+        padding = 'bottom',
+        class: classes, ...props
+    } = Astro.props,
+    shade = _shade(hue)
+---
+<Section
+    component="quote-fill"
+    title={ title }
+    padding={ padding }
+    class:list="invisible"
+    data-entry="below">
+    <Wrapper>
+        <blockquote class="col-span-full md:col-start-2 md:col-end-12 lg:col-start-3 lg:col-end-11 place-self-center">
+            <Heading
+                text={ `"${quote}"` }
+                level="p"
+                size="mdx"
+                weight="extra"
+                italic
+                style={ `color: ${shade.lightest()}` }
+            />
+            <cite class="block pt-8 not-italic" style={ `color: ${shade.pastel()}` }>
+                <span set:text={ _capitalize(person) } class="block text-2xl font-bold"/>
+                <span set:text={ _capitalize(role) } class="block text-xl font-medium opacity-70 tracking-wide italic"/>
+            </cite>
+        </blockquote>
+    </Wrapper>
+</Section>

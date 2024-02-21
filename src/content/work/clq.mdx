@@ -11,6 +11,7 @@ client:
     name: CliquePrize
     shortname: CliquePrize
     person: Rob Salermo
+    role: Founder
     code: CLQ
     color: "940E29"
     svg: logo
@@ -20,6 +21,7 @@ isDraft: false
 import HeaderWork from '../../composites/HeaderWork.astro'
 import GalleryTwin from '../../composites/GalleryTwin.astro'
 import QuoteFill from '../../composites/QuoteFill.astro'
+import Quote from '../../composites/Quote.astro'
 import GalleryOne from '../../composites/GalleryOne.astro'
 import mobile from '../../uploads/cliqueprize-website-mobile.webp'
 import desktop from '../../uploads/cliqueprize-website-desktop.webp'
@@ -47,4 +49,11 @@ import pricingImage from '../../uploads/cliqueprize-website-pricing-page.webp'
 <GalleryOne
     title="Another view of the CliquePrize website"
     image={ { filename: pricingImage, alt: 'CliquePrize website mobile responsive view' } }
+/>
+<Quote
+    hue={ frontmatter.client.color }
+    title="Full quote from Rob Salermo"
+    quote="I must tell you KB, you do outstanding work! This has exceeded my expectations."
+    person={ frontmatter.client.person }
+    role={ frontmatter.client.role }
 />

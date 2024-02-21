@@ -23,6 +23,7 @@ const work = defineCollection({
             name: z.string(),
             shortname: z.string(),
             person: z.string(),
+            role: z.string().default('Founder'),
             code: z.string().max(3),
             color: z.coerce.string().max(6),
             svg: z.string().default('logo')
