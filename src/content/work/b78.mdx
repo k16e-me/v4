@@ -1,5 +1,5 @@
 ---
-isDraft: true
+isDraft: false
 region: Lagos, NG
 title: Composable website for Bank 78
 description: |
@@ -8,7 +8,7 @@ color: 0067C7
 shortcode: B78
 logo: bank-78
 cover:
-    src: /uploads/clq.webp,
+    src: /uploads/clq.webp
     alt: Bank 78 website home page
 tag: Full Service
 client:
@@ -20,7 +20,7 @@ date: 2023-12-05
 import HeaderWork from '../../composites/HeaderWork.astro'
 
 <HeaderWork
-    headline={ frontmatter.client.name }
+    shortname={ frontmatter.client.shortname }
     hue={ frontmatter.color }
     worktag={ frontmatter.tag }
     logo={ frontmatter.logo }
