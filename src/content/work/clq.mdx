@@ -23,6 +23,7 @@ import GalleryTwin from '../../composites/GalleryTwin.astro'
 import QuoteFill from '../../composites/QuoteFill.astro'
 import Quote from '../../composites/Quote.astro'
 import GalleryOne from '../../composites/GalleryOne.astro'
+import Story from '../../composites/Story.astro'
 import mobile from '../../uploads/cliqueprize-website-mobile.webp'
 import desktop from '../../uploads/cliqueprize-website-desktop.webp'
 import pricingImage from '../../uploads/cliqueprize-website-pricing-page.webp'
@@ -57,3 +58,16 @@ import pricingImage from '../../uploads/cliqueprize-website-pricing-page.webp'
     person={ frontmatter.client.person }
     role={ frontmatter.client.role }
 />
+<Story
+    title="Full story of the CliquePrize website development project"
+    split={ true }>
+    It all started on the [Storyblok CMS Discord](https://discord.com/invite/WmMYYQp). Rob had set up [the new site, CliquePrize](https://www.cliqueprize.com/), on the CMS, had created a few legal pages to get something on the frontend for expedited approval at [the App Store](https://apps.apple.com/us/app/cliqueprize/id1581931190). And he was seeking a designer.
+
+    He’d hooked up the whole thing with an Angular setup on Azure. So, you could visit the URL’s, those legal links, you got web pages, yeah? But Rob needed a proper website (or, in today’s speak, a web app). A web app he and his team could manage from Storyblok, from where they could add content, compose new pages from pre-built and styled blocks, and add scripts and schemas from time to time.
+
+    kb picked up Rob’s offer on the Discord. They got talking, shared notes, and were able to produce a “Product Charter” which captured everything CliquePrize needed to become on the web at this point of the service, and how the web app could scale as the business behind it expands.
+
+    kb and team went to work remodeling CliquePrize’s Storyblok for easy content authoring and new page creation, chunked entire page UI’s into blocks built as Nuxt (Vue “single-file” components), styled exclusively with TailwindCSS. The entire development cycle lasting about 3 weeks was such a collaborative and fun experience, one that relished the easy parts but looked forward to and faced the harder challenges, picking up the new learnings that came with the ride.
+
+    CliquePrize seeks to create a meaningful dialog and understanding of customer needs and behaviors with small businesses through the power of digital promotions. K16E with kb as consultant has written a website that is a beautiful entry point to such noble goal.
+</Story>
