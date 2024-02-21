@@ -1,23 +1,26 @@
 ---
 isDraft: false
 region: Lagos, NG
-title: Composable website for PayInvert
+title: Business & Brand Design for PayInvert
 description: |
-    Composable website for Nashville, TN's leading sweepstakes app service, helping businesses reap the reward of a meaningful dialog with their customers.
+    Branding and identity design for PayInvert to be fit for purpose and design of its entire system of technologies, ensuring it can help businesses of all sizes collect payments on- or offline.
 color: 19943C
 shortcode: PI
 logo: PayInvert
 cover:
-    src: /uploads/clq.webp,
-    alt: PayInvert website home page
+    src: /uploads/payinvert-ad-banner-concept.webp,
+    alt: PayInvert Ad banner concept
 tag: Full Service
 client:
     name: PayInvert
     shortname: PayInvert
-    person: Rob Salermo
+    person: Rob Green
 date: 2023-01-25
 ---
+import cover from '../../uploads/payinvert-ad-banner-concept.webp'
+
 import HeaderWork from '../../composites/HeaderWork.astro'
+import GalleryOne from '../../composites/GalleryOne.astro'
 
 <HeaderWork
     headline={ frontmatter.client.name }
@@ -27,4 +30,8 @@ import HeaderWork from '../../composites/HeaderWork.astro'
     logo={ frontmatter.logo }
     region={ frontmatter.region }
     description={ frontmatter.description }
+/>
+<GalleryOne
+    title="PayInvert brand identity banner ad concept"
+    image={ { filename: cover, alt: 'PayInvert brand identity banner ad concept' } }
 />

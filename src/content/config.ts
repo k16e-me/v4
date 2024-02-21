@@ -4,7 +4,7 @@ const pages = defineCollection({
     type: 'content',
     schema: z.object({
         title: z.string(),
-        description: z.string().max(155),
+        description: z.string().max(200),
     })
 })
 const work = defineCollection({
@@ -13,7 +13,7 @@ const work = defineCollection({
         isDraft: z.boolean(),
         region: z.string(),
         title: z.string(),
-        description: z.string().max(155),
+        description: z.string().max(200),
         color: z.coerce.string().max(6),
         shortcode: z.string().max(3),
         logo: z.string().default('logo'),
