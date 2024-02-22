@@ -8,8 +8,8 @@ color: 0067C7
 shortcode: B78
 logo: bank-78
 cover:
-    src: /uploads/clq.webp
-    alt: Bank 78 website home page
+    src: /brands/thumbnail.png
+    alt: Bank 78 with K16E default website thumbnail
 tag: Full Service
 client:
     name: Bank 78
@@ -17,7 +17,10 @@ client:
     person: Rob Salermo
 date: 2023-12-05
 ---
+import cover from '../../uploads/bank78-brand-billboard-concept.png'
+
 import HeaderWork from '../../composites/HeaderWork.astro'
+import GalleryOne from '../../composites/GalleryOne.astro'
 
 <HeaderWork
     shortname={ frontmatter.client.shortname }
@@ -26,4 +29,8 @@ import HeaderWork from '../../composites/HeaderWork.astro'
     logo={ frontmatter.logo }
     region={ frontmatter.region }
     description={ frontmatter.description }
+/>
+<GalleryOne
+    title="Bank 78 brand design billboard concept"
+    image={ { filename: cover, alt: 'Bank 78 brand design billboard concept' } }
 />
