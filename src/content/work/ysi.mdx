@@ -1,23 +1,45 @@
 ---
 isDraft: false
 region: Lagos, NG
-title: Composable website for Yorubasiti
+title: Adorning Yorubasiti to Propagate Yoruba
 description: |
-    Composable website for Nashville, TN's leading sweepstakes app service, helping businesses reap the reward of a meaningful dialog with their customers.
+    Visual identity, brand positioning, and user interface design for Africa's first fully dedicated platform for immersion in and propagation of Yoruba.
 color: 0384F1
 shortcode: YSI
 logo: Yorubasiti
 cover:
-    src: /uploads/clq.webp,
-    alt: Yorubasiti website home page
-tag: Full Service
+    src: /brands/yorubasiti-letterhead-sample.jpeg
+    alt: Yorubasiti brand letterhead sample
+tag: branding
 client:
     name: Yorubasiti
     shortname: Yorubasiti
-    person: Rob Salermo
+    person: Olufunso Olunaike
 date: 2022-12-15
+card:
+    consultant: Kabolobari Benakole, kb
+    collaborators:
+        - George Ikem, UI
+        - Angler Studios, Brand Identity
+    services:
+        - Brand Identity Design
+        - User Interface (UI) Design
+        - Communication Strategy
+    technologies:
+        - Dropbox Paper
+        - Adobe Illustrator
+        - Miro + Figma
+        - Canva
+    client: Olufunso Olunaike, Founder Yorubasiti
+    locale: Lagos, Nigeria
+    link: https://useapace.com/
 ---
+import cover from '../../uploads/yorubasiti-letterhead-sample.jpeg'
+
 import HeaderWork from '../../composites/HeaderWork.astro'
+import GalleryOne from '../../composites/GalleryOne.astro'
+import Story from '../../composites/Story.astro'
+import BusinessCard from '../../composites/BusinessCard.astro'
 
 <HeaderWork
     shortname={ frontmatter.client.shortname }
@@ -26,4 +48,27 @@ import HeaderWork from '../../composites/HeaderWork.astro'
     logo={ frontmatter.logo }
     region={ frontmatter.region }
     description={ frontmatter.description }
+/>
+<GalleryOne
+    title="Yorubasiti brand letterhead sample"
+    image={ { filename: cover, alt: 'Yorubasiti brand letterhead sample' } }
+/>
+<Story
+    title="Full story of Apace business and brand design project"
+    split={ true }>
+    As one of the largest ethnic groups in Africa, Yoruba used to be a dominant cultural force. However, modern realities such as colonization, geographical bounding, diaspora, and exposure to Western civilization have had Yoruba in a glory less of a shine and strength.
+
+    The Yoruba early cosmogony and devotion to philosophy enabled its value system of mental acuity and advancement, mutual respect, peaceful co-existence, loyalty, and freedom of speech, and drove the people’s development of well-structured, urbanized, and powerful city-states. These city-states were the most populous in Africa in their days as they attracted peoples from all over the world and helped sustain the Yoruba domain.
+
+    Yorubasiti believes it can restore, sustain, and propagate Yoruba through its curations and creations in order to reflect its former glory. K16E’s kb and team have developed a brand identity that not only captures the essence of Yorubasiti but strikes (pun intended) at the heart of what is arguably one of its most played musical instrument — the agogo (double) bell.
+
+    The Yorubasiti project is tapping these bells with varying sonority to all Yoruba all over the world and those who love and want to know or be Yoruba that finally we’ve built the long-awaited instrument to sustain our musically pleasant richly adorned culture.
+</Story>
+<BusinessCard
+    title={ `Summary details of and link to ${frontmatter.client.name}` }
+    link={ frontmatter.card.link }
+    hue={ frontmatter.color }
+    logo={ frontmatter.logo }
+    card={ frontmatter.card }
+    shortname={ frontmatter.client.shortname }
 />
