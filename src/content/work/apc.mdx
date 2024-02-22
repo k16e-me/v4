@@ -1,23 +1,50 @@
 ---
 isDraft: false
 region: Lagos, NG
-title: Composable website for Apace
+title: Full Service Business & Brand Design for Apace
 description: |
-    Composable website for Nashville, TN's leading sweepstakes app service, helping businesses reap the reward of a meaningful dialog with their customers.
+    Full-service business and brand identity design, including mobile and web application designs for Apace, a fintech company building products that help people pay for things at their own pace.
 color: D05006
 shortcode: APC
 logo: apace
 cover:
-    src: /uploads/turnix-brand-identity.png
-    alt: Apace website home page
+    src: /brands/apace-og-image.png
+    alt: Apace ad cover concept
 tag: Brand & Proto
 client:
     name: Apace
     shortname: Apace
-    person: Rob Salermo
+    person: Similoluwa Bolaniran
 date: 2022-11-30
+card:
+    consultant: Kabolobari Benakole, kb
+    collaborators:
+        - George Ikem, UI
+        - Deborah Edemhanria, Social Media Strategy
+        - Ifeoluwahan Oduse, Brand Identity
+    services:
+        - Business Design
+        - Brand Identity Design
+        - User Interface (UI) Design
+        - UI Engineering Consulting
+        - Communication Strategy
+    technologies:
+        - Dropbox Paper
+        - Adobe Illustrator
+        - Miro + Figma
+        - Canva
+    client: Similoluwa Bolaniran, Apace Inc.
+    locale: Lagos, Nigeria
+    link: https://useapace.com/
 ---
+import cover from '../../uploads/apace-og-image.png'
+import apaceType from '../../uploads/apace-aa-typographically.png'
+
 import HeaderWork from '../../composites/HeaderWork.astro'
+import GalleryOne from '../../composites/GalleryOne.astro'
+import Story from '../../composites/Story.astro'
+import QuoteFill from '../../composites/QuoteFill.astro'
+import BusinessCard from '../../composites/BusinessCard.astro'
 
 <HeaderWork
     shortname={ frontmatter.client.shortname }
@@ -26,4 +53,37 @@ import HeaderWork from '../../composites/HeaderWork.astro'
     logo={ frontmatter.logo }
     region={ frontmatter.region }
     description={ frontmatter.description }
+/>
+<GalleryOne
+    title="Apace brand design ad concept"
+    image={ { filename: cover, alt: 'Apace brand design ad concept' } }
+/>
+<Story
+    title="Full story of Apace business and brand design project"
+    split={ true }>
+    Simi and team had an idea for a payment service driven by technology that would revolutionize how people get what they want when they want it, when they need it.
+
+    Based on the concept of “buy now, pay later”, Simi wanted a suite of services that made it easy for people to access credit as long as the “borrower” can be easily assigned a credit limit that matched what they can afford.
+
+    The team offhandedly named it Klampay, whose meaning or justification they’ve been forever shy to reveal.
+
+    The burden would eventually fall to K16E to come up with a suitable name for the company — as a company, as a product, as a suite of products, and/or as a suite of financial technology services.
+
+    Carefully perusing and collaborating on 5 shared Google Docs, which the Klampay team had originally put together of user stories, each doc for each product direction of the suite, kb was able to fine-tune the overall idea and surfaced a draft charter capturing the entirety of what is now Apace — a suite of financial technology products and services that helps people get whatever they want while paying at their own pace, and for businesses to sell more.
+</Story>
+<GalleryOne
+    title="Apace type concept"
+    image={ { filename: apaceType, alt: 'Apace type concept' } }
+/>
+<QuoteFill
+    title="Partial quote from Similoluwa Bolaniran"
+    quote="[kb] sets the bar so high!"
+/>
+<BusinessCard
+    title="Summary details of and link to the Apace project"
+    link={ frontmatter.card.link }
+    hue={ frontmatter.color }
+    logo={ frontmatter.logo }
+    card={ frontmatter.card }
+    shortname={ frontmatter.client.shortname }
 />
