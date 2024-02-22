@@ -17,4 +17,13 @@ export default function _zaps() {
         yPercent: 12,
         autoAlpha: 0
     })
+
+    // below.map(e => {
+    //     ScrollTrigger.create({
+    //         trigger: e,
+    //         toggleActions: 'play pause resume pause',
+    //         onEnter: () => console.log('enter'),
+    //         onLeave: () => console.log('leave')
+    //     })
+    // })
 }
