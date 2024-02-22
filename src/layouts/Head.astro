@@ -4,7 +4,7 @@ import _slugify from '../scripts/slugify'
 import Site from '../content/settings/site.json'
 
 const
-    { title, image, description = '', alt = 'K16E website thumbnail' } = Astro.props,
+    { title, image = '/thumbnail.png', description = '', alt = 'K16E website thumbnail' } = Astro.props,
     canonicalURL = new URL(Astro.url.pathname, Astro.site),
     theme = '#19191a'
 ---
