@@ -12,6 +12,7 @@ const
         padding = 'bottom',
         padX = true,
         tag = 'section',
+        invisible = true,
         class: classes, ...props
     } = Astro.props
 ---
@@ -20,7 +21,7 @@ const
     component="richtext"
     title={ title }
     padding={ padding }
-    class:list="invisible"
+    class:list={[ invisible && 'invisible' ]}
     data-entry="below">
     <Wrapper x={ false }>
         <div
