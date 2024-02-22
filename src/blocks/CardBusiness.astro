@@ -21,7 +21,7 @@ const
     <dl class="self-end text-right space-y-4 max-w-md z-[2] font-medium">
         { Object.entries(cardObj).map(e => (
             <div>
-                <dt set:text={ `${e[0]}:` } class="opacity-70 text-xs uppercase tracking-wider"/>
+                <dt set:text={ `${e[0]}:` } class="opacity-70 text-xs uppercase tracking-wider font-semibold"/>
                 {
                     (typeof e[1] === 'string') ? <dd set:text={ e[1] }/> : e[1].map(e => <dd set:text={ e }/>)
                 }
