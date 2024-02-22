@@ -2,19 +2,17 @@
 import Head from './Head.astro'
 import TitleHidden from '../blocks/TitleHidden.astro'
 
-const
-    { frontmatter } = Astro.props
+
 ---
 <!doctype html>
 <html lang="en" class="scroll-smooth bg-primary-950">
     <Head
-        title={ frontmatter.data.title }
+        title={ 'Error page not found' }
         image={ '/thumbnail.png' }
     />
-	<body
-        class="bg-primary-950 flex h-svh lg:h-dvh flex-col">
-        <TitleHidden title={ frontmatter.data.title }/>
-		<main class="flex-1">
+	<body class="bg-primary-950 flex h-svh lg:h-dvh flex-col">
+        <TitleHidden title={ 'Error page not found' }/>
+		<main class="flex-1 flex items-center justify-center">
             <slot/>
         </main>
 	</body>

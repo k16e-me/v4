@@ -5,21 +5,23 @@ import Wrapper from '../layouts/Wrapper.astro'
 import Accentbar from '../atoms/Accentbar.astro'
 
 const {
-    title, subtitle, flipped, swapped,
+    title, subtitle, flipped, swapped, invisible = true,
     centered = true, padding = 'both',
     class: classes, ...props
 } = Astro.props
 ---
 <Section
     padding={ padding }
-    component="title">
+    component="title"
+    class:list={[ invisible && 'invisible' ]}
+    data-entry="above">
     <Wrapper>
         <div
             class:list={[
                 'col-span-full sm:col-start-2 sm:col-span-10',
                 centered && 'place-self-center'
             ]}>
-            <div class="inline-flex flex-col invisible" data-entry="above">
+            <div class="inline-flex flex-col" >
                 <Heading
                     text={ title }
                     level="h2"

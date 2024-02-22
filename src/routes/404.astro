@@ -1,7 +1,13 @@
 ---
 import Error from '../layouts/Error.astro'
-import Wrapper from '../layouts/Wrapper.astro'
+import Title from '../composites/Title.astro'
 ---
-<div>
-    Error
-</div>
+<Error>
+    <Title
+        title="not found!"
+        subtitle="Oops..."
+        flipped={ true }
+        swapped={ false }
+        invisible={ false }
+    />
+</Error>
