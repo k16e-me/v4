@@ -52,7 +52,7 @@ import BusinessCard from '../../composites/BusinessCard.astro'
     ]}
 />
 <BusinessCard
-    title="Summary details of and link to the Komponents project"
+    title={ `Summary details of and link to ${frontmatter.client.name}` }
     link={ frontmatter.card.link }
     hue={ frontmatter.color }
     logo={ frontmatter.logo }
