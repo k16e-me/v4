@@ -4,7 +4,7 @@ const pages = defineCollection({
     type: 'content',
     schema: z.object({
         title: z.string(),
-        description: z.string().max(200),
+        description: z.string().max(224),
         cover: z.object({
             src: z.string(),
             alt: z.string(),
@@ -17,7 +17,7 @@ const work = defineCollection({
         isDraft: z.boolean(),
         region: z.string(),
         title: z.string(),
-        description: z.string().max(200),
+        description: z.string().max(224),
         color: z.coerce.string().max(6),
         shortcode: z.string().max(3),
         logo: z.string().default('logo'),
@@ -48,7 +48,7 @@ const blog = defineCollection({
     type: 'content',
     schema: z.object({
         title: z.string(),
-        description: z.string().max(200),
+        description: z.string().max(224),
         cover: z.object({
             src: z.string(),
             alt: z.string(),
