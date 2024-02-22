@@ -4,7 +4,7 @@ import pages from 'astro-pages'
 import mdx from '@astrojs/mdx'
 
 export default defineConfig({
-    site: 'https://v4.k16e.co',
+    site: 'https://k16e.co',
     prefetch: {
         prefetchAll: true,
         defaultStrategy: 'viewport',

@@ -5,6 +5,10 @@ const pages = defineCollection({
     schema: z.object({
         title: z.string(),
         description: z.string().max(200),
+        cover: z.object({
+            src: z.string(),
+            alt: z.string(),
+        }).optional(),
     })
 })
 const work = defineCollection({

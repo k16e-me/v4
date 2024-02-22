@@ -5,19 +5,22 @@ import TitleHidden from '../blocks/TitleHidden.astro'
 import { _pb } from '../scripts/snips'
 
 const
-    { frontmatter } = Astro.props,
+    { frontmatter: { data } } = Astro.props,
     isHome = Astro.url.pathname === '/'
+
+    console.log(data)
 ---
 <!doctype html>
 <html lang="en" class="scroll-smooth bg-primary-950">
 	<Head
-        title={ frontmatter.data.title }
-        description={ frontmatter.data.description }
-        image={ '/thumbnail.png' }
+        title={ data.title }
+        description={ data.description }
+        image={ data.cover.src ? data.cover.src : '/thumbnail.png' }
+        alt={ data.cover.alt ? data.cover.alt : '' }
     />
 	<body
         class="bg-primary-950 flex min-h-svh lg:min-h-dvh flex-col">
-        <TitleHidden title={ frontmatter.data.title }/>
+        <TitleHidden title={ data.title }/>
         <Header/>
 		<main
             class:list={[
