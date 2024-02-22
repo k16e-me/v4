@@ -29,7 +29,11 @@ card:
     locale: Lagos, Nigeria
     link: https://komponents-v2.k16e.co/
 ---
+import mobile from '../../uploads/komponents-website-mobile-view.png'
+import desktop from '../../uploads/komponents-website-desktop-view.png'
+
 import HeaderWork from '../../composites/HeaderWork.astro'
+import GalleryTwin from '../../composites/GalleryTwin.astro'
 import BusinessCard from '../../composites/BusinessCard.astro'
 
 <HeaderWork
@@ -39,6 +43,13 @@ import BusinessCard from '../../composites/BusinessCard.astro'
     worktag={ frontmatter.tag }
     logo={ frontmatter.logo }
     region={ frontmatter.region }
+/>
+<GalleryTwin
+    title="Komponents website responsive views"
+    images={[
+        { filename: mobile, alt: 'Komponents website mobile responsive view', typical: true, },
+        { filename: desktop, alt: 'Komponents website desktop view', typical: true, }
+    ]}
 />
 <BusinessCard
     title="Summary details of and link to the Komponents project"
