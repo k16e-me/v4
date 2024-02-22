@@ -8,8 +8,8 @@ export async function getStaticPaths() {
     const
         pages = await getCollection('pages'),
         work = await getCollection('work'),
-        astro = await getCollection('astro'),
-        allCollections = [...pages, ...work, ...astro]
+        blog = await getCollection('blog'),
+        allCollections = [...pages, ...work, ...blog]
 
     return allCollections.map(entry => ({
         params: { slug: slug(entry) },

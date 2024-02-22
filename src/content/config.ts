@@ -44,15 +44,20 @@ const work = defineCollection({
         }).optional()
     })
 })
-const astro = defineCollection({
+const blog = defineCollection({
     type: 'content',
     schema: z.object({
         title: z.string(),
+        description: z.string().max(200),
+        cover: z.object({
+            src: z.string(),
+            alt: z.string(),
+        }).optional(),
     })
 })
 
 export const collections = {
     pages,
     work,
-    astro
+    blog
 }
