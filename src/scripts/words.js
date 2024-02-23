@@ -6,18 +6,22 @@ export default function _words() {
 
     const
         words = _ql('[data-word]'),
-        tl = gsap.timeline({ duration: 0.4, ease: 'back.in', repeat: -1  })
+        pause = _q('[data-pause]'),
+        tl = gsap.timeline({ duration: 0.4, ease: 'back.in', repeat: -1 }),
+        frCycle = tl.from(words, {
+            autoAlpha: 0,
+            yPercent: -100,
+            scale: 0.7,
+            stagger: 2
+        }),
+        toCycle = tl.to(words, {
+            autoAlpha: 0,
+            yPercent: 100,
+            scale: 0.7,
+            stagger: 2
+        }, '<+=2')
 
-    tl.from(words, {
-        autoAlpha: 0,
-        yPercent: -100,
-        scale: 0.7,
-        stagger: 2
+    pause.addEventListener('click', () => {
+        frCycle.paused(!frCycle.paused())
     })
-    tl.to(words, {
-        autoAlpha: 0,
-        yPercent: 100,
-        scale: 0.7,
-        stagger: 2
-    }, '<+=2')
 }
