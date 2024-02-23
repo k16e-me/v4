@@ -21,7 +21,9 @@ export default function _words() {
             stagger: 2
         }, '<+=2')
 
-    pause.addEventListener('click', () => {
-        frCycle.paused(!frCycle.paused())
-    })
+    if (pause) {
+        pause.addEventListener('click', () => {
+            frCycle.paused(!frCycle.paused())
+        })
+    }
 }
