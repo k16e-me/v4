@@ -20,10 +20,4 @@ export default function _words() {
             scale: 0.7,
             stagger: 2
         }, '<+=2')
-
-    if (pause) {
-        pause.addEventListener('click', () => {
-            frCycle.paused(!frCycle.paused())
-        })
-    }
 }
