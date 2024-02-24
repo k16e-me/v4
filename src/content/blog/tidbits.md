@@ -2,6 +2,8 @@
 title: "Structure: Making Astro Make Sense"
 description: |
     K16E is a collective of Global Good Design™ Consultants founded by Kabolobari Benakole.
+excerpt: |
+    Our methodology is called Pentacle (formerly Mothership), a stepwise pentagonal process that we apply to design anything, anything at all. Pentacle as in five (5), nothing to do with "lucky charm" -- design isn't magic, but a logical ordering of things to correspond sensibly (close enough) to how they're to be experieced in order to delight.
 cover:
     src: /uploads/thumbnail.png
     alt: K16E website default thumbnail
