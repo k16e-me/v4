@@ -3,27 +3,56 @@ import Heading from '../atoms/Heading.astro'
 import Section from '../layouts/Section.astro'
 import Wrapper from '../layouts/Wrapper.astro'
 import Accentbar from '../atoms/Accentbar.astro'
+import Icon from '../atoms/Icon.astro'
+import Anchor from '../atoms/Anchor.astro'
+import _truncate from '../scripts/truncate'
+import { _capitalize } from '../scripts/snips'
 
-const {
-    title, subtitle, flipped, swapped, invisible = true,
-    centered = true, padding = 'both',
-    class: classes, ...props
-} = Astro.props
+const
+    {
+        title, subtitle, flipped, swapped, invisible = true,
+        centered = true, padding = 'both',
+        class: classes, ...props
+    } = Astro.props,
+    path = Astro.url,
+    pathname = path.pathname.split('/'),
+    isCollection = pathname.length === 3,
+    collection = pathname[1]
+
+console.log(Astro.url.pathname.split('/'))
 ---
 <Section
     padding={ padding }
     component="title"
     class:list={[ invisible && 'invisible' ]}
     data-entry="above">
-    <Wrapper>
+    <Wrapper
+        class:list={[
+            isCollection && 'grid-rows-2'
+        ]}>
+        { isCollection && (
+            <div
+                class="col-start-1 row-start-1 place-self-start sm:col-start-2 -ml-2">
+                <Anchor
+                    href={ `/${collection}` }
+                    class:list="text-accent-500 hover:opacity-70 pr-4 pb-4">
+                    <Icon name="arrow-left" class:list="w-7"/>
+                    <span
+                        class="sr-only lg:not-sr-only inline-block !ml-2 uppercase tracking-widest text-lg font-semibold"
+                        set:text={ _capitalize(collection) }
+                    />
+                </Anchor>
+            </div>
+        ) }
         <div
             class:list={[
                 'col-span-full sm:col-start-2 sm:col-span-10',
-                centered && 'place-self-center'
+                centered && 'place-self-center',
+                isCollection && 'row-span-2 row-start-1'
             ]}>
             <div class="inline-flex flex-col" >
                 <Heading
-                    text={ title }
+                    text={ _truncate(title, 15) }
                     level="h2"
                     size="xl"
                     weight="extra"
