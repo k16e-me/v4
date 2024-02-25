@@ -23,7 +23,8 @@ const
 		<main
             class:list={[
                 'swup-in relative',
-                !isHome && _pb()
+                !isHome && _pb(),
+                isHome && 'flex flex-col items-center justify-center h-svh lg:h-dvh -mt-10'
             ]}
             id="swup">
             <slot/>
