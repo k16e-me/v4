@@ -17,9 +17,11 @@ const
     path = Astro.url,
     pathname = path.pathname.split('/'),
     isCollection = pathname.length === 3,
-    collection = pathname[1]
+    isCollectionChild = pathname.length === 4,
+    collection = pathname[1],
+    collectionParent = `${pathname[1]}/${pathname[2]}`
 
-console.log(Astro.url.pathname.split('/'))
+console.log(pathname)
 ---
 <Section
     padding={ padding }
@@ -27,30 +29,33 @@ console.log(Astro.url.pathname.split('/'))
     class:list={[ invisible && 'invisible' ]}
     data-entry="above">
     <Wrapper
+        x={ false }
         class:list={[
+            !isCollection && 'px-4 sm:px-0',
             isCollection && 'grid-rows-2'
         ]}>
-        { isCollection && (
+        { (isCollection || isCollectionChild) && (
             <div
-                class="col-start-1 row-start-1 place-self-start sm:col-start-2 -ml-1.5">
+                class="col-start-1 row-start-1 place-self-start xl:col-start-2 -ml-1.5">
                 <Anchor
-                    href={ `/${collection}` }
-                    class:list="text-accent-500 hover:opacity-70 pr-4 pb-4">
+                    href={ `/${ isCollection ? collection : collectionParent }` }
+                    class:list="text-accent-500 hover:opacity-70 px-4 pb-4 xl:!pl-0">
                     <Icon name="arrow-left" class:list="w-6"/>
                     <span
-                        class="sr-only lg:not-sr-only inline-block !ml-2 uppercase tracking-widest text-lg font-medium"
-                        set:text={ _capitalize(collection) }
+                        class="sr-only"
+                        set:text="Back to collection"
                     />
                 </Anchor>
             </div>
         ) }
         <div
             class:list={[
-                'col-span-full sm:col-start-2 sm:col-span-10',
+                'col-span-full xl:col-start-3 xl:col-end-11',
+                !isCollection && 'sm:col-start-2 sm:col-end-12',
                 centered && 'place-self-center',
-                isCollection && 'row-span-2 row-start-1'
+                isCollection && 'row-span-2 row-start-1 col-start-2'
             ]}>
-            <div class="inline-flex flex-col" >
+            <div class="inline-flex flex-col">
                 <Heading
                     text={ _truncate(title, 15) }
                     level="h2"
@@ -59,7 +64,7 @@ console.log(Astro.url.pathname.split('/'))
                     color="white"
                     lowercase
                     tighten
-                    class:list={ flipped ? 'order-2 pb-0.5' : 'order-1' }
+                    class:list={ flipped ? 'order-2' : 'order-1' }
                 />
                 <div
                     class:list={[
