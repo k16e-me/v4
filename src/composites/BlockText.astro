@@ -50,9 +50,9 @@ const
         ) }
         <Prose
             class:list={[
-                'py-8 xs:py-12 md:py-0 pl-4 pr-4 md:pl-0 z-[2]',
-                !image && '[grid-area:1/1/3/13] md:col-start-5 lg:col-end-12',
-                image && 'col-span-full md:col-span-7 md:col-start-7 xl:col-start-6 lg:col-span-6'
+                'pl-4 pr-4 md:pl-0 z-[2]',
+                !image && '[grid-area:1/1/3/13] md:col-start-5 lg:col-end-12 py-8 xs:py-12 md:py-0',
+                image && 'col-span-full md:col-span-7 md:col-start-7 xl:col-start-6 lg:col-span-6 pt-8 xs:pt-12 md:pt-0'
             ]}>
             <slot/>
         </Prose>

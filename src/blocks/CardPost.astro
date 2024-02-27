@@ -4,10 +4,11 @@ import _shade from '@scripts/shades-from'
 import Icon from '@atoms/Icon.astro'
 import { _contrast } from '@scripts/snips'
 import Image from '@atoms/Image.astro'
+import Copy from '@atoms/Copy.astro'
 
 const
     {
-        image,
+        image, title, description,
         class: classes, ...props
     } = Astro.props
 ---
@@ -21,4 +22,17 @@ const
         alt={ image.alt }
         objectLeft={ false }
     />
+    <div class="px-4 py-5 sm:py-6">
+        <Heading
+            text={ title }
+            size="md"
+            weight="extra"
+            color="white"
+        />
+        <Copy
+            copy={ description }
+            size="sm"
+            class:list="mt-3"
+        />
+    </div>
 </div>
