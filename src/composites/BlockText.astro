@@ -11,6 +11,7 @@ const
         padding = 'bottom',
         blockColor,
         tag = 'section',
+        image,
         class: classes, ...props
     } = Astro.props
 ---
@@ -26,12 +27,7 @@ const
         class:list={[
             'col-span-full lg:col-start-2 lg:col-end-12 xl:col-start-3 xl:col-end-11 grid-rows-6 [&>*]:row-span-full'
         ]}>
-        <Block
-            class:list={[
-                'bg-opacity-10 md:bg-opacity-100 z-[1] [grid-area:1/1/3/10] md:col-end-5 lg:col-start-2'
-            ]}
-            theme={ blockColor }
-        />
+        {   }
         <Prose
             class:list={[
                 'py-8 xs:py-12 md:py-0 pl-4 pr-4 md:pl-0 z-[2] [grid-area:1/1/3/13] md:col-start-5 lg:col-end-12'
