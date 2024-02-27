@@ -1,21 +1,23 @@
 ---
 import Section from '@layouts/Section.astro'
 import Wrapper from '@layouts/Wrapper.astro'
-import { getCollection, getEntries } from 'astro:content'
-import CardWork from '@blocks/CardWork.astro'
 import CardPost from '@blocks/CardPost.astro'
 import Anchor from '@atoms/Anchor.astro'
 import TileGrid from '@layouts/TileGrid.astro'
 import Tile from '@blocks/Tile.astro'
+import _pastels from '@scripts/pastels'
+import _shuffle from '@scripts/shuffle'
 
 const
     {
         title, padding,
         class: classes, ...props
     } = Astro.props,
-    blogs = await Astro.glob('@content/pages/blog/*.mdx')
+    blogs = await Astro.glob('@content/pages/blog/*.mdx'),
+    pastels = _pastels().pastels(),
+    shuffledPastels = _shuffle(pastels)
 
-console.log(blogs)
+console.log(pastels)
 ---
 <Section
     component="blogs"
@@ -29,7 +31,7 @@ console.log(blogs)
                 <Anchor href={ e.url }>
                     <Tile
                         obj={ e.frontmatter.title }
-                        pastel={ '#f2f2f2' }
+                        pastel={ shuffledPastels[idx] }
                         class:list="w-full"
                     />
                 </Anchor>
