@@ -26,7 +26,7 @@ const
         <ul
             class:list={[
                 `
-                    col-span-full grid grid-cols-12 gap-6 md:gap-8
+                    col-span-full grid grid-cols-12 gap-4 md:gap-8
                     [&>*]:col-span-full [&>*]:md:col-span-6 [&>*]:xl:col-span-4
                 `
             ]}>
@@ -35,19 +35,22 @@ const
                     <Anchor
                         href={ `/${e.collection}/${e.slug}` }
                         class:list="w-full group-hover/anchor:scale-95">
-                        { collection == 'work' && (
-                            <CardWork
-                                shortname={ e.data.client.shortname }
-                                hue={ e.data.color }
-                                logo={ e.data.logo }
-                                tag={ e.data.tag }
-                            />
-                        ) }
-                        { collection != 'work' && (
-                            <CardPost
-                                image={ e.data.cover }
-                            />
-                        ) }
+                        { () => {
+                            if (collection === 'work') { return (
+                                <CardWork
+                                    shortname={ e.data.client.shortname }
+                                    hue={ e.data.color }
+                                    logo={ e.data.logo }
+                                    tag={ e.data.tag }
+                                />
+                            ) } else if (collection === 'blog') {
+                                return (
+                                    <CardPost
+                                        image={ e.data.cover }
+                                    />
+                                )
+                            }
+                        } }
                     </Anchor>
                 </li>
             )) }

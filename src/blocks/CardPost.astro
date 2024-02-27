@@ -13,12 +13,12 @@ const
 ---
 <div
     class:list={[
-        `h-80 w-full py-5 px-6 flex flex-col relative`,
-        _contrast(),
+        `flex flex-col relative`,
         classes
     ]} { ...props }>
     <Image
         src={ image.src }
         alt={ image.alt }
+        objectLeft={ false }
     />
 </div>
