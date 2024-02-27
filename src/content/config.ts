@@ -46,12 +46,12 @@ const work = defineCollection({
 })
 const blog = defineCollection({
     type: 'content',
-    schema: z.object({
+    schema: ({ image }) => z.object({
         title: z.string(),
         description: z.string().max(224),
         excerpt: z.string().min(300).max(500),
         cover: z.object({
-            src: z.string(),
+            src: image(),
             alt: z.string(),
         }).optional(),
         series: z.string().optional(),

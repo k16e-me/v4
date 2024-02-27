@@ -6,9 +6,10 @@ cover:
     src: /brands/pentacle-thumbnail.png
     alt: Pentacle product default thumbnail
 ---
-import Title from '../../../composites/Title.astro'
-import BlockText from '../../../composites/BlockText.astro'
-import thumbnail from '../../../uploads/pentacle-thumbnail.png'
+import Title from '@composites/Title.astro'
+import BlockText from '@composites/BlockText.astro'
+import thumbnail from '@uploads/pentacle-thumbnail.png'
+import Collection from '@composites/Collection.astro'
 
 <Title
     title="Pentacle"
@@ -28,3 +29,7 @@ import thumbnail from '../../../uploads/pentacle-thumbnail.png'
 
     What follows is a series of notes that document Pentacle in detail -- the steps, expected results from each, and the number of actions (or sub-steps) to be taken to reach expected results desirably.
 </BlockText>
+<Collection
+    collection="blog"
+    title="Pentacle Documentation"
+/>

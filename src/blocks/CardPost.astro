@@ -1,0 +1,24 @@
+---
+import Heading from '@atoms/Heading.astro'
+import _shade from '@scripts/shades-from'
+import Icon from '@atoms/Icon.astro'
+import { _contrast } from '@scripts/snips'
+import Image from '@atoms/Image.astro'
+
+const
+    {
+        image,
+        class: classes, ...props
+    } = Astro.props
+---
+<div
+    class:list={[
+        `h-80 w-full py-5 px-6 flex flex-col relative`,
+        _contrast(),
+        classes
+    ]} { ...props }>
+    <Image
+        src={ image.src }
+        alt={ image.alt }
+    />
+</div>

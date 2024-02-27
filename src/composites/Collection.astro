@@ -1,13 +1,14 @@
 ---
-import Section from '../layouts/Section.astro'
-import Wrapper from '../layouts/Wrapper.astro'
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
 import { getCollection } from 'astro:content'
-import CardWork from '../blocks/CardWork.astro'
-import Anchor from '../atoms/Anchor.astro'
+import CardWork from '@blocks/CardWork.astro'
+import CardPost from '@blocks/CardPost.astro'
+import Anchor from '@atoms/Anchor.astro'
 
 const
     {
-        title, collection, padding,
+        title, collection, padding, image,
         class: classes, ...props
     } = Astro.props,
     entries = await getCollection(collection, ({ data }) => {
@@ -34,12 +35,19 @@ const
                     <Anchor
                         href={ `/${e.collection}/${e.slug}` }
                         class:list="w-full group-hover/anchor:scale-95">
-                        <CardWork
-                            shortname={ e.data.client.shortname }
-                            hue={ e.data.color }
-                            logo={ e.data.logo }
-                            tag={ e.data.tag }
-                        />
+                        { collection == 'work' && (
+                            <CardWork
+                                shortname={ e.data.client.shortname }
+                                hue={ e.data.color }
+                                logo={ e.data.logo }
+                                tag={ e.data.tag }
+                            />
+                        ) }
+                        { collection != 'work' && (
+                            <CardPost
+                                image={ e.data.cover }
+                            />
+                        ) }
                     </Anchor>
                 </li>
             )) }
