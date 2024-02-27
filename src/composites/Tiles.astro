@@ -1,8 +1,9 @@
 ---
-import Section from '../layouts/Section.astro'
-import Wrapper from '../layouts/Wrapper.astro'
-import Tile from '../blocks/Tile.astro'
-import _shuffle from '../scripts/shuffle'
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import Tile from '@blocks/Tile.astro'
+import TileGrid from '@layouts/TileGrid.astro'
+import _shuffle from '@scripts/shuffle'
 
 const
     {
@@ -24,23 +25,13 @@ const
     class:list="invisible"
     data-entry="below">
     <Wrapper x={ false }>
-        <div
-            class:list={[
-                `
-                    col-span-full lg:col-start-2 lg:col-end-12 grid grid-cols-12 gap-4
-                    [&>:nth-child(5n+1)]:col-span-6 [&>:nth-child(5n+1)]:lg:col-span-5
-                    [&>:nth-child(5n+5)]:col-span-6 [&>:nth-child(5n+5)]:lg:col-span-5
-                    [&>:nth-child(5n+2)]:col-span-6 [&>:nth-child(5n+2)]:lg:col-span-7
-                    [&>:nth-child(5n+4)]:col-span-6 [&>:nth-child(5n+4)]:lg:col-span-7
-                    [&>:nth-child(5n+3)]:col-span-12
-                `
-            ]}>
+        <TileGrid>
             { tiles.map((e, idx) => (
                 <Tile
                     obj={ e }
                     pastel={ shuffledPastels[idx] }
                 />
             )) }
-        </div>
+        </TileGrid>
     </Wrapper>
 </Section>

@@ -1,0 +1,39 @@
+---
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import { getCollection, getEntries } from 'astro:content'
+import CardWork from '@blocks/CardWork.astro'
+import CardPost from '@blocks/CardPost.astro'
+import Anchor from '@atoms/Anchor.astro'
+import TileGrid from '@layouts/TileGrid.astro'
+import Tile from '@blocks/Tile.astro'
+
+const
+    {
+        title, padding,
+        class: classes, ...props
+    } = Astro.props,
+    blogs = await Astro.glob('@content/pages/blog/*.mdx')
+
+console.log(blogs)
+---
+<Section
+    component="blogs"
+    title={ title }
+    padding={ padding }
+    class:list="invisible"
+    data-entry="below">
+    <Wrapper x={ false }>
+        <TileGrid>
+            { blogs.map((e, idx) => (
+                <Anchor href={ e.url }>
+                    <Tile
+                        obj={ e.frontmatter.title }
+                        pastel={ '#f2f2f2' }
+                        class:list="w-full"
+                    />
+                </Anchor>
+            )) }
+        </TileGrid>
+    </Wrapper>
+</Section>
