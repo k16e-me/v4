@@ -12,8 +12,8 @@ export default {
                 ...defaultTheme.screens
             },
             fontSize: {
-                xs: ['0.785rem', '1.245rem'],
-                sm: ['0.955rem', '1.265rem'],
+                xs: ['0.885rem', '1.345rem'],
+                sm: ['0.975rem', '1.365rem'],
                 base: ['1rem', '1.555rem'],
                 md: ['1.075rem', '1.655rem'],
                 lg: ['1.125rem', '1.625rem'],
