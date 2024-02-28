@@ -1,16 +1,17 @@
 ---
+import Copy from '@atoms/Copy.astro'
 import Heading from '../atoms/Heading.astro'
 import { _contrast } from '../scripts/snips'
 
 const
     {
-        obj, pastel,
+        obj, pastel, copy,
         class: classes, ...props
     } = Astro.props
 ---
 <div
     class:list={[
-        `h-64 sm:h-[25rem] flex flex-col justify-start items-end p-4 sm:p-8`,
+        `h-64 sm:h-[25rem] flex flex-col p-4 sm:p-8 justify-between`,
         _contrast(),
         classes
     ]} { ...props }
@@ -22,5 +23,13 @@ const
         color="primary"
         lowercase
         tighten
+        class:list="self-end"
     />
+    { copy && (
+        <Copy
+            copy={ copy }
+            color="dark"
+            class:list="line-clamp-4 text-sm sm:text-lg italic lg:pr-8"
+        />
+    )}
 </div>

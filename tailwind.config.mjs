@@ -16,6 +16,7 @@ export default {
                 sm: ['0.955rem', '1.265rem'],
                 base: ['1rem', '1.555rem'],
                 md: ['1.055rem', '1.675rem'],
+                lg: ['1.125rem', '1.625rem'],
             },
             colors: {
                 accent: {

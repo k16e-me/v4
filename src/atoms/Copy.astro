@@ -1,12 +1,14 @@
 ---
 const {
-    copy, size = 'default',
+    copy, size = 'default', color = 'light',
     class: classes, ...props
 } = Astro.props
 ---
 <p
     set:text={ copy }
-    class:list={[`text-white/80`,
+    class:list={[ `text-opacity-70`,
+        color == 'light' && 'text-white',
+        color == 'dark' && 'text-primary',
         size == 'sm' && 'text-sm',
         classes,
     ]} { ...props }
