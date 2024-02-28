@@ -6,10 +6,11 @@ import { _contrast } from '@scripts/snips'
 import Image from '@atoms/Image.astro'
 import Copy from '@atoms/Copy.astro'
 import FormattedDate from '@atoms/FormattedDate.astro'
+import Chip from '@atoms/Chip.astro'
 
 const
     {
-        image, title, description, release, update,
+        image, title, description, release, update, series,
         class: classes, ...props
     } = Astro.props
 ---
@@ -26,6 +27,7 @@ const
     { release && (
         <div class="px-4 py-3 mt-0.5 flex items-center justify-between">
             <FormattedDate date={ release } class:list="opacity-80"/>
+            { series && <Chip text={ series }/> }
         </div>
     ) }
     <div class="px-4">

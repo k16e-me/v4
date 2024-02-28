@@ -43,17 +43,16 @@ const
                                     logo={ e.data.logo }
                                     tag={ e.data.tag }
                                 />
-                            ) } else if (collection === 'blog') {
-                                return (
-                                    <CardPost
-                                        image={ e.data.cover }
-                                        title={ e.data.title }
-                                        description={ e.data.description }
-                                        release={ e.data.release }
-                                        update={ e.data.update }
-                                    />
-                                )
-                            }
+                            ) } else if (collection === 'blog') { return (
+                                <CardPost
+                                    image={ e.data.cover }
+                                    title={ e.data.title }
+                                    description={ e.data.description }
+                                    release={ e.data.release }
+                                    update={ e.data.update }
+                                    series={ e.data.series }
+                                />
+                            ) }
                         } }
                     </Anchor>
                 </li>
