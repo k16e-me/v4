@@ -10,7 +10,7 @@ import Chip from '@atoms/Chip.astro'
 
 const
     {
-        image, title, description, release, update, series,
+        image, title, description, release, update, series, num,
         class: classes, ...props
     } = Astro.props
 ---
@@ -43,11 +43,12 @@ const
             class:list="mt-2.5"
         />
     </div>
-    { update && (
-        <div class="px-4 py-3 flex items-center justify-between">
-            <p class="italic opacity-80">
-                Updated: <FormattedDate date={ update }/>
-            </p>
-        </div>
-    ) }
+    <div class="px-4 py-3 flex items-center justify-between">
+        { update && (
+                <p class="italic opacity-80">
+                    Updated: <FormattedDate date={ update }/>
+                </p>
+        ) }
+        <Copy copy={ `#${num}` } color="accent" class:list="font-semibold"/>
+    </div>
 </div>

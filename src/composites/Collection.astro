@@ -14,7 +14,9 @@ const
     entries = await getCollection(collection, ({ data }) => {
         return import.meta.env.PROD ? data.isDraft !== true : true
     }),
-    sortedEntries = entries.sort((a: any, b: any) => Date.parse(b.data.date) - Date.parse(a.data.date))
+    sortedEntries = entries.sort((a: any, b: any) => (
+        Date.parse(b.data.date || b.data.release) - Date.parse(a.data.date || a.data.release))
+    )
 ---
 <Section
     component="collection"
@@ -30,7 +32,7 @@ const
                     [&>*]:col-span-full [&>*]:md:col-span-6 [&>*]:xl:col-span-4
                 `
             ]}>
-            { sortedEntries.map((e: any) => (
+            { sortedEntries.map((e, idx, arr) => (
                 <li class="group/anchor">
                     <Anchor
                         href={ `/${e.collection}/${e.slug}` }
@@ -51,6 +53,7 @@ const
                                     release={ e.data.release }
                                     update={ e.data.update }
                                     series={ e.data.series }
+                                    num={ arr.length - idx }
                                 />
                             ) }
                         } }
