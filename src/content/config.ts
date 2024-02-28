@@ -2,18 +2,18 @@ import { z, defineCollection } from 'astro:content'
 
 const pages = defineCollection({
     type: 'content',
-    schema: z.object({
+    schema: ({ image }) => z.object({
         title: z.string(),
         description: z.string().max(224),
         cover: z.object({
-            src: z.string(),
+            src: image(),
             alt: z.string(),
         }).optional(),
     })
 })
 const work = defineCollection({
     type: 'content',
-    schema: z.object({
+    schema: ({ image }) => z.object({
         isDraft: z.boolean(),
         region: z.string(),
         title: z.string(),
@@ -22,7 +22,7 @@ const work = defineCollection({
         shortcode: z.string().max(3),
         logo: z.string().default('logo'),
         cover: z.object({
-            src: z.string(),
+            src: image(),
             alt: z.string(),
         }),
         tag: z.string().max(15),

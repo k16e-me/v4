@@ -1,19 +1,22 @@
 ---
 import Head from './Head.astro'
 import Header from './Header.astro'
-import TitleHidden from '../blocks/TitleHidden.astro'
-import { _pb } from '../scripts/snips'
+import TitleHidden from '@blocks/TitleHidden.astro'
+import { _pb } from '@scripts/snips'
+import { getImage } from 'astro:assets'
 
 const
     { frontmatter: { data } } = Astro.props,
     isHome = Astro.url.pathname === '/'
+
+console.log(data)
 ---
 <!doctype html>
 <html lang="en" class="scroll-smooth bg-primary-950 text-white/80">
 	<Head
         title={ data.title }
         description={ data.description }
-        image={ data.cover.src ? data.cover.src : '/thumbnail.png' }
+        image={ import.meta.env.SITE + data.cover.src.src }
         alt={ data.cover.alt ? data.cover.alt : '' }
     />
 	<body
