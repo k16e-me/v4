@@ -1,0 +1,54 @@
+---
+import Heading from '@atoms/Heading.astro'
+import _shade from '@scripts/shades-from'
+import Icon from '@atoms/Icon.astro'
+import { _contrast } from '@scripts/snips'
+import Image from '@atoms/Image.astro'
+import Copy from '@atoms/Copy.astro'
+import FormattedDate from '@atoms/FormattedDate.astro'
+import Chip from '@atoms/Chip.astro'
+
+const
+    {
+        image, title, description, release, update, series, num,
+        class: classes, ...props
+    } = Astro.props
+---
+<div
+    class:list={[
+        `flex flex-col relative`,
+        classes
+    ]} { ...props }>
+    <Image
+        src={ image.src }
+        alt={ image.alt }
+        objectLeft={ false }
+    />
+    { release && (
+        <div class="px-4 py-3 mt-0.5 flex items-center justify-between">
+            <FormattedDate date={ release } class:list="opacity-80"/>
+            { series && <Chip text={ series }/> }
+        </div>
+    ) }
+    <div class="px-4">
+        <Heading
+            text={ title }
+            size="md"
+            weight="extra"
+            color="white"
+        />
+        <Copy
+            copy={ description }
+            size="sm"
+            class:list="mt-2.5"
+        />
+    </div>
+    <div class="px-4 py-3 flex items-center justify-between">
+        { update && (
+                <p class="italic opacity-80">
+                    Updated: <FormattedDate date={ update }/>
+                </p>
+        ) }
+        <Copy copy={ `#${num}` } color="accent" class:list="font-semibold"/>
+    </div>
+</div>

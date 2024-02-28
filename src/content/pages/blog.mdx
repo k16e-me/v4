@@ -6,10 +6,15 @@ cover:
     src: /thumbnail.png
     alt: K16E website default thumbnail
 ---
-import Title from '../../composites/Title.astro'
+import Title from '@composites/Title.astro'
+import Collection from '@composites/Collection.astro'
+import Blogs from '@composites/Blogs.astro'
 
 <Title
     title="Take Note"
     subtitle="K16E Blog"
     flipped={ true }
+/>
+<Blogs
+    title="Blog Collections"
 />

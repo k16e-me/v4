@@ -8,8 +8,7 @@ const
 <div
     { ...attrs }
     class:list={[
-        `h is-${ level ? level : 'span' } [&>*]:-ml-0.5 [&>*]:sm:-ml-1 [&>*]:md:-ml-1.5`,
-        // [&>*]:-ml-x because font has leading whitespace ~px varying as size increases
+        `h is-${ level ? level : 'span' }`,
 
         // Font Sizes
         size === 'sm' && 'text-xs lg:text-sm',
