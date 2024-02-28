@@ -1,14 +1,15 @@
 ---
 const {
-    copy, size = 'default', color = 'light',
+    copy, size = 'default', color = 'light', tag = 'p',
     class: classes, ...props
-} = Astro.props
+} = Astro.props,
+Tag = tag
 ---
-<p
+<Tag
     set:text={ copy }
-    class:list={[ `text-opacity-70`,
-        color == 'light' && 'text-white',
-        color == 'dark' && 'text-primary',
+    class:list={[
+        color == 'light' && 'text-white/70',
+        color == 'dark' && 'text-primary-950/70',
         size == 'sm' && 'text-sm',
         classes,
     ]} { ...props }

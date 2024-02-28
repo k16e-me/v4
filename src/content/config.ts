@@ -55,6 +55,8 @@ const blog = defineCollection({
             alt: z.string(),
         }).optional(),
         series: z.string().optional(),
+        release: z.date(),
+        update: z.date(),
     })
 })
 

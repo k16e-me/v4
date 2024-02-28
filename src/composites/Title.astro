@@ -51,11 +51,11 @@ const
                 'col-span-full xl:col-start-3 xl:col-end-11',
                 !isCollection && 'sm:col-start-2 sm:col-end-12',
                 centered && 'place-self-center',
-                isCollection && 'row-span-2 row-start-1 col-start-3'
+                (isCollection || isCollectionChild) && 'row-span-2 row-start-1 col-start-3'
             ]}>
             <div class="inline-flex flex-col">
                 <Heading
-                    text={ _truncate(title, 15) }
+                    text={ _truncate(title, 13) }
                     level="h2"
                     size="xl"
                     weight="extra"

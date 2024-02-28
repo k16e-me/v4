@@ -5,10 +5,11 @@ import Icon from '@atoms/Icon.astro'
 import { _contrast } from '@scripts/snips'
 import Image from '@atoms/Image.astro'
 import Copy from '@atoms/Copy.astro'
+import FormattedDate from '@atoms/FormattedDate.astro'
 
 const
     {
-        image, title, description,
+        image, title, description, release, update,
         class: classes, ...props
     } = Astro.props
 ---
@@ -22,7 +23,12 @@ const
         alt={ image.alt }
         objectLeft={ false }
     />
-    <div class="px-4 py-5 sm:py-6">
+    { release && (
+        <div class="px-4 py-3 mt-0.5 flex items-center justify-between">
+            <FormattedDate date={ release } class:list="opacity-80"/>
+        </div>
+    ) }
+    <div class="px-4">
         <Heading
             text={ title }
             size="md"
@@ -32,7 +38,14 @@ const
         <Copy
             copy={ description }
             size="sm"
-            class:list="mt-3"
+            class:list="mt-2.5"
         />
     </div>
+    { update && (
+        <div class="px-4 py-3 flex items-center justify-between">
+            <p class="italic opacity-80">
+                Updated: <FormattedDate date={ update }/>
+            </p>
+        </div>
+    ) }
 </div>
