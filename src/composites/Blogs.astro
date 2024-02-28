@@ -16,8 +16,6 @@ const
     blogs = await Astro.glob('@content/pages/blog/*.mdx'),
     pastels = _pastels().pastels(),
     shuffledPastels = _shuffle(pastels)
-
-console.log(pastels)
 ---
 <Section
     component="blogs"
@@ -26,15 +24,20 @@ console.log(pastels)
     class:list="invisible"
     data-entry="below">
     <Wrapper x={ false }>
-        <TileGrid>
+        <TileGrid
+            tag="ul">
             { blogs.map((e, idx) => (
-                <Anchor href={ e.url }>
-                    <Tile
-                        obj={ e.frontmatter.title }
-                        pastel={ shuffledPastels[idx] }
-                        class:list="w-full"
-                    />
-                </Anchor>
+                <li class="group/anchor">
+                    <Anchor
+                        href={ e.url }
+                        class:list="w-full group-hover/anchor:scale-95">
+                        <Tile
+                            obj={ e.frontmatter.title }
+                            pastel={ shuffledPastels[idx] }
+                            class:list="w-full"
+                        />
+                    </Anchor>
+                </li>
             )) }
         </TileGrid>
     </Wrapper>

@@ -1,4 +1,12 @@
-<div
+---
+const
+    {
+        tag = 'div',
+        class: classes, ...props
+    } = Astro.props,
+    Tag = tag
+---
+<Tag
     class:list={[`
         col-span-full lg:col-start-2 lg:col-end-12 grid grid-cols-12 gap-4
         [&>:nth-child(5n+1)]:col-span-6 [&>:nth-child(5n+1)]:lg:col-span-5
@@ -8,4 +16,4 @@
         [&>:nth-child(5n+3)]:col-span-12
     `]}>
     <slot/>
-</div>
+</Tag>
