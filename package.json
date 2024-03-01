@@ -13,6 +13,7 @@
         "@astrojs/mdx": "^2.1.1",
         "@astrojs/sitemap": "^3.1.1",
         "@astrojs/tailwind": "^5.1.0",
+        "@fontsource-variable/bricolage-grotesque": "^5.0.4",
         "@nanostores/persistent": "^0.10.1",
         "@swup/a11y-plugin": "^4.5.0",
         "@swup/head-plugin": "^2.2.0",

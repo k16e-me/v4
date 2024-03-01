@@ -11,6 +11,9 @@ export default {
                 'xs': '475px',
                 ...defaultTheme.screens
             },
+            // fontFamily: {
+            //     sans: ['Bricolage Grotesque Variable, sans-serif', ...defaultTheme.fontFamily.sans],
+            // },
             fontSize: {
                 xs: ['0.885rem', '1.345rem'],
                 sm: ['0.975rem', '1.365rem'],
