@@ -60,7 +60,7 @@ const {
 			]}>
 			<div class='inline-flex flex-col'>
 				<Heading
-					text={isCollectionChild() ? title : _truncate(title, 13)}
+					text={isCollectionChild() ? title : _truncate(title, 15)}
 					level='h2'
 					size={isCollectionChild() ? 'lg' : 'xl'}
 					weight='extra'
@@ -72,7 +72,7 @@ const {
 				<div
 					class:list={[
 						'italic flex items-center px-1.5',
-						flipped ? 'order-1' : 'order-2 mt-1 md:mt-3',
+						flipped ? 'order-1' : 'order-2 mt-1 md:mt-2',
 					]}>
 					<Heading
 						text={subtitle}
@@ -82,7 +82,7 @@ const {
 						uppercase
 						loosen
 						nowrap
-						class:list={swapped ? 'order-2' : 'order-1'}
+						class:list={[swapped ? 'order-2' : 'order-1', flipped && 'mb-1 md:mb-2']}
 					/>
 					<Accentbar
 						class:list={swapped ? 'order-1 mr-3' : 'order-2 ml-3'}
