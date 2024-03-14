@@ -1,31 +1,41 @@
 ---
 import { getCollection } from 'astro:content'
-import { collections } from '../content/config'
-import Base from '../layouts/Base.astro'
-import Work from '../composites/Work.astro'
+import { collections } from '@content/config'
+import Base from '@layouts/Base.astro'
+import Work from '@composites/Work.astro'
+import Backbar from '@blocks/Backbar.astro'
+import pathworx from '@scripts/pathworx'
 
 export async function getStaticPaths() {
-    const
-        pages = await getCollection('pages'),
-        work = await getCollection('work'),
-        blog = await getCollection('blog'),
-        allCollections = [...pages, ...work, ...blog]
+	const pages = await getCollection('pages'),
+		work = await getCollection('work'),
+		blog = await getCollection('blog'),
+		allCollections = [...pages, ...work, ...blog]
 
-    return allCollections.map(entry => ({
-        params: { slug: slug(entry) },
-        props: { entry },
-    }))
+	return allCollections.map((entry) => ({
+		params: { slug: slug(entry) },
+		props: { entry },
+	}))
 
-    function slug(entry) {
-        if (entry.collection === 'pages') return entry.slug === 'home' ? undefined : entry.slug
-        else return `${entry.collection}/${entry.slug}`
-    }
+	function slug(entry) {
+		if (entry.collection === 'pages')
+			return entry.slug === 'home' ? undefined : entry.slug
+		else return `${entry.collection}/${entry.slug}`
+	}
 }
 
-const
-    { entry } = Astro.props,
-    { Content } = await entry.render()
+const { entry } = Astro.props,
+	{ Content } = await entry.render(),
+	{
+		pathname,
+		isCollection,
+		isCollectionChild,
+		collection,
+		collectionParent,
+	} = pathworx(Astro.url)
 ---
-<Base frontmatter={ entry }>
-    <Content/>
+
+<Base frontmatter={entry}>
+	{ (isCollection() || isCollectionChild()) && ( <Backbar /> ) }
+	<Content />
 </Base>

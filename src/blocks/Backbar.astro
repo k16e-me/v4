@@ -1,0 +1,22 @@
+---
+import pathworx from '@scripts/pathworx'
+import Wrapper from '@layouts/Wrapper.astro'
+import Anchor from '@atoms/Anchor.astro'
+import Icon from '@atoms/Icon.astro'
+
+const { title, class: classes, ...props } = Astro.props,
+	{ isCollection, collection, collectionParent } = pathworx(Astro.url)
+---
+
+<Wrapper
+	tag='div'
+	x={false}
+	class:list='shadow-lg fixed top-0 inset-x-0 bg-primary-950 z-50 invisible'
+	data-backbar>
+	<Anchor
+		href={`/${isCollection() ? collection() : collectionParent()}`}
+		class:list='col-start-1 row-start-1 place-self-start xl:col-start-2 text-accent-500 hover:opacity-70 p-4'>
+		<Icon name='arrow-left' class:list='w-6' />
+		<span class='sr-only' set:text='Back to collection' />
+	</Anchor>
+</Wrapper>
