@@ -3,7 +3,6 @@ import { ScrollTrigger } from 'gsap/all'
 import { _ql, _q } from './snips'
 
 gsap.registerPlugin(ScrollTrigger)
-ScrollTrigger.normalizeScroll(true)
 
 export default function _zaps() {
     const
