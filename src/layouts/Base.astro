@@ -47,12 +47,13 @@ const
     import Swup from 'swup'
     import SwupProgressPlugin from '@swup/progress-plugin'
     import SwupHeadPlugin from '@swup/head-plugin'
-    import _active from '../scripts/active'
-    import _prefilters from '../scripts/prefilters'
-    import _words from '../scripts/words'
-    import { _body, _q, _ql } from '../scripts/snips'
-    import _zaps from '../scripts/zaps'
-    import _brief from '../scripts/brief'
+    import _active from '@scripts/active'
+    import _prefilters from '@scripts/prefilters'
+    import _words from '@scripts/words'
+    import { _body, _q, _ql } from '@scripts/snips'
+    import _zaps from '@scripts/zaps'
+    import _brief from '@scripts/brief'
+    import _backbar from '@scripts/backbar'
 
 
     const swup = new Swup({
@@ -77,6 +78,7 @@ const
         _active()
         _words()
         _brief()
+        _backbar()
     }
 
     function once() {
