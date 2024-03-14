@@ -11,7 +11,7 @@ const { title, class: classes, ...props } = Astro.props,
 <Wrapper
 	tag='div'
 	x={false}
-	class:list='shadow fixed top-0 inset-x-0 bg-primary-950 z-50 invisible h-14'
+	class:list='fixed top-0 inset-x-0 bg-primary-950/90 invisible h-14 backdrop-blur-md z-50'
 	data-backbar>
 	<Anchor
 		href={`/${isCollection() ? collection() : collectionParent()}`}
