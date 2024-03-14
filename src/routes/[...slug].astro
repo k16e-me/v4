@@ -39,7 +39,7 @@ const { entry } = Astro.props,
 <Base frontmatter={entry}>
 	{ (isCollection() || isCollectionChild()) && ( <Backbar /> ) }
 	{  isCollectionChild() ?
-        <Child Content={ Content } title={ entry.data.title }/>  :
+        <Child Content={ Content } entry={ entry }/>  :
         <Content />
     }
 </Base>

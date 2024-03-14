@@ -3,13 +3,29 @@ import Wrapper from '@layouts/Wrapper.astro'
 import Section from '@layouts/Section.astro'
 import Prose from '@atoms/Prose.astro'
 import Richtext from '@composites/Richtext.astro'
+import Title from '@composites/Title.astro'
 
-const { Content, title } = Astro.props
+const { Content, entry } = Astro.props
 ---
 
-<Wrapper>
-	<Section padding='both' title={`Full contents of the entry: ${title}`} class:list='col-span-full'>
-		<Richtext placement='spread' tag='div' padding='none'>
+<Title
+	subtitle={entry.data.series}
+	title={entry.data.title}
+	flipped={true}
+	centered={false}
+	lowercase={false}
+	class:list='col-span-full'
+/>
+<Wrapper x={false}>
+	<Section
+		title={`Full contents of the entry: ${entry.data.title}`}
+		class:list='col-span-full'>
+		<Richtext
+			placement='spread'
+			tag='div'
+			padding='none'
+			padX={false}
+			class:list='px-4 sm:px-0'>
 			<Prose>
 				<Content />
 			</Prose>
