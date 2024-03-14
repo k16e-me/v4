@@ -1,87 +1,96 @@
 ---
-import Heading from '../atoms/Heading.astro'
-import Section from '../layouts/Section.astro'
-import Wrapper from '../layouts/Wrapper.astro'
-import Accentbar from '../atoms/Accentbar.astro'
-import Icon from '../atoms/Icon.astro'
-import Anchor from '../atoms/Anchor.astro'
-import _truncate from '../scripts/truncate'
-import { _capitalize } from '../scripts/snips'
+import Heading from '@atoms/Heading.astro'
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import Accentbar from '@atoms/Accentbar.astro'
+import Icon from '@atoms/Icon.astro'
+import Anchor from '@atoms/Anchor.astro'
+import _truncate from '@scripts/truncate'
+import { _capitalize } from '@scripts/snips'
+import pathworx from '@scripts/pathworx'
 
-const
-    {
-        title, subtitle, flipped, swapped, invisible = true,
-        centered = true, padding = 'both',
-        class: classes, ...props
-    } = Astro.props,
-    path = Astro.url,
-    pathname = path.pathname.split('/'),
-    isCollection = pathname.length == 3,
-    isCollectionChild = pathname.length == 4,
-    collection = pathname[1],
-    collectionParent = `${pathname[1]}/${pathname[2]}`
+const {
+		title,
+		subtitle,
+		flipped,
+		swapped,
+		invisible = true,
+		centered = true,
+		padding = 'both',
+		class: classes,
+		...props
+	} = Astro.props,
+	{
+		pathname,
+		isCollection,
+		isCollectionChild,
+		collection,
+		collectionParent,
+	} = pathworx(Astro.url)
 ---
+
 <Section
-    padding={ padding }
-    component="title"
-    class:list={[ invisible && 'invisible' ]}
-    data-entry="above">
-    <Wrapper
-        x={ false }
-        class:list={[
-            !isCollection && 'px-4 sm:px-0',
-            isCollection && 'grid-rows-2'
-        ]}>
-        { (isCollection || isCollectionChild) && (
-            <div
-                class="col-start-1 row-start-1 place-self-start xl:col-start-2 -ml-1.5">
-                <Anchor
-                    href={ `/${ isCollection ? collection : collectionParent }` }
-                    class:list="text-accent-500 hover:opacity-70 px-4 pb-4 xl:!pl-0">
-                    <Icon name="arrow-left" class:list="w-6"/>
-                    <span
-                        class="sr-only"
-                        set:text="Back to collection"
-                    />
-                </Anchor>
-            </div>
-        ) }
-        <div
-            class:list={[
-                'col-span-full xl:col-start-3 xl:col-end-11',
-                !isCollection && 'sm:col-start-2 sm:col-end-12',
-                centered && 'place-self-center',
-                (isCollection || isCollectionChild) && 'row-span-2 row-start-1 col-start-3'
-            ]}>
-            <div class="inline-flex flex-col">
-                <Heading
-                    text={ _truncate(title, 13) }
-                    level="h2"
-                    size="xl"
-                    weight="extra"
-                    color="white"
-                    lowercase
-                    tighten
-                    class:list={ flipped ? 'order-2' : 'order-1' }
-                />
-                <div
-                    class:list={[
-                        'italic flex items-center px-1.5',
-                        flipped ? 'order-1' : 'order-2 mt-1 md:mt-3'
-                    ]}>
-                    <Heading
-                        text={ subtitle }
-                        size="md"
-                        weight="bold"
-                        color="accent"
-                        uppercase
-                        loosen
-                        nowrap
-                        class:list={ swapped ? 'order-2' : 'order-1' }
-                    />
-                    <Accentbar class:list={ swapped ? 'order-1 mr-3' : 'order-2 ml-3' }/>
-                </div>
-            </div>
-        </div>
-    </Wrapper>
+	padding={padding}
+	component='title'
+	class:list={[invisible && 'invisible']}
+	data-entry='above'>
+	<Wrapper
+		x={false}
+		class:list={[
+			!isCollection() && 'px-4 sm:px-0',
+			isCollection() && 'grid-rows-2',
+		]}>
+		{
+			(isCollection() || isCollectionChild()) && (
+				<div class='col-start-1 row-start-1 place-self-start xl:col-start-2 -ml-1.5'>
+					<Anchor
+						href={`/${isCollection() ? collection() : collectionParent()}`}
+						class:list='text-accent-500 hover:opacity-70 px-4 pb-4 xl:!pl-0'>
+						<Icon name='arrow-left' class:list='w-6' />
+						<span class='sr-only' set:text='Back to collection' />
+					</Anchor>
+				</div>
+			)
+		}
+		<div
+			class:list={[
+				'col-span-full xl:col-start-3 xl:col-end-11',
+				!isCollection() && 'sm:col-start-2 sm:col-end-12',
+				centered && 'place-self-center',
+				(isCollection() || isCollectionChild()) &&
+					'row-span-2 row-start-1 col-start-3',
+			]}>
+			<div class='inline-flex flex-col'>
+				<Heading
+					text={_truncate(title, 13)}
+					level='h2'
+					size='xl'
+					weight='extra'
+					color='white'
+					lowercase
+					tighten
+					class:list={flipped ? 'order-2' : 'order-1'}
+				/>
+				<div
+					class:list={[
+						'italic flex items-center px-1.5',
+						flipped ? 'order-1' : 'order-2 mt-1 md:mt-3',
+					]}>
+					<Heading
+						text={subtitle}
+						size='md'
+						weight='bold'
+						color='accent'
+						uppercase
+						loosen
+						nowrap
+						class:list={swapped ? 'order-2' : 'order-1'}
+					/>
+					<Accentbar
+						class:list={swapped ? 'order-1 mr-3' : 'order-2 ml-3'}
+					/>
+				</div>
+			</div>
+		</div>
+	</Wrapper>
 </Section>
