@@ -7,42 +7,45 @@ import AnchorNav from '../atoms/AnchorNav.astro'
 import TitleHidden from '../blocks/TitleHidden.astro'
 import Brief from '../blocks/Brief.astro'
 
-const
-    {
-        title,
-        class: classes, ...attrs
-    } = Astro.props
+const { title, class: classes, ...attrs } = Astro.props
 ---
+
 <header
-    class:list={[
-        'z-50 fixed bottom-0 inset-x-0 invisible bg-primary-950',
-        classes
-    ]}
-    data-header
-    { ...attrs }>
-    <Wrapper tag="nav" x={ false }>
-        <TitleHidden tag="h2" title="Navigation"/>
-        <ul class="flex justify-between xs:justify-start [&>*]:w-full [&>*]:xs:w-auto col-span-full">
-            <li>
-                <AnchorNav
-                    href="/"
-                    data="/"
-                    text="K16E, Inc."
-                    showIcon
-                    showText={ false }
-                    icon="logo"
-                />
-            </li>
-            { navlist.map(it => (
-                <li>
-                    <AnchorNav
-                        href={ `/${it.slug }`}
-                        text={ it.title }
-                        data={ _slugify(it.slug) }
-                    />
-                </li>
-            )) }
-        </ul>
-        <Brief class:list="fixed bottom-full mb-4 right-4 sm:right-8 sm:bottom-1/2 sm:mb-0 invisible" data-entry="below"/>
-    </Wrapper>
+	class:list={[
+		'z-50 fixed bottom-0 inset-x-0 invisible bg-primary-950/90 backdrop-blur-md',
+		classes,
+	]}
+	data-header
+	{...attrs}>
+	<Wrapper tag='nav' x={false}>
+		<TitleHidden tag='h2' title='Navigation' />
+		<ul
+			class='flex justify-between xs:justify-start [&>*]:w-full [&>*]:xs:w-auto col-span-full'>
+			<li>
+				<AnchorNav
+					href='/'
+					data='/'
+					text='K16E, Inc.'
+					showIcon
+					showText={false}
+					icon='logo'
+				/>
+			</li>
+			{
+				navlist.map((it) => (
+					<li>
+						<AnchorNav
+							href={`/${it.slug}`}
+							text={it.title}
+							data={_slugify(it.slug)}
+						/>
+					</li>
+				))
+			}
+		</ul>
+		<Brief
+			class:list='fixed bottom-full mb-4 right-4 sm:right-8 sm:bottom-1/2 sm:mb-0 invisible'
+			data-entry='below'
+		/>
+	</Wrapper>
 </header>
