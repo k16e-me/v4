@@ -7,16 +7,15 @@ import Icon from '@atoms/Icon.astro'
 const { title, class: classes, ...props } = Astro.props,
 	{
 		isCollection,
-		isCollectionChild,
 		collection,
 		collectionParent,
 	} = pathworx(Astro.url)
 ---
 
-<Wrapper tag='div'>
+<Wrapper tag='div' x={ false }>
     <Anchor
         href={`/${isCollection() ? collection() : collectionParent()}`}
-        class:list='col-start-1 row-start-1 place-self-start xl:col-start-2 -ml-1.5 text-accent-500 hover:opacity-70 px-4 pb-4 xl:!pl-0'>
+        class:list='col-start-1 row-start-1 place-self-start xl:col-start-2 text-accent-500 hover:opacity-70 p-4'>
         <Icon name='arrow-left' class:list='w-6' />
         <span class='sr-only' set:text='Back to collection' />
     </Anchor>
