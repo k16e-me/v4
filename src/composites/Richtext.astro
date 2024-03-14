@@ -1,7 +1,7 @@
 ---
-import Section from '../layouts/Section.astro'
-import Wrapper from '../layouts/Wrapper.astro'
-import Prose from '../atoms/Prose.astro'
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import Prose from '@atoms/Prose.astro'
 
 const
     {
@@ -21,12 +21,13 @@ const
     component="richtext"
     title={ title }
     padding={ padding }
-    class:list={[ invisible && 'invisible' ]}
-    data-entry="below">
+    class:list={[ invisible && 'invisible', classes ]}
+    data-entry="below"
+    { ...props }>
     <Wrapper x={ false }>
         <div
             class:list={[
-                'col-span-full grid grid-cols-12',
+                'col-span-full grid grid-cols-12 gap-x-4 sm:gap-x-8',
                 padX && 'px-4'
             ]}>
             <Prose

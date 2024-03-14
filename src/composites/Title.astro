@@ -17,34 +17,33 @@ const {
 		invisible = true,
 		centered = true,
 		padding = 'both',
+		lowercase = true,
 		class: classes,
 		...props
 	} = Astro.props,
-	{
-		isCollection,
-		isCollectionChild,
-		collection,
-		collectionParent,
-	} = pathworx(Astro.url)
+	{ isCollection, isCollectionChild, collection, collectionParent } =
+		pathworx(Astro.url)
 ---
 
 <Section
 	padding={padding}
 	component='title'
-	class:list={[invisible && 'invisible']}
-	data-entry='above'>
+	class:list={[invisible && 'invisible', classes]}
+	data-entry='above'
+	{...props}>
 	<Wrapper
 		x={false}
 		class:list={[
-			!isCollection() && 'px-4 sm:px-0',
+			!isCollection() && !isCollectionChild && 'px-4 sm:px-0',
 			isCollection() && 'grid-rows-2',
+            isCollectionChild && 'pr-4'
 		]}>
 		{
 			(isCollection() || isCollectionChild()) && (
 				<div class='col-start-1 row-start-1 place-self-start xl:col-start-2'>
 					<Anchor
 						href={`/${isCollection() ? collection() : collectionParent()}`}
-						class:list='text-accent-500 hover:opacity-70 px-4 pb-4'>
+						class:list='text-accent-500 hover:opacity-70 px-4 pb-4 -translate-x-1'>
 						<Icon name='arrow-left' class:list='w-6' />
 						<span class='sr-only' set:text='Back to collection' />
 					</Anchor>
@@ -61,19 +60,19 @@ const {
 			]}>
 			<div class='inline-flex flex-col'>
 				<Heading
-					text={_truncate(title, 13)}
+					text={isCollectionChild() ? title : _truncate(title, 15)}
 					level='h2'
-					size='xl'
+					size={isCollectionChild() ? 'lg' : 'xl'}
 					weight='extra'
 					color='white'
-					lowercase
+					lowercase={lowercase}
 					tighten
 					class:list={flipped ? 'order-2' : 'order-1'}
 				/>
 				<div
 					class:list={[
 						'italic flex items-center px-1.5',
-						flipped ? 'order-1' : 'order-2 mt-1 md:mt-3',
+						flipped ? 'order-1' : 'order-2 mt-1 md:mt-2',
 					]}>
 					<Heading
 						text={subtitle}
@@ -83,7 +82,7 @@ const {
 						uppercase
 						loosen
 						nowrap
-						class:list={swapped ? 'order-2' : 'order-1'}
+						class:list={[swapped ? 'order-2' : 'order-1', flipped && 'mb-1 md:mb-2']}
 					/>
 					<Accentbar
 						class:list={swapped ? 'order-1 mr-3' : 'order-2 ml-3'}
