@@ -1,0 +1,18 @@
+---
+import Wrapper from '@layouts/Wrapper.astro'
+import Section from '@layouts/Section.astro'
+import Prose from '@atoms/Prose.astro'
+import Richtext from '@composites/Richtext.astro'
+
+const { Content, title } = Astro.props
+---
+
+<Wrapper>
+	<Section padding='both' title={`Full contents of the entry: ${title}`} class:list='col-span-full'>
+		<Richtext placement='spread' tag='div' padding='none'>
+			<Prose>
+				<Content />
+			</Prose>
+		</Richtext>
+	</Section>
+</Wrapper>

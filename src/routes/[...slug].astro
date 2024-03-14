@@ -5,6 +5,7 @@ import Base from '@layouts/Base.astro'
 import Work from '@composites/Work.astro'
 import Backbar from '@layouts/Backbar.astro'
 import pathworx from '@scripts/pathworx'
+import Child from '@layouts/Child.astro'
 
 export async function getStaticPaths() {
 	const pages = await getCollection('pages'),
@@ -37,5 +38,8 @@ const { entry } = Astro.props,
 
 <Base frontmatter={entry}>
 	{ (isCollection() || isCollectionChild()) && ( <Backbar /> ) }
-	<Content />
+	{  isCollectionChild() ?
+        <Child Content={ Content } title={ entry.data.title }/>  :
+        <Content />
+    }
 </Base>
