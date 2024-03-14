@@ -10,7 +10,7 @@ export default function _backbar() {
 
     const
         backbar = _q('[data-backbar]'),
-        scroll = (backbar?.nextElementSibling?.getBoundingClientRect().height / 2) ?? 200,
+        scroll = (backbar?.nextElementSibling?.getBoundingClientRect().height / 2) ?? 250,
         showBackbar = gsap.from(backbar, {
             yPercent: -100,
             autoAlpha: 0,
