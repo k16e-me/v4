@@ -11,11 +11,11 @@ const { title, class: classes, ...props } = Astro.props,
 <Wrapper
 	tag='div'
 	x={false}
-	class:list='shadow-lg fixed top-0 inset-x-0 bg-primary-950 z-50 invisible'
+	class:list='shadow-lg fixed top-0 inset-x-0 bg-primary-950 z-50 invisible h-14'
 	data-backbar>
 	<Anchor
 		href={`/${isCollection() ? collection() : collectionParent()}`}
-		class:list='col-start-1 row-start-1 place-self-start xl:col-start-2 text-accent-500 hover:opacity-70 p-4'>
+		class:list='col-start-1 row-start-1 place-self-start xl:col-start-2 text-accent-500 hover:opacity-70 p-4 h-full'>
 		<Icon name='arrow-left' class:list='w-6' />
 		<span class='sr-only' set:text='Back to collection' />
 	</Anchor>
