@@ -60,7 +60,7 @@ const {
 				!isCollection() && 'sm:col-start-2 sm:col-end-12',
 				centered && 'place-self-center',
 				(isCollection() || isCollectionChild()) &&
-					'row-span-2 row-start-1 col-start-3',
+					'row-span-2 row-start-1 col-start-3 -translate-x-4 sm:-translate-x-0',
 			]}>
 			<div class='inline-flex flex-col'>
 				<Heading
@@ -71,11 +71,14 @@ const {
 					color='white'
 					lowercase={lowercase}
 					tighten
-					class:list={flipped ? 'order-2' : 'order-1'}
+					class:list={[
+						flipped ? 'order-2' : 'order-1',
+						(isCollectionChild() && flipped) && 'mt-1.5 sm:mt-3'
+					]}
 				/>
 				<div
 					class:list={[
-						'italic flex items-center px-1.5',
+						'italic flex items-center px-1',
 						flipped ? 'order-1' : 'order-2 mt-1 md:mt-2',
 					]}>
 					<Heading
@@ -86,10 +89,7 @@ const {
 						uppercase
 						loosen
 						nowrap
-						class:list={[
-							swapped ? 'order-2' : 'order-1',
-							flipped && 'mb-1 md:mb-2',
-						]}
+						class:list={[swapped ? 'order-2' : 'order-1']}
 					/>
 					<Accentbar
 						class:list={swapped ? 'order-1 mr-3' : 'order-2 ml-3'}
@@ -99,12 +99,11 @@ const {
 		</div>
 		{
 			meta && (
-				<div
-                    class='col-span-full sm:col-start-2 sm:col-end-12 xl:col-start-3 xl:col-end-11 pl-4 pr-4 sm:pl-0 mt-4 sm:mt-8 flex items-center gap-4 flex-wrap'>
+				<div class='col-span-full sm:col-start-2 sm:col-end-12 xl:col-start-3 xl:col-end-11 pl-4 pr-4 sm:pl-0 mt-4 sm:mt-8 flex items-center gap-4 flex-wrap'>
 					{entry && (
 						<Anchor
 							href={`/${collectionParent()}`}
-                            class:list={'hover:opacity-70'}>
+							class:list={'hover:opacity-70'}>
 							<Chip text={entry.data.series} />
 						</Anchor>
 					)}
