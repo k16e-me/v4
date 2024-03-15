@@ -8,6 +8,8 @@ import Anchor from '@atoms/Anchor.astro'
 import _truncate from '@scripts/truncate'
 import { _capitalize } from '@scripts/snips'
 import pathworx from '@scripts/pathworx'
+import Chip from '@atoms/Chip.astro'
+import FormattedDate from '@atoms/FormattedDate.astro'
 
 const {
 		title,
@@ -18,6 +20,8 @@ const {
 		centered = true,
 		padding = 'both',
 		lowercase = true,
+		meta = false,
+		entry,
 		class: classes,
 		...props
 	} = Astro.props,
@@ -36,7 +40,7 @@ const {
 		class:list={[
 			!isCollection() && !isCollectionChild && 'px-4 sm:px-0',
 			isCollection() && 'grid-rows-2',
-            isCollectionChild && 'pr-4'
+			isCollectionChild && 'pr-4',
 		]}>
 		{
 			(isCollection() || isCollectionChild()) && (
@@ -82,13 +86,27 @@ const {
 						uppercase
 						loosen
 						nowrap
-						class:list={[swapped ? 'order-2' : 'order-1', flipped && 'mb-1 md:mb-2']}
+						class:list={[
+							swapped ? 'order-2' : 'order-1',
+							flipped && 'mb-1 md:mb-2',
+						]}
 					/>
 					<Accentbar
 						class:list={swapped ? 'order-1 mr-3' : 'order-2 ml-3'}
 					/>
 				</div>
 			</div>
+			{
+				meta && (
+					<div class='flex items-center justify-between'>
+						{entry && <Chip text={entry.data.series} />}
+						<FormattedDate
+							date={entry.data.release}
+							class:list='opacity-80'
+						/>
+					</div>
+				)
+			}
 		</div>
 	</Wrapper>
 </Section>
