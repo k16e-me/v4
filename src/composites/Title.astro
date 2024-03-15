@@ -44,7 +44,7 @@ const {
 		]}>
 		{
 			(isCollection() || isCollectionChild()) && (
-				<div class='col-start-1 row-start-1 place-self-start xl:col-start-2'>
+				<div class='col-start-1 col-end-2 row-start-1 place-self-start xl:col-start-2'>
 					<Anchor
 						href={`/${isCollection() ? collection() : collectionParent()}`}
 						class:list='text-accent-500 hover:opacity-70 px-4 pb-4 -translate-x-1'>
@@ -99,7 +99,8 @@ const {
 		</div>
 		{
 			meta && (
-				<div class='col-span-full sm:col-start-2 sm:col-end-12 xl:col-start-3 xl:col-end-11 pl-4 pr-4 sm:pl-0 flex items-center flex-wrap mt-4 sm:mt-8 space-x-3'>
+				<div
+                    class='col-span-full sm:col-start-2 sm:col-end-12 xl:col-start-3 xl:col-end-11 pl-4 pr-4 sm:pl-0 mt-4 sm:mt-8 flex items-center gap-4 flex-wrap'>
 					{entry && (
 						<Anchor
 							href={`/${collectionParent()}`}
