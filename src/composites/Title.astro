@@ -8,6 +8,8 @@ import Anchor from '@atoms/Anchor.astro'
 import _truncate from '@scripts/truncate'
 import { _capitalize } from '@scripts/snips'
 import pathworx from '@scripts/pathworx'
+import Chip from '@atoms/Chip.astro'
+import FormattedDate from '@atoms/FormattedDate.astro'
 
 const {
 		title,
@@ -18,6 +20,8 @@ const {
 		centered = true,
 		padding = 'both',
 		lowercase = true,
+		meta = false,
+		entry,
 		class: classes,
 		...props
 	} = Astro.props,
@@ -36,7 +40,7 @@ const {
 		class:list={[
 			!isCollection() && !isCollectionChild && 'px-4 sm:px-0',
 			isCollection() && 'grid-rows-2',
-            isCollectionChild && 'pr-4'
+			isCollectionChild && 'pr-4',
 		]}>
 		{
 			(isCollection() || isCollectionChild()) && (
@@ -82,7 +86,10 @@ const {
 						uppercase
 						loosen
 						nowrap
-						class:list={[swapped ? 'order-2' : 'order-1', flipped && 'mb-1 md:mb-2']}
+						class:list={[
+							swapped ? 'order-2' : 'order-1',
+							flipped && 'mb-1 md:mb-2',
+						]}
 					/>
 					<Accentbar
 						class:list={swapped ? 'order-1 mr-3' : 'order-2 ml-3'}
@@ -90,5 +97,27 @@ const {
 				</div>
 			</div>
 		</div>
+		{
+			meta && (
+				<div class='col-span-full sm:col-start-2 sm:col-end-12 xl:col-start-3 xl:col-end-11 pl-4 pr-4 sm:pl-0 flex items-center flex-wrap mt-4 sm:mt-8 space-x-3'>
+					{entry && (
+						<Anchor
+							href={`/${collectionParent()}`}
+                            class:list={'hover:opacity-70'}>
+							<Chip text={entry.data.series} />
+						</Anchor>
+					)}
+					<FormattedDate
+						date={entry.data.release}
+						class:list='opacity-80'
+					/>
+					{entry.data.update && (
+						<p class='italic opacity-80'>
+							Updated: <FormattedDate date={entry.data.update} />
+						</p>
+					)}
+				</div>
+			)
+		}
 	</Wrapper>
 </Section>

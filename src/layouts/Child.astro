@@ -11,7 +11,9 @@ const { Content, entry } = Astro.props
 <Title
 	subtitle={entry.data.series}
 	title={entry.data.title}
+	entry={entry}
 	flipped={true}
+	meta={true}
 	centered={false}
 	lowercase={false}
 	class:list='col-span-full'
