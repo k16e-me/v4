@@ -96,17 +96,22 @@ const {
 					/>
 				</div>
 			</div>
-			{
-				meta && (
-					<div class='flex items-center justify-between'>
-						{entry && <Chip text={entry.data.series} />}
-						<FormattedDate
-							date={entry.data.release}
-							class:list='opacity-80'
-						/>
-					</div>
-				)
-			}
 		</div>
+		{
+			meta && (
+				<div class='col-span-full sm:col-start-2 sm:col-end-12 xl:col-start-3 xl:col-end-11 pl-4 pr-4 sm:pl-0 flex items-center flex-wrap mt-4 sm:mt-8 space-x-3'>
+					{entry && <Chip text={entry.data.series} />}
+					<FormattedDate
+						date={entry.data.release}
+						class:list='opacity-80'
+					/>
+					{entry.data.update && (
+						<p class='italic opacity-80'>
+							Updated: <FormattedDate date={entry.data.update} />
+						</p>
+					)}
+				</div>
+			)
+		}
 	</Wrapper>
 </Section>
