@@ -100,7 +100,13 @@ const {
 		{
 			meta && (
 				<div class='col-span-full sm:col-start-2 sm:col-end-12 xl:col-start-3 xl:col-end-11 pl-4 pr-4 sm:pl-0 flex items-center flex-wrap mt-4 sm:mt-8 space-x-3'>
-					{entry && <Chip text={entry.data.series} />}
+					{entry && (
+						<Anchor
+							href={`/${collectionParent()}`}
+                            class:list={'hover:opacity-70'}>
+							<Chip text={entry.data.series} />
+						</Anchor>
+					)}
 					<FormattedDate
 						date={entry.data.release}
 						class:list='opacity-80'
