@@ -32,7 +32,10 @@ const { Content, entry } = Astro.props
 </Wrapper>
 <Wrapper x={false} class:list={'invisible'} data-entry='below'>
 	<Prose
-		class:list={'col-span-full lg:col-start-2 lg:col-end-12 xl:col-start-3 xl:col-end-11 mb-8 lg:mb-12 px-4'}>
+		class:list={
+            `col-span-full lg:col-start-2 lg:col-end-12 xl:col-start-3 xl:col-end-11 mb-8 lg:mb-12 px-4
+            border-l-4 border-accent-500 lg:!pl-6 py-5 lg:py-8 bg-gradient-to-r from-accent-500/10 to-transparent`
+        }>
 		<p
 			class:list={`
                 text-xl sm:text-2xl lg:text-3xl inline-flex
