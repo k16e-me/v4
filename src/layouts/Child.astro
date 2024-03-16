@@ -24,7 +24,9 @@ const { Content, entry } = Astro.props
 	<Figure
 		image={entry.data.cover.src}
 		alt={entry.data.cover.alt}
-		class:list={'col-span-full lg:col-start-2 lg:col-end-12 xl:px-4 my-8 lg:my-12'}
+        oleft={false}
+        orientation='landscape'
+		class:list={'col-span-full lg:col-start-2 lg:col-end-12 xl:col-start-3 xl:col-end-11 my-8 lg:my-12'}
 	/>
 </Wrapper>
 <Wrapper x={false}>
