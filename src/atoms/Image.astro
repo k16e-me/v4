@@ -1,26 +1,38 @@
 ---
 import { Image } from 'astro:assets'
-import { _contrast } from '../scripts/snips'
+import { _contrast } from '@scripts/snips'
 
 const {
-    filename, alt, orientation, contrast, typical, noholdsbarred, objectLeft = true, heighten = true,
-    class: classes, ...props
+	filename,
+	alt,
+	orientation,
+	contrast = true,
+	typical,
+	noholdsbarred,
+	objectLeft = true,
+	heighten = true,
+    contain,
+	class: classes,
+	...props
 } = Astro.props
 ---
+
 <Image
-    src={ filename }
-    alt={ alt }
-    class:list={[
-        'w-full object-cover',
-        heighten && 'h-full',
-        objectLeft && 'object-left-top',
-        contrast && _contrast(),
-        orientation == 'profile' && 'h-[480px] xs:h-[520px] sm:h-80 md:h-[400px] lg:h-[480px]',
-        orientation == 'landscape' && 'max-h-[640px]',
-        typical && 'md:max-h-[640px]',
-        noholdsbarred && 'max-h-[900px]'
-    ]}
-    draggable="false"
-    quality="max"
-    { ...props }
+	src={filename}
+	alt={alt}
+	class:list={[
+		'w-full',
+        contain ? 'object-contain' : 'object-cover',
+		heighten && 'h-full',
+		objectLeft && 'object-left-top',
+		contrast && _contrast(),
+		orientation == 'profile' &&
+			'h-[480px] xs:h-[520px] sm:h-80 md:h-[400px] lg:h-[480px]',
+		orientation == 'landscape' && 'max-h-[640px]',
+		typical && 'md:max-h-[640px]',
+		noholdsbarred && 'max-h-[900px]',
+	]}
+	draggable='false'
+	quality='max'
+	{...props}
 />

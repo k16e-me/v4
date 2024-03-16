@@ -8,7 +8,8 @@ import pathworx from '@scripts/pathworx'
 import Child from '@layouts/Child.astro'
 
 export async function getStaticPaths() {
-	const pages = await getCollection('pages'),
+	const
+        pages = await getCollection('pages'),
 		work = await getCollection('work'),
 		blog = await getCollection('blog'),
 		allCollections = [...pages, ...work, ...blog]
@@ -25,7 +26,8 @@ export async function getStaticPaths() {
 	}
 }
 
-const { entry } = Astro.props,
+const
+    { entry } = Astro.props,
 	{ Content } = await entry.render(),
 	{
 		pathname,
@@ -37,9 +39,12 @@ const { entry } = Astro.props,
 ---
 
 <Base frontmatter={entry}>
-	{ (isCollection() || isCollectionChild()) && ( <Backbar /> ) }
-	{  isCollectionChild() ?
-        <Child Content={ Content } entry={ entry }/>  :
-        <Content />
-    }
+	{(isCollection() || isCollectionChild()) && <Backbar />}
+	{
+		isCollectionChild() ? (
+			<Child Content={Content} entry={entry} />
+		) : (
+			<Content />
+		)
+	}
 </Base>
