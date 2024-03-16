@@ -20,6 +20,9 @@ export default {
                 base: ['1rem', '1.555rem'],
                 md: ['1.075rem', '1.655rem'],
                 lg: ['1.125rem', '1.625rem'],
+                xl: ['1.25rem', '1.755rem'],
+                '2xl': ['1.5rem', '2.255rem'],
+                '3xl': ['1.875rem', '2.575rem'],
             },
             colors: {
                 accent: {

@@ -5,6 +5,7 @@ import Prose from '@atoms/Prose.astro'
 import Richtext from '@composites/Richtext.astro'
 import Title from '@composites/Title.astro'
 import Figure from '@blocks/Figure.astro'
+import Accentbar from '@atoms/Accentbar.astro'
 
 const { Content, entry } = Astro.props
 ---
@@ -24,10 +25,18 @@ const { Content, entry } = Astro.props
 	<Figure
 		image={entry.data.cover.src}
 		alt={entry.data.cover.alt}
-        oleft={false}
-        orientation='landscape'
+		oleft={false}
+		orientation='landscape'
 		class:list={'col-span-full lg:col-start-2 lg:col-end-12 xl:col-start-3 xl:col-end-11 my-8 lg:my-12'}
 	/>
+</Wrapper>
+<Wrapper x={false} class:list={'invisible'} data-entry='below'>
+	<Prose
+		class:list={'col-span-full lg:col-start-2 lg:col-end-12 xl:col-start-3 xl:col-end-11 mb-8 lg:mb-12 px-4'}>
+		<p class='text-xl sm:text-2xl lg:text-3xl inline-flex'>
+			<span set:html={entry.data.excerpt} />
+		</p>
+	</Prose>
 </Wrapper>
 <Wrapper x={false}>
 	<Section
@@ -39,7 +48,10 @@ const { Content, entry } = Astro.props
 			padding='none'
 			padX={false}
 			class:list='px-4 sm:px-0'>
-			<Prose>
+			<Prose
+				class:list={`
+                    first-line:uppercase first-line:tracking-wider first-letter:text-7xl lg:first-letter:text-9xl first-letter:font-bold first-letter:mr-3 first-letter:-mt-1 lg:first-letter:-mt-3 first-letter:float-left first-letter:text-accent-500
+                `}>
 				<Content />
 			</Prose>
 		</Richtext>
