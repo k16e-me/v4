@@ -60,7 +60,7 @@ const {
 				!isCollection() && 'sm:col-start-2 sm:col-end-12',
 				centered && 'place-self-center',
 				(isCollection() || isCollectionChild()) &&
-					'row-span-2 row-start-1 col-start-3 -translate-x-3 sm:-translate-x-0',
+					'row-span-2 row-start-1 col-start-3 -translate-x-2.5 sm:-translate-x-0',
 			]}>
 			<div class='inline-flex flex-col'>
 				<Heading
@@ -111,10 +111,10 @@ const {
 						date={entry.data.release}
 						class:list='opacity-80'
 					/>
-                    <span set:text="|" class="opacity-35"/>
+                    <span class="opacity-30 block border-r border-white h-full" aria-hidden="true"/>
 					{entry.data.update && (
 						<p class='italic opacity-80'>
-							Updated: <FormattedDate date={entry.data.update} />
+							U: <FormattedDate date={entry.data.update} />
 						</p>
 					)}
 				</div>
