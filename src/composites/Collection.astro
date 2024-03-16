@@ -6,60 +6,72 @@ import CardWork from '@blocks/CardWork.astro'
 import CardPost from '@blocks/CardPost.astro'
 import Anchor from '@atoms/Anchor.astro'
 
-const
-    {
-        title, collection, padding, image,
-        class: classes, ...props
-    } = Astro.props,
-    entries = await getCollection(collection, ({ data }) => {
-        return import.meta.env.PROD ? data.isDraft !== true : true
-    }),
-    sortedEntries = entries.sort((a: any, b: any) => (
-        Date.parse(b.data.date || b.data.release) - Date.parse(a.data.date || a.data.release))
-    )
+const {
+		title,
+		collection,
+		padding,
+		image,
+		class: classes,
+		...props
+	} = Astro.props,
+	entries = await getCollection(collection, ({ data }) => {
+		return import.meta.env.PROD ? data.isDraft !== true : true
+	}),
+	sortedEntries = entries.sort(
+		(a: any, b: any) =>
+			Date.parse(b.data.date || b.data.release) -
+			Date.parse(a.data.date || a.data.release),
+	)
 ---
+
 <Section
-    component="collection"
-    title={ title }
-    padding={ padding }
-    class:list="invisible"
-    data-entry="below">
-    <Wrapper x={ false }>
-        <ul
-            class:list={[
-                `
+	component='collection'
+	title={title}
+	padding={padding}
+	class:list='invisible'
+	data-entry='below'>
+	<Wrapper x={false}>
+		<ul
+			class:list={[
+				`
                     col-span-full grid grid-cols-12 gap-4 md:gap-8
                     [&>*]:col-span-full [&>*]:md:col-span-6 [&>*]:xl:col-span-4
-                `
-            ]}>
-            { sortedEntries.map((e, idx, arr) => (
-                <li class="group/anchor">
-                    <Anchor
-                        href={ `/${e.collection}/${e.slug}` }
-                        class:list="w-full group-hover/anchor:scale-95">
-                        { () => {
-                            if (collection === 'work') { return (
-                                <CardWork
-                                    shortname={ e.data.client.shortname }
-                                    hue={ e.data.color }
-                                    logo={ e.data.logo }
-                                    tag={ e.data.tag }
-                                />
-                            ) } else if (collection === 'blog') { return (
-                                <CardPost
-                                    image={ e.data.cover }
-                                    title={ e.data.title }
-                                    description={ e.data.description }
-                                    release={ e.data.release }
-                                    update={ e.data.update }
-                                    series={ e.data.series }
-                                    num={ arr.length - idx }
-                                />
-                            ) }
-                        } }
-                    </Anchor>
-                </li>
-            )) }
-        </ul>
-    </Wrapper>
+                `,
+			]}>
+			{
+				sortedEntries.map((e, idx, arr) => (
+					<li class='group/anchor'>
+						<Anchor
+							href={`/${e.collection}/${e.slug}`}
+							class:list='w-full group-hover/anchor:scale-95'>
+							{() => {
+								if (collection === 'work') {
+									return (
+										<CardWork
+											shortname={e.data.client.shortname}
+											hue={e.data.color}
+											logo={e.data.logo}
+											tag={e.data.tag}
+										/>
+									)
+								} else if (collection === 'blog') {
+									return (
+										<CardPost
+											image={e.data.cover}
+											title={e.data.title}
+											description={e.data.description}
+											release={e.data.release}
+											update={e.data.update}
+											series={e.data.series}
+											num={arr.length - idx}
+										/>
+									)
+								}
+							}}
+						</Anchor>
+					</li>
+				))
+			}
+		</ul>
+	</Wrapper>
 </Section>
