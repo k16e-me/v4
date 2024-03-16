@@ -1,18 +1,12 @@
 ---
 import { _transition } from '@scripts/snips'
 
-const {
-    href,
-    class: classes, ...attrs
-} = Astro.props
+const { href, class: classes, ...attrs } = Astro.props
 ---
+
 <a
-    href={ href }
-    class:list={[
-        'inline-flex items-center',
-        _transition(),
-        classes
-    ]}
-    { ...attrs }>
-    <slot/>
+	href={href}
+	class:list={['inline-flex items-center', _transition(), classes]}
+	{...attrs}>
+	<slot />
 </a>

@@ -1,5 +1,5 @@
 ---
-import { _py, _pb } from '../scripts/snips'
+import { _py, _pb, _pt } from '@scripts/snips'
 const
     {
         component = null,
@@ -14,9 +14,10 @@ const
 <Tag
     class:list={[
         `_section _section-${ component }`,
-        padding === 'both' && _py(),
-        padding === 'bottom' && _pb(),
-        padding === 'none' && '',
+        padding == 'both' && _py(),
+        padding == 'top' && _pt(),
+        padding == 'bottom' && _pb(),
+        padding == 'none' && '',
         classes
     ]} { ...attrs }>
     { title && <h2 set:text={ title } class="sr-only"/> }

@@ -8,37 +8,36 @@ import Tile from '@blocks/Tile.astro'
 import _pastels from '@scripts/pastels'
 import _shuffle from '@scripts/shuffle'
 
-const
-    {
-        title, padding,
-        class: classes, ...props
-    } = Astro.props,
-    blogs = await Astro.glob('@content/pages/blog/*.mdx'),
-    pastels = _pastels().pastels(),
-    shuffledPastels = _shuffle(pastels)
+const { title, padding, class: classes, ...props } = Astro.props,
+	blogs = await Astro.glob('@content/pages/blog/*.mdx'),
+	pastels = _pastels().pastels(),
+	shuffledPastels = _shuffle(pastels)
 ---
+
 <Section
-    component="blogs"
-    title={ title }
-    padding={ padding }
-    class:list="invisible"
-    data-entry="below">
-    <Wrapper x={ false }>
-        <TileGrid tag="ul">
-            { blogs.map((e, idx) => (
-                <li class="group/anchor">
-                    <Anchor
-                        href={ e.url }
-                        class:list="w-full group-hover/anchor:scale-95">
-                        <Tile
-                            obj={ e.frontmatter.title }
-                            copy={ e.frontmatter.description }
-                            pastel={ shuffledPastels[idx] }
-                            class:list="w-full"
-                        />
-                    </Anchor>
-                </li>
-            )) }
-        </TileGrid>
-    </Wrapper>
+	component='blogs'
+	title={title}
+	padding={padding}
+	class:list='invisible'
+	data-entry='below'>
+	<Wrapper x={false}>
+		<TileGrid tag='ul'>
+			{
+				blogs.map((e, idx) => (
+					<li class='group/anchor'>
+						<Anchor
+							href={e.url}
+							class:list='w-full group-hover/anchor:scale-95'>
+							<Tile
+								obj={e.frontmatter.title}
+								copy={e.frontmatter.description}
+								pastel={shuffledPastels[idx]}
+								class:list='w-full'
+							/>
+						</Anchor>
+					</li>
+				))
+			}
+		</TileGrid>
+	</Wrapper>
 </Section>

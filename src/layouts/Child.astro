@@ -4,6 +4,7 @@ import Section from '@layouts/Section.astro'
 import Prose from '@atoms/Prose.astro'
 import Richtext from '@composites/Richtext.astro'
 import Title from '@composites/Title.astro'
+import Figure from '@blocks/Figure.astro'
 
 const { Content, entry } = Astro.props
 ---
@@ -16,8 +17,16 @@ const { Content, entry } = Astro.props
 	meta={true}
 	centered={false}
 	lowercase={false}
+	padding='top'
 	class:list='col-span-full'
 />
+<Wrapper x={false} class:list={'invisible'} data-entry='below'>
+	<Figure
+		image={entry.data.cover.src}
+		alt={entry.data.cover.alt}
+		class:list={'col-span-full lg:col-start-2 lg:col-end-12 xl:px-4 my-8 lg:my-12'}
+	/>
+</Wrapper>
 <Wrapper x={false}>
 	<Section
 		title={`Full contents of the entry: ${entry.data.title}`}

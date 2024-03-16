@@ -1,24 +1,33 @@
 ---
-import Image from '../atoms/Image.astro'
+import Image from '@atoms/Image.astro'
 
-const
-    {
-        image, alt, caption, orientation, contrast = true,
-        class: classes, ...props
-    } = Astro.props
+const {
+	image,
+	alt,
+	caption,
+	orientation,
+	contrast = true,
+    contain,
+	class: classes,
+	...props
+} = Astro.props
 ---
-<figure class:list={[
-    classes
-]} { ...props }>
-    <Image
-        filename={ image }
-        alt={ alt }
-        orientation={ orientation }
-        contrast={ contrast }
-        heighten={ false }
-    />
-    <figcaption
-        set:text={ caption }
-        class="bg-accent-500 text-primary-950/90 p-3 text-sm italic"
-    />
+
+<figure class:list={[classes]} {...props}>
+	<Image
+		filename={image}
+		alt={alt}
+		orientation={orientation}
+		contrast={contrast}
+		heighten={false}
+        contain={contain}
+	/>
+	{
+		caption && (
+			<figcaption
+				set:text={caption}
+				class='bg-accent-500 text-primary-950/90 p-3 text-sm italic'
+			/>
+		)
+	}
 </figure>
