@@ -9,13 +9,19 @@ import Anchor from '@atoms/Anchor.astro'
 const {
 		title,
 		collection,
+		series,
 		padding,
 		image,
 		class: classes,
 		...props
 	} = Astro.props,
-	entries = await getCollection(collection, ({ data }) => {
-		return import.meta.env.PROD ? data.isDraft !== true : true
+	entries = await getCollection(collection, ({ data, id }) => {
+		if (series) {
+			return (
+				id.startsWith(`${series}/`) &&
+				(import.meta.env.PROD ? data.isDraft !== true : true)
+			)
+		} else return import.meta.env.PROD ? data.isDraft !== true : true
 	}),
 	sortedEntries = entries.sort(
 		(a: any, b: any) =>

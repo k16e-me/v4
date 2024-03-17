@@ -8,6 +8,7 @@ cover:
 ---
 import Title from '@composites/Title.astro'
 import BlockText from '@composites/BlockText.astro'
+import Collection from '@composites/Collection.astro'
 
 <Title
     title="Ideas"
@@ -15,4 +16,9 @@ import BlockText from '@composites/BlockText.astro'
     flipped={ true }
     swapped={ false }
     centered={ false }
+/>
+<Collection
+    collection='blog'
+    series='ideas'
+    title='Ideas'
 />

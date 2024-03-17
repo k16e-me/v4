@@ -57,6 +57,7 @@ const blog = defineCollection({
         series: z.string(),
         release: z.date(),
         update: z.date(),
+        isDraft: z.boolean().optional(),
     })
 })
 
