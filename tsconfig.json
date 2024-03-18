@@ -15,6 +15,7 @@
         "@content/*": ["src/content/*"],
         "@scripts/*": ["src/scripts/*"],
         "@uploads/*": ["src/uploads/*"],
+        "@meta/*": ["src/meta/*"],
     }
   }
 }
