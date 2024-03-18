@@ -48,16 +48,17 @@ const { Content, entry } = Astro.props
 		class:list='col-span-full'>
 		<Richtext
 			placement='readable'
+            alignment='start'
 			tag='div'
 			padding='none'
 			padX={false}
 			class:list='px-4 sm:px-0'>
-			<Prose
+			<div
 				class:list={`
                     first-line:uppercase first-line:font-bold first-line:tracking-wider first-letter:text-9xl first-letter:-mt-3 first-letter:font-extrabold first-letter:mr-4 first-letter:float-left first-letter:text-accent-500
                 `}>
 				<Content />
-			</Prose>
+			</div>
 		</Richtext>
 	</Section>
 </Wrapper>
