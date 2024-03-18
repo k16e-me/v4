@@ -9,26 +9,25 @@ import Child from '@layouts/Child.astro'
 
 export async function getStaticPaths() {
 	const
-        pages = await getCollection('pages'),
-		work = await getCollection('work'),
-		blog = await getCollection('blog'),
-		allCollections = [...pages, ...work, ...blog]
+        collections = ['pages', 'work', 'blog'],
+		allCollections = await Promise.all(
+			collections.map(e => getCollection(e)),
+		).then((results) => results.flat())
 
-	return allCollections.map((entry) => ({
-		params: { slug: slug(entry) },
-		props: { entry },
+	return allCollections.map(e => ({
+		params: { slug: slug(e) },
+		props: { e },
 	}))
 
-	function slug(entry) {
-		if (entry.collection === 'pages')
-			return entry.slug === 'home' ? undefined : entry.slug
-		else return `${entry.collection}/${entry.slug}`
+	function slug(path) {
+		if (path.collection === 'pages')
+			return path.slug === 'home' ? undefined : path.slug
+		else return `${path.collection}/${path.slug}`
 	}
 }
 
-const
-    { entry } = Astro.props,
-	{ Content } = await entry.render(),
+const { e } = Astro.props,
+	{ Content } = await e.render(),
 	{
 		pathname,
 		isCollection,
@@ -38,11 +37,11 @@ const
 	} = pathworx(Astro.url)
 ---
 
-<Base frontmatter={entry}>
+<Base frontmatter={e}>
 	{(isCollection() || isCollectionChild()) && <Backbar />}
 	{
 		isCollectionChild() ? (
-			<Child Content={Content} entry={entry} />
+			<Child Content={Content} entry={e} />
 		) : (
 			<Content />
 		)
