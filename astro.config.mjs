@@ -21,5 +21,11 @@ export default defineConfig({
     ],
     build: {
         format: 'preserve'
+    },
+    redirects: {
+        '/blog/ideas/possible-component-names': {
+            status: 301,
+            destination: '/blog/ideas/dictionary'
+        }
     }
 })
