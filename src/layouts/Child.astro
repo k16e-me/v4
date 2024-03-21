@@ -53,12 +53,7 @@ const { Content, entry } = Astro.props
 			padding='none'
 			padX={false}
 			class:list='px-4 sm:px-0'>
-			<div
-				class:list={`
-                    first-line:uppercase first-line:font-bold first-line:tracking-wider first-letter:text-9xl first-letter:-mt-3 first-letter:font-extrabold first-letter:mr-4 first-letter:float-left first-letter:text-accent-500
-                `}>
-				<Content />
-			</div>
+			<Content />
 		</Richtext>
 	</Section>
 </Wrapper>
