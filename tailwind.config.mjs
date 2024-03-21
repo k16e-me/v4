@@ -19,7 +19,7 @@ export default {
                 sm: ['0.975rem', '1.365rem'],
                 base: ['1rem', '1.555rem'],
                 md: ['1.075rem', '1.655rem'],
-                lg: ['1.125rem', '1.625rem'],
+                lg: ['1.125rem', '1.635rem'],
                 xl: ['1.25rem', '1.755rem'],
                 '2xl': ['1.5rem', '2.155rem'],
                 '3xl': ['1.875rem', '2.375rem'],
