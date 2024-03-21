@@ -22,7 +22,7 @@ const {
 	component='callout'
 	title={title}
 	padding={padding}
-	class:list={['invisible', cancelSiblingMargins && '-my-5' ]}
+	class:list={['invisible', cancelSiblingMargins && '-my-5']}
 	data-entry='below'>
 	<Wrapper
 		x={false}
@@ -32,6 +32,12 @@ const {
         `}>
 		<div class='col-span-full italic [&>p]:m-0'>
 			<slot />
+			{byline && (
+                <div class="mt-6 flex flex-col">
+                    <span set:text={byline} class='text-accent-500 not-italic' />
+			        {description && <span set:text={description} class='text-base text-white/60 -mt-0.5' />}
+                </div>
+            )}
 		</div>
 	</Wrapper>
 </Section>
