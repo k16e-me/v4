@@ -1,0 +1,37 @@
+---
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import Heading from '@atoms/Heading.astro'
+import { _capitalize } from '@scripts/snips'
+import _shade from '@scripts/shades-from'
+
+const {
+	title,
+	byline,
+	description,
+	padding = 'none',
+	cancelSiblingMargins = true,
+	tag,
+	class: classes,
+	...props
+} = Astro.props
+---
+
+<Section
+	tag={tag}
+	component='callout'
+	title={title}
+	padding={padding}
+	class:list={['invisible', cancelSiblingMargins && '-my-5' ]}
+	data-entry='below'>
+	<Wrapper
+		x={false}
+		class:list={`
+            bg-primary-900/25 border-primary-900 border-2
+            p-4 sm:p-8
+        `}>
+		<div class='col-span-full italic [&>p]:m-0'>
+			<slot />
+		</div>
+	</Wrapper>
+</Section>
