@@ -9,6 +9,7 @@ cover:
 import Title from '@composites/Title.astro'
 import Words from '@composites/Words.astro'
 import Richtext from '@composites/Richtext.astro'
+import BriefLink from '@blocks/BriefLink.astro'
 
 export const dictionary = [
     'Software', 'Business', 'Services', 'Space', 'Living', 'Game', 'Food', 'Fun', 'Words', 'Policy', 'Sound', 'Security', 'Money', 'Shift Work', 'Sports', 'Music', 'Education', 'Manufacturing', 'Love', 'Art', 'Data', 'Culture', 'Society', 'Anything', 'Everything', 'Yes, Everything!'
@@ -28,5 +29,5 @@ export const dictionary = [
 <Richtext
     padding="both"
     textAlign="center">
-    Let’s make you *sell* with design. <br/> [Drop us a line.](/contact)
+    Let’s make you *sell* with design. <br/> <BriefLink set:text='Drop us a line'/>
 </Richtext>
