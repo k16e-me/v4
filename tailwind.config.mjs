@@ -15,8 +15,8 @@ export default {
                 sans: ['Bricolage Grotesque Variable, sans-serif', ...defaultTheme.fontFamily.sans],
             },
             fontSize: {
-                xs: ['0.885rem', '1.345rem'],
-                sm: ['0.975rem', '1.365rem'],
+                xs: ['0.895rem', '1.355rem'],
+                sm: ['0.995rem', '1.375rem'],
                 base: ['1rem', '1.555rem'],
                 md: ['1.075rem', '1.655rem'],
                 lg: ['1.125rem', '1.635rem'],
