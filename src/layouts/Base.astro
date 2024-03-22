@@ -33,7 +33,8 @@ const {
 			id='swup'>
 			<slot />
 		</main>
-	</body><style is:global>
+	</body>
+    <style is:global>
 		html.is-changing .swup-in {
 			@apply opacity-100 duration-[.3s] ease-[cubic-bezier(0,0.16,0,1)];
 		}
@@ -42,9 +43,6 @@ const {
 		}
 		.swup-progress-bar {
 			@apply h-1 bg-accent-400;
-		}
-		main:focus {
-			outline: none;
 		}
 		button {
 			text-align: inherit;
