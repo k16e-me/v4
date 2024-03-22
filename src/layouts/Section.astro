@@ -11,15 +11,17 @@ const
     } = Astro.props,
     Tag = tag
 ---
+
 <Tag
-    class:list={[
-        `_section _section-${ component }`,
-        padding == 'both' && _py(),
-        padding == 'top' && _pt(),
-        padding == 'bottom' && _pb(),
-        padding == 'none' && '',
-        classes
-    ]} { ...attrs }>
-    { title && <h2 set:text={ title } class="sr-only"/> }
-    <slot/>
+	class:list={[
+		`_section _section-${component}`,
+		padding == 'both' && _py(),
+		padding == 'top' && _pt(),
+		padding == 'bottom' && _pb(),
+		padding == 'none' && '',
+		classes,
+	]}
+	{...attrs}>
+	{title && <h2 set:text={title} class='sr-only' />}
+	<slot />
 </Tag>
