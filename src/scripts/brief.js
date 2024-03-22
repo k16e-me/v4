@@ -4,7 +4,7 @@ export default function _brief() {
     const
         trigger = _q('a[href="/contact"]'),
         contacts = _ql('a[href="/contact"]'),
-        origin = import.meta.env.DEV ? 'localhost:' : 'https://v4.k16e.co',
+        origin = import.meta.env.DEV ? 'localhost:' : import.meta.env.SITE,
         pathname = new URL(`${origin}/brief`),
         calAttrs = (el) => {
             el.setAttribute('data-cal-link', 'k16e.co/brief')

@@ -5,83 +5,95 @@ import TitleHidden from '@blocks/TitleHidden.astro'
 import { _pb } from '@scripts/snips'
 import { getImage } from 'astro:assets'
 
-const
-    { frontmatter: { data } } = Astro.props,
-    isHome = Astro.url.pathname === '/'
+const {
+		frontmatter: { data },
+	} = Astro.props,
+	isHome = Astro.url.pathname === '/'
 ---
+
 <!doctype html>
-<html lang="en" class="scroll-smooth bg-primary-950 text-white/80">
+<html lang='en' class='scroll-smooth bg-primary-950 text-white/80'>
 	<Head
-        title={ data.title }
-        description={ data.description }
-        image={ import.meta.env.SITE + data.cover.src.src }
-        alt={ data.cover.alt ? data.cover.alt : '' }
-    />
+		title={data.title}
+		description={data.description}
+		image={import.meta.env.SITE + data.cover.src.src}
+		alt={data.cover.alt ? data.cover.alt : ''}
+	/>
 	<body
-        class=" flex min-h-svh lg:min-h-dvh flex-col transition-colors duration-300">
-        <TitleHidden title={ data.title }/>
-        <Header/>
+		class='flex min-h-svh lg:min-h-dvh flex-col transition-colors duration-300'>
+		<TitleHidden title={data.title} />
+		<Header />
 		<main
-            class:list={[
-                'swup-in relative',
-                !isHome && _pb(),
-                isHome && 'flex flex-col items-center justify-center h-svh lg:h-dvh -mt-10 lg:-mt-8'
-            ]}
-            id="swup">
-            <slot/>
-        </main>
-	</body>
+			class:list={[
+				'swup-in relative',
+				!isHome && _pb(),
+				isHome &&
+					'flex flex-col items-center justify-center h-svh lg:h-dvh -mt-10 lg:-mt-8',
+			]}
+			id='swup'>
+			<slot />
+		</main>
+	</body><style is:global>
+		html.is-changing .swup-in {
+			@apply opacity-100 duration-[.3s] ease-[cubic-bezier(0,0.16,0,1)];
+		}
+		html.is-animating .swup-in {
+			@apply translate-y-8 scale-[.99] opacity-0 ease-in;
+		}
+		.swup-progress-bar {
+			@apply h-1 bg-accent-400;
+		}
+		main:focus {
+			outline: none;
+		}
+		button {
+			text-align: inherit;
+		}
+		svg {
+			@apply pointer-events-none flex-shrink-0 fill-current;
+		}
+	</style>
+
+	<script>
+		import Swup from 'swup'
+		import SwupProgressPlugin from '@swup/progress-plugin'
+		import SwupHeadPlugin from '@swup/head-plugin'
+		import _active from '@scripts/active'
+		import _prefilters from '@scripts/prefilters'
+		import _words from '@scripts/words'
+		import { _body, _q, _ql } from '@scripts/snips'
+		import _zaps from '@scripts/zaps'
+		import _brief from '@scripts/brief'
+		import _backbar from '@scripts/backbar'
+
+		const swup = new Swup({
+			animationSelector: '[class*="swup-"]',
+			animateHistoryBrowsing: true,
+			plugins: [
+				new SwupProgressPlugin({ finishAnimation: false }),
+				new SwupHeadPlugin(),
+			],
+		})
+
+		document.addEventListener('DOMContentLoaded', () => {
+			once()
+			init()
+		})
+		swup.hooks.on('page:view', () => {
+			init()
+			_ql('[data-entry]').map((e) => e.classList.remove('invisible'))
+		})
+
+		function init() {
+			_active()
+			_words()
+			_brief()
+			_backbar()
+		}
+
+		function once() {
+			_zaps()
+			// _prefilters()
+		}
+	</script>
 </html>
-
-<style is:global>
-	html.is-changing .swup-in { @apply opacity-100 duration-[.3s] ease-[cubic-bezier(0,0.16,0,1)]; }
-	html.is-animating .swup-in { @apply opacity-0 scale-[.99] translate-y-8 ease-in; }
-	.swup-progress-bar { @apply h-1 bg-accent-400; }
-	main:focus { outline: none; }
-    button { text-align: inherit; }
-	svg { @apply flex-shrink-0 pointer-events-none fill-current; }
-</style>
-
-<script>
-    import Swup from 'swup'
-    import SwupProgressPlugin from '@swup/progress-plugin'
-    import SwupHeadPlugin from '@swup/head-plugin'
-    import _active from '@scripts/active'
-    import _prefilters from '@scripts/prefilters'
-    import _words from '@scripts/words'
-    import { _body, _q, _ql } from '@scripts/snips'
-    import _zaps from '@scripts/zaps'
-    import _brief from '@scripts/brief'
-    import _backbar from '@scripts/backbar'
-
-
-    const swup = new Swup({
-        animationSelector: '[class*="swup-"]',
-        animateHistoryBrowsing: true,
-        plugins: [
-            new SwupProgressPlugin({ finishAnimation: false }),
-            new SwupHeadPlugin()
-        ]
-    })
-
-    document.addEventListener('DOMContentLoaded', () => {
-        once()
-        init()
-    })
-    swup.hooks.on('page:view', () => {
-        init()
-        _ql('[data-entry]').map(e => e.classList.remove('invisible'))
-    })
-
-    function init() {
-        _active()
-        _words()
-        _brief()
-        _backbar()
-    }
-
-    function once() {
-        _zaps()
-        // _prefilters()
-    }
-</script>
