@@ -21,7 +21,7 @@ const {
 	/>
 	<body
 		class='flex min-h-svh lg:min-h-dvh flex-col transition-colors duration-300'>
-		<TitleHidden title={data.title} />
+		<TitleHidden title={data.title} id="page-title"/>
 		<Header />
 		<main
 			class:list={[
@@ -63,6 +63,7 @@ const {
 		import _backbar from '@scripts/backbar'
 
 		const swup = new Swup({
+            // containers: ['main', 'page-title'],
 			animationSelector: '[class*="swup-"]',
 			animateHistoryBrowsing: true,
 			plugins: [
