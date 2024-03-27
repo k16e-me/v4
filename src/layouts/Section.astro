@@ -4,6 +4,7 @@ const
     {
         component = null,
         padding = 'bottom',
+        prose = false,
         title,
         tag = 'section',
         class: classes,
@@ -19,6 +20,7 @@ const
 		padding == 'top' && _pt(),
 		padding == 'bottom' && _pb(),
 		padding == 'none' && '',
+        prose && 'my-5',
 		classes,
 	]}
 	{...attrs}>

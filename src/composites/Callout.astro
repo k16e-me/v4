@@ -10,7 +10,8 @@ const {
 	byline,
 	description,
 	padding = 'none',
-	cancelSiblingMargins = true,
+    prose,
+	cancelSiblingMargins = false,
 	tag,
 	class: classes,
 	...props
@@ -22,7 +23,11 @@ const {
 	component='callout'
 	title={title}
 	padding={padding}
-	class:list={['invisible', cancelSiblingMargins && '-my-5']}
+    prose={prose}
+	class:list={[
+        'invisible',
+        cancelSiblingMargins && '-my-5'
+    ]}
 	data-entry='below'>
 	<Wrapper
 		x={false}
