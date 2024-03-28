@@ -14,7 +14,6 @@
         "@astrojs/sitemap": "^3.1.2",
         "@astrojs/tailwind": "^5.1.0",
         "@fontsource-variable/bricolage-grotesque": "^5.0.5",
-        "@microflash/remark-figure-caption": "^2.0.2",
         "@nanostores/persistent": "^0.10.1",
         "@swup/a11y-plugin": "^4.5.0",
         "@swup/head-plugin": "^2.2.0",
@@ -26,6 +25,8 @@
         "astro-seo": "^0.8.3",
         "gsap": "^3.12.5",
         "nanostores": "^0.10.0",
+        "rehype-figure": "^1.0.1",
+        "rehype-widont": "^0.1.1",
         "swup": "^4.6.1",
         "tailwindcss": "^3.4.3",
         "vite": "^5.2.6"
