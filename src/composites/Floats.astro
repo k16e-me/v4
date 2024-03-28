@@ -1,53 +1,58 @@
 ---
-import Section from '../layouts/Section.astro'
-import Wrapper from '../layouts/Wrapper.astro'
-import Prose from '../atoms/Prose.astro'
-import Figure from '../blocks/Figure.astro'
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import Prose from '@atoms/Prose.astro'
+import Figure from '@blocks/Figure.astro'
 
-const
-    {
-        title,
-        float = 'left',
-        padding = 'bottom',
-        tag = 'section',
-        image,
-        padX = true,
-        class: classes, ...props
-    } = Astro.props
+const {
+	title,
+	float = 'left',
+	padding = 'bottom',
+	prose,
+	tag = 'section',
+	image,
+	padX = true,
+	class: classes,
+	...props
+} = Astro.props
 ---
+
 <Section
-    tag={ tag }
-    component="floats"
-    title={ title }
-    padding={ padding }
-    class:list="invisible"
-    data-entry="below">
-    <Wrapper x>
-        <div
-            class:list={[
-                'col-span-full lg:col-start-2 lg:col-end-12 xl:col-start-3 xl:col-end-11 grid grid-cols-12 gap-y-8 sm:gap-x-8'
-            ]}>
-            { image && (
-                <Figure
-                    class:list={[
-                        'col-span-full',
-                        float == 'left' && 'sm:col-start-1 sm:col-end-6',
-                        float == 'right' && ''
-                    ]}
-                    image={ image.filename }
-                    alt={ image.alt }
-                    caption={ image.caption }
-                    orientation={ image.orientation }
-                />
-            )}
-            <Prose
-                class:list={[
-                    'col-span-full sm:-mt-2',
-                    float == 'left' && 'sm:col-start-6 sm:col-span-9',
-                    float == 'right' && ''
-                ]}>
-                <slot/>
-            </Prose>
-        </div>
-    </Wrapper>
+	tag={tag}
+	component='floats'
+	title={title}
+	padding={padding}
+	prose={prose}
+	class:list='invisible'
+	data-entry='below'>
+	<Wrapper x>
+		<div
+			class:list={[
+				'col-span-full lg:col-start-2 lg:col-end-12 xl:col-start-3 xl:col-end-11 grid grid-cols-12 gap-y-8 sm:gap-x-8',
+			]}>
+			{
+				image && (
+					<Figure
+						class:list={[
+							'col-span-full',
+							float == 'left' && 'sm:col-start-1 sm:col-end-6',
+							float == 'right' && '',
+						]}
+						image={image.filename}
+						alt={image.alt}
+						caption={image.caption}
+						orientation={image.orientation}
+					/>
+				)
+			}
+			<Prose
+				class:list={[
+					'col-span-full sm:-mt-2',
+					float == 'left' && 'sm:col-start-6 sm:col-span-9',
+					float == 'right' && '',
+				]}>
+				<slot />
+			</Prose>
+		</div>
+	</Wrapper>
 </Section>
