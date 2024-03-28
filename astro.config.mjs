@@ -3,8 +3,9 @@ import tailwind from '@astrojs/tailwind'
 import pages from 'astro-pages'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
+import remarkFigureCaption from '@microflash/remark-figure-caption'
 import widont from 'rehype-widont'
-import rehypeFigure from 'rehype-figure'
+// import rehypeFigure from 'rehype-figure'
 
 export default defineConfig({
     site: 'https://k16e.co',
@@ -15,8 +16,11 @@ export default defineConfig({
     },
     markdown: {
         rehypePlugins: [
-            [rehypeFigure, { className: 'r-figure' }],
-            widont
+            widont,
+            // [rehypeFigure, { className: 'r-figure' }]
+        ],
+        remarkPlugins: [
+            [remarkFigureCaption, { captionClassName: 'r-figcaption' }]
         ]
     },
     integrations: [
