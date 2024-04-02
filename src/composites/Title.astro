@@ -12,7 +12,8 @@ import Chip from '@atoms/Chip.astro'
 import FormattedDate from '@atoms/FormattedDate.astro'
 import Figure from '@blocks/Figure.astro'
 
-const {
+const
+    {
 		title,
 		subtitle,
 		flipped,
@@ -33,7 +34,7 @@ const {
 <Section
 	padding={padding}
 	component='title'
-	class:list={[invisible && 'invisible', classes]}
+	class:list={[classes]}
 	data-entry='above'
 	{...props}>
 	<Wrapper

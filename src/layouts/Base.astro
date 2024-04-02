@@ -36,7 +36,7 @@ const {
 	</body>
     <style is:global>
 		html.is-changing .swup-in {
-			@apply opacity-100 duration-[.3s] ease-[cubic-bezier(0,0.16,0,1)];
+			@apply opacity-100 duration-[0.4s] ease-[cubic-bezier(0,0.16,0,1)];
 		}
 		html.is-animating .swup-in {
 			@apply translate-y-8 scale-[.99] opacity-0 ease-in;
@@ -76,10 +76,7 @@ const {
 			once()
 			init()
 		})
-		swup.hooks.on('page:view', () => {
-			init()
-			_ql('[data-entry]').map((e) => e.classList.remove('invisible'))
-		})
+		swup.hooks.on('page:view', () => init())
 
 		function init() {
 			_active()
