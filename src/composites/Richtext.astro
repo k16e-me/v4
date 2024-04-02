@@ -22,7 +22,7 @@ const {
 	component='richtext'
 	title={title}
 	padding={padding}
-	class:list={[classes]}
+	class:list={[invisible && 'invisible', classes]}
 	data-entry='below'
 	{...props}>
 	<Wrapper x={false}>

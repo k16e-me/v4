@@ -12,7 +12,7 @@ const { title, class: classes, ...attrs } = Astro.props
 
 <header
 	class:list={[
-		'z-50 fixed bottom-0 inset-x-0 bg-primary-950/90 backdrop-blur-md',
+		'z-50 fixed bottom-0 inset-x-0 invisible bg-primary-950/90 backdrop-blur-md',
 		classes,
 	]}
 	data-header
@@ -44,7 +44,7 @@ const { title, class: classes, ...attrs } = Astro.props
 			}
 		</ul>
 		<Brief
-			class:list='fixed bottom-full mb-4 right-4 sm:right-8 sm:bottom-1/2 sm:mb-0'
+			class:list='fixed bottom-full mb-4 right-4 sm:right-8 sm:bottom-1/2 sm:mb-0 invisible'
 			data-entry='below'
 		/>
 	</Wrapper>
