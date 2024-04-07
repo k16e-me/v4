@@ -29,7 +29,7 @@ const { Content, entry } = Astro.props
 		class:list={'col-span-full lg:col-start-2 lg:col-end-12 xl:col-start-3 xl:col-end-11 my-8 lg:my-12'}
 	/>
 </Wrapper>
-<Wrapper x={false} data-entry='below'>
+{entry.data.excerpt && <Wrapper x={false} data-entry='below'>
 	<Prose
 		class:list={`col-span-full lg:col-start-2 lg:col-end-12 xl:col-start-3 xl:col-end-11 mb-8 lg:mb-12 px-4
             border-l-4 border-accent-500 !pl-6 lg:!pl-8 py-6 lg:py-8 bg-gradient-to-r from-accent-500/5 to-transparent`}>
@@ -40,7 +40,7 @@ const { Content, entry } = Astro.props
 			<span set:html={entry.data.excerpt} />
 		</p>
 	</Prose>
-</Wrapper>
+</Wrapper>}
 <Wrapper x={false}>
 	<Section
 		title={`Full contents of the entry: ${entry.data.title}`}

@@ -49,7 +49,7 @@ const blog = defineCollection({
     schema: ({ image }) => z.object({
         title: z.string(),
         description: z.string().max(224),
-        excerpt: z.string().min(200).max(350),
+        excerpt: z.string().min(200).max(350).optional(),
         cover: z.object({
             src: image(),
             alt: z.string(),
