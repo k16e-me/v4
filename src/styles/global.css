@@ -27,5 +27,6 @@
     .r-pt { @apply pt-16 sm:pt-20 lg:pt-24; }
     .r-pb { @apply pb-16 sm:pb-20 lg:pb-24; }
     .r-py { @apply py-16 sm:py-20 lg:py-24; }
+    
     .r-contrast { @apply contrast-[1.2] brightness-[0.8]; }
 }
