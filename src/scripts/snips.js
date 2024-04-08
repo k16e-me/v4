@@ -10,7 +10,6 @@ const
     _even = n => n % 2 == 0,
     _odd = n => Math.abs(n % 2) == 1,
     _capitalize = str => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase(),
-    _contrast = () => new Array('contrast-[1.2]', 'brightness-[.75]'),
     _empty = value => {
         return (
             value === undefined ||
@@ -23,5 +22,5 @@ const
 
 // Exports
 export {
-    _body, _q, _ql, _transition, _py, _pb, _pt, _even, _odd, _capitalize, _contrast, _empty
+    _body, _q, _ql, _transition, _py, _pb, _pt, _even, _odd, _capitalize, _empty
 }

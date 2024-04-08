@@ -1,6 +1,5 @@
 ---
 import { Image } from 'astro:assets'
-import { _contrast } from '@scripts/snips'
 
 const {
 	filename,
@@ -25,7 +24,7 @@ const {
         contain ? 'object-contain' : 'object-cover',
 		heighten && 'h-full',
 		objectLeft && 'object-left-top',
-		contrast && _contrast(),
+		contrast && 'r-contrast',
 		orientation == 'profile' &&
 			'h-[480px] xs:h-[520px] sm:h-80 md:h-[400px] lg:h-[480px]',
 		orientation == 'landscape' && 'max-h-[640px]',

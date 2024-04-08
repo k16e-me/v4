@@ -1,7 +1,6 @@
 ---
 import Copy from '@atoms/Copy.astro'
 import Heading from '@atoms/Heading.astro'
-import { _contrast } from '@scripts/snips'
 
 const
     {
@@ -11,8 +10,7 @@ const
 ---
 <div
     class:list={[
-        `h-64 sm:h-[25rem] flex flex-col p-4 sm:p-8 justify-between`,
-        _contrast(),
+        `h-64 sm:h-[25rem] flex flex-col p-4 sm:p-8 justify-between r-contrast`,
         classes
     ]} { ...props }
     style={ `background-color: ${pastel}` }>

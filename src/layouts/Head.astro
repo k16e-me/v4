@@ -3,51 +3,110 @@ import '@fontsource-variable/bricolage-grotesque'
 import { SEO } from 'astro-seo'
 import _slugify from '@scripts/slugify'
 import Site from '@meta/site.json'
+import '@styles/global.css'
 
-const
-    { title, image = '/thumbnail.png', description = '', alt = 'K16E website thumbnail' } = Astro.props,
-    canonicalURL = new URL(Astro.url.pathname, Astro.site),
-    theme = '#19191a'
+const {
+		title,
+		image = '/thumbnail.png',
+		description = '',
+		alt = 'K16E website thumbnail',
+	} = Astro.props,
+	canonicalURL = new URL(Astro.url.pathname, Astro.site),
+	theme = '#19191a'
 ---
+
 <head>
-	<meta charset='UTF-8'/>
-	<meta name='viewport' content='width=device-width'/>
-	<link rel='icon' type='image/svg+xml' href='/favicon.svg'/>
-    <meta name="view-transition" content="same-origin"/>
-    <link rel="sitemap" href="/sitemap-index.xml" />
-    <link type="text/plain" rel="author" href="/humans.txt"/>
-    <link rel='apple-touch-icon' sizes='180x180' href='/favicons/apple-touch-icon.png'/>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
-    <link rel='icon' type='image/png' sizes='32x32' href='/favicons/favicon-32x32.png'/>
-    <link rel='icon' type='image/png' sizes='16x16' href='/favicons/favicon-16x16.png'/>
-    <meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png"/>
-    <link rel='icon' type='image/x-icon' href='/favicon.ico'/>
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color={ theme }>
-    <meta name="msapplication-TileColor" content={ theme }>
-    <meta name="theme-color" content={ theme }>
-    <meta name="msapplication-config" content="/browserconfig.xml"/>
+	<meta charset='UTF-8' />
+	<meta name='viewport' content='width=device-width' />
+	<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+	<meta name='view-transition' content='same-origin' />
+	<link rel='sitemap' href='/sitemap-index.xml' />
+	<link type='text/plain' rel='author' href='/humans.txt' />
+	<link
+		rel='apple-touch-icon'
+		sizes='180x180'
+		href='/favicons/apple-touch-icon.png'
+	/>
+	<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+	<link
+		rel='icon'
+		type='image/png'
+		sizes='32x32'
+		href='/favicons/favicon-32x32.png'
+	/>
+	<link
+		rel='icon'
+		type='image/png'
+		sizes='16x16'
+		href='/favicons/favicon-16x16.png'
+	/>
+	<meta
+		name='msapplication-TileImage'
+		content='/favicons/mstile-144x144.png'
+	/>
+	<link rel='icon' type='image/x-icon' href='/favicon.ico' />
+	<link rel='mask-icon' href='/safari-pinned-tab.svg' color={theme} />
+	<meta name='msapplication-TileColor' content={theme} />
+	<meta name='theme-color' content={theme} />
+	<meta name='msapplication-config' content='/browserconfig.xml' />
 	<SEO
-        title={ title }
-        titleTemplate={ `%s / ${ Site.title }` }
-        titleDefault={ Site.title }
-        description={ description }
-        openGraph={{
-            basic: {
-                title: title,
-                type: 'website',
-                image: image,
-            },
-            optional: {
-                description: description
-            },
-            image: {
-                alt: alt
-            }
-        }},
-        canonical={ canonicalURL }
-    />
-    <link rel="manifest" href="/site.webmanifest"/>
+		title={title}
+		titleTemplate={`%s / ${Site.title}`}
+		titleDefault={Site.title}
+		description={description}
+		openGraph={{
+			basic: {
+				title: title,
+				type: 'website',
+				image: image,
+			},
+			optional: {
+				description: description,
+			},
+			image: {
+				alt: alt,
+			},
+		}}
+		,
+		canonical={canonicalURL}
+	/>
+	<link rel='manifest' href='/site.webmanifest' />
 </head>
 <script is:inline>
-(function(C,A,L){let p=function(a,ar){a.q.push(ar)};let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true}if(ar[0]===L){const api=function(){p(api,arguments)};const namespace=ar[1];api.q=api.q||[];typeof namespace==="string"?(cal.ns[namespace]=api)&&p(api,ar):p(cal,ar);return}p(cal,ar)}})(window,"https://app.cal.com/embed/embed.js","init");Cal("init",{origin:"https://cal.com"});Cal("ui",{styles:{branding:{brandColor:"#19191a"}},hideEventTypeDetails:false,layout:"month_view"});
+	;(function (C, A, L) {
+		let p = function (a, ar) {
+			a.q.push(ar)
+		}
+		let d = C.document
+		C.Cal =
+			C.Cal ||
+			function () {
+				let cal = C.Cal
+				let ar = arguments
+				if (!cal.loaded) {
+					cal.ns = {}
+					cal.q = cal.q || []
+					d.head.appendChild(d.createElement('script')).src = A
+					cal.loaded = true
+				}
+				if (ar[0] === L) {
+					const api = function () {
+						p(api, arguments)
+					}
+					const namespace = ar[1]
+					api.q = api.q || []
+					typeof namespace === 'string'
+						? (cal.ns[namespace] = api) && p(api, ar)
+						: p(cal, ar)
+					return
+				}
+				p(cal, ar)
+			}
+	})(window, 'https://app.cal.com/embed/embed.js', 'init')
+	Cal('init', { origin: 'https://cal.com' })
+	Cal('ui', {
+		styles: { branding: { brandColor: '#19191a' } },
+		hideEventTypeDetails: false,
+		layout: 'month_view',
+	})
 </script>

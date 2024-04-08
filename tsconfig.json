@@ -14,6 +14,7 @@
         "@composites/*": ["src/composites/*"],
         "@content/*": ["src/content/*"],
         "@scripts/*": ["src/scripts/*"],
+        "@styles/*": ["src/styles/*"],
         "@uploads/*": ["src/uploads/*"],
         "@meta/*": ["src/meta/*"],
     }
