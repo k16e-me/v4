@@ -2,7 +2,6 @@
 import Head from './Head.astro'
 import Header from './Header.astro'
 import TitleHidden from '@blocks/TitleHidden.astro'
-import { _pb } from '@scripts/snips'
 import { getImage } from 'astro:assets'
 
 const {
@@ -26,7 +25,7 @@ const {
 		<main
 			class:list={[
 				'swup-in relative',
-				!isHome && _pb(),
+				!isHome && 'r-pb',
 				isHome &&
 					'flex flex-col items-center justify-center h-svh lg:h-dvh -mt-10 lg:-mt-8',
 			]}
@@ -34,61 +33,6 @@ const {
 			<slot />
 		</main>
 	</body>
-    <style is:global>
-		html.is-changing .swup-in {
-			@apply opacity-100 duration-[.4s] ease-[cubic-bezier(0,0.16,0,1)];
-		}
-		html.is-animating .swup-in {
-			@apply translate-y-8 scale-[.99] opacity-0 ease-in;
-		}
-		.swup-progress-bar {
-			@apply h-1 bg-accent-400;
-		}
-		button {
-			text-align: inherit;
-		}
-		svg {
-			@apply pointer-events-none flex-shrink-0 fill-current;
-		}
-	</style>
 
-	<script>
-		import Swup from 'swup'
-		import SwupProgressPlugin from '@swup/progress-plugin'
-		import SwupHeadPlugin from '@swup/head-plugin'
-		import _active from '@scripts/active'
-		import _words from '@scripts/words'
-		import { _body, _q, _ql } from '@scripts/snips'
-		import _zaps from '@scripts/zaps'
-		import _backbar from '@scripts/backbar'
-
-		const swup = new Swup({
-            containers: ['#swup', '#page-title'],
-			animationSelector: '[class*="swup-"]',
-			animateHistoryBrowsing: true,
-			plugins: [
-				new SwupProgressPlugin({ finishAnimation: false }),
-				new SwupHeadPlugin(),
-			],
-		})
-
-		document.addEventListener('DOMContentLoaded', () => {
-			once()
-			init()
-		})
-		swup.hooks.on('page:view', () => {
-			init()
-			_ql('[data-entry]').map(x => x.classList.remove('invisible'))
-		})
-
-		function init() {
-			_active()
-			_words()
-			_backbar()
-		}
-
-		function once() {
-			_zaps()
-		}
-	</script>
+	<script src="@scripts/global.js"/>
 </html>

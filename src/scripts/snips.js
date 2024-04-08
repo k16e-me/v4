@@ -4,9 +4,6 @@ const
     _q = (selector, parent) => (parent ? parent : document).querySelector(selector),
     _ql = (selector, parent) => Array.from((parent ? parent : document).querySelectorAll(selector)),
     _transition = () => new Array('transition', 'duration-200', 'ease-out'),
-    _py = () => new Array('py-16', 'sm:py-20', 'lg:py-24'),
-    _pb = () => new Array('pb-16', 'sm:pb-20', 'lg:pb-24'),
-    _pt = () => new Array('pt-16', 'sm:pt-20', 'lg:pt-24'),
     _even = n => n % 2 == 0,
     _odd = n => Math.abs(n % 2) == 1,
     _capitalize = str => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase(),
@@ -22,5 +19,5 @@ const
 
 // Exports
 export {
-    _body, _q, _ql, _transition, _py, _pb, _pt, _even, _odd, _capitalize, _empty
+    _body, _q, _ql, _transition, _even, _odd, _capitalize, _empty
 }

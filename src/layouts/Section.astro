@@ -1,5 +1,4 @@
 ---
-import { _py, _pb, _pt } from '@scripts/snips'
 const
     {
         component = null,
@@ -16,9 +15,9 @@ const
 <Tag
 	class:list={[
 		`_section _section-${component}`,
-		padding == 'both' && _py(),
-		padding == 'top' && _pt(),
-		padding == 'bottom' && _pb(),
+		padding == 'both' && 'r-py',
+		padding == 'top' && 'r-pt',
+		padding == 'bottom' && 'r-pb',
 		padding == 'none' && '',
         prose && 'my-5',
 		classes,
