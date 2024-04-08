@@ -1,12 +1,12 @@
 ---
-import Button from '../atoms/Button.astro'
+import Button from '@atoms/Button.astro'
 
 const { class: classes, ...props } = Astro.props
 ---
 
 <div class:list={['', classes]} {...props}>
 	<Button
-		text='Brief'
+		text='Book a Brief'
 		icon='calendar'
 		data-cal-link='k16e.co/brief'
 		data-cal-namespace=''
