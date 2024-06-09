@@ -28,13 +28,11 @@ export async function getStaticPaths() {
 const { e } = Astro.props,
 	{ Content } = await e.render(),
 	{
-		pathname,
 		isCollection,
 		isCollectionChild,
 		collection,
 		collectionParent,
 	} = pathworx(Astro.url)
-console.log(Astro.url)
 ---
 
 <Base frontmatter={e}>

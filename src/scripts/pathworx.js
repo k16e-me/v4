@@ -3,11 +3,11 @@ import _unslash from '@scripts/unslash'
 export default function _paths(path) {
     let strippedPath = _unslash(path.pathname)
     const
-        pathname = strippedPath.split('/'),
-        isCollection = () => pathname.length === 3,
-        isCollectionChild = () => pathname.length === 4,
-        collection = () => pathname[1],
-        collectionParent = () => `${pathname[1]}/${pathname[2]}`
+        pathArr = strippedPath.split('/'),
+        isCollection = () => pathArr.length === 3,
+        isCollectionChild = () => pathArr.length === 4,
+        collection = () => pathArr[1],
+        collectionParent = () => pathArr.length === 3 ? `${pathArr[1]}/${pathArr[2]}` : collection()
 
     return {
         isCollection, isCollectionChild, collection, collectionParent
