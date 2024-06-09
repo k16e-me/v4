@@ -8,7 +8,7 @@ const pages = defineCollection({
         cover: z.object({
             src: image(),
             alt: z.string(),
-        }).optional(),
+        }),
     })
 })
 const work = defineCollection({
