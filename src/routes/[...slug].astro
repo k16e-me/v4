@@ -8,13 +8,12 @@ import pathworx from '@scripts/pathworx'
 import Child from '@layouts/Child.astro'
 
 export async function getStaticPaths() {
-	const
-        collections = ['pages', 'work', 'blog'],
+	const collections = ['pages', 'work', 'blog'],
 		allCollections = await Promise.all(
-			collections.map(e => getCollection(e)),
+			collections.map((e) => getCollection(e)),
 		).then((results) => results.flat())
 
-	return allCollections.map(e => ({
+	return allCollections.map((e) => ({
 		params: { slug: slug(e) },
 		props: { e },
 	}))
@@ -26,8 +25,7 @@ export async function getStaticPaths() {
 	}
 }
 
-const
-    { e } = Astro.props,
+const { e } = Astro.props,
 	{ Content } = await e.render(),
 	{
 		pathname,
@@ -40,11 +38,5 @@ const
 
 <Base frontmatter={e}>
 	{(isCollection() || isCollectionChild()) && <Backbar />}
-	{
-		isCollectionChild() ? (
-			<Child Content={Content} entry={e} />
-		) : (
-			<Content />
-		)
-	}
+	{isCollectionChild() ? <Child Content={Content} entry={e} /> : <Content />}
 </Base>
