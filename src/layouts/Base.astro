@@ -8,8 +8,7 @@ const {
 		frontmatter: { data },
 	} = Astro.props,
 	{ pathname } = Astro.url,
-	isHome = pathname === '/',
-	noBriefPages = !['/brief'].includes(pathname.replace(/\.html$/, ''))
+	isHome = pathname === '/'
 ---
 
 <!doctype html>
@@ -23,7 +22,7 @@ const {
 	<body
 		class='flex min-h-svh lg:min-h-dvh flex-col transition-colors duration-300'>
 		<TitleHidden title={`Page: ${data.title}`} id='page-title' />
-		<Header showBrief={noBriefPages} />
+		<Header/>
 		<main
 			class:list={[
 				'swup-in relative',
