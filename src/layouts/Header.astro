@@ -7,7 +7,7 @@ import AnchorNav from '@atoms/AnchorNav.astro'
 import TitleHidden from '@blocks/TitleHidden.astro'
 import Brief from '@blocks/Brief.astro'
 
-const { title, class: classes, ...attrs } = Astro.props
+const { title, showBrief = true, class: classes, ...attrs } = Astro.props
 ---
 
 <header
@@ -43,9 +43,13 @@ const { title, class: classes, ...attrs } = Astro.props
 				))
 			}
 		</ul>
-		<Brief
-			class:list='fixed bottom-full mb-4 right-4 sm:right-8 sm:bottom-1/2 sm:mb-0 invisible'
-			data-entry='below'
-		/>
+		{
+			showBrief && (
+				<Brief
+					class:list='fixed bottom-full mb-4 right-4 sm:right-8 sm:bottom-1/2 sm:mb-0 invisible'
+					data-entry='below'
+				/>
+			)
+		}
 	</Wrapper>
 </header>

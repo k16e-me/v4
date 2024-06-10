@@ -7,7 +7,9 @@ import { getImage } from 'astro:assets'
 const {
 		frontmatter: { data },
 	} = Astro.props,
-	isHome = Astro.url.pathname === '/'
+	{ pathname } = Astro.url,
+	isHome = pathname === '/',
+	noBriefPages = ['/brief'].includes(pathname.replace(/\.html$/, ''))
 ---
 
 <!doctype html>
@@ -21,7 +23,7 @@ const {
 	<body
 		class='flex min-h-svh lg:min-h-dvh flex-col transition-colors duration-300'>
 		<TitleHidden title={`Page: ${data.title}`} id='page-title' />
-		<Header />
+		<Header showBrief={!noBriefPages} />
 		<main
 			class:list={[
 				'swup-in relative',
