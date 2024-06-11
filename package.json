@@ -21,7 +21,7 @@
         "@swup/preload-plugin": "^3.2.10",
         "@swup/progress-plugin": "^3.2.0",
         "@swup/scroll-plugin": "^3.3.2",
-        "astro": "^4.10.1",
+        "astro": "^4.10.2",
         "astro-pages": "^0.3.0",
         "astro-seo": "^0.8.4",
         "gsap": "^3.12.5",
@@ -37,7 +37,7 @@
         "@tailwindcss/typography": "^0.5.13",
         "node-html-parser": "^6.1.13",
         "postcss-inline-svg": "^6.0.0",
-        "prettier": "^3.3.1",
-        "prettier-plugin-tailwindcss": "^0.6.2"
+        "prettier": "^3.3.2",
+        "prettier-plugin-tailwindcss": "^0.6.3"
     }
 }
