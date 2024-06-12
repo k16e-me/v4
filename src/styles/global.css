@@ -19,6 +19,14 @@
     html.is-changing .swup-in { @apply opacity-100 duration-[.4s] ease-[cubic-bezier(0,0.16,0,1)]; }
     html.is-animating .swup-in { @apply translate-y-8 scale-[.99] opacity-0 ease-in; }
     .swup-progress-bar { @apply h-1 bg-accent-400; }
+    body {
+        @apply relative;
+        &::after {
+            background-image: url('data:image/svg+xml,<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><circle cx="1" cy="1" r="1" fill="%23292929" /></svg>');
+            content: '';
+            @apply fixed -inset-3 z-[-1] opacity-50;
+        }
+    }
     button { text-align: inherit; }
     svg { @apply pointer-events-none flex-shrink-0 fill-current; }
 }
