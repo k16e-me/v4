@@ -7,12 +7,20 @@
         --r-subtle-grad-stops: #fff, hsl(43 92% 50% / 0.1);
         --r-subtle-grad-bottom: linear-gradient(to bottom, var(--r-subtle-grad-stops));
         --r-backdrop-swap: hsla(43, 92%, 50%, 0.06);
+        --r-primary: #19191A;
         --r-accent: 159 118 15;
+        --r-interface-jet: #E0E0E0;
+        --r-interface-backdrop: #F4F5F8;
+        --r-contrast-text: #1E1E1F;
 
         @media (prefers-color-scheme: dark) {
             --r-subtle-grad-stops: hsl(240, 7%, 6%), hsl(43 92% 50% / 0.05);
             --r-backdrop-swap: hsla(44.21, 90.48%, 4.12%, 0.5);
+            --r-primary: #F4F5F8;
             --r-accent: 154 114 14;
+            --r-interface-jet: #292929;
+            --r-interface-backdrop: #1E1E1F;
+            --r-contrast-text: #C1C1C3;
         }
     }
 
@@ -20,10 +28,11 @@
     html.is-animating .swup-in { @apply translate-y-8 scale-[.99] opacity-0 ease-in; }
     .swup-progress-bar { @apply h-1 bg-accent-400; }
     body {
-        @apply relative;
-        &::after {
-            background-image: url('data:image/svg+xml,<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><circle cx="1" cy="1" r="1" fill="%23292929" /></svg>');
+        @apply relative bg-[var(--r-interface-backdrop)] text-[var(--r-contrast-text)] prose-headings:text-[var(--r-primary)] prose-strong:text-[var(--r-primary)] prose-ol:text-[var(--r-contrast-text)];
+        &::before {
             content: '';
+            background-color: var(--r-interface-jet);
+            mask-image: url('data:image/svg+xml,<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><circle cx="1" cy="1" r="1" /></svg>');
             @apply fixed -inset-3 z-[-1] opacity-50;
         }
     }
