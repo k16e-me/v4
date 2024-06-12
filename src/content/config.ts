@@ -54,6 +54,7 @@ const blog = defineCollection({
             src: image(),
             alt: z.string(),
         }).optional(),
+        showCover: z.boolean().default(true),
         series: z.string(),
         release: z.date(),
         update: z.date(),

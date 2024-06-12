@@ -20,34 +20,44 @@ const { Content, entry } = Astro.props
 	padding='top'
 	class:list='col-span-full'
 />
-<Wrapper x={false} data-entry='below'>
-	<Figure
-		image={entry.data.cover.src}
-		alt={entry.data.cover.alt}
-		oleft={false}
-		orientation='landscape'
-		class:list={'col-span-full lg:col-start-2 lg:col-end-12 xl:col-start-3 xl:col-end-11 my-8 lg:my-12'}
-	/>
-</Wrapper>
-{entry.data.excerpt && <Wrapper x={false} data-entry='below'>
-	<Prose
-		class:list={`col-span-full lg:col-start-2 lg:col-end-12 xl:col-start-3 xl:col-end-11 mb-8 lg:mb-12 px-4
+{
+	entry.data.showCover && (
+		<Wrapper x={false} data-entry='below'>
+			<Figure
+				image={entry.data.cover.src}
+				alt={entry.data.cover.alt}
+				oleft={false}
+				orientation='landscape'
+				class:list={
+					'col-span-full lg:col-start-2 lg:col-end-12 xl:col-start-3 xl:col-end-11 my-8 lg:my-12'
+				}
+			/>
+		</Wrapper>
+	)
+}
+{
+	entry.data.excerpt && (
+		<Wrapper x={false} data-entry='below' class:list={[ !entry.data.showCover && 'mt-8 lg:mt-12']}>
+			<Prose
+				class:list={`col-span-full lg:col-start-2 lg:col-end-12 xl:col-start-3 xl:col-end-11 mb-8 lg:mb-12 px-4
             border-l-4 border-accent-500 !pl-6 lg:!pl-8 py-6 lg:py-8 bg-gradient-to-r from-accent-500/5 to-transparent`}>
-		<p
-			class:list={`
+				<p
+					class:list={`
                 text-2xl lg:text-3xl italic
             `}>
-			<span set:html={entry.data.excerpt} />
-		</p>
-	</Prose>
-</Wrapper>}
+					<span set:html={entry.data.excerpt} />
+				</p>
+			</Prose>
+		</Wrapper>
+	)
+}
 <Wrapper x={false}>
 	<Section
 		title={`Full contents of the entry: ${entry.data.title}`}
 		class:list='col-span-full'>
 		<Richtext
 			placement='readable'
-            alignment='start'
+			alignment='start'
 			tag='div'
 			padding='none'
 			padX={false}
