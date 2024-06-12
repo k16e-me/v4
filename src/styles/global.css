@@ -19,7 +19,7 @@
             --r-primary: #F4F5F8;
             --r-accent: 154 114 14;
             --r-interface-jet: #292929;
-            --r-interface-backdrop: #1E1E1F;
+            --r-interface-backdrop: #19191A;
             --r-contrast-text: #C1C1C3;
         }
     }
@@ -33,7 +33,7 @@
             content: '';
             background-color: var(--r-interface-jet);
             mask-image: url('data:image/svg+xml,<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><circle cx="1" cy="1" r="1" /></svg>');
-            @apply fixed -inset-3 z-[-1] opacity-50;
+            @apply fixed -inset-3 z-[-1] opacity-60;
         }
     }
     button { text-align: inherit; }
