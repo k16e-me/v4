@@ -2,32 +2,32 @@
 import Copy from '@atoms/Copy.astro'
 import Heading from '@atoms/Heading.astro'
 
-const
-    {
-        obj, pastel, copy,
-        class: classes, ...props
-    } = Astro.props
+const { obj, pastel, copy, class: classes, ...props } = Astro.props
 ---
+
 <div
-    class:list={[
-        `h-64 sm:h-[25rem] flex flex-col p-4 sm:p-8 justify-between r-contrast`,
-        classes
-    ]} { ...props }
-    style={ `background-color: ${pastel}` }>
-    <Heading
-        text={ obj }
-        size="lg"
-        weight="extra"
-        color="primary"
-        lowercase
-        tighten
-        class:list="self-end"
-    />
-    { copy && (
-        <Copy
-            copy={ copy }
-            color="dark"
-            class:list="line-clamp-5 text-sm sm:text-lg italic lg:pr-8 max-w-screen-md"
-        />
-    )}
+	class:list={[
+		`h-64 sm:h-[25rem] flex flex-col p-4 sm:p-8 justify-between r-contrast`,
+		classes,
+	]}
+	{...props}
+	style={`background-color: ${pastel}`}>
+	<Heading
+		text={obj}
+		size='lg'
+		weight='extra'
+		color='primary'
+		lowercase
+		tighten
+		class:list='self-end'
+	/>
+	{
+		copy && (
+			<Copy
+				copy={copy}
+				color='dark'
+				class:list='line-clamp-5 text-sm sm:text-lg italic lg:pr-8 max-w-screen-md'
+			/>
+		)
+	}
 </div>
