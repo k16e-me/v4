@@ -19,8 +19,7 @@
             --r-primary: #F4F5F8;
             --r-accent: 154 114 14;
             --r-interface-jet: #292929;
-            --r-backdrop-rgb: 25 25 26;
-            --r-interface-backdrop: rgb(var(--r-backdrop-rgb));
+            --r-interface-backdrop: #19191A;
             --r-contrast-text: #C1C1C3;
         }
     }
