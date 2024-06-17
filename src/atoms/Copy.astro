@@ -13,9 +13,10 @@ const {
 <Tag
 	set:text={copy}
 	class:list={[
-		color == 'light' && 'text-[var(--r-contrast-text)]/70',
-		color == 'dark' && 'text-[var(--r-primary)]/70',
+		color == 'light' && 'text-[var(--r-contrast-text)]',
+		color == 'dark' && 'text-[var(--r-primary)]',
 		color == 'accent' && 'text-[var(--r-accent)]',
+		color === 'on-pastel' && 'text-[var(--r-color-base)]',
 		size == 'sm' && 'text-sm',
 		classes,
 	]}

@@ -7,6 +7,7 @@
         --r-subtle-grad-stops: #fff, hsl(43 92% 50% / 0.1);
         --r-subtle-grad-bottom: linear-gradient(to bottom, var(--r-subtle-grad-stops));
         --r-backdrop-swap: hsla(43, 92%, 50%, 0.06);
+        --r-color-base: #19191A;
         --r-primary: #19191A;
         --r-accent: #cc8500;
         --r-interface-jet: #e0e0e0;
@@ -23,6 +24,7 @@
             --r-interface-backdrop: #19191A;
             --r-contrast-text: #C1C1C3;
             --r-accent-contrast-text: #1E1E1F;
+            --r-accent-gradient-start: #23211C;
         }
     }
 

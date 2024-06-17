@@ -16,7 +16,7 @@ const { obj, pastel, copy, class: classes, ...props } = Astro.props
 		text={obj}
 		size='lg'
 		weight='extra'
-		color='primary'
+		color='on-pastel'
 		lowercase
 		tighten
 		class:list='self-end'
@@ -25,8 +25,8 @@ const { obj, pastel, copy, class: classes, ...props } = Astro.props
 		copy && (
 			<Copy
 				copy={copy}
-				color='dark'
-				class:list='line-clamp-5 text-sm sm:text-lg italic lg:pr-8 max-w-screen-md'
+				color='on-pastel'
+				class:list='line-clamp-5 text-sm sm:text-lg italic lg:pr-8 max-w-screen-md opacity-70'
 			/>
 		)
 	}
