@@ -9,9 +9,8 @@
         --r-backdrop-swap: hsla(43, 92%, 50%, 0.06);
         --r-primary: #19191A;
         --r-accent: 159 118 15;
-        --r-interface-jet: #ededed;
-        --r-alpha: 0.25;
-        --r-interface-backdrop: #F4F5F8;
+        --r-interface-jet: #e0e0e0;
+        --r-interface-backdrop: #f9f9f9;
         --r-contrast-text: #1E1E1F;
 
         @media (prefers-color-scheme: dark) {
@@ -23,7 +22,6 @@
             --r-backdrop-rgb: 25 25 26;
             --r-interface-backdrop: rgb(var(--r-backdrop-rgb));
             --r-contrast-text: #C1C1C3;
-            --r-interface-backdrop-x-alpha: rgba(var(--r-backdrop-rgb) / var(--r-alpha));
         }
     }
 
