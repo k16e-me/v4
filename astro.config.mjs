@@ -20,7 +20,7 @@ export default defineConfig({
             // [rehypeFigure, { className: 'r-figure' }]
         ],
         remarkPlugins: [
-            [remarkFigureCaption, { captionClassName: 'r-figcaption' }]
+            remarkFigureCaption
         ]
     },
     integrations: [
