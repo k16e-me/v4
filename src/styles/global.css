@@ -8,11 +8,11 @@
         --r-subtle-grad-bottom: linear-gradient(to bottom, var(--r-subtle-grad-stops));
         --r-backdrop-swap: hsla(43, 92%, 50%, 0.06);
         --r-primary: #19191A;
-        --r-accent: #A16207;
+        --r-accent: #cc8500;
         --r-interface-jet: #e0e0e0;
         --r-interface-backdrop: #f9f9f9;
         --r-contrast-text: #1E1E1F;
-        --r-accent-contrast-text: #e0e0e0;
+        --r-accent-contrast-text: #f9f9f9;
 
         @media (prefers-color-scheme: dark) {
             --r-subtle-grad-stops: hsl(240, 7%, 6%), hsl(43 92% 50% / 0.05);
@@ -40,7 +40,7 @@
     }
     button { text-align: inherit; }
     svg { @apply pointer-events-none flex-shrink-0 fill-current; }
-    figcaption { @apply bg-[var(--r-accent)] text-[var(--r-accent-contrast-text)] p-3 text-sm italic; }
+    figcaption { @apply bg-[var(--r-accent)] !text-[var(--r-accent-contrast-text)] p-3 text-sm italic; }
 }
 
 @layer components {

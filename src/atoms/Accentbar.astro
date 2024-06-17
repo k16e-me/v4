@@ -3,7 +3,7 @@ const { class: classes, ...props } = Astro.props
 ---
 <span
     class:list={[
-        'border-t border-b-[2.5px] md:border-t-[2.5px] border-accent-500 w-full rounded-full',
+        'border-t border-b-[2.5px] md:border-t-[2.5px] border-[var(--r-accent)] w-full rounded-full',
         classes
     ]} { ...props }
 />
