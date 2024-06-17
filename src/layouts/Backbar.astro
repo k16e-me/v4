@@ -15,7 +15,7 @@ const { title, class: classes, ...props } = Astro.props,
 	data-backbar>
 	<Anchor
 		href={`/${isCollection() ? collection() : collectionParent()}`}
-		class:list='col-start-1 row-start-1 place-self-start xl:col-start-2 text-accent-500 hover:opacity-70 p-4 h-full'>
+		class:list='col-start-1 row-start-1 place-self-start xl:col-start-2 text-[var(--r-accent)] hover:opacity-70 p-4 h-full'>
 		<Icon name='arrow-left' class:list='w-6' />
 		<span class='sr-only' set:text='Back to collection' />
 	</Anchor>
