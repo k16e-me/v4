@@ -8,7 +8,7 @@
         --r-subtle-grad-bottom: linear-gradient(to bottom, var(--r-subtle-grad-stops));
         --r-backdrop-swap: hsla(43, 92%, 50%, 0.06);
         --r-primary: #19191A;
-        --r-accent: 159 118 15;
+        --r-accent: #A16207;
         --r-interface-jet: #e0e0e0;
         --r-interface-backdrop: #f9f9f9;
         --r-contrast-text: #1E1E1F;
@@ -17,7 +17,7 @@
             --r-subtle-grad-stops: hsl(240, 7%, 6%), hsl(43 92% 50% / 0.05);
             --r-backdrop-swap: hsla(44.21, 90.48%, 4.12%, 0.5);
             --r-primary: #F4F5F8;
-            --r-accent: 154 114 14;
+            --r-accent: #EAB308;
             --r-interface-jet: #292929;
             --r-interface-backdrop: #19191A;
             --r-contrast-text: #C1C1C3;
