@@ -12,7 +12,7 @@ const swup = new Swup({
     animationSelector: '[class*="swup-"]',
     animateHistoryBrowsing: true,
     plugins: [
-        new SwupProgressPlugin({ finishAnimation: false }),
+        new SwupProgressPlugin({ className: 'swup-progress-bar', delay: 150, finishAnimation: false }),
         new SwupHeadPlugin(),
     ],
 })

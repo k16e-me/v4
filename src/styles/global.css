@@ -30,7 +30,7 @@
 
     html.is-changing .swup-in { @apply opacity-100 duration-[.4s] ease-[cubic-bezier(0,0.16,0,1)]; }
     html.is-animating .swup-in { @apply translate-y-8 scale-[.99] opacity-0 ease-in; }
-    .swup-progress-bar { @apply h-1 bg-[var(--r-accent)]; }
+    .swup-progress-bar { @apply h-[3px] bg-[var(--r-accent)]; }
     body {
         @apply relative bg-[var(--r-interface-backdrop)] text-[var(--r-contrast-text)] prose-headings:text-[var(--r-primary)] prose-strong:text-[var(--r-primary)] prose-ol:text-[var(--r-contrast-text)] prose-ul:text-[var(--r-contrast-text)];
         &::before {
