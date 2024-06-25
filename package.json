@@ -10,7 +10,7 @@
         "astro": "astro"
     },
     "dependencies": {
-        "@astrojs/mdx": "^3.1.1",
+        "@astrojs/mdx": "^3.1.2",
         "@astrojs/sitemap": "^3.1.6",
         "@astrojs/tailwind": "^5.1.0",
         "@fontsource-variable/bricolage-grotesque": "^5.0.6",
@@ -21,7 +21,7 @@
         "@swup/preload-plugin": "^3.2.10",
         "@swup/progress-plugin": "^3.2.0",
         "@swup/scroll-plugin": "^3.3.2",
-        "astro": "^4.11.0",
+        "astro": "^4.11.1",
         "astro-pages": "^0.3.0",
         "astro-seo": "^0.8.4",
         "gsap": "^3.12.5",
