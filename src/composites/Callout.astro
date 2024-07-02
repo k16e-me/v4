@@ -10,7 +10,7 @@ const {
 	byline,
 	description,
 	padding = 'none',
-    prose,
+	prose,
 	cancelSiblingMargins = false,
 	tag,
 	class: classes,
@@ -23,16 +23,13 @@ const {
 	component='callout'
 	title={title}
 	padding={padding}
-    prose={prose}
-	class:list={[
-        'invisible',
-        cancelSiblingMargins && '-my-5'
-    ]}
+	prose={prose}
+	class:list={['invisible', cancelSiblingMargins && '-my-5']}
 	data-entry='below'>
 	<Wrapper
 		x={false}
 		class:list={`
-            bg-primary-900/25 border-primary-900 border-2
+            bg-[var(--r-interface-elevation)] border-[var(--r-elevation-border)] border-2
             p-4 sm:p-8 rounded-xl
         `}>
 		<div class='col-span-full italic [&>p]:m-0'>
@@ -42,12 +39,12 @@ const {
 					<div class='mt-6 flex flex-col font-medium'>
 						<span
 							set:text={byline}
-							class='text-accent-500 not-italic text-lg'
+							class='text-[var(--r-accent)] not-italic text-lg'
 						/>
 						{description && (
 							<span
 								set:text={description}
-								class='text-base text-white/60 -mt-0.25'
+								class='text-base text-[var(--r-interface-text)] -mt-0.25'
 							/>
 						)}
 					</div>
