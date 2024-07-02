@@ -5,73 +5,83 @@ import Heading from '@atoms/Heading.astro'
 import CardBrand from '@blocks/CardBrand.astro'
 import Icon from '@atoms/Icon.astro'
 import Anchor from '@atoms/Anchor.astro'
-import _shade from '@scripts/shades-from'
 import Prose from '@atoms/Prose.astro'
 
-const
-    {
-        backlink, region, title, shortname, description, worktag, logo, permalink, sectiontag, padding, hue,
-        class: classes, ...props
-    } = Astro.props,
-    url = Astro.url,
-    pathname = url.pathname,
-    parent = pathname.split('/')[1],
-    shade = _shade(hue)
+const {
+		backlink,
+		region,
+		title,
+		shortname,
+		description,
+		worktag,
+		logo,
+		permalink,
+		sectiontag,
+		padding,
+		hue,
+		class: classes,
+		...props
+	} = Astro.props,
+	url = Astro.url,
+	pathname = url.pathname,
+	parent = pathname.split('/')[1]
 ---
+
 <Section
-    component="header-work"
-    title={ title }
-    padding={ padding || 'both' }
-    tag={ sectiontag }
-    class:list="invisible"
-    data-entry="above">
-    <Wrapper x={ false }>
-        <div
-            class:list={[
-                `
+	component='header-work'
+	title={title}
+	padding={padding || 'both'}
+	tag={sectiontag}
+	class:list='invisible'
+	data-entry='above'>
+	<Wrapper x={false}>
+		<div
+			class:list={[
+				`
                     col-span-full md:col-start-2 md:col-end-12 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 sm:gap-y-12
                     [&>*]:col-span-full [&>*]:lg:col-span-1 [&>*:first-child]:xl:col-span-2 [&>*:last-child]:xl:col-span-1
-                `
-            ]}>
-            <div class="px-4 md:px-0 xl:px-4">
-                <div class="flex items-center space-x-2 mb-4">
-                    <Anchor
-                        href={ `/${parent}` }
-                        class:list="pr-3"
-                        style={ `color: ${shade.pastel()}` }>
-                        <Icon name="arrow-left" class="w-6"/>
-                        <span set:text="Back to Work" class="sr-only"/>
-                    </Anchor>
-                    <span
-                        set:text={ region }
-                        class="block font-medium text-xl opacity-70"
-                        style={ `color: ${shade.pastel()}` }
-                    />
-                </div>
-                <div class="flex flex-col space-y-5 sm:space-y-6">
-                    <Heading
-                        text={ shortname }
-                        level="h2"
-                        size="lgx"
-                        weight="extra"
-                        color="white"
-                    />
-                    <span
-                        aria-hidden="true"
-                        class="block h-2 w-24 rounded-full"
-                        style={ `background-color: ${shade.light()}` }
-                    />
-                    <Prose class:list="lg:!max-w-[640px]">
-                        <p set:text={ description }/>
-                    </Prose>
-                </div>
-            </div>
-            <CardBrand
-                hue={ hue }
-                worktag={ worktag }
-                logo={ logo }
-                permalink={ `k16e.co${Astro.url.pathname.replace('.html', '')}` }
-            />
-        </div>
-    </Wrapper>
+                `,
+			]}>
+			<div class='px-4 md:px-0 xl:px-4'>
+				<div class='flex items-center space-x-2 mb-4'>
+					<Anchor
+						href={`/${parent}`}
+						class:list='pr-3 text-[var(--r-accent)]'>
+						<Icon
+							name='arrow-left'
+							class='w-6'
+							style={`color: #${hue}`}
+						/>
+						<span set:text='Back to Work' class='sr-only' />
+					</Anchor>
+					<span
+						set:text={region}
+						class='block font-medium text-xl opacity-80'
+					/>
+				</div>
+				<div class='flex flex-col space-y-5 sm:space-y-6'>
+					<Heading
+						text={shortname}
+						level='h2'
+						size='lgx'
+						weight='extra'
+						color='white'
+					/>
+					<span
+						aria-hidden='true'
+						class='block h-2 w-24 rounded-full'
+						style={`background-color: #${hue}`}></span>
+					<Prose class:list='lg:!max-w-[640px]'>
+						<p set:text={description} />
+					</Prose>
+				</div>
+			</div>
+			<CardBrand
+				hue={hue}
+				worktag={worktag}
+				logo={logo}
+				permalink={`k16e.co${Astro.url.pathname.replace('.html', '')}`}
+			/>
+		</div>
+	</Wrapper>
 </Section>
