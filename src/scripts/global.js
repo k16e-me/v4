@@ -6,6 +6,7 @@ import _words from '@scripts/words'
 import { _body, _q, _ql } from '@scripts/snips'
 import _zaps from '@scripts/zaps'
 import _backbar from '@scripts/backbar'
+import _fullres from './fullres'
 
 const swup = new Swup({
     containers: ['#swup', '#page-title'],
@@ -30,6 +31,7 @@ function init() {
     _active()
     _words()
     _backbar()
+    _fullres()
 }
 
 function once() {
