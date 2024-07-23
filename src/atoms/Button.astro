@@ -2,16 +2,25 @@
 import { _transition } from '@scripts/snips'
 import Icon from '@atoms/Icon.astro'
 
-const { icon, text, base, fabToPill, class: classes, ...props } = Astro.props
+const {
+	icon,
+	text,
+	base,
+	fabToPill,
+	plain,
+	class: classes,
+	...props
+} = Astro.props
 ---
 
 <button
 	class:list={[
-		'inline-flex items-center justify-center',
+		'inline-flex items-center justify-center r-transition',
 		_transition(),
 		base &&
 			'text-[var(--r-accent-contrast-text)] bg-[var(--r-accent)] rounded-full shadow-2xl',
 		fabToPill && 'size-16 sm:!h-14 sm:!w-full sm:px-5',
+		plain && 'text-[var(--r-accent)] hover:opacity-70 p-4',
 		classes,
 	]}
 	{...props}>
