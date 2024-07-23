@@ -13,7 +13,7 @@ const { title, class: classes, ...props } = Astro.props,
 <Wrapper
 	tag='div'
 	x={false}
-	class:list='fixed top-0 inset-x-0 invisible h-14 bg-[var(--r-interface-backdrop)] z-50 r-dot-matrix-texture'
+	class:list='fixed top-0 inset-x-0 invisible h-16 bg-[var(--r-interface-backdrop)] z-50 r-dot-matrix-texture'
 	data-backbar>
 	<Anchor
 		href={`/${isCollection() ? collection() : collectionParent()}`}
@@ -23,8 +23,8 @@ const { title, class: classes, ...props } = Astro.props,
 	</Anchor>
 	{
 		isCollectionChild() && (
-			<div class='-col-end-1 col-span-4 justify-self-end place-self-center'>
-				<Button text='Content' icon='menu-book' class='' />
+			<div class='-col-end-1 xl:col-end-12 col-span-4 justify-self-end place-self-center'>
+				<Button fabToPill text='Content' icon='menu-book' class='' />
 			</div>
 		)
 	}
