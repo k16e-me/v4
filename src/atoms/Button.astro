@@ -1,20 +1,35 @@
 ---
-import { _transition } from '../scripts/snips'
-import Icon from '../atoms/Icon.astro'
+import { _transition } from '@scripts/snips'
+import Icon from '@atoms/Icon.astro'
 
-const { icon, text, class: classes, ...props } = Astro.props
+const {
+	icon,
+	text,
+	base,
+	fabToPill,
+	plain,
+	class: classes,
+	...props
+} = Astro.props
 ---
 
 <button
 	class:list={[
-		'inline-flex items-center justify-center text-[var(--r-accent-contrast-text)] bg-[var(--r-accent)] size-16 sm:!h-14 sm:!w-full sm:px-5 rounded-full shadow-2xl',
+		'inline-flex items-center justify-center r-transition',
 		_transition(),
+		base &&
+			'text-[var(--r-accent-contrast-text)] bg-[var(--r-accent)] rounded-full shadow-2xl',
+		fabToPill && 'size-16 sm:!h-14 sm:!w-full sm:px-5',
+		plain && 'text-[var(--r-accent)] hover:opacity-70 p-4',
 		classes,
 	]}
 	{...props}>
 	<Icon name={icon} class:list='w-7 sm:w-6' />
 	<span
 		set:text={text}
-		class='!ml-1.5 font-medium text-lg sr-only sm:not-sr-only'
+		class:list={[
+			'font-medium text-lg !ml-2',
+			fabToPill && 'sr-only sm:not-sr-only',
+		]}
 	/>
 </button>

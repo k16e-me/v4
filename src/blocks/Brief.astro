@@ -6,6 +6,8 @@ const { class: classes, ...props } = Astro.props
 
 <div class:list={['', classes]} {...props}>
 	<Button
+		base
+		fabToPill
 		text='Book a Brief'
 		icon='calendar'
 		data-cal-link='k16e.co/brief'

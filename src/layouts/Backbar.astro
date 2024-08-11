@@ -3,20 +3,29 @@ import pathworx from '@scripts/pathworx'
 import Wrapper from '@layouts/Wrapper.astro'
 import Anchor from '@atoms/Anchor.astro'
 import Icon from '@atoms/Icon.astro'
+import Button from '@atoms/Button.astro'
 
 const { title, class: classes, ...props } = Astro.props,
-	{ isCollection, collection, collectionParent } = pathworx(Astro.url)
+	{ isCollection, collection, collectionParent, isCollectionChild } =
+		pathworx(Astro.url)
 ---
 
 <Wrapper
 	tag='div'
 	x={false}
-	class:list='fixed top-0 inset-x-0 invisible h-14 bg-[var(--r-interface-backdrop)] z-50 r-dot-matrix-texture'
+	class:list='fixed top-0 inset-x-0 invisible h-16 bg-[var(--r-interface-backdrop)] z-50 r-dot-matrix-texture'
 	data-backbar>
 	<Anchor
 		href={`/${isCollection() ? collection() : collectionParent()}`}
-		class:list='col-start-1 row-start-1 place-self-start xl:col-start-2 text-[var(--r-accent)] hover:opacity-70 p-4 h-full'>
+		class:list='col-start-1 place-self-start xl:col-start-2 text-[var(--r-accent)] hover:opacity-70 p-4 h-full'>
 		<Icon name='arrow-left' class:list='w-6' />
 		<span class='sr-only' set:text='Back to collection' />
 	</Anchor>
+	{
+		isCollectionChild() && (
+			<div class='-col-end-1 xl:col-end-12 col-span-4 justify-self-end place-self-center'>
+				<Button fabToPill plain text='Content' icon='menu-book' class='' />
+			</div>
+		)
+	}
 </Wrapper>
