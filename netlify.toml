@@ -3,3 +3,9 @@
   to = "https://k16e.co/blog/ideas/dictionary"
   status = 301
   force = true
+
+[[redirects]]
+  from = "https://k16e.com/*"
+  to = "https://k16e.co/:splat"
+  status = 301
+  force = true
