@@ -5,10 +5,10 @@ import TitleHidden from '@blocks/TitleHidden.astro'
 import { getImage } from 'astro:assets'
 
 const {
-		frontmatter: { data },
-	} = Astro.props,
-	{ pathname } = Astro.url,
-	isHome = pathname === '/'
+    frontmatter: { data },
+} = Astro.props
+const { pathname } = Astro.url
+const isHome = pathname === '/'
 ---
 
 <!doctype html>

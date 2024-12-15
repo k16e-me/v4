@@ -2,6 +2,7 @@ import _unslash from '@scripts/unslash'
 
 export default function _paths(path) {
     let strippedPath = _unslash(path.pathname)
+    
     const
         pathArr = strippedPath.split('/'),
         isCollection = () => pathArr.length === 3,

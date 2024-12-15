@@ -6,6 +6,7 @@ cover:
     src: '@uploads/thumbnail.png'
     alt: K16E website default thumbnail
 ---
+import kb from '@uploads/avatars/kb.jpg'
 
 <Title
     title="Timeline"
@@ -17,4 +18,30 @@ cover:
 
 <Tasks
     title='Tasks tracker: Branding FarmTech start to finish'
+    tasks={[
+        {
+			title: 'Purpose positioning',
+			summary:
+				'Define FarmTech in language that endears it to potential customers.',
+			start: '2024-12-16',
+			duration: '3 days',
+			owner: {
+				image: kb,
+				title: 'kb',
+			},
+			status: 'Slated',
+        },
+        {
+			title: 'Industry imprinting',
+			summary:
+				`Identify and place FarmTech in it's market-defining industry. Affects how FarmTech talks, how its messaging should resound.`,
+			start: '2024-12-20',
+			duration: '2 days',
+			owner: {
+				image: kb,
+				title: 'kb',
+			},
+			status: 'Slated',
+		},
+    ]}
 />

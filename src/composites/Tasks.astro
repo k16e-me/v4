@@ -42,10 +42,10 @@ const {
 	data-entry='below'>
 	<Wrapper>
 		<ul
-			class='col-span-full sm:col-start-2 sm:col-end-12 xl:col-start-3 xl:col-end-11'>
+			class='col-span-full sm:col-start-2 sm:col-end-12 xl:col-start-3 xl:col-end-11 divide-y divide-[var(--r-elevation-border)] flex flex-col gap-y-8 [&>*:not(:first-child)]:pt-8'>
 			{
 				tasks.map((i) => (
-					<li class='grid grid-cols-4 gap-4 border-b border-[var(--r-elevation-border)] pb-6'>
+					<li class='grid grid-cols-4 gap-4'>
 						<div class='[grid-area:1/1/2/4]'>
 							<div class='space-y-0.5'>
 								<Copy
@@ -67,7 +67,7 @@ const {
 									dim
 								/>
 							</div>
-							<div class='grid grid-cols-2 md:grid-cols-3 items-center gap-4 mt-6'>
+							<div class='grid grid-cols-2 md:grid-cols-3 items-center gap-4 mt-6 pr-2'>
 								<div class='space-y-0.5'>
 									<Copy
 										tag='span'
@@ -117,11 +117,7 @@ const {
 							</div>
 						</div>
 						<div class='[grid-area:1/4/2/5] justify-self-end pt-3'>
-							<Chip
-								text={i.status}
-								class='w-auto'
-								neutral
-							/>
+							<Chip text={i.status} class='w-auto' neutral />
 						</div>
 					</li>
 				))

@@ -26,14 +26,16 @@ export async function getStaticPaths() {
 	}
 }
 
-const { e } = Astro.props,
-	{ Content } = await e.render(),
-	{ isCollection, isCollectionChild, collection, collectionParent } =
-		pathworx(Astro.url)
+const { e } = Astro.props
+const { Content } = await e.render()
+const { pathname } = Astro.url
+const { isCollection, isCollectionChild, collection, collectionParent } =
+	pathworx(Astro.url)
+const isTimelines = pathname.startsWith('/timelines')
 ---
 
 <Base frontmatter={e}>
-	{(isCollection() || isCollectionChild()) && <Backbar />}
+	{(isCollection() || isCollectionChild()) && !isTimelines && <Backbar />}
 	{
 		isCollectionChild() ? (
 			<Child Content={Content} entry={e} components={components} />
