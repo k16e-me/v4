@@ -31,6 +31,13 @@ const {
 	class: classes,
 	...props
 } = Astro.props
+
+const statusOrder = ['Progress', 'Slated', 'Blocked', 'Done']
+const sorted = tasks.sort((a, b) => {
+	const statusA = statusOrder.indexOf(a.status)
+	const statusB = statusOrder.indexOf(b.status)
+	return statusA - statusB
+})
 ---
 
 <Section
@@ -44,7 +51,7 @@ const {
 		<ul
 			class='col-span-full sm:col-start-2 sm:col-end-12 xl:col-start-3 xl:col-end-11 divide-y divide-[var(--r-elevation-border)] flex flex-col gap-y-8 [&>*:not(:first-child)]:pt-8'>
 			{
-				tasks.map((i) => (
+				sorted.map((i) => (
 					<li class='grid grid-cols-4 gap-4'>
 						<div class='[grid-area:1/1/2/4]'>
 							<div class='space-y-0.5'>
@@ -125,6 +132,8 @@ const {
 										? 'positive'
 										: i.status === 'Slated'
 											? 'neutral'
+										: i.status === 'Done'
+											? 'success'
 											: 'default'
 								}
 							/>

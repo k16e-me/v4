@@ -1,4 +1,7 @@
 ---
+import { remark } from 'remark'
+import html from 'remark-html'
+
 const {
 	copy,
 	size = 'default',
@@ -11,10 +14,12 @@ const {
 	...props
 } = Astro.props
 const Tag = tag
+const processedContent = await remark().use(html).process(copy)
+const contentHtml = processedContent.toString()
 ---
 
 <Tag
-	set:text={copy}
+	set:html={contentHtml}
 	class:list={[
 		color == 'light' && 'text-[var(--r-contrast-text)]',
 		color == 'dark' && 'text-[var(--r-primary)]',
