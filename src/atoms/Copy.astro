@@ -1,11 +1,14 @@
 ---
 const {
-    copy,
-    size = 'default',
-    color = 'light',
-    tag = 'p',
-    class: classes,
-    ...props
+	copy,
+	size = 'default',
+	color = 'light',
+	tag = 'p',
+	dim,
+	dimmer,
+	dimmest,
+	class: classes,
+	...props
 } = Astro.props
 const Tag = tag
 ---
@@ -16,9 +19,14 @@ const Tag = tag
 		color == 'light' && 'text-[var(--r-contrast-text)]',
 		color == 'dark' && 'text-[var(--r-primary)]',
 		color == 'accent' && 'text-[var(--r-accent)]',
+		color == 'neutral' && 'text-[var(--r-neutral)]',
 		color === 'on-pastel' && 'text-[var(--r-color-base)]',
 		size === 'sm' && 'text-sm',
-		size === 'md' && 'text-base sm:text-md lg:text-lg',
+		size === 'base' && 'text-base !leading-[1.45rem]',
+		size === 'md' && 'text-md lg:text-lg',
+		dim && 'opacity-90',
+		dimmer && 'opacity-70',
+		dimmest && 'opacity-40',
 		classes,
 	]}
 	{...props}

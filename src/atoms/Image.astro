@@ -11,6 +11,8 @@ const {
 	objectLeft = true,
 	heighten = true,
     contain,
+    avatar,
+    fw = true,
 	class: classes,
 	...props
 } = Astro.props
@@ -20,16 +22,17 @@ const {
 	src={filename}
 	alt={alt}
 	class:list={[
-		'w-full',
+		fw && !avatar && 'w-full',
         contain ? 'object-contain' : 'object-cover',
-		heighten && 'h-full',
-		objectLeft && 'object-left-top',
+		heighten && !avatar && 'h-full',
+		objectLeft && !avatar && 'object-left-top',
 		contrast && 'r-contrast',
 		orientation == 'profile' &&
 			'h-[480px] xs:h-[520px] sm:h-80 md:h-[400px] lg:h-[480px]',
 		orientation == 'landscape' && 'max-h-[640px]',
 		typical && 'md:max-h-[640px]',
 		noholdsbarred && 'max-h-[900px]',
+        avatar && 'size-11 rounded-full'
 	]}
 	draggable='false'
 	quality='max'

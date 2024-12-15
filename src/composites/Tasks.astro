@@ -6,6 +6,8 @@ import Image from '@atoms/Image.astro'
 import Heading from '@atoms/Heading.astro'
 import Copy from '@atoms/Copy.astro'
 import Chip from '@atoms/Chip.astro'
+import Image from '@atoms/Image.astro'
+import kb from '@uploads/avatars/kb.jpg'
 
 const {
 	title,
@@ -20,8 +22,8 @@ const {
 			start: '2024-12-16',
 			duration: '3 days',
 			owner: {
-				image: '@uploads/avatars/kb.jpg',
-				title: 'K16E',
+				image: kb,
+				title: 'kb',
 			},
 			status: 'Slated',
 		},
@@ -38,19 +40,19 @@ const {
 	padding={padding}
 	class:list='invisible'
 	data-entry='below'>
-	<Wrapper class:list={['']}>
+	<Wrapper>
 		<ul
 			class='col-span-full sm:col-start-2 sm:col-end-12 xl:col-start-3 xl:col-end-11'>
 			{
-				tasks.map((i, x) => (
-					<li class='grid grid-cols-4 gap-3'>
+				tasks.map((i) => (
+					<li class='grid grid-cols-4 gap-4 border-b border-[var(--r-elevation-border)] pb-6'>
 						<div class='[grid-area:1/1/2/4]'>
-							<div>
+							<div class='space-y-0.5'>
 								<Copy
 									tag='span'
-									copy={Object.getOwnPropertyNames(i)[x]}
-									size='md'
-									class='capitalize'
+									copy={'Title'}
+									size='sm'
+									dimmer
 								/>
 								<Heading
 									tag='h3'
@@ -61,35 +63,65 @@ const {
 								<Copy
 									tag='p'
 									copy={i.summary}
-									size='md'
-                                    class="mt-1"
+									size='base'
+									dim
 								/>
 							</div>
-							<div class='grid grid-cols-2 gap-3 mt-4'>
-								<div>
-									<div>
-										<Copy
-											tag='span'
-											copy={
-												Object.getOwnPropertyNames(i)[x]
-											}
-											size='md'
-											class='capitalize'
+							<div class='grid grid-cols-2 md:grid-cols-3 items-center gap-4 mt-6'>
+								<div class='space-y-0.5'>
+									<Copy
+										tag='span'
+										copy={'Start'}
+										size='sm'
+										dimmer
+									/>
+									<Copy
+										tag='p'
+										copy={i.start}
+										size='base'
+										color='neutral'
+										dim
+									/>
+								</div>
+								<div class='space-y-0.5'>
+									<Copy
+										tag='span'
+										copy={'Duration'}
+										size='sm'
+										dimmer
+									/>
+									<Copy
+										tag='p'
+										copy={i.duration}
+										size='base'
+										color='neutral'
+										dim
+									/>
+								</div>
+								<div class='space-y-0.5'>
+									<div class='flex gap-3 items-center [&>*:first-child]:shrink-0'>
+										<Image
+											filename={i.owner.image}
+											alt={i.owner.title}
+											avatar
 										/>
 										<Copy
 											tag='p'
-											copy={i.start}
-											size='md'
-											class='capitalize'
+											copy={i.owner.title}
+											size='base'
+											color='neutral'
+											dim
 										/>
 									</div>
 								</div>
-								<div>B</div>
-								<div>C</div>
 							</div>
 						</div>
-						<div class='[grid-area:1/4/2/5]'>
-							<Chip text={i.status} class='w-auto' />
+						<div class='[grid-area:1/4/2/5] justify-self-end pt-3'>
+							<Chip
+								text={i.status}
+								class='w-auto'
+								neutral
+							/>
 						</div>
 					</li>
 				))
