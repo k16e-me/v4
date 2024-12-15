@@ -6,14 +6,14 @@ const {
 	copy,
 	size = 'default',
 	color = 'light',
-	tag = 'p',
+	tag,
 	dim,
 	dimmer,
 	dimmest,
 	class: classes,
 	...props
 } = Astro.props
-const Tag = tag
+const Tag = tag || 'p'
 const processedContent = await remark().use(html).process(copy)
 const contentHtml = processedContent.toString()
 ---
