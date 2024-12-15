@@ -1,14 +1,15 @@
 ---
-const
-    {
-        level, text, size, uppercase, lowercase, weight, tighten, loosen, color, nowrap, italic,
-        class: classes, ...attrs
-    } = Astro.props
+const {
+    text, size, uppercase, lowercase, weight, tighten, loosen, color, nowrap, italic, tag = 'span',
+    class: classes, ...attrs
+} = Astro.props
+const Tag = tag
+
 ---
-<div
+<Tag
     { ...attrs }
     class:list={[
-        `h is-${ level ? level : 'span' } hyphens-auto`,
+        `h is-${ tag ? tag : 'span' } hyphens-auto`,
 
         // Font Sizes
         size === 'sm' && 'text-xs lg:text-sm',
@@ -42,14 +43,6 @@ const
 
         // Classes Passed In
         classes
-    ]}>
-    {() => {
-        switch (level) {
-            case 'h1': return <h1>{ text }</h1>
-            case 'h2': return <h2>{ text }</h2>
-            case 'h3': return <h3>{ text }</h3>
-            case 'p': return <p>{ text }</p>
-            default: return <span>{ text }</span>
-        }
-    }}
-</div>
+    ]}
+    set:html={text}
+/>
