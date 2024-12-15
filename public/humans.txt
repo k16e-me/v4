@@ -35,3 +35,4 @@ Web: HTML, CSS, & JS
 - CSS nth-child generator => [https://nthchild.kawalekkodu.pl/en/]
 - Sorting collection by a param => Casey James Perno [https://caseyjamesperno.com/blog/sort-astro-glob/]
 - Filter an Object => Mastering JS [https://masteringjs.io/tutorials/fundamentals/filter-object]
+- Automatically import Components in Astro MDX => Ryan Trimble [https://rimdev.io/automatically-import-components-in-astro-mdx]

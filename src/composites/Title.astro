@@ -23,6 +23,7 @@ const
 		padding = 'both',
 		lowercase = true,
 		meta = false,
+        showBackTo = true,
 		entry,
 		class: classes,
 		...props
@@ -44,7 +45,7 @@ const
 			isCollection() && 'grid-rows-2',
 		]}>
 		{
-			(isCollection() || isCollectionChild()) && (
+			(isCollection() || isCollectionChild()) && showBackTo && (
 				<div class='col-start-1 col-end-2 row-start-1 place-self-start xl:col-start-2'>
 					<Anchor
 						href={`/${isCollection() ? collection() : collectionParent()}`}

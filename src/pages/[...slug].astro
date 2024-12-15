@@ -6,6 +6,7 @@ import Work from '@composites/Work.astro'
 import Backbar from '@layouts/Backbar.astro'
 import pathworx from '@scripts/pathworx'
 import Child from '@layouts/Child.astro'
+import { components } from '@scripts/components'
 
 export async function getStaticPaths() {
 	const collections = ['pages', 'work', 'blog'],
@@ -27,15 +28,17 @@ export async function getStaticPaths() {
 
 const { e } = Astro.props,
 	{ Content } = await e.render(),
-	{
-		isCollection,
-		isCollectionChild,
-		collection,
-		collectionParent,
-	} = pathworx(Astro.url)
+	{ isCollection, isCollectionChild, collection, collectionParent } =
+		pathworx(Astro.url)
 ---
 
 <Base frontmatter={e}>
 	{(isCollection() || isCollectionChild()) && <Backbar />}
-	{isCollectionChild() ? <Child Content={Content} entry={e} /> : <Content />}
+	{
+		isCollectionChild() ? (
+			<Child Content={Content} entry={e} components={components} />
+		) : (
+			<Content components={components} />
+		)
+	}
 </Base>
