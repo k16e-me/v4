@@ -8,7 +8,7 @@
         --r-subtle-grad-bottom: linear-gradient(to bottom, var(--r-subtle-grad-stops));
         --r-backdrop-swap: hsla(43, 92%, 50%, 0.06);
         --r-color-base: #19191A;
-        --r-base-platinum: #D8E2DC;
+        --r-base-platinum: #F2F2F2;
         --r-primary: #19191A;
         --r-contrast-max: #19191A;
         --r-accent: #cc8500;
@@ -17,14 +17,14 @@
         --r-interface-backdrop: #f9f9f9;
         --r-contrast-text: #1E1E1F;
         --r-accent-contrast-text: #f9f9f9;
-        --r-interface-elevation: #D8E2DC;
+        --r-interface-elevation: #F2F2F2;
         --r-elevation-border: #E0E0E0;
         --r-neutral: #000;
 
         @media (prefers-color-scheme: dark) {
             --r-subtle-grad-stops: hsl(240, 7%, 6%), hsl(43 92% 50% / 0.05);
             --r-backdrop-swap: hsla(44.21, 90.48%, 4.12%, 0.5);
-            --r-base-platinum: #D8E2DC;
+            --r-base-platinum: #F2F2F2;
             --r-primary: #F4F5F8;
             --r-contrast-max: #fff;
             --r-accent: #EAB308;

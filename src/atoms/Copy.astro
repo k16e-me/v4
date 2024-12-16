@@ -13,7 +13,7 @@ const {
 	class: classes,
 	...props
 } = Astro.props
-const Tag = tag || 'p'
+const Tag = tag || 'div'
 const processedContent = await remark().use(html).process(copy)
 const contentHtml = processedContent.toString()
 ---
@@ -25,7 +25,7 @@ const contentHtml = processedContent.toString()
 		color == 'dark' && 'text-[var(--r-primary)]',
 		color == 'accent' && 'text-[var(--r-accent)]',
 		color == 'neutral' && 'text-[var(--r-neutral)]',
-		color === 'on-pastel' && 'text-[var(--r-color-base)]',
+		color === 'on-pastel' && 'text-slate-950',
 		size === 'sm' && 'text-sm',
 		size === 'base' && 'text-base !leading-[1.45rem]',
 		size === 'md' && 'text-md lg:text-lg',
