@@ -8,26 +8,16 @@ import Copy from '@atoms/Copy.astro'
 import Chip from '@atoms/Chip.astro'
 import Image from '@atoms/Image.astro'
 import kb from '@uploads/avatars/kb.jpg'
+import Text from '@atoms/Text.astro'
+import Accordion from '@blocks/Accordion.astro'
+import { _empty } from '@scripts/snips'
 
 const {
 	title,
 	padding = 'bottom',
 	tag = 'section',
 	image,
-	tasks = [
-		{
-			title: 'Purpose positioning',
-			summary:
-				'Define FarmTech in language that endears it to potential customers.',
-			start: '2024-12-16',
-			duration: '3 days',
-			owner: {
-				image: kb,
-				title: 'kb',
-			},
-			status: 'Slated',
-		},
-	],
+	tasks,
 	class: classes,
 	...props
 } = Astro.props
@@ -52,92 +42,106 @@ const sorted = tasks.sort((a, b) => {
 			class='col-span-full sm:col-start-2 sm:col-end-12 xl:col-start-3 xl:col-end-11 divide-y divide-[var(--r-elevation-border)] flex flex-col gap-y-8 [&>*:not(:first-child)]:pt-8'>
 			{
 				sorted.map((i) => (
-					<li class='grid grid-cols-4 gap-4'>
-						<div class='[grid-area:1/1/2/4]'>
-							<div class='space-y-0.5'>
-								<Copy
-									tag='span'
-									copy={'Title'}
-									size='sm'
-									dimmer
-								/>
-								<Heading
-									tag='h3'
-									text={i.title}
-									size='md'
-									weight='bold'
-								/>
-								<Copy
-									tag='p'
-									copy={i.summary}
-									size='base'
-									dim
-								/>
-							</div>
-							<div class='grid grid-cols-2 md:grid-cols-3 items-center gap-4 mt-6 pr-2'>
+					<li>
+						<div class='grid grid-cols-4 gap-4'>
+							<div class='[grid-area:1/1/2/4]'>
 								<div class='space-y-0.5'>
 									<Copy
 										tag='span'
-										copy={'Start'}
+										copy={'Title'}
 										size='sm'
 										dimmer
 									/>
-									<Copy
-										tag='p'
-										copy={i.start}
-										size='base'
-										color='neutral'
-										dim
-									/>
-								</div>
-								<div class='space-y-0.5'>
-									<Copy
-										tag='span'
-										copy={'Duration'}
-										size='sm'
-										dimmer
+									<Heading
+										tag='h3'
+										text={i.title}
+										size='md'
+										weight='bold'
 									/>
 									<Copy
 										tag='p'
-										copy={i.duration}
+										copy={i.summary}
 										size='base'
-										color='neutral'
 										dim
 									/>
 								</div>
-								<div class='space-y-0.5'>
-									<div class='flex gap-1.5 items-center [&>*:first-child]:shrink-0'>
-										<Image
-											filename={i.owner.image}
-											alt={i.owner.title}
-											avatar
+								<div class='grid grid-cols-2 md:grid-cols-3 items-center gap-4 mt-6 pr-2'>
+									<div class='space-y-0.5'>
+										<Copy
+											tag='span'
+											copy={'Start'}
+											size='sm'
+											dimmer
 										/>
 										<Copy
 											tag='p'
-											copy={i.owner.title}
+											copy={i.start}
 											size='base'
 											color='neutral'
 											dim
 										/>
 									</div>
+									<div class='space-y-0.5'>
+										<Copy
+											tag='span'
+											copy={'Duration'}
+											size='sm'
+											dimmer
+										/>
+										<Copy
+											tag='p'
+											copy={i.duration}
+											size='base'
+											color='neutral'
+											dim
+										/>
+									</div>
+									<div class='space-y-0.5'>
+										<div class='flex gap-1.5 items-center [&>*:first-child]:shrink-0'>
+											<Image
+												filename={i.owner.image}
+												alt={i.owner.title}
+												avatar
+											/>
+											<Copy
+												tag='p'
+												copy={i.owner.title}
+												size='base'
+												color='neutral'
+												dim
+											/>
+										</div>
+									</div>
 								</div>
 							</div>
+							<div class='[grid-area:1/4/2/5] justify-self-end pt-3'>
+								<Chip
+									text={i.status}
+									class='w-auto'
+									theme={
+										i.status === 'Progress'
+											? 'positive'
+											: i.status === 'Slated'
+												? 'neutral'
+												: i.status === 'Done'
+													? 'success'
+													: 'default'
+									}
+								/>
+							</div>
 						</div>
-						<div class='[grid-area:1/4/2/5] justify-self-end pt-3'>
-							<Chip
-								text={i.status}
-								class='w-auto'
-								theme={
-									i.status === 'Progress'
-										? 'positive'
-										: i.status === 'Slated'
-											? 'neutral'
-										: i.status === 'Done'
-											? 'success'
-											: 'default'
-								}
-							/>
-						</div>
+						{
+							/* Accordion of more... */
+							!_empty(i.details) && (
+								<ul class="max-w-screen-sm pt-6">
+									{i.details.map(({ title, body }) => (
+										<Accordion heading={title}>
+											<Text content={body} />
+										</Accordion>
+									))}
+								</ul>
+							)
+						}
 					</li>
 				))
 			}

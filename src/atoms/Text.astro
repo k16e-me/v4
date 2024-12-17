@@ -1,0 +1,49 @@
+---
+import { remark } from 'remark'
+import html from 'remark-html'
+
+const {
+	tag,
+	content,
+	size = 'sm',
+	uppercase,
+	weight = 'regular',
+	italic,
+	tighten,
+	loosen,
+	color = 'body',
+	class: classes,
+	...props
+} = Astro.props
+const Tag = tag || 'span'
+const processedContent = await remark().use(html).process(content)
+const contentHtml = processedContent.toString()
+---
+
+<Tag
+	set:html={contentHtml}
+	{...props}
+	class:list={[
+		// Font Sizes
+		size === 'sm' && 'text-sm',
+
+		// Font Weights
+		weight === 'regular' && 'font-normal',
+		weight === 'medium' && 'font-medium',
+		weight === 'semi' && 'font-semibold',
+		weight === 'bold' && 'font-bold',
+		weight === 'extra' && 'font-extrabold',
+
+		// Colors
+		color === 'body' && 'dark:text-slate-300 text-slate-800',
+
+		// Booleans
+		uppercase && 'uppercase',
+		tighten && '-tracking-[0.0225em]',
+		loosen && 'tracking-[0.085em]',
+		italic && 'italic',
+
+		// Classes Passed In
+		classes,
+	]}
+/>

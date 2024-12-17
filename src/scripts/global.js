@@ -7,6 +7,7 @@ import { _body, _q, _ql } from '@scripts/snips'
 import _zaps from '@scripts/zaps'
 import _backbar from '@scripts/backbar'
 import _fullres from './fullres'
+import _accordion from './accordion'
 
 const swup = new Swup({
     containers: ['#swup', '#page-title'],
@@ -32,6 +33,7 @@ function init() {
     _words()
     _backbar()
     _fullres()
+    _accordion()
 }
 
 function once() {

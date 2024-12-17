@@ -1,0 +1,29 @@
+---
+import Text from '@atoms/Text.astro'
+import Icon from '@atoms/Icon.astro'
+
+const { tag, heading, class: classes, ...props } = Astro.props
+const Tag = tag || 'li'
+---
+
+<Tag
+	class:list={[
+		'accordion group border-b dark:border-slate-700 border-slate-400 last:border-b-0',
+		classes,
+	]}
+	{...props}>
+	<div
+		class='accordion__button flex items-center justify-between h-14 cursor-pointer'
+		aria-expanded='false'>
+		<Text content={heading} />
+		<Icon
+			name='caret-down'
+			aria-hidden='true'
+			class='accordion__icon block w-5 text-white opacity-70 group-hover:opacity-100 shrink-0 transition-all group-[.is-active]:opacity-100'
+		/>
+	</div>
+	<div
+		class='accordion__content overflow-hidden max-h-0 transition-all ease-in-out'>
+		<slot />
+	</div>
+</Tag>

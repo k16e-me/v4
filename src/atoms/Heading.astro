@@ -1,48 +1,62 @@
 ---
 const {
-    text, size, uppercase, lowercase, weight, tighten, loosen, color, nowrap, italic, tag = 'span',
-    class: classes, ...attrs
+	text,
+	size,
+	uppercase,
+	lowercase,
+	weight,
+	tighten,
+	loosen,
+	color,
+	nowrap,
+	italic,
+	tag,
+	class: classes,
+	...attrs
 } = Astro.props
-const Tag = tag
-
+const Tag = tag || 'span'
 ---
+
 <Tag
-    { ...attrs }
-    class:list={[
-        `h is-${ tag ? tag : 'span' } hyphens-auto`,
+	set:html={text}
+	class:list={[
+		`h is-${tag ? tag : 'span'} hyphens-auto`,
 
-        // Font Sizes
-        size === 'sm' && 'text-xs lg:text-sm',
-        size === 'smx' && 'text-sm md:text-md lg:text-lg',
-        size === 'md' && 'text-xl sm:text-2xl',
-        size === 'mdx' && 'text-3xl leading-10 md:text-4xl md:leading-tight lg:text-5xl lg:leading-tight',
-        size === 'lg' && 'text-3xl leading-9 sm:text-4xl sm:leading-10 md:text-5xl md:leading-tight lg:text-7xl',
-        size === 'lgx' && 'text-4xl sm:text-6xl lg:text-7xl xl:text-8xl',
-        size === 'xl' && 'text-5xl leading-tight sm:text-7xl sm:!leading-[1.112] md:text-8xl lg:text-9xl',
+		// Font Sizes
+		size === 'sm' && 'text-xs lg:text-sm',
+		size === 'smx' && 'text-sm md:text-md lg:text-lg',
+		size === 'md' && 'text-xl sm:text-2xl',
+		size === 'mdx' &&
+			'text-3xl leading-10 md:text-4xl md:leading-tight lg:text-5xl lg:leading-tight',
+		size === 'lg' &&
+			'text-3xl leading-9 sm:text-4xl sm:leading-10 md:text-5xl md:leading-tight lg:text-7xl',
+		size === 'lgx' && 'text-4xl sm:text-6xl lg:text-7xl xl:text-8xl',
+		size === 'xl' &&
+			'text-5xl leading-tight sm:text-7xl sm:!leading-[1.112] md:text-8xl lg:text-9xl',
 
-        // Font Weights
-        weight === 'regular' && 'font-normal',
-        weight === 'medium' && 'font-medium',
-        weight === 'semi' && 'font-semibold',
-        weight === 'bold' && 'font-bold',
-        weight === 'extra' && 'font-extrabold',
+		// Font Weights
+		weight === 'regular' && 'font-normal',
+		weight === 'medium' && 'font-medium',
+		weight === 'semi' && 'font-semibold',
+		weight === 'bold' && 'font-bold',
+		weight === 'extra' && 'font-extrabold',
 
-        // Colors
-        color === 'accent' && 'text-[var(--r-accent)]',
-        color === 'primary' && 'text-[var(--r-primary)]',
-        color === 'white' && 'text-[var(--r-primary)]',
-        color === 'on-pastel' && 'text-[var(--r-color-base)]',
+		// Colors
+		color === 'accent' && 'text-[var(--r-accent)]',
+		color === 'primary' && 'text-[var(--r-primary)]',
+		color === 'white' && 'text-[var(--r-primary)]',
+		color === 'on-pastel' && 'text-[var(--r-color-base)]',
 
-        // Booleans
-        uppercase && 'uppercase',
-        lowercase && 'lowercase',
-        tighten && '-tracking-wide',
-        loosen && 'tracking-widest',
-        nowrap && 'whitespace-nowrap',
-        italic && 'italic',
+		// Booleans
+		uppercase && 'uppercase',
+		lowercase && 'lowercase',
+		tighten && '-tracking-wide',
+		loosen && 'tracking-widest',
+		nowrap && 'whitespace-nowrap',
+		italic && 'italic',
 
-        // Classes Passed In
-        classes
-    ]}
-    set:html={text}
+		// Classes Passed In
+		classes,
+	]}
+	{...attrs}
 />
