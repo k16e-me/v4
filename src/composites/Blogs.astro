@@ -8,10 +8,12 @@ import Tile from '@blocks/Tile.astro'
 import _pastels from '@scripts/pastels'
 import _shuffle from '@scripts/shuffle'
 
-const { title, padding, class: classes, ...props } = Astro.props,
-	blogs = await Astro.glob('@content/pages/blog/*.mdx'),
-	pastels = _pastels().pastels(),
-	shuffledPastels = _shuffle(pastels)
+const { title, padding, class: classes, ...props } = Astro.props
+const blogs = Object.values(
+	import.meta.glob('@content/pages/blog/*.mdx', { eager: true }),
+)
+const pastels = _pastels().pastels()
+const shuffledPastels = _shuffle(pastels)
 ---
 
 <Section
