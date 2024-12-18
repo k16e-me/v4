@@ -1,19 +1,28 @@
 ---
-const { class: classes, ...props } = Astro.props
+const { post = 'default', class: classes, ...props } = Astro.props
 ---
 
 <div
 	class:list={[
 		`
             max-w-none prose-p:text-[var(--r-contrast-text)]
+            prose-a:text-[var(--r-accent)] hover:prose-a:text-[var(--r-primary)] prose-a:transition prose-a:duration-300 prose-a:ease-linear
+            marker:text-[var(--r-accent)]
+        `,
+		post === 'default' && post !== 'minimal' &&
+			`
             prose prose-lg xl:prose-xl
             prose-headings:text-[var(--r-contrast-max)] prose-strong:text-[var(--r-contrast-max)]
             prose-h4:italic prose-h4:font-bold prose-h4:[font-size:112%]
             prose-p:leading-[1.655]
-            prose-a:text-[var(--r-accent)] hover:prose-a:text-[var(--r-primary)] prose-a:transition prose-a:duration-300 prose-a:ease-linear
             prose-blockquote:border-[var(--r-accent)] prose-blockquote:bg-gradient-to-r prose-blockquote:from-[var(--r-accent)]/5 prose-blockquote:to-transparent prose-blockquote:py-1 before:prose-p:content-none after:prose-p:content-none
-            marker:text-[var(--r-accent)] prose-ol:leading-normal
+            prose-ol:leading-normal
             prose-figcaption:m-0 prose-figcaption:bg-[var(--r-accent)] prose-figcaption:p-3 prose-figcaption:text-sm prose-figcaption:italic
+        `,
+		post === 'minimal' &&
+			`
+            prose
+            prose-li:my-0 prose-ul:pl-8 prose-ol:pl-8
         `,
 		classes,
 	]}

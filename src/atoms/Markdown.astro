@@ -2,9 +2,9 @@
 import { marked } from 'marked'
 import Prose from './Prose.astro'
 
-const { content, class: classes, ...props } = Astro.props
+const { post, content, class: classes, ...props } = Astro.props
 ---
 
-<Prose>
+<Prose post={post}>
 	<Fragment set:html={marked.parse(content)} />
 </Prose>

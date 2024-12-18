@@ -8,23 +8,23 @@ const Tag = tag || 'li'
 
 <Tag
 	class:list={[
-		'accordion group border-b dark:border-zinc-800 border-zinc-400 last:border-b-0',
+		'accordion group border-b dark:border-slate-950 border-zinc-400 last:border-b-0',
 		classes,
 	]}
 	{...props}>
 	<div
-		class='accordion__button flex items-center justify-between h-14 cursor-pointer'
+		class='accordion__button flex items-center justify-between h-12 cursor-pointer'
 		aria-expanded='false'>
-		<Text content={heading} />
+		<Text content={heading} size='md' weight="semi"/>
 		<Icon
 			name='caret-down'
 			aria-hidden='true'
-			class='accordion__icon block w-5 text-white opacity-30 group-hover:opacity-100 shrink-0 transition-all group-[.is-active]:opacity-100'
+			class='accordion__icon block w-5 text-white opacity-40 group-hover:opacity-100 shrink-0 transition-all group-[.is-active]:opacity-100'
 		/>
 	</div>
 	<div
 		class='accordion__content overflow-hidden max-h-0 transition-all ease-in-out'>
-		<div class='pb-6'>
+		<div class='pb-5'>
 			<slot />
 		</div>
 	</div>

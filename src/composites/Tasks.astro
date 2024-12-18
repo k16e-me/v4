@@ -150,11 +150,12 @@ const sorted = tasks.sort((a, b) => {
 							{
 								/* Accordion of more... */
 								!_empty(details) && (
-									<ul class='pt-6'>
+									<ul class='mt-5 px-4 py-1 rounded-xl dark:bg-zinc-900 bg-slate-100'>
 										{details.map(({ title, body }) => (
 											<Accordion heading={title}>
 												<Markdown
 													content={body}
+                                                    post='minimal'
 												/>
 											</Accordion>
 										))}
