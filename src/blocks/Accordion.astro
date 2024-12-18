@@ -19,11 +19,13 @@ const Tag = tag || 'li'
 		<Icon
 			name='caret-down'
 			aria-hidden='true'
-			class='accordion__icon block w-5 text-white opacity-70 group-hover:opacity-100 shrink-0 transition-all group-[.is-active]:opacity-100'
+			class='accordion__icon block w-5 text-white opacity-30 group-hover:opacity-100 shrink-0 transition-all group-[.is-active]:opacity-100'
 		/>
 	</div>
 	<div
 		class='accordion__content overflow-hidden max-h-0 transition-all ease-in-out'>
-		<slot />
+		<div class='pb-6'>
+			<slot />
+		</div>
 	</div>
 </Tag>

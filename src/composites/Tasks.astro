@@ -12,6 +12,7 @@ import Text from '@atoms/Text.astro'
 import Accordion from '@blocks/Accordion.astro'
 import { _empty } from '@scripts/snips'
 import { getCollection } from 'astro:content'
+import Markdown from '@atoms/Markdown.astro'
 
 const {
 	title,
@@ -149,10 +150,12 @@ const sorted = tasks.sort((a, b) => {
 							{
 								/* Accordion of more... */
 								!_empty(details) && (
-									<ul class='max-w-screen-sm pt-6'>
+									<ul class='pt-6'>
 										{details.map(({ title, body }) => (
 											<Accordion heading={title}>
-												<Text content={body} />
+												<Markdown
+													content={body}
+												/>
 											</Accordion>
 										))}
 									</ul>

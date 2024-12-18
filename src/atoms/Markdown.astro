@@ -1,0 +1,10 @@
+---
+import { marked } from 'marked'
+import Prose from './Prose.astro'
+
+const { content, class: classes, ...props } = Astro.props
+---
+
+<Prose>
+	<Fragment set:html={marked.parse(content)} />
+</Prose>
