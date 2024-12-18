@@ -24,11 +24,11 @@ const {
 	...props
 } = Astro.props
 const currentPath = Astro.url.pathname
-const category = currentPath.split('/').pop()
+const category = currentPath.split('/').filter(Boolean).pop()
 
-const statusOrder = ['Progress', 'Slated', 'Blocked', 'Done']
+const statusOrder = ['In review', 'Progress', 'Slated', 'Done', 'Blocked']
 const allTasks = await getCollection('tasks')
-const tasks = allTasks.filter((i) => i.id.startsWith(`tasks/${category}/`))
+const tasks = allTasks.filter((i) => category && i.id.includes(`/${category}/`))
 const sorted = tasks.sort((a, b) => {
 	const statusA = statusOrder.indexOf(a.data.status)
 	const statusB = statusOrder.indexOf(b.data.status)
@@ -140,11 +140,11 @@ const sorted = tasks.sort((a, b) => {
 												? 'positive'
 												: status === 'Slated'
 													? 'neutral'
-												: status === 'In review'
-													? 'review'
-													: status === 'Done'
-														? 'success'
-														: 'default'
+													: status === 'In review'
+														? 'review'
+														: status === 'Done'
+															? 'success'
+															: 'default'
 										}
 									/>
 								</div>
@@ -157,7 +157,7 @@ const sorted = tasks.sort((a, b) => {
 											<Accordion heading={title}>
 												<Markdown
 													content={body}
-                                                    post='minimal'
+													post='minimal'
 												/>
 											</Accordion>
 										))}
