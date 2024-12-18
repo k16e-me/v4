@@ -45,7 +45,7 @@ const sorted = tasks.sort((a, b) => {
 	data-entry='below'>
 	<Wrapper>
 		<ul
-			class='col-span-full sm:col-start-2 sm:col-end-12 xl:col-start-3 xl:col-end-11 divide-y dark:divide-slate-950 flex flex-col gap-y-8 [&>*:not(:first-child)]:pt-8'>
+			class='col-span-full sm:col-start-2 sm:col-end-12 xl:col-start-3 xl:col-end-11 divide-y dark:divide-slate-50/5 flex flex-col gap-y-8 [&>*:not(:first-child)]:pt-8'>
 			{
 				sorted.map(
 					({
@@ -140,6 +140,8 @@ const sorted = tasks.sort((a, b) => {
 												? 'positive'
 												: status === 'Slated'
 													? 'neutral'
+												: status === 'In review'
+													? 'review'
 													: status === 'Done'
 														? 'success'
 														: 'default'

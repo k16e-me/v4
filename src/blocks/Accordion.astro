@@ -8,14 +8,14 @@ const Tag = tag || 'li'
 
 <Tag
 	class:list={[
-		'accordion group border-b dark:border-slate-950 border-zinc-200 last:border-b-0',
+		'accordion group border-b dark:border-slate-50/5 border-zinc-200 last:border-b-0',
 		classes,
 	]}
 	{...props}>
 	<div
 		class='accordion__button flex items-center justify-between h-12 cursor-pointer'
 		aria-expanded='false'>
-		<Text content={heading} size='md' weight="semi"/>
+		<Text content={heading} size='md' weight='semi' color='heading' />
 		<Icon
 			name='caret-down'
 			aria-hidden='true'
