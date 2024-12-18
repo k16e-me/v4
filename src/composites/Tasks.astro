@@ -26,7 +26,7 @@ const {
 const currentPath = Astro.url.pathname
 const category = currentPath.split('/').filter(Boolean).pop()
 
-const statusOrder = ['In review', 'Progress', 'Slated', 'Done', 'Blocked']
+const statusOrder = ['Review', 'Progress', 'Slated', 'Done', 'Blocked']
 const allTasks = await getCollection('tasks')
 const tasks = allTasks.filter((i) => category && i.id.includes(`/${category}/`))
 const sorted = tasks.sort((a, b) => {
@@ -140,7 +140,7 @@ const sorted = tasks.sort((a, b) => {
 												? 'positive'
 												: status === 'Slated'
 													? 'neutral'
-													: status === 'In review'
+													: status === 'Review'
 														? 'review'
 														: status === 'Done'
 															? 'success'
