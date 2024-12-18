@@ -23,7 +23,9 @@ export default defineConfig({
         tailwind({
             nesting: true
         }),
-        mdx(),
+        mdx({
+            ignoreIndentation: true
+        }),
         sitemap()
     ],
     build: {

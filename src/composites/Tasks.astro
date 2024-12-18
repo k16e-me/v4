@@ -11,21 +11,26 @@ import kb from '@uploads/avatars/kb.jpg'
 import Text from '@atoms/Text.astro'
 import Accordion from '@blocks/Accordion.astro'
 import { _empty } from '@scripts/snips'
+import { getCollection } from 'astro:content'
 
 const {
 	title,
 	padding = 'bottom',
 	tag = 'section',
 	image,
-	tasks,
+	timeline,
 	class: classes,
 	...props
 } = Astro.props
+const currentPath = Astro.url.pathname
+const category = currentPath.split('/').pop()
 
 const statusOrder = ['Progress', 'Slated', 'Blocked', 'Done']
+const allTasks = await getCollection('tasks')
+const tasks = allTasks.filter((i) => i.id.startsWith(`tasks/${category}/`))
 const sorted = tasks.sort((a, b) => {
-	const statusA = statusOrder.indexOf(a.status)
-	const statusB = statusOrder.indexOf(b.status)
+	const statusA = statusOrder.indexOf(a.data.status)
+	const statusB = statusOrder.indexOf(b.data.status)
 	return statusA - statusB
 })
 ---
@@ -39,111 +44,123 @@ const sorted = tasks.sort((a, b) => {
 	data-entry='below'>
 	<Wrapper>
 		<ul
-			class='col-span-full sm:col-start-2 sm:col-end-12 xl:col-start-3 xl:col-end-11 divide-y divide-[var(--r-elevation-border)] flex flex-col gap-y-8 [&>*:not(:first-child)]:pt-8'>
+			class='col-span-full sm:col-start-2 sm:col-end-12 xl:col-start-3 xl:col-end-11 divide-y divide-zinc-800 flex flex-col gap-y-8 [&>*:not(:first-child)]:pt-8'>
 			{
-				sorted.map((i) => (
-					<li>
-						<div class='grid grid-cols-4 gap-4'>
-							<div class='[grid-area:1/1/2/4]'>
-								<div class='space-y-0.5'>
-									<Copy
-										tag='span'
-										copy={'Title'}
-										size='sm'
-										dimmer
-									/>
-									<Heading
-										tag='h3'
-										text={i.title}
-										size='md'
-										weight='bold'
-									/>
-									<Copy
-										tag='p'
-										copy={i.summary}
-										size='base'
-										dim
-									/>
-								</div>
-								<div class='grid grid-cols-2 md:grid-cols-3 items-center gap-4 mt-6 pr-2'>
+				sorted.map(
+					({
+						data: {
+							title,
+							summary,
+							start,
+							duration,
+							owner,
+							status,
+							details,
+						},
+					}) => (
+						<li>
+							<div class='grid grid-cols-4 gap-4'>
+								<div class='[grid-area:1/1/2/4]'>
 									<div class='space-y-0.5'>
 										<Copy
 											tag='span'
-											copy={'Start'}
+											copy={'Title'}
 											size='sm'
 											dimmer
 										/>
-										<Copy
-											tag='p'
-											copy={i.start}
-											size='base'
-											color='neutral'
-											dim
-										/>
-									</div>
-									<div class='space-y-0.5'>
-										<Copy
-											tag='span'
-											copy={'Duration'}
-											size='sm'
-											dimmer
+										<Heading
+											tag='h3'
+											text={title}
+											size='md'
+											weight='bold'
 										/>
 										<Copy
 											tag='p'
-											copy={i.duration}
+											copy={summary}
 											size='base'
-											color='neutral'
 											dim
 										/>
 									</div>
-									<div class='space-y-0.5'>
-										<div class='flex gap-1.5 items-center [&>*:first-child]:shrink-0'>
-											<Image
-												filename={i.owner.image}
-												alt={i.owner.title}
-												avatar
+									<div class='grid grid-cols-2 md:grid-cols-3 items-center gap-4 mt-6 pr-2'>
+										<div class='space-y-0.5'>
+											<Copy
+												tag='span'
+												copy={'Start'}
+												size='sm'
+												dimmer
 											/>
 											<Copy
 												tag='p'
-												copy={i.owner.title}
+												copy={start}
 												size='base'
 												color='neutral'
 												dim
 											/>
 										</div>
+										<div class='space-y-0.5'>
+											<Copy
+												tag='span'
+												copy={'Duration'}
+												size='sm'
+												dimmer
+											/>
+											<Copy
+												tag='p'
+												copy={duration}
+												size='base'
+												color='neutral'
+												dim
+											/>
+										</div>
+										<div class='space-y-0.5'>
+											<div class='flex gap-1.5 items-center [&>*:first-child]:shrink-0'>
+												<Image
+													filename={owner.image}
+													alt={owner.title}
+													avatar
+												/>
+												<Copy
+													tag='p'
+													copy={owner.title}
+													size='base'
+													color='neutral'
+													dim
+												/>
+											</div>
+										</div>
 									</div>
 								</div>
+								<div class='[grid-area:1/4/2/5] justify-self-end pt-3'>
+									<Chip
+										text={status}
+										class='w-auto'
+										theme={
+											status === 'Progress'
+												? 'positive'
+												: status === 'Slated'
+													? 'neutral'
+													: status === 'Done'
+														? 'success'
+														: 'default'
+										}
+									/>
+								</div>
 							</div>
-							<div class='[grid-area:1/4/2/5] justify-self-end pt-3'>
-								<Chip
-									text={i.status}
-									class='w-auto'
-									theme={
-										i.status === 'Progress'
-											? 'positive'
-											: i.status === 'Slated'
-												? 'neutral'
-												: i.status === 'Done'
-													? 'success'
-													: 'default'
-									}
-								/>
-							</div>
-						</div>
-						{
-							/* Accordion of more... */
-							!_empty(i.details) && (
-								<ul class="max-w-screen-sm pt-6">
-									{i.details.map(({ title, body }) => (
-										<Accordion heading={title}>
-											<Text content={body} />
-										</Accordion>
-									))}
-								</ul>
-							)
-						}
-					</li>
-				))
+							{
+								/* Accordion of more... */
+								!_empty(details) && (
+									<ul class='max-w-screen-sm pt-6'>
+										{details.map(({ title, body }) => (
+											<Accordion heading={title}>
+												<Text content={body} />
+											</Accordion>
+										))}
+									</ul>
+								)
+							}
+						</li>
+					),
+				)
 			}
 		</ul>
 	</Wrapper>

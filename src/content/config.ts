@@ -1,4 +1,5 @@
 import { z, defineCollection } from 'astro:content'
+import { glob } from 'astro/loaders'
 
 const pages = defineCollection({
     type: 'content',
@@ -61,9 +62,28 @@ const blog = defineCollection({
         isDraft: z.boolean().optional(),
     })
 })
+const tasks = defineCollection({
+    loader: glob({ pattern: 'tasks/**/*.mdx', base: './src/content' }),
+    schema: ({ image }) => z.object({
+        title: z.string(),
+        summary: z.string(),
+        start: z.string(),
+        duration: z.string(),
+        details: z.array(z.object({
+            title: z.string(),
+            body: z.string()
+        })).optional(),
+        owner: z.object({
+            image: image(),
+            title: z.string()
+        }),
+        status: z.string()
+    })
+})
 
 export const collections = {
     pages,
     work,
-    blog
+    blog,
+    tasks
 }
