@@ -8,7 +8,7 @@ const Tag = tag || 'li'
 
 <Tag
 	class:list={[
-		'accordion group border-b dark:border-slate-950 border-zinc-400 last:border-b-0',
+		'accordion group border-b dark:border-slate-950 border-zinc-200 last:border-b-0',
 		classes,
 	]}
 	{...props}>
@@ -19,7 +19,7 @@ const Tag = tag || 'li'
 		<Icon
 			name='caret-down'
 			aria-hidden='true'
-			class='accordion__icon block w-5 text-white opacity-40 group-hover:opacity-100 shrink-0 transition-all group-[.is-active]:opacity-100'
+			class='accordion__icon block w-5 dark:text-slate-50 text-slate-950 opacity-40 group-hover:opacity-100 shrink-0 transition-all group-[.is-active]:opacity-100'
 		/>
 	</div>
 	<div
