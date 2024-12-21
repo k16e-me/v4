@@ -12,7 +12,7 @@
         "@blocks/*": ["src/blocks/*"],
         "@layouts/*": ["src/layouts/*"],
         "@composites/*": ["src/composites/*"],
-        "@content/*": ["src/content/*"],
+        "@content/*": ["content/*"],
         "@scripts/*": ["src/scripts/*"],
         "@styles/*": ["src/styles/*"],
         "@uploads/*": ["src/uploads/*"],

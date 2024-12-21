@@ -1,6 +1,5 @@
 ---
-import { getCollection } from 'astro:content'
-import { collections } from '@content/config'
+import { getCollection, render } from 'astro:content'
 import Base from '@layouts/Base.astro'
 import Work from '@composites/Work.astro'
 import Backbar from '@layouts/Backbar.astro'
@@ -8,37 +7,48 @@ import pathworx from '@scripts/pathworx'
 import Child from '@layouts/Child.astro'
 import { components } from '@scripts/components'
 
+import { getCollection } from 'astro:content'
+
 export async function getStaticPaths() {
-	const collections = ['pages', 'work', 'blog'],
-		allCollections = await Promise.all(
-			collections.map((e) => getCollection(e)),
-		).then((results) => results.flat())
+	const collections = ['pages', 'work', 'blog']
+	const allCollections = await Promise.all(
+		collections.map((collection) => getCollection(collection)),
+	)
 
-	return allCollections.map((e) => ({
-		params: { slug: slug(e) },
-		props: { e },
-	}))
+	return allCollections
+		.flatMap((entries, index) =>
+			entries.map((entry) => ({
+				params: { slug: slug(entry, collections[index]) },
+				props: { entry },
+			})),
+		)
+		.filter((route) => route.params.slug !== undefined)
 
-	function slug(path) {
-		if (path.collection === 'pages')
-			return path.slug === 'home' ? undefined : path.slug
-		else return `${path.collection}/${path.slug}`
+	function slug(entry, collection) {
+		if (collection === 'pages') {
+			if (entry.id === 'pages/home') return ''
+			return entry.id.replace(/^pages\//, '')
+		} else if (collection === 'work') {
+			return entry.data.id ? `work/${entry.data.id}` : undefined
+		} else {
+			return entry.id
+		}
 	}
 }
 
-const { e } = Astro.props
-const { Content } = await e.render()
+const { entry } = Astro.props
+const { Content } = await render(entry)
 const { pathname } = Astro.url
 const { isCollection, isCollectionChild, collection, collectionParent } =
 	pathworx(Astro.url)
 const isTimelines = pathname.startsWith('/timelines')
 ---
 
-<Base frontmatter={e}>
+<Base data={entry.data}>
 	{(isCollection() || isCollectionChild()) && !isTimelines && <Backbar />}
 	{
 		isCollectionChild() ? (
-			<Child Content={Content} entry={e} components={components} />
+			<Child Content={Content} entry={entry} components={components} />
 		) : (
 			<Content components={components} />
 		)

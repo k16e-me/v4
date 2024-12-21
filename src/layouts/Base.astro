@@ -4,9 +4,7 @@ import Header from '@layouts/Header.astro'
 import TitleHidden from '@blocks/TitleHidden.astro'
 import { getImage } from 'astro:assets'
 
-const {
-    frontmatter: { data },
-} = Astro.props
+const { data } = Astro.props
 const { pathname } = Astro.url
 const isHome = pathname === '/'
 ---

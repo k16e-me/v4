@@ -12,24 +12,23 @@ import Chip from '@atoms/Chip.astro'
 import FormattedDate from '@atoms/FormattedDate.astro'
 import Figure from '@blocks/Figure.astro'
 
-const
-    {
-		title,
-		subtitle,
-		flipped,
-		swapped,
-		invisible = true,
-		centered = true,
-		padding = 'both',
-		lowercase = true,
-		meta = false,
-        showBackTo = true,
-		entry,
-		class: classes,
-		...props
-	} = Astro.props,
-	{ isCollection, isCollectionChild, collection, collectionParent } =
-		pathworx(Astro.url)
+const {
+	title,
+	subtitle,
+	flipped,
+	swapped,
+	invisible = true,
+	centered = true,
+	padding = 'both',
+	lowercase = true,
+	meta = false,
+	showBackTo = true,
+	entry,
+	class: classes,
+	...props
+} = Astro.props
+const { isCollection, isCollectionChild, collection, collectionParent } =
+	pathworx(Astro.url)
 ---
 
 <Section
@@ -75,7 +74,7 @@ const
 					tighten
 					class:list={[
 						flipped ? 'order-2' : 'order-1',
-						(isCollectionChild() && flipped) && 'mt-1.5 sm:mt-2',
+						isCollectionChild() && flipped && 'mt-1.5 sm:mt-2',
 					]}
 				/>
 				<div
@@ -101,28 +100,28 @@ const
 		</div>
 		{
 			meta && (
-                <div class='col-span-full sm:col-start-2 sm:col-end-12 xl:col-start-3 xl:col-end-11 pl-4 pr-4 sm:pl-0 mt-4 sm:mt-8 flex items-center gap-4 flex-wrap'>
-                    {entry && (
-                        <Anchor
-                            href={`/${collectionParent()}`}
-                            class:list={'hover:opacity-70'}>
-                            <Chip text={entry.data.series} />
-                        </Anchor>
-                    )}
-                    <FormattedDate
-                        date={entry.data.release}
-                        class:list='opacity-80'
-                    />
-                    <span
-                        class='opacity-30 block border-r border-white h-full'
-                        aria-hidden='true'
-                    />
-                    {entry.data.update && (
-                        <p class='italic opacity-80'>
-                            U: <FormattedDate date={entry.data.update} />
-                        </p>
-                    )}
-                </div>
+				<div class='col-span-full sm:col-start-2 sm:col-end-12 xl:col-start-3 xl:col-end-11 pl-4 pr-4 sm:pl-0 mt-4 sm:mt-8 flex items-center gap-4 flex-wrap'>
+					{entry && (
+						<Anchor
+							href={`/${collectionParent()}`}
+							class:list={'hover:opacity-70'}>
+							<Chip text={entry.data.series} />
+						</Anchor>
+					)}
+					<FormattedDate
+						date={entry.data.release}
+						class:list='opacity-80'
+					/>
+					<span
+						class='opacity-30 block border-r border-white h-full'
+						aria-hidden='true'
+					/>
+					{entry.data.update && (
+						<p class='italic opacity-80'>
+							U: <FormattedDate date={entry.data.update} />
+						</p>
+					)}
+				</div>
 			)
 		}
 	</Wrapper>

@@ -7,11 +7,12 @@ import TileGrid from '@layouts/TileGrid.astro'
 import Tile from '@blocks/Tile.astro'
 import _pastels from '@scripts/pastels'
 import _shuffle from '@scripts/shuffle'
+import { getCollection } from 'astro:content'
 
 const { title, padding, class: classes, ...props } = Astro.props
-const blogs = Object.values(
-	import.meta.glob('@content/pages/blog/*.mdx', { eager: true }),
-)
+const blogs = await getCollection('pages', (entry) => {
+	return entry.id.startsWith('pages/blog/') && entry.id !== 'blog/index.mdx'
+})
 const pastels = _pastels().pastels()
 const shuffledPastels = _shuffle(pastels)
 ---
@@ -28,11 +29,11 @@ const shuffledPastels = _shuffle(pastels)
 				blogs.map((e, idx) => (
 					<li class='group/anchor'>
 						<Anchor
-							href={e.url}
+							href={e.id.replace(/^pages\//, '')}
 							class:list='w-full group-hover/anchor:scale-95'>
 							<Tile
-								obj={e.frontmatter.title}
-								copy={e.frontmatter.description}
+								obj={e.data.title}
+								copy={e.data.description}
 								pastel={shuffledPastels[idx]}
 								class:list='w-full'
 							/>
