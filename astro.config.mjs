@@ -12,8 +12,8 @@ export default defineConfig({
         ignoreSlowConnection: true
     },
     assets: {
-        baseAssetUrl: '/uploads',
-        fileAssetUrl: '/uploads',
+        baseAssetUrl: '/content/images',
+        fileAssetUrl: '/content/images',
     },
     markdown: {
         rehypePlugins: [
@@ -38,7 +38,7 @@ export default defineConfig({
     vite: {
         resolve: {
             alias: {
-                '@uploads': '/uploads'
+                '@images': '/content/images'
             }
         }
     }

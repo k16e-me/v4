@@ -4,8 +4,8 @@ import { getImage } from 'astro:assets'
 
 
 async function imageTransform(src: string) {
-    if (src.startsWith('@uploads/')) {
-        const { src: optimizedSrc } = await getImage({ src: src.replace('@uploads/', '/uploads/') })
+    if (src.startsWith('@images/')) {
+        const { src: optimizedSrc } = await getImage({ src: src.replace('@images/', '/content/images/') })
         return optimizedSrc
     }
     return src
