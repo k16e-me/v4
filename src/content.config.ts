@@ -2,7 +2,7 @@ import { z, defineCollection } from 'astro:content'
 import { glob } from 'astro/loaders'
 
 const pages = defineCollection({
-    loader: glob({ pattern: 'pages/**/*.mdx', base: './src/content'}),
+    loader: glob({ pattern: 'pages/**/[^_]*.{md,mdx,json,yml,yaml}', base: './content'}),
     schema: ({ image }) => z.object({
         title: z.string(),
         description: z.string().max(224),
@@ -13,7 +13,7 @@ const pages = defineCollection({
     })
 })
 const work = defineCollection({
-    loader: glob({ pattern: 'work/**/*.mdx', base: './src/content'}),
+    loader: glob({ pattern: 'work/**/[^_]*.{md,mdx,json,yml,yaml}', base: './content'}),
     schema: ({ image }) => z.object({
         id: z.string().optional(),
         isDraft: z.boolean(),
@@ -47,7 +47,7 @@ const work = defineCollection({
     })
 })
 const blog = defineCollection({
-    loader: glob({ pattern: 'blog/**/*.mdx', base: './src/content'}),
+    loader: glob({ pattern: 'blog/**/[^_]*.{md,mdx,json,yml,yaml}', base: './content'}),
     schema: ({ image }) => z.object({
         title: z.string(),
         description: z.string().max(224),
@@ -64,7 +64,7 @@ const blog = defineCollection({
     })
 })
 const tasks = defineCollection({
-    loader: glob({ pattern: 'tasks/**/*.mdx', base: './src/content'}),
+    loader: glob({ pattern: 'tasks/**/[^_]*.{md,mdx,json,yml,yaml}', base: './content'}),
     schema: ({ image }) => z.object({
         title: z.string(),
         summary: z.string(),
