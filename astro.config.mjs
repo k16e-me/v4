@@ -11,6 +11,9 @@ export default defineConfig({
         prefetchAll: true,
         ignoreSlowConnection: true
     },
+    assets: {
+        base: './uploads'
+    },
     markdown: {
         rehypePlugins: [
             widont,
@@ -30,5 +33,12 @@ export default defineConfig({
     ],
     build: {
         format: 'preserve'
+    },
+    vite: {
+        resolve: {
+            alias: {
+                '@uploads': '/uploads'
+            }
+        }
     }
 })

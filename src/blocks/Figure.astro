@@ -9,6 +9,8 @@ const {
 	contrast = true,
 	contain,
 	oleft,
+    width = 960,
+    height = 640,
 	class: classes,
 	...props
 } = Astro.props
@@ -23,6 +25,8 @@ const {
 		heighten={false}
 		contain={contain}
 		objectLeft={oleft}
+        width={width}
+        height={height}
 	/>
 	{
 		caption && (

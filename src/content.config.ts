@@ -1,13 +1,20 @@
 import { z, defineCollection } from 'astro:content'
 import { glob } from 'astro/loaders'
 
+const imageResolver = (imagePath: string) => {
+    if (imagePath.startsWith('__ASTRO_IMAGE_@uploads/')) {
+        return imagePath.replace('__ASTRO_IMAGE_@uploads/', '/uploads/')
+    }
+    return imagePath
+}
+
 const pages = defineCollection({
     loader: glob({ pattern: 'pages/**/[^_]*.{md,mdx,json,yml,yaml}', base: './content'}),
     schema: ({ image }) => z.object({
         title: z.string(),
         description: z.string().max(224),
         cover: z.object({
-            src: image(),
+            src: image().transform(imageResolver),
             alt: z.string(),
         }),
     })
@@ -24,7 +31,7 @@ const work = defineCollection({
         shortcode: z.string().max(3),
         logo: z.string().default('logo'),
         cover: z.object({
-            src: image(),
+            src: image().transform(imageResolver),
             alt: z.string(),
         }),
         tag: z.string().max(15),
@@ -53,7 +60,7 @@ const blog = defineCollection({
         description: z.string().max(224),
         excerpt: z.string().min(200).max(350).optional(),
         cover: z.object({
-            src: image(),
+            src: image().transform(imageResolver),
             alt: z.string(),
         }).optional(),
         showCover: z.boolean().default(true),
@@ -75,7 +82,7 @@ const tasks = defineCollection({
             body: z.string()
         })).optional(),
         owner: z.object({
-            image: image(),
+            image: image().transform(imageResolver),
             title: z.string()
         }),
         status: z.string()
