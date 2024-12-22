@@ -1,13 +1,13 @@
 site:
-  title: "K16E Product Design"
-  description: "Global Good Design Consultants"
-  persistKey: "CDEAD442D956"
-  theme: "#19191a"
+  title: K16E Product Design
+  description: Global Good Design Consultants
+  persistKey: CDEAD442D956
+  theme: '#19191a'
 
 nav:
-  - title: "About"
-    slug: "about"
-  - title: "Work"
-    slug: "work"
-  - title: "Blog"
-    slug: "blog"
+  - title: About
+    slug: about
+  - title: Work
+    slug: work
+  - title: Blog
+    slug: blog
