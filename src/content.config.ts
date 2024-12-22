@@ -1,11 +1,14 @@
 import { z, defineCollection } from 'astro:content'
 import { glob } from 'astro/loaders'
+import { getImage } from 'astro:assets'
 
-const imageResolver = (imagePath: string) => {
-    if (imagePath.startsWith('__ASTRO_IMAGE_@uploads/')) {
-        return imagePath.replace('__ASTRO_IMAGE_@uploads/', '/uploads/')
+
+async function imageTransform(src: string) {
+    if (src.startsWith('@uploads/')) {
+        const { src: optimizedSrc } = await getImage({ src: src.replace('@uploads/', '/uploads/') })
+        return optimizedSrc
     }
-    return imagePath
+    return src
 }
 
 const pages = defineCollection({
@@ -14,7 +17,7 @@ const pages = defineCollection({
         title: z.string(),
         description: z.string().max(224),
         cover: z.object({
-            src: image().transform(imageResolver),
+            src: image().transform(imageTransform),
             alt: z.string(),
         }),
     })
@@ -31,7 +34,7 @@ const work = defineCollection({
         shortcode: z.string().max(3),
         logo: z.string().default('logo'),
         cover: z.object({
-            src: image().transform(imageResolver),
+            src: image().transform(imageTransform),
             alt: z.string(),
         }),
         tag: z.string().max(15),
@@ -60,7 +63,7 @@ const blog = defineCollection({
         description: z.string().max(224),
         excerpt: z.string().min(200).max(350).optional(),
         cover: z.object({
-            src: image().transform(imageResolver),
+            src: image().transform(imageTransform),
             alt: z.string(),
         }).optional(),
         showCover: z.boolean().default(true),
@@ -82,7 +85,7 @@ const tasks = defineCollection({
             body: z.string()
         })).optional(),
         owner: z.object({
-            image: image().transform(imageResolver),
+            image: image().transform(imageTransform),
             title: z.string()
         }),
         status: z.string()

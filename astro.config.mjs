@@ -12,7 +12,8 @@ export default defineConfig({
         ignoreSlowConnection: true
     },
     assets: {
-        base: './uploads'
+        baseAssetUrl: '/uploads',
+        fileAssetUrl: '/uploads',
     },
     markdown: {
         rehypePlugins: [
