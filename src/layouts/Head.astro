@@ -2,17 +2,20 @@
 import '@fontsource-variable/bricolage-grotesque'
 import { SEO } from 'astro-seo'
 import _slugify from '@scripts/slugify'
-import Site from '@meta/site.json'
 import '@styles/global.css'
+import { getEntry } from 'astro:content'
 
 const {
-		title,
-		image = '/thumbnail.png',
-		description = '',
-		alt = 'K16E website thumbnail',
-	} = Astro.props,
-	canonicalURL = new URL(Astro.url.pathname, Astro.site),
-	theme = Site.theme
+	title,
+	image = '/thumbnail.png',
+	description = '',
+	alt = 'K16E website thumbnail',
+} = Astro.props
+const {
+	data: { site },
+} = await getEntry('meta', 'meta')
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+const theme = site.theme
 ---
 
 <head>
@@ -51,8 +54,8 @@ const {
 	<meta name='msapplication-config' content='/browserconfig.xml' />
 	<SEO
 		title={title}
-		titleTemplate={`%s / ${Site.title}`}
-		titleDefault={Site.title}
+		titleTemplate={`%s / ${site.title}`}
+		titleDefault={site.title}
 		description={description}
 		openGraph={{
 			basic: {

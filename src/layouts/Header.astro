@@ -1,13 +1,15 @@
 ---
 import Wrapper from './Wrapper.astro'
 import Icon from '@atoms/Icon.astro'
-import navlist from '@meta/nav.json'
 import _slugify from '@scripts/slugify'
 import AnchorNav from '@atoms/AnchorNav.astro'
 import TitleHidden from '@blocks/TitleHidden.astro'
 import Brief from '@blocks/Brief.astro'
+import { getEntry } from 'astro:content'
 
 const { title, showBrief = true, class: classes, ...attrs } = Astro.props
+const meta = await getEntry('meta', 'meta')
+const { nav } = meta.data
 ---
 
 <header
@@ -32,7 +34,7 @@ const { title, showBrief = true, class: classes, ...attrs } = Astro.props
 				/>
 			</li>
 			{
-				navlist.map((it) => (
+				nav.map((it) => (
 					<li>
 						<AnchorNav
 							href={`/${it.slug}`}

@@ -11,6 +11,25 @@ async function imageTransform(src: string) {
     return src
 }
 
+const meta = defineCollection({
+    loader: glob({ pattern: 'meta.{yaml,yml,json}', base: './content' }),
+    schema: z.object({
+        site: z.object({
+            title: z.string(),
+            description: z.string(),
+            persistKey: z.string(),
+            theme: z.string(),
+        }),
+        nav: z.array(
+            z.object({
+                title: z.string(),
+                slug: z.string(),
+            })
+        ),
+    }),
+});
+
+
 const pages = defineCollection({
     loader: glob({ pattern: 'pages/**/[^_]*.{md,mdx,json,yml,yaml}', base: './content'}),
     schema: ({ image }) => z.object({
@@ -93,6 +112,7 @@ const tasks = defineCollection({
 })
 
 export const collections = {
+    meta,
     pages,
     work,
     blog,
