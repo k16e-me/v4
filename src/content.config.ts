@@ -2,6 +2,7 @@ import { z, defineCollection } from 'astro:content'
 import { glob } from 'astro/loaders'
 import { getImage } from 'astro:assets'
 
+export const statusOrder = ['progress', 'review', 'slated', 'done', 'blocked'] as const
 
 async function imageTransform(src: string) {
     if (src.startsWith('@images/')) {
@@ -107,7 +108,13 @@ const tasks = defineCollection({
             image: image().transform(imageTransform),
             title: z.string()
         }),
-        status: z.string()
+        status: z
+            .string()
+            .refine(
+                (val) => statusOrder.includes(val.toLowerCase()),
+                (val) => ({ message: `Invalid status. Expected one of ${statusOrder.join(', ')} (case-insensitive). Received '${val}'` })
+            )
+            .transform((val) => val.toLowerCase())
     })
 })
 

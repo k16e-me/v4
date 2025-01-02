@@ -13,6 +13,7 @@ import Accordion from '@blocks/Accordion.astro'
 import { _empty } from '@scripts/snips'
 import { getCollection } from 'astro:content'
 import Markdown from '@atoms/Markdown.astro'
+import { _sortTasksByStatus } from '@scripts/sort-tasks'
 
 const {
 	title,
@@ -26,14 +27,9 @@ const {
 const currentPath = Astro.url.pathname
 const category = currentPath.split('/').filter(Boolean).pop()
 
-const statusOrder = ['Progress', 'Review', 'Slated', 'Done', 'Blocked']
 const allTasks = await getCollection('tasks')
 const tasks = allTasks.filter((i) => category && i.id.includes(`/${category}/`))
-const sorted = tasks.sort((a, b) => {
-	const statusA = statusOrder.indexOf(a.data.status)
-	const statusB = statusOrder.indexOf(b.data.status)
-	return statusA - statusB
-})
+const sorted = _sortTasksByStatus(tasks)
 ---
 
 <Section
@@ -138,15 +134,12 @@ const sorted = tasks.sort((a, b) => {
 										text={status}
 										class='w-auto'
 										theme={
-											status === 'Progress'
-												? 'positive'
-												: status === 'Slated'
-													? 'neutral'
-													: status === 'Review'
-														? 'review'
-														: status === 'Done'
-															? 'success'
-															: 'default'
+											status === 'progress' ? 'positive'
+											: status === 'slated' ? 'neutral'
+                                            : status === 'review' ? 'review'
+                                            : status === 'done' ? 'success'
+                                            : status === 'blocked' ? 'error'
+                                            : 'default'
 										}
 									/>
 								</div>
