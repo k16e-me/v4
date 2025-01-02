@@ -1,4 +1,6 @@
 ---
+import { marked } from '@scripts/marked-setup'
+
 const {
 	text,
 	size,
@@ -18,7 +20,7 @@ const Tag = tag || 'span'
 ---
 
 <Tag
-	set:html={text}
+	set:html={marked.parse(text)}
 	class:list={[
 		`h is-${tag ? tag : 'span'} hyphens-auto`,
 
