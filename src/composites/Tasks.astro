@@ -24,8 +24,8 @@ const {
 	class: classes,
 	...props
 } = Astro.props
-const currentPath = Astro.url.pathname
-const category = currentPath.split('/').filter(Boolean).pop()
+const { pathname } = Astro.url
+const category = pathname.split('/').filter(Boolean).pop()
 
 const allTasks = await getCollection('tasks')
 const tasks = allTasks.filter((i) => category && i.id.includes(`/${category}/`))
