@@ -1,4 +1,4 @@
-export default function _slugify(str) {
+export const _slugify = (str) => {
     return str
         .replace(/^\s+|\s+$/g, '')
         .toLowerCase()

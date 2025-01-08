@@ -15,7 +15,6 @@
         --r-interface-jet: #e0e0e0;
         --r-interface-text: var(--r-color-base);
         --r-interface-backdrop: #f9f9f9;
-        --r-contrast-text: #1E1E1F;
         --r-accent-contrast-text: #f9f9f9;
         --r-interface-elevation: #F2F2F2;
         --r-elevation-border: #E0E0E0;
@@ -31,7 +30,6 @@
             --r-interface-jet: #292929;
             --r-interface-text: var(--r-base-platinum);
             --r-interface-backdrop: #19191A;
-            --r-contrast-text: #bababc;
             --r-accent-contrast-text: #1E1E1F;
             --r-accent-gradient-start: #23211C;
             --r-interface-elevation: #202020;
@@ -44,7 +42,7 @@
     html.is-animating .swup-in { @apply translate-y-8 scale-[.99] opacity-0 ease-in; }
     .swup-progress-bar { @apply h-[3px] bg-[var(--r-accent)]; }
     body, header {
-        @apply relative bg-[var(--r-interface-backdrop)] text-[var(--r-contrast-text)] prose-headings:text-[var(--r-contrast-max)] prose-strong:text-[var(--r-contrast-max)] prose-ol:text-[var(--r-contrast-text)] prose-ul:text-[var(--r-contrast-text)];
+        @apply relative bg-[var(--r-interface-backdrop)] text-zinc-700 dark:text-zinc-300 prose-headings:text-zinc-900 dark:prose-headings:text-zinc-50 prose-strong:text-zinc-900 dark:prose-strong:text-zinc-50 prose-ol:text-zinc-700 dark:prose-ol:text-zinc-300 prose-ul:text-zinc-700 dark:prose-ul:text-zinc-300;
     }
     .r-dot-matrix-texture {
         @apply relative;

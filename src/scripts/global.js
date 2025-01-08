@@ -1,13 +1,13 @@
 import Swup from 'swup'
 import SwupProgressPlugin from '@swup/progress-plugin'
 import SwupHeadPlugin from '@swup/head-plugin'
-import _active from '@scripts/active'
+import _active from '@scripts/utils/active'
 import _words from '@scripts/words'
 import { _body, _q, _ql } from '@scripts/snips'
 import _zaps from '@scripts/zaps'
-import _backbar from '@scripts/backbar'
+import _backbar from '@scripts/utils/backbar'
 import _fullres from './fullres'
-import _accordion from './accordion'
+import _accordion from './lib/accordion'
 
 const swup = new Swup({
     containers: ['#swup', '#page-title'],

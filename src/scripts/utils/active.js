@@ -1,5 +1,5 @@
-import { _ql, _q, _empty } from './snips'
-import _slugify from './slugify'
+import { _ql, _q, _empty } from '../snips'
+import { _slugify } from './slugify'
 
 export default function _active() {
     if (!_q('[data-anchor]')) return

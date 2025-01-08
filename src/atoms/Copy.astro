@@ -18,11 +18,11 @@ const Tag = tag || 'div'
 <Tag
 	set:html={marked.parse(copy)}
 	class:list={[
-		color == 'light' && 'text-[var(--r-contrast-text)]',
-		color == 'dark' && 'text-[var(--r-primary)]',
-		color == 'accent' && 'text-[var(--r-accent)]',
-		color == 'neutral' && 'text-[var(--r-neutral)]',
-		color === 'on-pastel' && 'text-slate-950',
+		color == 'light' && 'text-zinc-700 dark:text-zinc-300',
+		color == 'dark' && 'text-zinc-950 dark:text-zinc-50',
+		color == 'accent' && 'text-amber-700 dark:text-amber-400',
+		color == 'neutral' && 'text-black dark:text-white',
+		color === 'on-pastel' && 'text-zinc-900',
 		size === 'sm' && 'text-sm',
 		size === 'base' && 'text-base !leading-[1.45rem]',
 		size === 'md' && 'text-md lg:text-lg',

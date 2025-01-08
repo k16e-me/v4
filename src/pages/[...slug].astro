@@ -5,8 +5,7 @@ import Work from '@composites/Work.astro'
 import Backbar from '@layouts/Backbar.astro'
 import pathworx from '@scripts/pathworx'
 import Child from '@layouts/Child.astro'
-import { components } from '@scripts/components'
-
+import { components } from '@scripts/content-components/components'
 import { getCollection } from 'astro:content'
 
 export async function getStaticPaths() {
@@ -26,13 +25,10 @@ export async function getStaticPaths() {
 
 	function slug(entry, collection) {
 		if (collection === 'pages') {
-			if (entry.id === 'pages/home') return ''
+			if (entry.id === 'pages/home') return '/'
 			return entry.id.replace(/^pages\//, '')
-		} else if (collection === 'work') {
-			return entry.data.id ? `work/${entry.data.id}` : undefined
-		} else {
-			return entry.id
-		}
+		} else if (collection === 'work') return entry.data.id ? `work/${entry.data.id}` : undefined
+		else return entry.id
 	}
 }
 
