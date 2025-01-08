@@ -1,13 +1,13 @@
 ---
-import pathworx from '@scripts/pathworx'
+import { _paths } from '@scripts/utils/pathworx'
 import Wrapper from '@layouts/Wrapper.astro'
 import Anchor from '@atoms/Anchor.astro'
 import Icon from '@atoms/Icon.astro'
 import Button from '@atoms/Button.astro'
 
-const { title, class: classes, ...props } = Astro.props,
-	{ isCollection, collection, collectionParent, isCollectionChild } =
-		pathworx(Astro.url)
+const { title, class: classes, ...props } = Astro.props
+const { isCollection, collection, collectionParent, isCollectionChild } =
+	_paths(Astro.url)
 ---
 
 <Wrapper
@@ -24,7 +24,13 @@ const { title, class: classes, ...props } = Astro.props,
 	{
 		isCollectionChild() && (
 			<div class='-col-end-1 xl:col-end-12 col-span-4 justify-self-end place-self-center'>
-				<Button fabToPill plain text='Content' icon='menu-book' class='' />
+				<Button
+					fabToPill
+					plain
+					text='Content'
+					icon='menu-book'
+					class=''
+				/>
 			</div>
 		)
 	}

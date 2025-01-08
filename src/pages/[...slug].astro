@@ -3,9 +3,9 @@ import { getCollection, render } from 'astro:content'
 import Base from '@layouts/Base.astro'
 import Work from '@composites/Work.astro'
 import Backbar from '@layouts/Backbar.astro'
-import pathworx from '@scripts/pathworx'
+import { _paths } from '@scripts/utils/pathworx'
 import Child from '@layouts/Child.astro'
-import { components } from '@scripts/content-components/components'
+import { components } from '@scripts/components/components'
 import { getCollection } from 'astro:content'
 
 export async function getStaticPaths() {
@@ -36,7 +36,7 @@ const { entry } = Astro.props
 const { Content } = await render(entry)
 const { pathname } = Astro.url
 const { isCollection, isCollectionChild, collection, collectionParent } =
-	pathworx(Astro.url)
+	_paths(Astro.url)
 const isTimelines = pathname.startsWith('/timelines')
 ---
 

@@ -7,7 +7,7 @@ import Icon from '@atoms/Icon.astro'
 import Anchor from '@atoms/Anchor.astro'
 import _truncate from '@scripts/truncate'
 import { _capitalize } from '@scripts/snips'
-import pathworx from '@scripts/pathworx'
+import { _paths } from '@scripts/utils/pathworx'
 import Chip from '@atoms/Chip.astro'
 import FormattedDate from '@atoms/FormattedDate.astro'
 import Figure from '@blocks/Figure.astro'
@@ -28,7 +28,7 @@ const {
 	...props
 } = Astro.props
 const { isCollection, isCollectionChild, collection, collectionParent } =
-	pathworx(Astro.url)
+	_paths(Astro.url)
 ---
 
 <Section

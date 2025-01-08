@@ -1,6 +1,6 @@
-import _hue from './hue'
+import { _hue } from '../lib/hue'
 
-export default function _shade(hex) {
+export const _shade = (hex) => {
     const
         { hue } = _hue(hex),
         lightest = () => `hsl(${hue}, 42%, 96%)`,

@@ -6,8 +6,8 @@ const { post = 'default', class: classes, ...props } = Astro.props
 	class:list={[
 		`
             max-w-none prose-p:text-zinc-700 dark:prose-p:text-zinc-300 prose-strong:text-zinc-50
-            prose-a:text-[var(--r-accent)] hover:prose-a:text-[var(--r-primary)] prose-a:transition prose-a:duration-300 prose-a:ease-linear
-            marker:text-[var(--r-accent)]
+            prose-a:text-amber-600 dark:prose-a:text-amber-400 hover:prose-a:text-zinc-950 dark:hover:prose-a:text-zinc-50 prose-a:transition prose-a:duration-200 prose-a:ease-linear
+            marker:text-amber-600 dark:marker:text-amber-400
         `,
 		post === 'default' &&
 			post !== 'minimal' &&

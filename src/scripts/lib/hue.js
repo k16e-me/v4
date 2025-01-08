@@ -1,4 +1,4 @@
-export default function _hue(hex) {
+export const _hue = (hex) => {
     const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
 
     if (!result) throw new Error('Could not parse Hex Color')

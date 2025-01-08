@@ -1,7 +1,6 @@
-export default function _scroll(...scrollEvents) {
-    let
-        lastKnownScrollPosition = 0,
-        ticking = false
+export const _scroll = (...scrollEvents) => {
+    let lastKnownScrollPosition = 0
+    let ticking = false
 
     document.addEventListener('scroll', () => {
         lastKnownScrollPosition = window.scrollY

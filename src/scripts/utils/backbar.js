@@ -1,4 +1,4 @@
-import _scroll from '../scroll'
+import { _scroll } from './scroll'
 import { _q, _ql } from '../snips'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
