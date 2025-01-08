@@ -1,6 +1,6 @@
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/all'
-import { _ql, _q } from './snips'
+import { _ql, _q } from './utils/snips'
 
 gsap.registerPlugin(ScrollTrigger)
 

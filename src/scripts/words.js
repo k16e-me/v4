@@ -1,4 +1,4 @@
-import { _q, _ql } from './snips'
+import { _q, _ql } from './utils/snips'
 import gsap from 'gsap'
 
 export default function _words() {

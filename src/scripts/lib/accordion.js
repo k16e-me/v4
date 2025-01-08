@@ -1,5 +1,5 @@
-import _siblings from '@scripts/siblings'
-import { _ql, _q } from '@scripts/snips'
+import { _siblings } from '@scripts/utils/siblings'
+import { _ql, _q } from '@scripts/utils/snips'
 
 export default function _accordion() {
     if (!_q('.accordion')) return

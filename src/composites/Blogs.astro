@@ -6,7 +6,7 @@ import Anchor from '@atoms/Anchor.astro'
 import TileGrid from '@layouts/TileGrid.astro'
 import Tile from '@blocks/Tile.astro'
 import { _pastels } from '@scripts/utils/pastels'
-import _shuffle from '@scripts/shuffle'
+import { _shuffle } from '@scripts/utils/shuffle'
 import { getCollection } from 'astro:content'
 
 const { title, padding, class: classes, ...props } = Astro.props
