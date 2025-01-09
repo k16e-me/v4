@@ -1,9 +1,8 @@
 ---
-import { remark } from 'remark'
-import html from 'remark-html'
+import { marked } from '@scripts/lib/marked-setup'
 
 const {
-	tag,
+	tag: Tag = 'span',
 	content,
 	size = 'sm',
 	uppercase,
@@ -11,22 +10,25 @@ const {
 	italic,
 	tighten,
 	loosen,
-	color = 'body',
+	color = 'default',
+	dim,
+	dimmer,
+	dimmest,
 	class: classes,
 	...props
 } = Astro.props
-const Tag = tag || 'span'
-const processedContent = await remark().use(html).process(content)
-const contentHtml = processedContent.toString()
+const inlineContent = marked.parseInline(content)
 ---
 
 <Tag
-	set:html={contentHtml}
+	set:html={inlineContent}
 	{...props}
 	class:list={[
 		// Font Sizes
 		size === 'sm' && 'text-sm',
-		size === 'md' && 'text-md',
+		size === 'base' && 'text-base !leading-[1.45rem]',
+		size === 'md' && 'text-md lg:text-lg',
+		size === 'xl' && 'text-xl sm:text-2xl',
 
 		// Font Weights
 		weight === 'regular' && 'font-normal',
@@ -36,14 +38,20 @@ const contentHtml = processedContent.toString()
 		weight === 'extra' && 'font-extrabold',
 
 		// Colors
-		color === 'body' && 'dark:text-slate-300 text-zinc-800',
-		color === 'heading' && 'dark:text-slate-50 text-zinc-950',
+		color === 'default' && 'r-surface-copy',
+		color === 'strong' && 'r-surface-strong',
+		color === 'accent' && 'r-surface-accent',
+		color === 'neutral' && 'text-black dark:text-white',
+		color === 'on-pastel' && 'text-zinc-900',
 
 		// Booleans
 		uppercase && 'uppercase',
 		tighten && '-tracking-[0.0225em]',
 		loosen && 'tracking-[0.085em]',
 		italic && 'italic',
+		dim && 'opacity-90',
+		dimmer && 'opacity-70',
+		dimmest && 'opacity-40',
 
 		// Classes Passed In
 		classes,

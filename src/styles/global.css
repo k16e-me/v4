@@ -62,6 +62,10 @@
     .r-transition {
         @apply transition duration-[.3s] ease-out;
     }
+    .r-surface-copy { @apply text-zinc-700 dark:text-zinc-300; }
+    .r-surface-strong { @apply text-zinc-950 dark:text-zinc-50; }
+    .r-surface-accent { @apply text-amber-700 dark:text-amber-400; }
+    .r-surface-primary-fixed { @apply text-zinc-950; }
 }
 
 @layer utilities {

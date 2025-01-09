@@ -3,8 +3,6 @@ import Section from '@layouts/Section.astro'
 import Wrapper from '@layouts/Wrapper.astro'
 import Prose from '@atoms/Prose.astro'
 import Image from '@atoms/Image.astro'
-import Heading from '@atoms/Heading.astro'
-import Copy from '@atoms/Copy.astro'
 import Chip from '@atoms/Chip.astro'
 import Image from '@atoms/Image.astro'
 import kb from '@images/avatars/kb.jpg'
@@ -12,7 +10,7 @@ import Text from '@atoms/Text.astro'
 import Accordion from '@blocks/Accordion.astro'
 import { _empty } from '@scripts/utils/snips'
 import { getCollection } from 'astro:content'
-import Markdown from '@atoms/Markdown.astro'
+import Markdown from '@blocks/Markdown.astro'
 import { _sortTasksByStatus } from '@scripts/sort-tasks'
 
 const {
@@ -26,7 +24,6 @@ const {
 } = Astro.props
 const { pathname } = Astro.url
 const category = pathname.split('/').filter(Boolean).pop()
-
 const allTasks = await getCollection('tasks')
 const tasks = allTasks.filter((i) => category && i.id.includes(`/${category}/`))
 const sorted = _sortTasksByStatus(tasks)
@@ -59,58 +56,21 @@ const sorted = _sortTasksByStatus(tasks)
 							<div class='grid grid-cols-4 gap-4'>
 								<div class='[grid-area:1/1/2/4]'>
 									<div class='space-y-0.5'>
-										<Copy
-											tag='span'
-											copy={'Title'}
-											size='sm'
-											dimmer
-										/>
-										<Heading
-											tag='h3'
-											text={title}
-											size='md'
-											weight='bold'
-										/>
-										<Copy
-											tag='p'
-											copy={summary}
-											size='base'
-											dim
-										/>
+                                        {/* <Text content={'Title'} size='sm' color='strong' dimmer /> */}
+										<Text tag='h3' content={title} size='xl' color='strong' weight='bold' />
+                                        <Text content={summary} tag='p' size='base' dim />
 									</div>
 									<div class='grid grid-cols-2 md:grid-cols-3 items-center gap-4 mt-6 pr-2'>
 										<div class='space-y-0.5'>
-											<Copy
-												tag='span'
-												copy={'Start'}
-												size='sm'
-												dimmer
-											/>
-											<Copy
-												tag='p'
-												copy={start}
-												size='base'
-												color='neutral'
-												dim
-											/>
+                                            <Text content={'Start'} size='sm' dimmer />
+                                            <Text content={start} tag='p' size='base' color='strong' dim />
 										</div>
 										<div class='space-y-0.5'>
-											<Copy
-												tag='span'
-												copy={'Duration'}
-												size='sm'
-												dimmer
-											/>
-											<Copy
-												tag='p'
-												copy={duration}
-												size='base'
-												color='neutral'
-												dim
-											/>
+                                            <Text content={'Duration'} size='sm' dimmer />
+                                            <Text content={duration} tag='p' size='base' color='strong' dim />
 										</div>
 										<div class='space-y-0.5'>
-											<div class='flex gap-1.5 items-center [&>*:first-child]:shrink-0'>
+											<div class='flex gap-2 items-center [&>*:first-child]:shrink-0'>
 												<Image
 													filename={owner.image}
 													alt={owner.title}
@@ -118,13 +78,7 @@ const sorted = _sortTasksByStatus(tasks)
                                                     width='64'
                                                     height='64'
 												/>
-												<Copy
-													tag='p'
-													copy={owner.title}
-													size='base'
-													color='neutral'
-													dim
-												/>
+                                                <Text content={owner.title} tag='p' size='base' color='strong' dim />
 											</div>
 										</div>
 									</div>

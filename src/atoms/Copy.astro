@@ -18,9 +18,9 @@ const Tag = tag || 'div'
 <Tag
 	set:html={marked.parse(copy)}
 	class:list={[
-		color == 'light' && 'text-zinc-700 dark:text-zinc-300',
-		color == 'dark' && 'text-zinc-950 dark:text-zinc-50',
-		color == 'accent' && 'text-amber-700 dark:text-amber-400',
+		color == 'light' && 'r-surface-copy',
+		color == 'dark' && 'r-surface-strong',
+		color == 'accent' && 'r-surface-accent',
 		color == 'neutral' && 'text-black dark:text-white',
 		color === 'on-pastel' && 'text-zinc-900',
 		size === 'sm' && 'text-sm',

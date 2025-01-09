@@ -44,10 +44,10 @@ const Tag = tag || 'span'
 		weight === 'extra' && 'font-extrabold',
 
 		// Colors
-		color === 'accent' && 'text-amber-700 dark:text-amber-400',
-		color === 'primary' && 'text-[var(--r-primary)]',
-		color === 'white' && 'text-[var(--r-primary)]',
-		color === 'on-pastel' && 'text-[var(--r-color-base)]',
+		color === 'accent' && 'r-surface-accent',
+		color === 'primary' && 'r-surface-strong',
+		color === 'white' && 'r-surface-strong',
+		color === 'on-pastel' && 'r-surface-primary-fixed',
 
 		// Booleans
 		uppercase && 'uppercase',
