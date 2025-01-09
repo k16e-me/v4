@@ -1,37 +1,36 @@
 ---
-import Heading from '@atoms/Heading.astro'
 import { _shade } from '@scripts/utils/shades-from'
 import Icon from '@atoms/Icon.astro'
+import Text from '@atoms/Text.astro'
 
-const
-    {
-        shortname, hue, tag, logo,
-        class: classes, ...props
-    } = Astro.props,
-    shade = _shade(hue)
+const { shortname, hue, tag, logo, class: classes, ...props } = Astro.props
+const shade = _shade(hue)
 ---
+
 <div
-    class:list={[
-        `h-80 w-full py-5 px-6 flex flex-col relative r-contrast`,
-        classes
-    ]} { ...props }
-    style={ `background-color: ${shade.pastel()}` }>
-    <span
-        set:text={ tag }
-        class="block self-end lowercase font-bold text-2xl opacity-50"
-        style={ `color: ${shade.dark()}` }
-    />
-    <div class="self-start mt-auto">
-        <Heading
-            text={ shortname }
-            size="mdx"
-            weight="extra"
-            style={ `color: #${hue}` }
-        />
-    </div>
-    <Icon
-        name={ logo.toLowerCase() }
-        class:list="absolute bottom-0 inset-x-0 w-full opacity-[0.07]"
-        style={ `color: #${hue}` }
-    />
+	class:list={[
+		`h-80 w-full py-5 px-6 flex flex-col relative r-contrast`,
+		classes,
+	]}
+	{...props}
+	style={`background-color: ${shade.pastel()}`}>
+	<span
+		set:text={tag}
+		class='block self-end lowercase font-bold text-2xl opacity-50'
+		style={`color: ${shade.dark()}`}
+	/>
+	<div class='self-start mt-auto'>
+		<Text
+			content={shortname}
+			size='3xl'
+			weight='extra'
+			color='strong'
+			style={`color: #${hue}`}
+		/>
+	</div>
+	<Icon
+		name={logo.toLowerCase()}
+		class:list='absolute bottom-0 inset-x-0 w-full opacity-[0.07]'
+		style={`color: #${hue}`}
+	/>
 </div>

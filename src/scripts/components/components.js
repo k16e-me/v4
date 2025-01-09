@@ -5,7 +5,6 @@ import Richtext from '@composites/Richtext.astro'
 import Floats from '@composites/Floats.astro'
 import Collection from '@composites/Collection.astro'
 import Tasks from '@composites/Tasks.astro'
-import Heading from '@atoms/Heading.astro'
 import BusinessCard from '@composites/BusinessCard.astro'
 import Quote from '@composites/Quote.astro'
 import GallerySplit from '@composites/GallerySplit.astro'
@@ -22,7 +21,6 @@ export const components = {
     GalleryOne,
     GallerySplit,
     HeaderWork,
-    Heading,
     Richtext,
     Story,
     Title,

@@ -1,11 +1,11 @@
 ---
-import Heading from '@atoms/Heading.astro'
 import { _shade } from '@scripts/utils/shades-from'
 import Icon from '@atoms/Icon.astro'
 import Image from '@atoms/Image.astro'
 import Copy from '@atoms/Copy.astro'
 import FormattedDate from '@atoms/FormattedDate.astro'
 import Chip from '@atoms/Chip.astro'
+import Text from '@atoms/Text.astro'
 
 const {
 	image,
@@ -21,7 +21,13 @@ const {
 ---
 
 <div class:list={[`flex flex-col relative`, classes]} {...props}>
-	<Image src={image.src} alt={image.alt} objectLeft={false} width='640' height='424' />
+	<Image
+		src={image.src}
+		alt={image.alt}
+		objectLeft={false}
+		width='640'
+		height='424'
+	/>
 	{
 		release && (
 			<div class='px-4 py-3 mt-0.5 flex items-center justify-between'>
@@ -31,7 +37,7 @@ const {
 		)
 	}
 	<div class='px-4'>
-		<Heading text={title} size='md' weight='extra' color='white' />
+		<Text content={title} size='xl' weight='extra' color='strong' />
 		<Copy copy={description} size='sm' class:list='mt-2.5 line-clamp-3' />
 	</div>
 	<div class='px-4 py-3 flex items-center justify-between'>

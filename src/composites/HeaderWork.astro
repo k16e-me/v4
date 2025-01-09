@@ -1,30 +1,30 @@
 ---
 import Section from '@layouts/Section.astro'
 import Wrapper from '@layouts/Wrapper.astro'
-import Heading from '@atoms/Heading.astro'
 import CardBrand from '@blocks/CardBrand.astro'
 import Icon from '@atoms/Icon.astro'
 import Anchor from '@atoms/Anchor.astro'
 import Prose from '@atoms/Prose.astro'
+import Text from '@atoms/Text.astro'
 
 const {
-		backlink,
-		region,
-		title,
-		shortname,
-		description,
-		worktag,
-		logo,
-		permalink,
-		sectiontag,
-		padding,
-		hue,
-		class: classes,
-		...props
-	} = Astro.props,
-	url = Astro.url,
-	pathname = url.pathname,
-	parent = pathname.split('/')[1]
+	backlink,
+	region,
+	title,
+	shortname,
+	description,
+	worktag,
+	logo,
+	permalink,
+	sectiontag,
+	padding,
+	hue,
+	class: classes,
+	...props
+} = Astro.props
+const url = Astro.url
+const pathname = url.pathname
+const parent = pathname.split('/')[1]
 ---
 
 <Section
@@ -60,12 +60,12 @@ const {
 					/>
 				</div>
 				<div class='flex flex-col space-y-5 sm:space-y-6'>
-					<Heading
-						text={shortname}
+					<Text
 						tag='h2'
-						size='lgx'
+						content={shortname}
+						size='5xl'
 						weight='extra'
-						color='white'
+						color='strong'
 					/>
 					<span
 						aria-hidden='true'

@@ -1,30 +1,33 @@
 ---
 import Section from '../layouts/Section.astro'
 import Wrapper from '../layouts/Wrapper.astro'
-import Heading from '../atoms/Heading.astro'
+import Text from '@atoms/Text.astro'
 
-const
-    {
-        title, quote,
-        padding = 'bottom',
-        class: classes, ...props
-    } = Astro.props
+const {
+	title,
+	quote,
+	padding = 'bottom',
+	class: classes,
+	...props
+} = Astro.props
 ---
+
 <Section
-    component="quote-fill"
-    title={ title }
-    padding={ padding }
-    class:list="invisible"
-    data-entry="below">
-    <Wrapper>
-        <div class="col-span-full md:col-start-2 md:col-end-12 place-self-center">
-            <Heading
-                text={ `"${quote}"` }
-                size="xl"
-                weight="extra"
-                color="white"
-                italic
-            />
-        </div>
-    </Wrapper>
+	component='quote-fill'
+	title={title}
+	padding={padding}
+	class:list='invisible'
+	data-entry='below'>
+	<Wrapper>
+		<div
+			class='col-span-full md:col-start-2 md:col-end-12 place-self-center'>
+			<Text
+				content={`"${quote}"`}
+				size='6xl'
+				weight='extra'
+				color='strong'
+				italic
+			/>
+		</div>
+	</Wrapper>
 </Section>

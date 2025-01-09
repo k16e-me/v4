@@ -1,5 +1,4 @@
 ---
-import Heading from '@atoms/Heading.astro'
 import Section from '@layouts/Section.astro'
 import Wrapper from '@layouts/Wrapper.astro'
 import Accentbar from '@atoms/Accentbar.astro'
@@ -11,6 +10,7 @@ import { _paths } from '@scripts/utils/pathworx'
 import Chip from '@atoms/Chip.astro'
 import FormattedDate from '@atoms/FormattedDate.astro'
 import Figure from '@blocks/Figure.astro'
+import Text from '@atoms/Text.astro'
 
 const {
 	title,
@@ -64,12 +64,12 @@ const { isCollection, isCollectionChild, collection, collectionParent } =
 					'row-span-2 row-start-1 col-start-3 -translate-x-2.5 sm:-translate-x-0 pr-4',
 			]}>
 			<div class='inline-flex flex-col'>
-				<Heading
-					text={isCollectionChild() ? title : _truncate(title, 15)}
+				<Text
 					tag='h2'
-					size={isCollectionChild() ? 'lg' : 'xl'}
+					content={isCollectionChild() ? title : _truncate(title, 15)}
+					size={isCollectionChild() ? '4xl' : '6xl'}
 					weight='extra'
-					color='white'
+					color='strong'
 					lowercase={lowercase}
 					tighten
 					class:list={[
@@ -82,9 +82,9 @@ const { isCollection, isCollectionChild, collection, collectionParent } =
 						'italic flex items-center px-1',
 						flipped ? 'order-1' : 'order-2 mt-1 md:mt-2',
 					]}>
-					<Heading
-						text={subtitle}
-						size={isCollectionChild() ? 'smx' : 'md'}
+					<Text
+						content={subtitle}
+						size={isCollectionChild() ? 'smx' : 'xl'}
 						weight='bold'
 						color='accent'
 						uppercase

@@ -1,39 +1,46 @@
 ---
-import Heading from '../atoms/Heading.astro'
-import { _shade } from '../scripts/utils/shades-from'
-import Icon from '../atoms/Icon.astro'
-import { string } from 'astro/zod'
+import { _shade } from '@scripts/utils/shades-from'
+import Icon from '@atoms/Icon.astro'
 
-const
-    {
-        hue, logo, card, shortname,
-        class: classes, ...props
-    } = Astro.props,
-    shade = _shade(hue),
-    cardObj = Object.fromEntries(Object.entries(card).filter(([key]) => key !== 'link'))
+const { hue, logo, card, shortname, class: classes, ...props } = Astro.props
+const shade = _shade(hue)
+const cardObj = Object.fromEntries(
+	Object.entries(card).filter(([key]) => key !== 'link'),
+)
 ---
+
 <div
-    class:list={[
-        'w-full p-4 sm:p-8 text-white flex flex-col h-full justify-between min-h-[424px] sm:min-h-[480px] lg:min-h-[576px] relative',
-        classes
-    ]}
-    style={ `background-color: #${hue}` }>
-    <dl class="self-end text-right space-y-4 max-w-md z-[2] font-medium">
-        { Object.entries(cardObj).map(e => (
-            <div>
-                <dt set:text={ `${e[0]}:` } class="opacity-70 text-xs uppercase tracking-wider font-semibold"/>
-                {
-                    (typeof e[1] === 'string') ? <dd set:text={ e[1] }/> : e[1].map(e => <dd set:text={ e }/>)
-                }
-            </div>
-        )) }
-    </dl>
-    <div class="flex items-center pt-6 z-[2]">
-        <span set:text={ `Take a look at ${shortname}` } class="text-xl sm:text-2xl font-bold"/>
-        <Icon name="arrow-right-up" class:list="w-6 sm:w-8 ml-1"/>
-    </div>
-    <Icon
-        name={ logo.toLowerCase() }
-        class:list="w-full absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 opacity-[0.07] z-0"
-    />
+	class:list={[
+		'w-full p-4 sm:p-8 text-white flex flex-col h-full justify-between min-h-[424px] sm:min-h-[480px] lg:min-h-[576px] relative',
+		classes,
+	]}
+	style={`background-color: #${hue}`}>
+	<dl class='self-end text-right space-y-4 max-w-md z-[2] font-medium'>
+		{
+			Object.entries(cardObj).map(i => (
+				<div>
+					<dt
+						set:text={`${i[0]}:`}
+						class='opacity-70 text-xs uppercase tracking-wider font-semibold'
+					/>
+					{typeof i[1] === 'string' ? (
+						<dd set:text={i[1]} />
+					) : (
+						i[1].map(j => <dd set:text={j} />)
+					)}
+				</div>
+			))
+		}
+	</dl>
+	<div class='flex items-center pt-6 z-[2]'>
+		<span
+			set:text={`Take a look at ${shortname}`}
+			class='text-xl sm:text-2xl font-bold'
+		/>
+		<Icon name='arrow-right-up' class:list='w-6 sm:w-8 ml-1' />
+	</div>
+	<Icon
+		name={logo.toLowerCase()}
+		class:list='w-full absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 opacity-[0.07] z-0'
+	/>
 </div>

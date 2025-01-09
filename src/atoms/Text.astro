@@ -5,8 +5,10 @@ const {
 	tag: Tag = 'span',
 	content,
 	size = 'sm',
+	lowercase,
 	uppercase,
 	weight = 'regular',
+    nowrap,
 	italic,
 	tighten,
 	loosen,
@@ -26,10 +28,17 @@ const inlineContent = marked.parseInline(content)
 	class:list={[
 		// Font Sizes
 		size === 'sm' && 'text-sm',
+		size === 'smx' && 'text-sm md:text-md lg:text-lg',
 		size === 'base' && 'text-base !leading-[1.45rem]',
 		size === 'md' && 'text-md lg:text-lg',
-        size === 'mdx' && 'text-3xl leading-10 md:text-4xl md:leading-tight lg:text-5xl lg:leading-tight',
 		size === 'xl' && 'text-xl sm:text-2xl',
+		size === '3xl' &&
+			'text-3xl leading-10 md:text-4xl md:leading-tight lg:text-5xl lg:leading-tight',
+		size === '4xl' &&
+			'text-4xl leading-10 md:text-5xl md:leading-tight lg:text-7xl',
+		size === '5xl' && 'text-4xl sm:text-6xl lg:text-7xl xl:text-8xl',
+		size === '6xl' &&
+			'text-5xl leading-tight sm:text-7xl sm:!leading-[1.112] md:text-8xl lg:text-9xl',
 
 		// Font Weights
 		weight === 'regular' && 'font-normal',
@@ -46,9 +55,11 @@ const inlineContent = marked.parseInline(content)
 		color === 'on-pastel' && 'text-zinc-900',
 
 		// Booleans
+		lowercase && 'lowercase',
 		uppercase && 'uppercase',
 		tighten && '-tracking-[0.0225em]',
 		loosen && 'tracking-[0.085em]',
+		nowrap && 'whitespace-nowrap',
 		italic && 'italic',
 		dim && 'opacity-90',
 		dimmer && 'opacity-70',

@@ -1,6 +1,6 @@
 ---
 import Copy from '@atoms/Copy.astro'
-import Heading from '@atoms/Heading.astro'
+import Text from '@atoms/Text.astro'
 
 const { obj, pastel, copy, class: classes, ...props } = Astro.props
 ---
@@ -12,9 +12,9 @@ const { obj, pastel, copy, class: classes, ...props } = Astro.props
 	]}
 	{...props}
 	style={`background-color: ${pastel}`}>
-	<Heading
-		text={obj}
-		size='lg'
+	<Text
+		content={obj}
+		size='4xl'
 		weight='extra'
 		color='on-pastel'
 		lowercase
