@@ -1,36 +1,32 @@
 ---
-import Heading from '../atoms/Heading.astro'
 import { _shade } from '../scripts/utils/shades-from'
 import Icon from '../atoms/Icon.astro'
+import Text from '@atoms/Text.astro'
 
-const
-    {
-        hue, worktag, logo, permalink,
-        class: classes, ...props
-    } = Astro.props,
-    shade = _shade(hue)
+const { hue, worktag, logo, permalink, class: classes, ...props } = Astro.props
+const shade = _shade(hue)
 ---
+
 <div
-    class:list={[
-        `h-80 w-full py-5 px-6 flex flex-col relative`,
-        classes
-    ]} { ...props }
-    style={ `background-color: #${hue}` }>
-    <Heading
-        text={ worktag }
-        size="md"
-        weight="extra"
-        class:list="self-end lowercase -mt-2"
-        style={ `color: ${shade.pastel()}` }
-    />
-    <span
-        set:text={ permalink }
-        class="block uppercase font-bold text-xl mt-auto -mb-0.5"
-        style={ `color: ${shade.pastel()}` }
-    />
-    <Icon
-        name={ logo.toLowerCase() }
-        class:list="absolute bottom-0 inset-x-0 w-full opacity-5"
-        style={ `color: ${shade.pastel()}` }
-    />
+	class:list={[`h-80 w-full py-5 px-6 flex flex-col relative`, classes]}
+	{...props}
+	style={`background-color: #${hue}`}>
+	<Text
+		content={worktag}
+		size='xl'
+		weight='extra'
+		color='strong'
+		class='self-end lowercase -mt-2'
+		style={`color: ${shade.pastel()}`}
+	/>
+	<span
+		set:text={permalink}
+		class='block uppercase font-bold text-xl mt-auto -mb-0.5'
+		style={`color: ${shade.pastel()}`}
+	/>
+	<Icon
+		name={logo.toLowerCase()}
+		class:list='absolute bottom-0 inset-x-0 w-full opacity-5'
+		style={`color: ${shade.pastel()}`}
+	/>
 </div>
