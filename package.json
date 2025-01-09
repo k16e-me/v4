@@ -10,7 +10,7 @@
         "astro": "astro"
     },
     "dependencies": {
-        "@astrojs/mdx": "^4.0.3",
+        "@astrojs/mdx": "^4.0.4",
         "@astrojs/sitemap": "^3.2.1",
         "@astrojs/tailwind": "^5.1.4",
         "@fontsource-variable/bricolage-grotesque": "^5.1.1",
@@ -21,10 +21,10 @@
         "@swup/preload-plugin": "^3.2.11",
         "@swup/progress-plugin": "^3.2.0",
         "@swup/scroll-plugin": "^3.3.2",
-        "astro": "^5.1.2",
+        "astro": "^5.1.4",
         "astro-seo": "^0.8.4",
         "gsap": "^3.12.5",
-        "marked": "^15.0.5",
+        "marked": "^15.0.6",
         "marked-smartypants": "^1.1.9",
         "nanostores": "^0.11.3",
         "novel": "^0.5.0",
@@ -39,8 +39,8 @@
         "vite": "^6.0.7"
     },
     "devDependencies": {
-        "@tailwindcss/forms": "^0.5.9",
-        "@tailwindcss/typography": "^0.5.15",
+        "@tailwindcss/forms": "^0.5.10",
+        "@tailwindcss/typography": "^0.5.16",
         "node-html-parser": "^7.0.1",
         "postcss-inline-svg": "^6.0.0",
         "prettier": "^3.4.2",
