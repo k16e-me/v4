@@ -28,6 +28,7 @@ const inlineContent = marked.parseInline(content)
 		size === 'sm' && 'text-sm',
 		size === 'base' && 'text-base !leading-[1.45rem]',
 		size === 'md' && 'text-md lg:text-lg',
+        size === 'mdx' && 'text-3xl leading-10 md:text-4xl md:leading-tight lg:text-5xl lg:leading-tight',
 		size === 'xl' && 'text-xl sm:text-2xl',
 
 		// Font Weights

@@ -1,19 +1,19 @@
 ---
 import Section from '@layouts/Section.astro'
 import Wrapper from '@layouts/Wrapper.astro'
-import Heading from '@atoms/Heading.astro'
 import { _capitalize } from '@scripts/utils/snips'
+import Text from '@atoms/Text.astro'
 
 const {
-		title,
-		quote,
-		person,
-		role,
-		hue,
-		padding = 'bottom',
-		class: classes,
-		...props
-	} = Astro.props
+    title,
+    quote,
+    person,
+    role,
+    hue,
+    padding = 'bottom',
+    class: classes,
+    ...props
+} = Astro.props
 ---
 
 <Section
@@ -25,11 +25,12 @@ const {
 	<Wrapper>
 		<blockquote
 			class='col-span-full md:col-start-2 md:col-end-12 lg:col-start-3 lg:col-end-11 text-[var(--r-primary)]'>
-			<Heading
-				text={`"${quote}"`}
+			<Text
+				content={`"${quote}"`}
 				tag='p'
 				size='mdx'
 				weight='extra'
+                color='strong'
 				italic
 			/>
 			<cite class='block pt-8 not-italic'>
