@@ -1,7 +1,6 @@
 /** @type {import('tailwindcss').Config} */
-const
-    defaultTheme = require('tailwindcss/defaultTheme'),
-    colors = require('tailwindcss/colors')
+const defaultTheme = require('tailwindcss/defaultTheme')
+const colors = require('tailwindcss/colors')
 
 export default {
 	content: ['./src/**/*.{astro,html,js,md,mdx,ts}'],

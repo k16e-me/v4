@@ -23,6 +23,7 @@
         "@swup/scroll-plugin": "^3.3.2",
         "astro": "^5.1.4",
         "astro-seo": "^0.8.4",
+        "color": "^4.2.3",
         "gsap": "^3.12.5",
         "marked": "^15.0.6",
         "marked-smartypants": "^1.1.9",
