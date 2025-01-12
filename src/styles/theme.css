@@ -1,0 +1,20 @@
+@tailwind base;
+
+@layer base {
+    :root {
+        /* Base */
+        --color-base: #19191a;
+
+        /* Variable Colors */
+        --color-primary: var(--color-base);
+        --color-accent: #caa204;
+
+        /* Fixed Colors */
+        --color-primary-fixed: var(--color-base);
+
+        @media (prefers-color-scheme: dark) {
+            --color-primary: #f5f5f6;
+            --color-accent: #facc15;
+        }
+    }
+}

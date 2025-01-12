@@ -25,7 +25,8 @@ export default defineConfig({
     },
     integrations: [
         tailwind({
-            nesting: true
+            nesting: true,
+            applyBaseStyles: false
         }),
         mdx({
             ignoreIndentation: true

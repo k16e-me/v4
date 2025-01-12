@@ -8,7 +8,7 @@ const {
 	lowercase,
 	uppercase,
 	weight = 'regular',
-    nowrap,
+	nowrap,
 	italic,
 	tighten,
 	loosen,
@@ -49,8 +49,8 @@ const inlineContent = marked.parseInline(content)
 
 		// Colors
 		color === 'default' && 'r-surface-copy',
-		color === 'strong' && 'r-surface-strong',
-		color === 'accent' && 'r-surface-accent',
+		color === 'strong' && 'text-[var(--color-primary)]',
+		color === 'accent' && 'text-[var(--color-accent)]',
 		color === 'neutral' && 'text-black dark:text-white',
 		color === 'on-pastel' && 'text-zinc-900',
 
