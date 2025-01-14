@@ -1,10 +1,13 @@
 ---
-const { x = true, tag = 'div', class: classes, ...props } = Astro.props,
-	Tag = tag
+const { x = true, tag: Tag = 'div', class: classes, ...props } = Astro.props
 ---
 
 <Tag
 	{...props}
-	class:list={['grid grid-cols-12 gap-x-4 sm:gap-x-8 w-full', x && 'px-4', classes]}>
+	class:list={[
+		'grid grid-cols-12 gap-x-4 sm:gap-x-8 w-full',
+		x && 'px-4',
+		classes,
+	]}>
 	<slot />
 </Tag>

@@ -1,11 +1,11 @@
 ---
-import Head from './Head.astro'
+import Head from '@layouts/Head.astro'
 import TitleHidden from '@blocks/TitleHidden.astro'
 ---
 <!doctype html>
-<html lang="en" class="scroll-smooth bg-primary-950">
+<html lang="en" class="scroll-smooth bg-[var(--color-primary)]">
     <Head title={ 'Error page not found' }/>
-	<body class="bg-primary-950 flex h-svh lg:h-dvh flex-col">
+	<body class="bg-[var(--color-primary)] flex h-svh lg:h-dvh flex-col">
         <TitleHidden title={ 'Error page not found' }/>
 		<main class="flex-1 flex flex-col items-center justify-center -mt-40">
             <slot/>

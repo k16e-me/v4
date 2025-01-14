@@ -1,15 +1,13 @@
 ---
-const
-    {
-        component = null,
-        padding = 'bottom',
-        prose = false,
-        title,
-        tag = 'section',
-        class: classes,
-        ...attrs
-    } = Astro.props,
-    Tag = tag
+const {
+	component = null,
+	padding = 'bottom',
+	prose = false,
+	title,
+	tag: Tag = 'section',
+	class: classes,
+	...attrs
+} = Astro.props
 ---
 
 <Tag
@@ -19,7 +17,7 @@ const
 		padding == 'top' && 'r-pt',
 		padding == 'bottom' && 'r-pb',
 		padding == 'none' && '',
-        prose && 'my-5',
+		prose && 'my-5',
 		classes,
 	]}
 	{...attrs}>

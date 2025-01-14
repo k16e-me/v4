@@ -7,7 +7,7 @@
         --color-white: #fff;
 
         --color-base: #19191a;
-        --color-base-light: #282828;
+        --color-base-light: #292929;
         --color-base-lighter: #464649;
         --color-base-lightest: #f5f5f6;
 
@@ -19,6 +19,7 @@
 
         --color-saffron: #F0C105;
         --color-saffron-lighter: #FBD84B;
+        --color-saffron-darkest: #23211C;
 
         /* Variable Colors */
         --color-primary: var(--color-base);
@@ -27,6 +28,7 @@
         --color-accent: var(--color-base);
         --color-accent-hover: var(--color-base-lighter);
         --color-accent-alt: var(--color-base-lighter);
+        --color-accent-darkest: var(--color-gray-lightest);
 
         --color-surface: var(--color-gray);
         --color-surface-darker: var(--color-gray-dark);
@@ -48,6 +50,7 @@
             --color-accent: var(--color-saffron);
             --color-accent-hover: var(--color-saffron-lighter);
             --color-accent-alt: var(--color-saffron);
+            --color-accent-darkest: var(--color-saffron-darkest);
 
             --color-surface: var(--color-gray-lighter);
 
