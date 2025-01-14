@@ -52,8 +52,8 @@ const inlineContent = marked.parseInline(content)
 		color === 'strong' && 'text-[var(--color-primary)]',
 		color === 'accent' && 'text-[var(--color-accent)]',
 		color === 'accent-alt' && 'text-[var(--color-accent-alt)]',
-		color === 'neutral' && 'text-black dark:text-white',
-		color === 'on-pastel' && 'text-zinc-900',
+		color === 'neutral' && 'text-[var(--color-neutral)]',
+		color === 'on-pastel' && 'text-[var(--color-surface-darker)]',
 
 		// Booleans
 		lowercase && 'lowercase',

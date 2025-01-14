@@ -1,5 +1,9 @@
 ---
-const { theme = 'bg-[var(--color-accent)]', class: classes, ...props } = Astro.props
+const {
+	theme = 'bg-[var(--color-accent)]',
+	class: classes,
+	...props
+} = Astro.props
 ---
 
 <div aria-hidden='true' class:list={[theme, classes]} {...props}></div>

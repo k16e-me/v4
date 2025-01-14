@@ -3,39 +3,58 @@
 @layer base {
     :root {
         /* Base */
+        --color-black: #000;
+        --color-white: #fff;
+
         --color-base: #19191a;
         --color-base-light: #282828;
         --color-base-lighter: #464649;
         --color-base-lightest: #f5f5f6;
+
         --color-gray: #4D4D51;
         --color-gray-light: #1E1E1F;
         --color-gray-lighter: #C0C0C4;
         --color-gray-lightest: #E0E0E1;
+        --color-gray-dark: #202020;
+
         --color-saffron: #F0C105;
         --color-saffron-lighter: #FBD84B;
 
         /* Variable Colors */
         --color-primary: var(--color-base);
         --color-primary-reverse: var(--color-base-lightest);
+
         --color-accent: var(--color-base);
         --color-accent-hover: var(--color-base-lighter);
         --color-accent-alt: var(--color-base-lighter);
+
         --color-surface: var(--color-gray);
+        --color-surface-darker: var(--color-gray-dark);
+
         --color-elevation: var(--color-gray-lightest);
         --color-ruler: var(--color-gray-lighter);
 
+        --color-neutral: var(--color-black);
+
         /* Fixed Colors */
         --color-primary-fixed: var(--color-base);
+        --color-black-fixed: var(--color-black);
+        --color-white-fixed: var(--color-white);
 
         @media (prefers-color-scheme: dark) {
             --color-primary: var(--color-base-lightest);
             --color-primary-reverse: var(--color-base);
+
             --color-accent: var(--color-saffron);
             --color-accent-hover: var(--color-saffron-lighter);
             --color-accent-alt: var(--color-saffron);
+
             --color-surface: var(--color-gray-lighter);
+
             --color-elevation: var(--color-gray-light);
             --color-ruler: var(--color-base-light);
+
+            --color-neutral: var(--color-white);
         }
     }
 }

@@ -2,8 +2,7 @@
 import Text from '@atoms/Text.astro'
 import Icon from '@atoms/Icon.astro'
 
-const { tag, heading, class: classes, ...props } = Astro.props
-const Tag = tag || 'li'
+const { tag: Tag = 'li', heading, class: classes, ...props } = Astro.props
 ---
 
 <Tag
