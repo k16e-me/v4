@@ -40,7 +40,7 @@
 
     html.is-changing .swup-in { @apply opacity-100 duration-[.4s] ease-[cubic-bezier(0,0.16,0,1)]; }
     html.is-animating .swup-in { @apply translate-y-8 scale-[.99] opacity-0 ease-in; }
-    .swup-progress-bar { @apply h-[3px] bg-[var(--r-accent)]; }
+    .swup-progress-bar { @apply h-[3px] bg-[var(--color-accent)]; }
     body, header {
         @apply relative bg-[var(--r-interface-backdrop)] text-zinc-700 dark:text-zinc-300 prose-headings:text-zinc-900 dark:prose-headings:text-zinc-50 prose-strong:text-zinc-900 dark:prose-strong:text-zinc-50 prose-ol:text-zinc-700 dark:prose-ol:text-zinc-300 prose-ul:text-zinc-700 dark:prose-ul:text-zinc-300;
     }
@@ -55,7 +55,7 @@
     }
     button { text-align: inherit; }
     svg { @apply pointer-events-none flex-shrink-0 fill-current; }
-    figcaption { @apply bg-[var(--r-accent)] !text-[var(--r-accent-contrast-text)] p-3 text-sm italic; }
+    figcaption { @apply bg-[var(--color-accent)] !text-[var(--color-primary-reverse)] p-3 text-sm italic; }
 }
 
 @layer components {

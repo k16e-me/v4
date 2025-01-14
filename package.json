@@ -21,7 +21,7 @@
         "@swup/preload-plugin": "^3.2.11",
         "@swup/progress-plugin": "^3.2.0",
         "@swup/scroll-plugin": "^3.3.2",
-        "astro": "^5.1.5",
+        "astro": "^5.1.6",
         "astro-seo": "^0.8.4",
         "color": "^4.2.3",
         "gsap": "^3.12.5",

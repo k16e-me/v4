@@ -34,15 +34,15 @@ const {
 			<slot />
 			{
 				byline && (
-					<div class='mt-6 flex flex-col font-medium'>
+					<div class='mt-6 flex flex-col'>
 						<span
 							set:text={byline}
-							class='text-[var(--r-accent)] not-italic text-lg'
+							class='text-[var(--color-accent)] not-italic text-lg font-medium'
 						/>
 						{description && (
 							<span
 								set:text={description}
-								class='text-base text-[var(--r-interface-text)] -mt-0.25'
+								class='text-base text-[var(--color-primary)] opacity-60 -mt-0.25'
 							/>
 						)}
 					</div>
