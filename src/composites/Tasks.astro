@@ -38,7 +38,7 @@ const sorted = _sortTasksByStatus(tasks)
 	data-entry='below'>
 	<Wrapper>
 		<ul
-			class='col-span-full sm:col-start-2 sm:col-end-12 xl:col-start-3 xl:col-end-11 divide-y dark:divide-slate-50/5 flex flex-col gap-y-8 [&>*:not(:first-child)]:pt-8'>
+			class='col-span-full sm:col-start-2 sm:col-end-12 xl:col-start-3 xl:col-end-11 divide-y divide-[var(--color-ruler)] flex flex-col gap-y-8 [&>*:not(:first-child)]:pt-8'>
 			{
 				sorted.map(
 					({
@@ -56,17 +56,48 @@ const sorted = _sortTasksByStatus(tasks)
 							<div class='grid grid-cols-4 gap-4'>
 								<div class='[grid-area:1/1/2/4]'>
 									<div class='space-y-0.5'>
-										<Text tag='h3' content={title} size='xl' color='strong' weight='bold' />
-                                        <Text content={summary} tag='p' size='base' dim />
+										<Text
+											tag='h3'
+											content={title}
+											size='xl'
+											color='strong'
+											weight='bold'
+										/>
+										<Text
+											content={summary}
+											tag='p'
+											size='base'
+											dim
+										/>
 									</div>
 									<div class='grid grid-cols-2 md:grid-cols-3 items-center gap-4 mt-6 pr-2'>
 										<div class='space-y-0.5'>
-                                            <Text content={'Start'} size='sm' dimmer />
-                                            <Text content={start} tag='p' size='base' color='strong' dim />
+											<Text
+												content={'Start'}
+												size='sm'
+												dimmer
+											/>
+											<Text
+												content={start}
+												tag='p'
+												size='base'
+												color='strong'
+												dim
+											/>
 										</div>
 										<div class='space-y-0.5'>
-                                            <Text content={'Duration'} size='sm' dimmer />
-                                            <Text content={duration} tag='p' size='base' color='strong' dim />
+											<Text
+												content={'Duration'}
+												size='sm'
+												dimmer
+											/>
+											<Text
+												content={duration}
+												tag='p'
+												size='base'
+												color='strong'
+												dim
+											/>
 										</div>
 										<div class='space-y-0.5'>
 											<div class='flex gap-2 items-center [&>*:first-child]:shrink-0'>
@@ -74,10 +105,16 @@ const sorted = _sortTasksByStatus(tasks)
 													filename={owner.image}
 													alt={owner.title}
 													avatar
-                                                    width='64'
-                                                    height='64'
+													width='64'
+													height='64'
 												/>
-                                                <Text content={owner.title} tag='p' size='base' color='strong' dim />
+												<Text
+													content={owner.title}
+													tag='p'
+													size='base'
+													color='strong'
+													dim
+												/>
 											</div>
 										</div>
 									</div>
@@ -87,12 +124,18 @@ const sorted = _sortTasksByStatus(tasks)
 										text={status}
 										class='w-auto'
 										theme={
-											status === 'progress' ? 'positive'
-											: status === 'slated' ? 'neutral'
-                                            : status === 'review' ? 'review'
-                                            : status === 'done' ? 'success'
-                                            : status === 'blocked' ? 'error'
-                                            : 'default'
+											status === 'progress'
+												? 'positive'
+												: status === 'slated'
+													? 'neutral'
+													: status === 'review'
+														? 'review'
+														: status === 'done'
+															? 'success'
+															: status ===
+																  'blocked'
+																? 'error'
+																: 'default'
 										}
 									/>
 								</div>
@@ -100,7 +143,7 @@ const sorted = _sortTasksByStatus(tasks)
 							{
 								/* Accordion of more... */
 								!_empty(details) && (
-									<ul class='mt-6 px-4 py-1 rounded-xl dark:bg-zinc-900 bg-slate-100'>
+									<ul class='mt-6 px-4 py-1 rounded-xl bg-[var(--color-elevation)]'>
 										{details.map(({ title, body }) => (
 											<Accordion heading={title}>
 												<Markdown

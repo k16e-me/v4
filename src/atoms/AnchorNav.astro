@@ -3,20 +3,23 @@ import { _transition } from '@scripts/utils/snips'
 import Anchor from '@atoms/Anchor.astro'
 import Icon from '@atoms/Icon.astro'
 
-const {
-    href, data, showIcon, icon, showText = true, text
-} = Astro.props
+const { href, data, showIcon, icon, showText = true, text } = Astro.props
 ---
+
 <Anchor
-    href={ href }
-    class:list={[
-        `px-4 py-3 flex justify-center h-full
+	href={href}
+	class:list={[
+		`px-4 py-3 flex justify-center h-full
         border-b-[3px] border-transparent [&.active]:border-[var(--color-accent)]
         text-[var(--color-primary)] opacity-70 hover:opacity-100 [&.active]:opacity-100
         text-lg font-medium lowercase`,
-        _transition()
-    ]}
-    data-anchor={ data }>
-    { showIcon && (<Icon name={ icon } class:list="h-5 text-[var(--color-primary)]"/>) }
-    <span set:text={ text } class:list={ showText ? 'translate-y-1' : 'sr-only' }/>
+		_transition(),
+	]}
+	data-anchor={data}>
+	{
+		showIcon && (
+			<Icon name={icon} class='h-5 text-[var(--color-primary)]' />
+		)
+	}
+	<span set:text={text} class:list={showText ? 'translate-y-1' : 'sr-only'} />
 </Anchor>
