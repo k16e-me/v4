@@ -42,7 +42,7 @@
     html.is-animating .swup-in { @apply translate-y-8 scale-[.99] opacity-0 ease-in; }
     .swup-progress-bar { @apply h-[3px] bg-[var(--color-accent)]; }
     body, header {
-        @apply relative bg-[var(--r-interface-backdrop)] text-zinc-700 dark:text-zinc-300 prose-headings:text-zinc-900 dark:prose-headings:text-zinc-50 prose-strong:text-zinc-900 dark:prose-strong:text-zinc-50 prose-ol:text-zinc-700 dark:prose-ol:text-zinc-300 prose-ul:text-zinc-700 dark:prose-ul:text-zinc-300;
+        @apply relative bg-[var(--color-primary-reverse)] text-[var(--color-surface)] prose-headings:text-[var(--color-primary)] prose-strong:text-[var(--color-primary)] prose-ol:text-[var(--color-surface)] prose-ul:text-[var(--color-surface)];
     }
     .r-dot-matrix-texture {
         @apply relative;
@@ -62,9 +62,9 @@
     .r-transition {
         @apply transition duration-[.3s] ease-out;
     }
-    .r-surface-copy { @apply text-zinc-700 dark:text-zinc-300; }
-    .r-surface-strong { @apply text-zinc-950 dark:text-zinc-50; }
-    .r-surface-accent { @apply text-amber-700 dark:text-amber-400; }
+    .r-surface-copy { @apply text-[var(--color-surface)]; }
+    .r-surface-strong { @apply text-[var(--color-primary)]; }
+    .r-surface-accent { @apply text-[var(--color-accent)]; }
     .r-border-accent { @apply border-amber-700 dark:border-amber-400; }
     .r-surface-primary-fixed { @apply text-zinc-950; }
 }
