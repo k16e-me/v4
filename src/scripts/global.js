@@ -7,7 +7,7 @@ import { _body, _q, _ql } from '@scripts/utils/snips'
 import _zaps from '@scripts/zaps'
 import _backbar from '@scripts/utils/backbar'
 import { _fullres } from './lib/fullres'
-import _accordion from './lib/accordion'
+import { _accordion } from './lib/accordion'
 
 const swup = new Swup({
     containers: ['#swup', '#page-title'],
