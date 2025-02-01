@@ -12,6 +12,7 @@ import { _empty } from '@scripts/utils/snips'
 import { getCollection } from 'astro:content'
 import Markdown from '@blocks/Markdown.astro'
 import { _sortTasksByStatus } from '@scripts/utils/sort-tasks'
+import { formatDate } from '@scripts/utils/date'
 
 const {
 	title,
@@ -47,6 +48,7 @@ const sorted = _sortTasksByStatus(tasks)
 							summary,
 							start,
 							duration,
+							days,
 							owner,
 							status,
 							details,
@@ -70,16 +72,17 @@ const sorted = _sortTasksByStatus(tasks)
 											dim
 										/>
 									</div>
-									<div class='grid grid-cols-2 md:grid-cols-3 items-center gap-4 mt-6 pr-2'>
-										<div class='space-y-0.5'>
+									<div class='grid grid-cols-2 md:grid-cols-4 items-center gap-4 gap-y-5 mt-6 pr-2'>
+										<div class='space-y-0.5 flex flex-col'>
 											<Text
 												content={'Start'}
 												size='sm'
 												dimmer
 											/>
 											<Text
-												content={start}
-												tag='p'
+												content={formatDate(start)}
+												datetime={start.toISOString()}
+												tag='time'
 												size='base'
 												color='strong'
 												dim
@@ -99,6 +102,22 @@ const sorted = _sortTasksByStatus(tasks)
 												dim
 											/>
 										</div>
+										{days && (
+											<div class='space-y-0.5'>
+												<Text
+													content={'Days'}
+													size='sm'
+													dimmer
+												/>
+												<Text
+													content={days}
+													tag='p'
+													size='base'
+													color='strong'
+													dim
+												/>
+											</div>
+										)}
 										<div class='space-y-0.5'>
 											<div class='flex gap-2 items-center [&>*:first-child]:shrink-0'>
 												<Image

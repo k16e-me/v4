@@ -98,8 +98,9 @@ const tasks = defineCollection({
     schema: ({ image }) => z.object({
         title: z.string(),
         summary: z.string(),
-        start: z.string(),
+        start: z.coerce.date(),
         duration: z.string(),
+        days: z.string().optional(),
         details: z.array(z.object({
             title: z.string(),
             body: z.string()
