@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @layer base {
+    html { @apply scroll-p-24; }
     html.is-changing .swup-in { @apply opacity-100 duration-[.4s] ease-[cubic-bezier(0,0.16,0,1)]; }
     html.is-animating .swup-in { @apply translate-y-8 scale-[.99] opacity-0 ease-in; }
     .swup-progress-bar { @apply h-[3px] bg-[var(--color-accent)]; }
