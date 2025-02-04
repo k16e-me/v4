@@ -4,6 +4,25 @@
 
 @config '../../tailwind.config.mjs';
 
+@theme {
+    --text-xs: 0.895rem;
+    --text-xs--line-height: 1.355rem;
+    --text-sm: 0.995rem;
+    --text-sm--line-height: 1.375rem;
+    --text-base: 1rem;
+    --text-base--line-height: 1.555rem;
+    --text-md: 1.075rem;
+    --text-md--line-height: 1.655rem;
+    --text-lg: 1.125rem;
+    --text-lg--line-height: 1.635rem;
+    --text-xl: 1.25rem;
+    --text-xl--line-height: 1.755rem;
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: 2.155rem;
+    --text-3xl: 1.875rem;
+    --text-3xl--line-height: 2.375rem;
+}
+
 @layer base {
     html { @apply scroll-p-24; }
     html.is-changing .swup-in { @apply opacity-100 duration-[.4s] ease-[cubic-bezier(0,0.16,0,1)]; }
