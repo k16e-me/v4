@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config'
-import tailwind from '@astrojs/tailwind'
+// import tailwind from '@astrojs/tailwind'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import remarkFigureCaption from '@microflash/remark-figure-caption'
@@ -24,10 +24,10 @@ export default defineConfig({
         ]
     },
     integrations: [
-        tailwind({
-            nesting: true,
-            applyBaseStyles: false
-        }),
+        // tailwind({
+        //     nesting: true,
+        //     applyBaseStyles: false
+        // }),
         mdx({
             ignoreIndentation: true
         }),
