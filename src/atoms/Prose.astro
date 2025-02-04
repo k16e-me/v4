@@ -5,20 +5,20 @@ const { post = 'default', class: classes, ...props } = Astro.props
 <div
 	class:list={[
 		`
-            max-w-none prose-p:text-zinc-700 dark:prose-p:text-zinc-300 prose-strong:text-[var(--color-primary)]
-            prose-a:text-[var(--color-accent)] hover:prose-a:text-[var(--color-accent-hover)] prose-a:transition prose-a:duration-200 prose-a:ease-linear
+            max-w-none prose-p:text-zinc-700 dark:prose-p:text-zinc-300 prose-strong:text-(--color-primary)
+            prose-a:text-(--color-accent) hover:prose-a:text-[var(--color-accent-hover)] prose-a:transition prose-a:duration-200 prose-a:ease-linear
             marker:text-[var(--color-accent-alt)]
         `,
 		post === 'default' &&
 			post !== 'minimal' &&
 			`
             prose prose-lg xl:prose-xl
-            prose-headings:text-[var(--color-primary)] prose-strong:text-[var(--color-primary)]
+            prose-headings:text-(--color-primary) prose-strong:text-(--color-primary)
             prose-h4:italic prose-h4:font-bold prose-h4:[font-size:112%]
             prose-p:leading-[1.655]
-            prose-blockquote:border-[var(--color-accent)] prose-blockquote:bg-gradient-to-r prose-blockquote:from-[var(--color-accent)]/5 prose-blockquote:to-transparent prose-blockquote:py-1 before:prose-p:content-none after:prose-p:content-none
+            prose-blockquote:border-(--color-accent) prose-blockquote:bg-gradient-to-r prose-blockquote:from-(--color-accent)/5 prose-blockquote:to-transparent prose-blockquote:py-1 before:prose-p:content-none after:prose-p:content-none
             prose-ol:leading-normal
-            prose-figcaption:m-0 prose-figcaption:bg-[var(--color-accent)] prose-figcaption:p-3 prose-figcaption:text-sm prose-figcaption:italic
+            prose-figcaption:m-0 prose-figcaption:bg-(--color-accent) prose-figcaption:p-3 prose-figcaption:text-sm prose-figcaption:italic
         `,
 		post === 'minimal' &&
 			`

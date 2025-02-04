@@ -1,15 +1,15 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin '@tailwindcss/typography';
+@plugin '@tailwindcss/forms';
 
 @layer base {
     html { @apply scroll-p-24; }
     html.is-changing .swup-in { @apply opacity-100 duration-[.4s] ease-[cubic-bezier(0,0.16,0,1)]; }
     html.is-animating .swup-in { @apply translate-y-8 scale-[.99] opacity-0 ease-in; }
-    .swup-progress-bar { @apply h-[3px] bg-[var(--color-accent)]; }
+    .swup-progress-bar { @apply h-[3px] bg-(--color-accent); }
 
     body, header {
-        @apply relative bg-[var(--color-primary-reverse)] text-[var(--color-surface)] prose-headings:text-[var(--color-primary)] prose-strong:text-[var(--color-primary)] prose-ol:text-[var(--color-surface)] prose-ul:text-[var(--color-surface)];
+        @apply relative bg-(--color-primary-reverse) text-(--color-surface) prose-headings:text-(--color-primary) prose-strong:text-(--color-primary) prose-ol:text-(--color-surface) prose-ul:text-(--color-surface);
     }
 
     .r-dot-matrix-texture {
@@ -23,7 +23,7 @@
     }
     button { text-align: inherit; }
     svg { @apply pointer-events-none flex-shrink-0 fill-current; }
-    figcaption { @apply bg-[var(--color-accent)] !text-[var(--color-primary-reverse)] p-3 text-sm italic; }
+    figcaption { @apply bg-(--color-accent) !text-(--color-primary-reverse) p-3 text-sm italic; }
 }
 
 @layer components {
@@ -32,12 +32,10 @@
     }
 }
 
-@layer utilities {
-    .r-pt { @apply pt-16 sm:pt-20 lg:pt-24; }
-    .r-pb { @apply pb-16 sm:pb-20 lg:pb-24; }
-    .r-py { @apply py-16 sm:py-20 lg:py-24; }
+@utility r-pt { @apply pt-16 sm:pt-20 lg:pt-24; }
+@utility r-pb { @apply pb-16 sm:pb-20 lg:pb-24; }
+@utility r-py { @apply py-16 sm:py-20 lg:py-24; }
 
-    @media (prefers-color-scheme: dark) {
-        .r-contrast { @apply contrast-[1.2] brightness-[0.8]; }
-    }
+@media (prefers-color-scheme: dark) {
+    @utility r-contrast { @apply contrast-[1.2] brightness-[0.8]; }
 }

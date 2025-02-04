@@ -49,8 +49,8 @@ const inlineContent = marked.parseInline(content)
 
 		// Colors
 		color === 'default' && 'r-surface-copy',
-		color === 'strong' && 'text-[var(--color-primary)]',
-		color === 'accent' && 'text-[var(--color-accent)]',
+		color === 'strong' && 'text-(--color-primary)',
+		color === 'accent' && 'text-(--color-accent)',
 		color === 'accent-alt' && 'text-[var(--color-accent-alt)]',
 		color === 'neutral' && 'text-[var(--color-neutral)]',
 		color === 'on-pastel' && 'text-[var(--color-surface-darker)]',

@@ -1,6 +1,6 @@
-/** @type {import('tailwindcss').Config} */
 const defaultTheme = require('tailwindcss/defaultTheme')
 
+/** @type {import('tailwindcss').Config} */
 export default {
 	content: ['./src/**/*.{astro,html,js,md,mdx,ts}'],
     theme: {
@@ -23,9 +23,5 @@ export default {
                 '3xl': ['1.875rem', '2.375rem'],
             }
         }
-    },
-    plugins: [
-        require('@tailwindcss/typography'),
-        require('@tailwindcss/forms')
-    ]
+    }
 }
