@@ -28,29 +28,26 @@
     --breakpoint-xs: 475px;
 }
 
-@layer base {
-    html { @apply scroll-p-24; }
-    html.is-changing .swup-in { @apply opacity-100 duration-[.4s] ease-[cubic-bezier(0,0.16,0,1)]; }
-    html.is-animating .swup-in { @apply translate-y-8 scale-[.99] opacity-0 ease-in; }
-    .swup-progress-bar { @apply h-[3px] bg-(--color-accent); }
+html { @apply scroll-p-24; }
+html.is-changing .swup-in { @apply opacity-100 duration-[.4s] ease-[cubic-bezier(0,0.16,0,1)]; }
+html.is-animating .swup-in { @apply translate-y-8 scale-[.99] opacity-0 ease-in; }
+.swup-progress-bar { @apply h-[3px] bg-(--color-accent); }
 
-    body, header {
-        @apply relative bg-(--color-primary-reverse) text-(--color-surface) prose-headings:text-(--color-primary) prose-strong:text-(--color-primary) prose-ol:text-(--color-surface) prose-ul:text-(--color-surface);
-    }
-
-    .r-dot-matrix-texture {
-        @apply relative;
-        &::before {
-            content: '';
-            background-color: var(--color-elevation);
-            mask-image: url('data:image/svg+xml,<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><circle cx="1" cy="1" r="1" /></svg>');
-            @apply fixed inset-x-0 inset-y-4 z-[-1] opacity-60;
-        }
-    }
-    button { text-align: inherit; }
-    svg { @apply pointer-events-none flex-shrink-0 fill-current; }
-    figcaption { @apply bg-(--color-accent) !text-(--color-primary-reverse) p-3 text-sm italic; }
+body, header {
+    @apply relative bg-(--color-primary-reverse) text-(--color-surface) prose-headings:text-(--color-primary) prose-strong:text-(--color-primary) prose-ol:text-(--color-surface) prose-ul:text-(--color-surface);
 }
+
+.r-dot-matrix-texture {
+    @apply relative;
+    &::before {
+        content: '';
+        mask-image: url('data:image/svg+xml,<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><circle cx="1" cy="1" r="1" /></svg>');
+        @apply fixed inset-x-0 inset-y-4 z-[-1] opacity-60 dark:opacity-75 bg-(--color-elevation);
+    }
+}
+button { text-align: inherit; }
+svg { @apply pointer-events-none flex-shrink-0 fill-current; }
+figcaption { @apply bg-(--color-accent) !text-(--color-primary-reverse) p-3 text-sm italic; }
 
 @layer components {
     .r-transition { @apply transition duration-[.3s] ease-out; }
