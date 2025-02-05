@@ -52,10 +52,12 @@
     figcaption { @apply bg-(--color-accent) !text-(--color-primary-reverse) p-3 text-sm italic; }
 }
 
-.r-transition { @apply transition duration-[.3s] ease-out; }
-.r-pt { @apply pt-16 sm:pt-20 lg:pt-24; }
-.r-pb { @apply pb-16 sm:pb-20 lg:pb-24; }
-.r-py { @apply py-16 sm:py-20 lg:py-24; }
+@layer components {
+    .r-transition { @apply transition duration-[.3s] ease-out; }
+    .r-pt { @apply pt-16 sm:pt-20 lg:pt-24; }
+    .r-pb { @apply pb-16 sm:pb-20 lg:pb-24; }
+    .r-py { @apply py-16 sm:py-20 lg:py-24; }
+}
 
 @media (prefers-color-scheme: dark) {
     .r-contrast { @apply contrast-[1.2] brightness-[0.8]; }
