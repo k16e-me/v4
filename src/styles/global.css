@@ -1,43 +1,61 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+@plugin '@tailwindcss/forms';
 
-@layer base {
-    html { @apply scroll-p-24; }
-    html.is-changing .swup-in { @apply opacity-100 duration-[.4s] ease-[cubic-bezier(0,0.16,0,1)]; }
-    html.is-animating .swup-in { @apply translate-y-8 scale-[.99] opacity-0 ease-in; }
-    .swup-progress-bar { @apply h-[3px] bg-[var(--color-accent)]; }
+@theme {
+    /* Fonts */
+    --font-sans: 'Bricolage Grotesque Variable', 'sans-serif';
 
-    body, header {
-        @apply relative bg-[var(--color-primary-reverse)] text-[var(--color-surface)] prose-headings:text-[var(--color-primary)] prose-strong:text-[var(--color-primary)] prose-ol:text-[var(--color-surface)] prose-ul:text-[var(--color-surface)];
-    }
+    /* Font sizes x line-heights */
+    --text-xs: 0.895rem;
+    --text-xs--line-height: 1.355rem;
+    --text-sm: 0.995rem;
+    --text-sm--line-height: 1.375rem;
+    --text-base: 1rem;
+    --text-base--line-height: 1.555rem;
+    --text-md: 1.075rem;
+    --text-md--line-height: 1.655rem;
+    --text-lg: 1.125rem;
+    --text-lg--line-height: 1.635rem;
+    --text-xl: 1.25rem;
+    --text-xl--line-height: 1.755rem;
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: 2.155rem;
+    --text-3xl: 1.875rem;
+    --text-3xl--line-height: 2.375rem;
 
-    .r-dot-matrix-texture {
-        @apply relative;
-        &::before {
-            content: '';
-            background-color: var(--color-elevation);
-            mask-image: url('data:image/svg+xml,<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><circle cx="1" cy="1" r="1" /></svg>');
-            @apply fixed inset-x-0 inset-y-4 z-[-1] opacity-60;
-        }
-    }
-    button { text-align: inherit; }
-    svg { @apply pointer-events-none flex-shrink-0 fill-current; }
-    figcaption { @apply bg-[var(--color-accent)] !text-[var(--color-primary-reverse)] p-3 text-sm italic; }
+    /* Breakpoints */
+    --breakpoint-xs: 475px;
 }
+
+html { @apply scroll-p-24; }
+html.is-changing .swup-in { @apply opacity-100 duration-[.4s] ease-[cubic-bezier(0,0.16,0,1)]; }
+html.is-animating .swup-in { @apply translate-y-8 scale-[.99] opacity-0 ease-in; }
+.swup-progress-bar { @apply h-[3px] bg-(--color-accent); }
+
+body, header {
+    @apply relative bg-(--color-primary-reverse) text-(--color-surface) prose-headings:text-(--color-primary) prose-strong:text-(--color-primary) prose-ol:text-(--color-surface) prose-ul:text-(--color-surface);
+}
+
+.r-dot-matrix-texture {
+    @apply relative;
+    &::before {
+        content: '';
+        mask-image: url('data:image/svg+xml,<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><circle cx="1" cy="1" r="1" /></svg>');
+        @apply fixed inset-x-0 inset-y-4 z-[-1] opacity-60 dark:opacity-75 bg-(--color-elevation);
+    }
+}
+button { text-align: inherit; }
+svg { @apply pointer-events-none flex-shrink-0 fill-current; }
+figcaption { @apply bg-(--color-accent) !text-(--color-primary-reverse) p-3 text-sm italic; }
 
 @layer components {
-    .r-transition {
-        @apply transition duration-[.3s] ease-out;
-    }
-}
-
-@layer utilities {
+    .r-transition { @apply transition duration-[.3s] ease-out; }
     .r-pt { @apply pt-16 sm:pt-20 lg:pt-24; }
     .r-pb { @apply pb-16 sm:pb-20 lg:pb-24; }
     .r-py { @apply py-16 sm:py-20 lg:py-24; }
+}
 
-    @media (prefers-color-scheme: dark) {
-        .r-contrast { @apply contrast-[1.2] brightness-[0.8]; }
-    }
+@media (prefers-color-scheme: dark) {
+    .r-contrast { @apply contrast-[1.2] brightness-[0.8]; }
 }

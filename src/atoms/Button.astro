@@ -18,10 +18,10 @@ const {
 		'inline-flex items-center justify-center r-transition',
 		_transition(),
 		base &&
-			'bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-[var(--color-primary-reverse)] rounded-full shadow-2xl',
+			'bg-(--color-accent) hover:bg-[var(--color-accent-hover)] text-(--color-primary-reverse) rounded-full shadow-2xl',
 		fabToPill && 'size-16 sm:!h-14 sm:!w-full sm:px-5',
 		plain &&
-			'text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] p-4',
+			'text-(--color-accent) hover:text-[var(--color-accent-hover)] p-4',
 		classes,
 	]}
 	{...props}>

@@ -13,11 +13,11 @@ const { isCollection, collection, collectionParent, isCollectionChild } =
 <Wrapper
 	tag='div'
 	x={false}
-	class:list='fixed top-0 inset-x-0 invisible h-16 bg-[var(--color-primary-reverse)] z-50 r-dot-matrix-texture'
+	class:list='fixed top-0 inset-x-0 invisible h-16 bg-(--color-primary-reverse) z-50 r-dot-matrix-texture'
 	data-backbar>
 	<Anchor
 		href={`/${isCollection() ? collection() : collectionParent()}`}
-		class:list='col-start-1 place-self-start xl:col-start-2 text-[var(--color-accent)] hover:opacity-70 p-4 h-full'>
+		class:list='col-start-1 place-self-start xl:col-start-2 text-(--color-accent) hover:opacity-70 p-4 h-full'>
 		<Icon name='arrow-left' class:list='w-6' />
 		<span class='sr-only' set:text='Back to collection' />
 	</Anchor>
