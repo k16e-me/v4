@@ -19,7 +19,7 @@
         "@swup/preload-plugin": "^3.2.11",
         "@swup/progress-plugin": "^3.2.0",
         "@swup/scroll-plugin": "^3.3.2",
-        "@tailwindcss/vite": "^4.0.5",
+        "@tailwindcss/vite": "^4.0.6",
         "astro": "^5.2.5",
         "astro-seo": "^0.8.4",
         "gsap": "^3.12.7",
@@ -32,7 +32,7 @@
         "remark-html": "^16.0.1",
         "sharp": "^0.33.5",
         "swup": "^4.8.1",
-        "tailwindcss": "^4.0.5",
+        "tailwindcss": "^4.0.6",
         "vite": "^6.1.0"
     },
     "devDependencies": {
